@@ -1,0 +1,180 @@
+port: 7890
+socks-port: 7891
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+secret: ""
+
+experimental:
+  ignore-resolve-fail: true
+
+hosts:
+    "*.clash.dev": "127.0.0.1"
+    ".dev": "127.0.0.1"
+    "alpha.clash.dev": "::1"
+
+profile:
+  store-selected: false
+  store-fake-ip: true
+            
+dns:
+  enable: true
+  listen: 127.0.0.1:53
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "localhost.ptlogin2.qq.com"
+    - "dns.msftncsi.com"
+    - "www.msftncsi.com"
+    - "www.msftconnecttest.com"
+
+  default-nameserver:
+    - 1.1.1.1
+    - 9.9.9.9
+    - 8.8.8.8
+
+  nameserver:
+    - tls://one.one.one.one
+    - https://1.1.1.1/dns-query
+    - https://9.9.9.9/dns-query
+    - https://8.8.8.8/dns-query
+
+  fallback:
+    - tls://one.one.one.one
+    - https://1.1.1.1/dns-query
+    - https://9.9.9.9/dns-query
+    - https://8.8.8.8/dns-query
+
+  fallback-filter:
+   geoip: false
+   ipcidr:
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/3
+    - 240.0.0.0/4
+    - 255.255.255.255/32
+   domain:
+    - +.google.com
+    - +.facebook.com
+    - +.youtube.com
+    - +.githubusercontent.com
+    - +.twitter.com
+    - +.googleapis.com
+    - +.bing.com
+
+
+proxy-groups:
+
+- name: babr
+  type: select
+  proxies:
+    - qoli
+    - naghi
+
+- name: qoli
+  type: url-test
+  use:
+    - a
+
+- name: naghi
+  type: select
+  use:
+    - a
+
+
+proxy-providers:
+  a:
+    type: http
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash"
+    interval: 86400
+    path: ./providers/a.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      lazy: true
+      url: "http://cdn.jsdelivr.net"
+      #url: "http://cp.cloudflare.com"
+      #url: "http://detectportal.firefox.com/success.txt"
+
+
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  iran_ads:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_ads.txt"
+    path: ./ruleset/iran_ads.txt
+    interval: 432000
+
+  applications:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  clash_rules_other:
+    type: http
+    format: text
+    behavior: domain
+    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_other.txt"
+    path: ./ruleset/iran_other.txt
+    interval: 432000
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+
+rules:
+  - RULE-SET,reject,REJECT
+  - RULE-SET,iran_ads,REJECT
+  - RULE-SET,applications,DIRECT
+  - RULE-SET,private,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,clash_rules_other,DIRECT
+  - RULE-SET,proxy,babr
+  - DOMAIN-SUFFIX,ir,DIRECT
+  - GEOIP,IR,DIRECT
+  - MATCH,babr
