@@ -81,100 +81,95 @@ dns:
 
 
 proxy-groups:
+  - name: QQOLI
+    type: select
+    proxies:
+      - MMOBI
+      - NNAQI
 
-- name: babr
-  type: select
-  proxies:
-    - qoli
-    - naghi
+  - name: MMOBI
+    type: url-test
+    use:
+      - clash_pr
 
-- name: qoli
-  type: url-test
-  use:
-    - a
-
-- name: naghi
-  type: select
-  use:
-    - a
+  - name: NNAQI
+    type: select
+    use:
+      - clash_pr
 
 
 proxy-providers:
-  a:
+  clash_pr:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr"
     interval: 86400
-    path: ./providers/a.yaml
+    path: ./providers/clash_pr.yaml
     health-check:
       enable: true
       interval: 3600
       lazy: true
-      url: "http://cdn.jsdelivr.net"
-      #url: "http://cp.cloudflare.com"
-      #url: "http://detectportal.firefox.com/success.txt"
+      url: "http://www.gstatic.com/generate_204"
+
 
 
 rule-providers:
-  reject:
+  Rjct_Dom:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
-    path: ./ruleset/reject.yaml
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/Rjct_Dom"
+    path: ./ruleset/Rjct_Dom.yaml
     interval: 86400
 
-  iran_ads:
-    type: http
-    format: text
-    behavior: domain
-    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_ads.txt"
-    path: ./ruleset/iran_ads.txt
-    interval: 432000
-
-  applications:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
-    path: ./ruleset/applications.yaml
-    interval: 86400
-
-  private:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
-    path: ./ruleset/private.yaml
-    interval: 86400
-
-  lancidr:
+  Rjct_ip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
-    path: ./ruleset/lancidr.yaml
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/Rjct_ip"
+    path: ./ruleset/Rjct_ip.yaml
     interval: 86400
 
-  clash_rules_other:
+  Prx_Dom:
     type: http
-    format: text
     behavior: domain
-    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_other.txt"
-    path: ./ruleset/iran_other.txt
-    interval: 432000
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/Prx_Dom"
+    path: ./ruleset/Prx_Dom.yaml
+    interval: 86400
 
-  proxy:
+  Prx_ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/Prx_ip"
+    path: ./ruleset/Prx_ip.yaml
+    interval: 86400
+
+  Dir_Dom:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
-    path: ./ruleset/proxy.yaml
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/Dir_Dom"
+    path: ./ruleset/Dir_Dom.yaml
+    interval: 86400
+
+  Dir_ip:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/Dir_ip"
+    path: ./ruleset/Dir_ip.yaml
+    interval: 86400
+
+  Dir_App:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/Dir_App"
+    path: ./ruleset/Dir_App.yaml
     interval: 86400
 
 
 rules:
-  - RULE-SET,reject,REJECT
-  - RULE-SET,iran_ads,REJECT
-  - RULE-SET,applications,DIRECT
-  - RULE-SET,private,DIRECT
-  - RULE-SET,lancidr,DIRECT
-  - RULE-SET,clash_rules_other,DIRECT
-  - RULE-SET,proxy,babr
-  - DOMAIN-SUFFIX,ir,DIRECT
+  - RULE-SET,Dir_App,DIRECT
+  - RULE-SET,Dir_ip,DIRECT
+  - RULE-SET,Rjct_Dom,REJECT
+  - RULE-SET,Rjct_ip,REJECT
+  - RULE-SET,Prx_Dom,QQOLI
+  - RULE-SET,Prx_ip,QQOLI
+  - RULE-SET,Dir_Dom,DIRECT
   - GEOIP,IR,DIRECT
-  - MATCH,babr
+  - MATCH,QQOLI
