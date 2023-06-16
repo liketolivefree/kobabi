@@ -81,13 +81,20 @@ dns:
     - +.github.com
 
 
-proxy-groups:
-  - name: QQOLI
-    type: select
-    proxies:
-      - MMOBI
-      - NNAQI
+proxy-providers:
+  babr:
+    type: http
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr.yaml"
+    interval: 3600
+    path: ./babr.yaml
+    health-check:
+      enable: true
+      interval: 600
+      lazy: true
+      url: http://www.gstatic.com/generate_204
 
+
+proxy-groups:
   - name: MMOBI
     type: url-test
     use:
@@ -98,19 +105,11 @@ proxy-groups:
     use:
       - babr
 
-
-proxy-providers:
-  babr:
-    type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr.yaml"
-    interval: 86400
-    path: ./providers/babr.yaml
-    health-check:
-      enable: true
-      interval: 3600
-      lazy: true
-      url: "http://www.gstatic.com/generate_204"
-
+  - name: QQOLI
+    type: select
+    proxies:
+      - MMOBI
+      - NNAQI
 
 
 rule-providers:
@@ -162,7 +161,6 @@ rule-providers:
     url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_app.txt"
     path: ./ruleset/app.yaml
     interval: 86400
-
 
 rules:
   - RULE-SET,app,DIRECT
