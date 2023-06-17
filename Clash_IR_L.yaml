@@ -2,6 +2,7 @@ port: 7890
 socks-port: 7891
 mixed-port: 7890
 allow-lan: false
+interface-name: en0
 mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
@@ -10,13 +11,8 @@ secret: ""
 experimental:
   ignore-resolve-fail: true
 
-hosts:
-    "*.clash.dev": "127.0.0.1"
-    ".dev": "127.0.0.1"
-    "alpha.clash.dev": "::1"
-
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
             
 dns:
@@ -29,29 +25,25 @@ dns:
   fake-ip-filter:
     - "*.lan"
     - "*.local"
-    - "localhost.ptlogin2.qq.com"
-    - "dns.msftncsi.com"
-    - "www.msftncsi.com"
-    - "www.msftconnecttest.com"
-
+    - localhost.ptlogin2.qq.com
+    - dns.msftncsi.com
+    - www.msftncsi.com
+    - www.msftconnecttest.com
   default-nameserver:
     - 127.0.0.1
     - 1.1.1.1
     - 9.9.9.9
     - 8.8.8.8
-
   nameserver:
     - tls://one.one.one.one
     - https://1.1.1.1/dns-query
     - https://9.9.9.9/dns-query
     - https://8.8.8.8/dns-query
-
   fallback:
     - tls://one.one.one.one
     - https://1.1.1.1/dns-query
     - https://9.9.9.9/dns-query
     - https://8.8.8.8/dns-query
-
   fallback-filter:
    geoip: false
    ipcidr:
@@ -79,16 +71,15 @@ dns:
     - +.twitter.com
     - +.googleapis.com
     - +.bing.com
+    - +.github.com
 
 tun:
   enable: true
   stack: system
   dns-hijack:
-    - "any:53"
+    - any:53
   auto-detect-interface: true
   auto-route: true
-  auto-redir: true
-  strict_route: true
 
 proxies:
   - {"name":"[]_1","type":"vmess","server":"212.110.134.7","port":443,"cipher":"auto","uuid":"3de4ec27-74b4-43e3-bf23-18e726ac80bc","alterId":0,"tls":true,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/P6kpn5UKG40MNLK2","headers":{"host":"zHGKLbqn6UM.janbaroon.com"}}}
