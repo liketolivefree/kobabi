@@ -9,6 +9,8 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub.txt
 
 
 
+
+
 ===)) لینگ کلش (قابل استفاده در همه کلاینتهای کلش، مثل کلش متا، کلش ویندوز، کلش اندروید و ...):
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_IR_L.yaml
