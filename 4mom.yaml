@@ -5,7 +5,8 @@ allow-lan: false
 interface-name: en0
 mode: rule
 log-level: info
-external-controller: 127.0.0.1:9090
+
+external-controller: 0.0.0.0:9090
 secret: ""
 
 experimental:
@@ -14,6 +15,11 @@ experimental:
 profile:
   store-selected: false
   store-fake-ip: true
+
+hosts:
+  '*.clash.dev': 127.0.0.1
+  '.dev': 127.0.0.1
+  'alpha.clash.dev': '::1'
 
 tcp-concurrent: true
 enable-process: true
@@ -34,27 +40,23 @@ dns:
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
   fake-ip-filter:
-    - "*.lan"
-    - "*.local"
-    - "localhost.ptlogin2.qq.com"
-
+    - '*.lan'
+    - '*.local'
+    - localhost.ptlogin2.qq.com
   default-nameserver:
     - 1.1.1.1
     - 9.9.9.9
     - 8.8.8.8
-
   nameserver:
     - tls://one.one.one.one
     - https://1.1.1.1/dns-query
     - https://9.9.9.9/dns-query
     - https://8.8.8.8/dns-query
-
   fallback:
     - tls://one.one.one.one
     - https://1.1.1.1/dns-query
     - https://9.9.9.9/dns-query
     - https://8.8.8.8/dns-query
-
   fallback-filter:
    geoip: false
    ipcidr:
@@ -74,24 +76,23 @@ dns:
     - 224.0.0.0/3
     - 240.0.0.0/4
    domain:
-    - +.google.com
-    - +.facebook.com
-    - +.youtube.com
-    - +.githubusercontent.com
-    - +.twitter.com
-    - +.googleapis.com
-    - +.bing.com
+    - '+.google.com'
+    - '+.facebook.com'
+    - '+.youtube.com'
+    - '+.githubusercontent.com'
+    - '+.twitter.com'
+    - '+.googleapis.com'
+    - '+.bing.com'
+    - '+.github.com'
 
 tun:
   enable: true
   stack: system
   dns-hijack:
-    - "any:53"
+    - any:53
   auto-detect-interface: true
   auto-route: true
-  auto-redir: true
   mtu: 9000
-  strict_route: true
 
 sniffer:
   enable: true
@@ -105,99 +106,98 @@ sniffer:
   - "*"
 
 proxies:
-  - {"name":"4mom01","type":"vmess","server":"94.176.183.11","port":80,"cipher":"auto","uuid":"8bb11d57-929e-40a3-c4bc-61f9bbc85af8","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"koooka.ddns.net"}}}
-  - {"name":"4mom02","type":"vmess","server":"107.167.29.99","port":443,"cipher":"auto","uuid":"465dec1a-e09b-4bb6-9905-70f75d6035c8","alterId":64,"tls":true,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/path/1686129180540","headers":{"host":"www.38926991.xyz"}}}
-  - {"name":"4mom03","type":"vmess","server":"94.176.183.11","port":80,"cipher":"auto","uuid":"44c5de7f-0be4-4e96-c73c-f4c94c15e8af","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"parasto01.ddns.net"}}}
-  - {"name":"4mom04","type":"vmess","server":"92.223.120.10","port":80,"cipher":"auto","uuid":"44c5de7f-0be4-4e96-c73c-f4c94c15e8af","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"parasto01.ddns.net"}}}
-  - {"name":"4mom05","type":"vmess","server":"92.223.108.13","port":80,"cipher":"auto","uuid":"ba9c93d7-490c-4dba-c21a-a50b94cd9c90","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"shoooshi.ddns.net"}}}
-  - {"name":"4mom06","type":"vmess","server":"142.4.110.23","port":52908,"cipher":"auto","uuid":"418048af-a293-4b99-9b0c-98ca3580dd24","alterId":64,"tls":false,"skip-cert-verify":true,"network":"tcp"}
-  - {"name":"4mom07","type":"vmess","server":"94.176.183.11","port":80,"cipher":"auto","uuid":"0e88120c-14e5-449b-8f2e-c22ec0df6599","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"bidari.ddns.net"}}}
-  - {"name":"4mom08","type":"vmess","server":"94.176.183.11","port":80,"cipher":"auto","uuid":"0575c4de-8db2-4f44-837a-6afeae3e48f2","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"zero666.ddns.net"}}}
-  - {"name":"4mom09","type":"vmess","server":"93.123.17.141","port":80,"cipher":"auto","uuid":"7b898ef1-35ec-423a-ad6e-f826d705e2fe","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"sosooli.ddns.net"}}}
-  - {"name":"4mom10","type":"vmess","server":"5.188.121.134","port":80,"cipher":"auto","uuid":"28db139c-aff0-4ed8-80f5-3e747c4c737c","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"xx2xxl.ddns.net"}}}
-  - {"name":"4mom11","type":"vmess","server":"93.123.17.133","port":80,"cipher":"auto","uuid":"23f0dc8c-b358-469d-db71-900d2d15ddbc","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"meyti90.ddns.net"}}}
-  - {"name":"4mom12","type":"vmess","server":"92.223.55.6","port":80,"cipher":"auto","uuid":"fa773763-0a31-4ee0-9494-141e7ec50eef","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"pepsiii.ddns.net"}}}
-  - {"name":"4mom13","type":"vmess","server":"93.123.17.144","port":80,"cipher":"auto","uuid":"8bb11d57-929e-40a3-c4bc-61f9bbc85af8","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"koooka.ddns.net"}}}
-  - {"name":"4mom14","type":"vmess","server":"140.99.140.150","port":57112,"cipher":"auto","uuid":"418048af-a293-4b99-9b0c-98ca3580dd24","alterId":64,"tls":false,"skip-cert-verify":true,"network":"tcp"}
-  - {"name":"4mom15","type":"vmess","server":"93.123.17.133","port":80,"cipher":"auto","uuid":"4dd7ef63-ca89-4b68-c0e3-ef2cd4ecabda","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"chelciii.ddns.net"}}}
-  - {"name":"4mom16","type":"vmess","server":"37.110.209.228","port":80,"cipher":"auto","uuid":"0575c4de-8db2-4f44-837a-6afeae3e48f2","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"zero666.ddns.net"}}}
-  - {"name":"4mom17","type":"vmess","server":"104.24.198.75","port":2052,"cipher":"auto","uuid":"3f100fa9-a160-4a1c-c40d-e22070ac9785","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/qwer00","headers":{"host":"x2.ylks01.eu.org"}}}
-  - {"name":"4mom18","type":"vmess","server":"93.123.17.138","port":80,"cipher":"auto","uuid":"8bb11d57-929e-40a3-c4bc-61f9bbc85af8","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"koooka.ddns.net"}}}
-  - {"name":"4mom19","type":"vmess","server":"93.123.17.141","port":80,"cipher":"auto","uuid":"76f77d6e-8839-44b9-9440-2a72457adce9","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"zapriuzapri.ddns.net"}}}
-  - {"name":"4mom20","type":"vmess","server":"142.4.110.23","port":52908,"cipher":"auto","uuid":"418048af-a293-4b99-9b0c-98ca3580dd24","alterId":64,"tls":false,"skip-cert-verify":true,"network":"tcp"}
-  - {"name":"4mom21","type":"vmess","server":"92.223.108.15","port":80,"cipher":"auto","uuid":"4dd7ef63-ca89-4b68-c0e3-ef2cd4ecabda","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"chelciii.ddns.net"}}}
-  - {"name":"4mom22","type":"vmess","server":"92.223.108.16","port":80,"cipher":"auto","uuid":"0e88120c-14e5-449b-8f2e-c22ec0df6599","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"bidari.ddns.net"}}}
-  - {"name":"4mom23","type":"vmess","server":"92.223.43.14","port":80,"cipher":"auto","uuid":"89a151c7-9484-4e63-d921-c30245337408","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"mashti89.ddns.net"}}}
-  - {"name":"4mom24","type":"vmess","server":"92.223.43.14","port":80,"cipher":"auto","uuid":"8bb11d57-929e-40a3-c4bc-61f9bbc85af8","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"koooka.ddns.net"}}}
-  - {"name":"4mom25","type":"vmess","server":"93.123.17.143","port":80,"cipher":"auto","uuid":"8bb11d57-929e-40a3-c4bc-61f9bbc85af8","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"koooka.ddns.net"}}}
-  - {"name":"4mom26","type":"vmess","server":"93.123.17.133","port":80,"cipher":"auto","uuid":"28db139c-aff0-4ed8-80f5-3e747c4c737c","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"xx2xxl.ddns.net"}}}
-  - {"name":"4mom27","type":"vmess","server":"94.176.183.11","port":80,"cipher":"auto","uuid":"33b7b7b5-39f1-4300-f8fb-f8c5058932d9","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"masvassbipo.ddns.net"}}}
+  - {"name":"4mom_1","type":"vmess","server":"107.167.12.29","port":41707,"cipher":"auto","uuid":"418048af-a293-4b99-9b0c-98ca3580dd24","alterId":64,"tls":false,"skip-cert-verify":true,"network":"tcp"}
+  - {"name":"4mom_2","type":"vmess","server":"107.167.26.53","port":54092,"cipher":"auto","uuid":"418048af-a293-4b99-9b0c-98ca3580dd24","alterId":64,"tls":false,"skip-cert-verify":true,"network":"tcp"}
+  - {"name":"4mom_3","type":"vmess","server":"5.188.121.137","port":80,"cipher":"auto","uuid":"0e88120c-14e5-449b-8f2e-c22ec0df6599","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"bidari.ddns.net"}}}
+  - {"name":"4mom_4","type":"vmess","server":"5.188.7.13","port":80,"cipher":"auto","uuid":"7b898ef1-35ec-423a-ad6e-f826d705e2fe","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"sosooli.ddns.net"}}}
+  - {"name":"4mom_5","type":"vmess","server":"51.195.125.31","port":54902,"cipher":"auto","uuid":"418048af-a293-4b99-9b0c-98ca3580dd24","alterId":64,"tls":false,"skip-cert-verify":true,"network":"tcp"}
+  - {"name":"4mom_6","type":"vmess","server":"104.18.35.237","port":80,"cipher":"auto","uuid":"09e663cb-24c0-4b86-8675-687a9e58e60d","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/111111111","headers":{"host":"ld.fof124.top"}}}
+  - {"name":"4mom_7","type":"vmess","server":"78.111.103.4","port":80,"cipher":"auto","uuid":"76f77d6e-8839-44b9-9440-2a72457adce9","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"zapriuzapri.ddns.net"}}}
+  - {"name":"4mom_8","type":"vmess","server":"80.240.113.6","port":80,"cipher":"auto","uuid":"a1a0bbfd-390b-437c-e8aa-3f61654fc7a8","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"lovebinahayat.ddns.net"}}}
+  - {"name":"4mom_9","type":"vmess","server":"92.223.116.205","port":80,"cipher":"auto","uuid":"62c655e5-d9a3-45c2-cc84-4141c542a6f4","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"mrfiltering.ddns.net"}}}
+  - {"name":"4mom_10","type":"vmess","server":"104.18.35.238","port":80,"cipher":"auto","uuid":"09e663cb-24c0-4b86-8675-687a9e58e60d","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/111111111","headers":{"host":"ld.fof124.top"}}}
+  - {"name":"4mom_11","type":"vmess","server":"137.175.32.161","port":55832,"cipher":"auto","uuid":"418048af-a293-4b99-9b0c-98ca3580dd24","alterId":64,"tls":false,"skip-cert-verify":true,"network":"tcp"}
+  - {"name":"4mom_12","type":"vmess","server":"92.223.116.220","port":80,"cipher":"auto","uuid":"ba9c93d7-490c-4dba-c21a-a50b94cd9c90","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"shoooshi.ddns.net"}}}
+  - {"name":"4mom_13","type":"vmess","server":"92.38.170.7","port":80,"cipher":"auto","uuid":"28db139c-aff0-4ed8-80f5-3e747c4c737c","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"xx2xxl.ddns.net"}}}
+  - {"name":"4mom_14","type":"vmess","server":"92.223.116.220","port":80,"cipher":"auto","uuid":"3590898e-6f91-4a7b-de36-7c497d5197f9","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"mehdimoghaddam02.ddns.net"}}}
+  - {"name":"4mom_15","type":"vmess","server":"92.223.116.220","port":80,"cipher":"auto","uuid":"336ae92f-b745-40dc-cc4d-01e8313a5d51","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"vizooooo.ddns.net"}}}
+  - {"name":"4mom_16","type":"vmess","server":"92.223.116.221","port":80,"cipher":"auto","uuid":"d370226b-0758-4906-82d8-c7e958c1dcae","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"miladmoghaddam01.ddns.net"}}}
+  - {"name":"4mom_17","type":"vmess","server":"92.223.116.224","port":80,"cipher":"auto","uuid":"44c5de7f-0be4-4e96-c73c-f4c94c15e8af","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"parasto01.ddns.net"}}}
+  - {"name":"4mom_18","type":"vmess","server":"92.223.120.10","port":80,"cipher":"auto","uuid":"44c5de7f-0be4-4e96-c73c-f4c94c15e8af","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"parasto01.ddns.net"}}}
+  - {"name":"4mom_19","type":"vmess","server":"cloudflare.sfo3.life","port":80,"cipher":"auto","uuid":"09e663cb-24c0-4b86-8675-687a9e58e60d","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/111111111","headers":{"host":"ld.fof124.top"}}}
+  - {"name":"4mom_20","type":"vmess","server":"yx.timeswath.uk","port":80,"cipher":"auto","uuid":"62abbbe0-c896-44f1-8fd4-08e44e298205","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/vfsg","headers":{"host":"sjp2.fof124.top"}}}
+  - {"name":"4mom_21","type":"vmess","server":"92.223.43.14","port":80,"cipher":"auto","uuid":"0e88120c-14e5-449b-8f2e-c22ec0df6599","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"bidari.ddns.net"}}}
+  - {"name":"4mom_22","type":"vmess","server":"92.223.43.14","port":80,"cipher":"auto","uuid":"89a151c7-9484-4e63-d921-c30245337408","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"mashti89.ddns.net"}}}
+  - {"name":"4mom_23","type":"vmess","server":"92.223.55.5","port":80,"cipher":"auto","uuid":"23f0dc8c-b358-469d-db71-900d2d15ddbc","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/mehdi","headers":{"host":"meyti90.ddns.net"}}}
+  - {"name":"4mom_24","type":"vless","server":"ns1-tokyo.goodbyeblock.com","port":443,"uuid":"5e3d898c-80a7-4a5e-9dcf-b3ef7ca5c5b9","tls":true,"network":"tcp"}
+  - {"name":"4mom_25","type":"vless","server":"ns4-mumbai.goodbyeblock.com","port":443,"uuid":"f24d1b13-4efc-456e-cc41-31bc18c93f75","tls":true,"network":"tcp"}
+  - {"name":"4mom_26","type":"vless","server":"ada57.cwvgq.com","port":443,"uuid":"a61eb3a2-1adb-48cb-ab46-ce225769de16","tls":true,"network":"ws","ws-opts":{"path":"users?ed=2048"}}
+  - {"name":"4mom_27","type":"vless","server":"bugus4v.mlgolden.site","port":443,"uuid":"d65150b6-1e96-49fa-b652-98cdf1bec8d3","tls":true,"servername":"bugus4v.mlgolden.site","network":"ws","ws-opts":{"path":"/"}}
 proxy-groups:
   - name: QQOLI
     type: select
     proxies:
       - MMOBI
       - DIRECT
-      - 4mom01
-      - 4mom02
-      - 4mom03
-      - 4mom04
-      - 4mom05
-      - 4mom06
-      - 4mom07
-      - 4mom08
-      - 4mom09
-      - 4mom10
-      - 4mom11
-      - 4mom12
-      - 4mom13
-      - 4mom14
-      - 4mom15
-      - 4mom16
-      - 4mom17
-      - 4mom18
-      - 4mom19
-      - 4mom20
-      - 4mom21
-      - 4mom22
-      - 4mom23
-      - 4mom24
-      - 4mom25
-      - 4mom26
-      - 4mom27
+      - 4mom_1
+      - 4mom_2
+      - 4mom_3
+      - 4mom_4
+      - 4mom_5
+      - 4mom_6
+      - 4mom_7
+      - 4mom_8
+      - 4mom_9
+      - 4mom_10
+      - 4mom_11
+      - 4mom_12
+      - 4mom_13
+      - 4mom_14
+      - 4mom_15
+      - 4mom_16
+      - 4mom_17
+      - 4mom_18
+      - 4mom_19
+      - 4mom_20
+      - 4mom_21
+      - 4mom_22
+      - 4mom_23
+      - 4mom_24
+      - 4mom_25
+      - 4mom_26
+      - 4mom_27
   - name: MMOBI
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     proxies:
-      - 4mom01
-      - 4mom02
-      - 4mom03
-      - 4mom04
-      - 4mom05
-      - 4mom06
-      - 4mom07
-      - 4mom08
-      - 4mom09
-      - 4mom10
-      - 4mom11
-      - 4mom12
-      - 4mom13
-      - 4mom14
-      - 4mom15
-      - 4mom16
-      - 4mom17
-      - 4mom18
-      - 4mom19
-      - 4mom20
-      - 4mom21
-      - 4mom22
-      - 4mom23
-      - 4mom24
-      - 4mom25
-      - 4mom26
-      - 4mom27
+      - 4mom_1
+      - 4mom_2
+      - 4mom_3
+      - 4mom_4
+      - 4mom_5
+      - 4mom_6
+      - 4mom_7
+      - 4mom_8
+      - 4mom_9
+      - 4mom_10
+      - 4mom_11
+      - 4mom_12
+      - 4mom_13
+      - 4mom_14
+      - 4mom_15
+      - 4mom_16
+      - 4mom_17
+      - 4mom_18
+      - 4mom_19
+      - 4mom_20
+      - 4mom_21
+      - 4mom_22
+      - 4mom_23
+      - 4mom_24
+      - 4mom_25
+      - 4mom_26
+      - 4mom_27
   - name: TTAQI
     type: select
     proxies:
@@ -215,53 +215,35 @@ proxy-groups:
       - QQOLI
       - TTAQI
       - MMOBI
-      - 4mom01
-      - 4mom02
-      - 4mom03
-      - 4mom04
-      - 4mom05
-      - 4mom06
-      - 4mom07
-      - 4mom08
-      - 4mom09
-      - 4mom10
-      - 4mom11
-      - 4mom12
-      - 4mom13
-      - 4mom14
-      - 4mom15
-      - 4mom16
-      - 4mom17
-      - 4mom18
-      - 4mom19
-      - 4mom20
-      - 4mom21
-      - 4mom22
-      - 4mom23
-      - 4mom24
-      - 4mom25
-      - 4mom26
-      - 4mom27
+      - 4mom_1
+      - 4mom_2
+      - 4mom_3
+      - 4mom_4
+      - 4mom_5
+      - 4mom_6
+      - 4mom_7
+      - 4mom_8
+      - 4mom_9
+      - 4mom_10
+      - 4mom_11
+      - 4mom_12
+      - 4mom_13
+      - 4mom_14
+      - 4mom_15
+      - 4mom_16
+      - 4mom_17
+      - 4mom_18
+      - 4mom_19
+      - 4mom_20
+      - 4mom_21
+      - 4mom_22
+      - 4mom_23
+      - 4mom_24
+      - 4mom_25
+      - 4mom_26
+      - 4mom_27
 
 rules:
-  - IP-CIDR,0.0.0.0/8,TTAQI,no-resolve
-  - IP-CIDR,10.0.0.0/8,TTAQI,no-resolve
-  - IP-CIDR,100.64.0.0/10,TTAQI,no-resolve
-  - IP-CIDR,127.0.0.0/8,TTAQI,no-resolve
-  - IP-CIDR,169.254.0.0/16,TTAQI,no-resolve
-  - IP-CIDR,172.16.0.0/12,TTAQI,no-resolve
-  - IP-CIDR,192.0.0.0/24,TTAQI,no-resolve
-  - IP-CIDR,192.0.2.0/24,TTAQI,no-resolve
-  - IP-CIDR,192.88.99.0/24,TTAQI,no-resolve
-  - IP-CIDR,192.168.0.0/16,TTAQI,no-resolve
-  - IP-CIDR,198.18.0.0/15,TTAQI,no-resolve
-  - IP-CIDR,198.51.100.0/24,TTAQI,no-resolve
-  - IP-CIDR,203.0.113.0/24,TTAQI,no-resolve
-  - IP-CIDR,224.0.0.0/3,TTAQI,no-resolve
-  - IP-CIDR6,::1/128,TTAQI,no-resolve
-  - IP-CIDR6,fc00::/7,TTAQI,no-resolve
-  - IP-CIDR6,fe80::/10,TTAQI,no-resolve
-  - IP-CIDR6,fd00::/8,TTAQI,no-resolve
   - DOMAIN,instant.arubanetworks.com,TTAQI
   - DOMAIN,setmeup.arubanetworks.com,TTAQI
   - DOMAIN,asusrouter.com,TTAQI
@@ -485,6 +467,9 @@ rules:
   - PROCESS-NAME,WinCFScan.dll,TTAQI
   - PROCESS-NAME,CloudflareST,TTAQI
   - PROCESS-NAME,CloudflareST.exe,TTAQI
+  - DOMAIN-SUFFIX,fmovies.pub,QQOLI
+  - DOMAIN-SUFFIX,vidstream.pro,QQOLI
+  - DOMAIN-SUFFIX,vizcloud.co,QQOLI
   - DOMAIN-KEYWORD,admarvel,MMAQI
   - DOMAIN-KEYWORD,admaster,MMAQI
   - DOMAIN-KEYWORD,adsage,MMAQI
@@ -2438,25 +2423,6 @@ rules:
   - DOMAIN-SUFFIX,zz.bdstatic.com,MMAQI
   - DOMAIN-SUFFIX,zzsx8.com,MMAQI
   - DOMAIN-SUFFIX,zzy1.quyaoya.com,MMAQI
-  - IP-CIDR,101.227.200.0/24,MMAQI,no-resolve
-  - IP-CIDR,101.227.200.11/32,MMAQI,no-resolve
-  - IP-CIDR,101.227.200.28/32,MMAQI,no-resolve
-  - IP-CIDR,101.227.97.240/32,MMAQI,no-resolve
-  - IP-CIDR,117.177.248.17/32,MMAQI,no-resolve
-  - IP-CIDR,117.177.248.41/32,MMAQI,no-resolve
-  - IP-CIDR,124.192.153.42/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.176.139/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.176.176/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.177.180/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.177.182/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.177.184/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.177.43/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.177.47/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.177.80/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.182.101/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.182.102/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.182.11/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.182.52/32,MMAQI,no-resolve
   - DOMAIN,abc.com,QQOLI
   - DOMAIN,abc.go.com,QQOLI
   - DOMAIN,abc.net.au,QQOLI
@@ -22056,6 +22022,25 @@ rules:
   - DOMAIN-SUFFIX,zzitube.com,QQOLI
   - DOMAIN-SUFFIX,zzux.com,QQOLI
   - DOMAIN-SUFFIX,zzycdz.com,QQOLI
+  - IP-CIDR,101.227.200.0/24,MMAQI,no-resolve
+  - IP-CIDR,101.227.200.11/32,MMAQI,no-resolve
+  - IP-CIDR,101.227.200.28/32,MMAQI,no-resolve
+  - IP-CIDR,101.227.97.240/32,MMAQI,no-resolve
+  - IP-CIDR,117.177.248.17/32,MMAQI,no-resolve
+  - IP-CIDR,117.177.248.41/32,MMAQI,no-resolve
+  - IP-CIDR,124.192.153.42/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.176.139/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.176.176/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.177.180/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.177.182/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.177.184/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.177.43/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.177.47/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.177.80/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.182.101/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.182.102/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.182.11/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.182.52/32,MMAQI,no-resolve
   - IP-CIDR,1.201.0.0/24,QQOLI
   - IP-CIDR,1.37.35.6/32,QQOLI
   - IP-CIDR,101.100.179.242/32,QQOLI
@@ -24039,6 +24024,24 @@ rules:
   - IP-CIDR6,2a03:5640::/32,QQOLI
   - IP-CIDR6,2a0a:f280::/32,QQOLI
   - IP-CIDR6,2c0f:fb50::/32,QQOLI
+  - IP-CIDR,0.0.0.0/8,TTAQI,no-resolve
+  - IP-CIDR,10.0.0.0/8,TTAQI,no-resolve
+  - IP-CIDR,100.64.0.0/10,TTAQI,no-resolve
+  - IP-CIDR,127.0.0.0/8,TTAQI,no-resolve
+  - IP-CIDR,169.254.0.0/16,TTAQI,no-resolve
+  - IP-CIDR,172.16.0.0/12,TTAQI,no-resolve
+  - IP-CIDR,192.0.0.0/24,TTAQI,no-resolve
+  - IP-CIDR,192.0.2.0/24,TTAQI,no-resolve
+  - IP-CIDR,192.88.99.0/24,TTAQI,no-resolve
+  - IP-CIDR,192.168.0.0/16,TTAQI,no-resolve
+  - IP-CIDR,198.18.0.0/15,TTAQI,no-resolve
+  - IP-CIDR,198.51.100.0/24,TTAQI,no-resolve
+  - IP-CIDR,203.0.113.0/24,TTAQI,no-resolve
+  - IP-CIDR,224.0.0.0/3,TTAQI,no-resolve
+  - IP-CIDR6,::1/128,TTAQI,no-resolve
+  - IP-CIDR6,fc00::/7,TTAQI,no-resolve
+  - IP-CIDR6,fe80::/10,TTAQI,no-resolve
+  - IP-CIDR6,fd00::/8,TTAQI,no-resolve
   - IP-CIDR,103.130.144.0/24,TTAQI
   - IP-CIDR,103.215.220.0/22,TTAQI
   - IP-CIDR,103.216.60.0/22,TTAQI
