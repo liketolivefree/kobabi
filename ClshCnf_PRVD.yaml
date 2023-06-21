@@ -19,8 +19,6 @@ profile:
 hosts:
   '*.clash.dev': 127.0.0.1
   '.dev': 127.0.0.1
-  'mtalk.google.com': 108.177.125.188
-  't.cn': 203.107.55.116
   'alpha.clash.dev': '::1'
 
             
@@ -39,7 +37,6 @@ dns:
     - www.msftncsi.com
     - www.msftconnecttest.com
   default-nameserver:
-    - 127.0.0.1
     - 1.1.1.1
     - 9.9.9.9
     - 8.8.8.8
