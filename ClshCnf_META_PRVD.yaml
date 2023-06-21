@@ -19,8 +19,6 @@ profile:
 hosts:
   '*.clash.dev': 127.0.0.1
   '.dev': 127.0.0.1
-  'mtalk.google.com': 108.177.125.188
-  't.cn': 203.107.55.116
   'alpha.clash.dev': '::1'
 
 tcp-concurrent: true
