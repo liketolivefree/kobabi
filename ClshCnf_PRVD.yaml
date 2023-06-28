@@ -1,55 +1,47 @@
 port: 7890
 socks-port: 7891
-mixed-port: 7890
 allow-lan: false
-interface-name: en0
-mode: rule
 log-level: info
+mode: rule
+ipv6: false
+interface-name: en0
 
 external-controller: 127.0.0.1:9090
 secret: ""
+external-ui: folder
 
 experimental:
   ignore-resolve-fail: true
 
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
+  tracing: true
 
-hosts:
-  '*.clash.dev': 127.0.0.1
-  '.dev': 127.0.0.1
-  'alpha.clash.dev': '::1'
-
-            
 dns:
   enable: true
-  listen: 127.0.0.1:53
+  listen: 0.0.0.0:53
   ipv6: false
+  use-hosts: true
+  default-nameserver:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+    - https://208.67.222.222/dns-query
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  use-hosts: true
   fake-ip-filter:
     - '*.lan'
-    - '*.local'
     - localhost.ptlogin2.qq.com
-    - dns.msftncsi.com
-    - www.msftncsi.com
-    - www.msftconnecttest.com
-  default-nameserver:
-    - 1.1.1.1
-    - 9.9.9.9
-    - 8.8.8.8
   nameserver:
-    - tls://one.one.one.one
-    - https://1.1.1.1/dns-query
-    - https://9.9.9.9/dns-query
-    - https://8.8.8.8/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - tls://dns.google
+    - https://doh.opendns.com/dns-query
+    - https://doh.mullvad.net/dns-query
   fallback:
-    - tls://one.one.one.one
-    - https://1.1.1.1/dns-query
-    - https://9.9.9.9/dns-query
-    - https://8.8.8.8/dns-query
+    - tls://1dot1dot1dot1.cloudflare-dns.com
+    - https://dns.google/dns-query
+    - https://dns.quad9.net/dns-query
+    - tcp://1.1.1.1
   fallback-filter:
    geoip: false
    ipcidr:
@@ -67,8 +59,11 @@ dns:
     - 198.51.100.0/24
     - 203.0.113.0/24
     - 224.0.0.0/3
-    - 240.0.0.0/4
-    - 255.255.255.255/32
+    - ::1/128
+    - 64:ff9b:1::/48
+    - fc00::/7
+    - fd00::/8
+    - fe80::/10
    domain:
     - '+.google.com'
     - '+.facebook.com'
@@ -84,7 +79,7 @@ tun:
   stack: system
   dns-hijack:
     - any:53
-  auto-detect-interface: true
+    - tcp://any:53
   auto-route: true
 
 proxy-providers:
@@ -117,12 +112,15 @@ proxy-groups:
     type: select
     proxies:
       - MMOBI
+      - DIRECT
       - ALI
 
   - name: TTAQI
     type: select
     proxies:
       - DIRECT
+      - QQOLI
+      - MMOBI
 
   - name: MMAQI
     type: select
@@ -136,7 +134,7 @@ proxy-groups:
       - QQOLI
       - TTAQI
       - MMOBI
-
+      - ALI
 
 
 rule-providers:
@@ -191,11 +189,11 @@ rule-providers:
 
 rules:
   - RULE-SET,app,TTAQI
-  - RULE-SET,loo,TTAQI
   - RULE-SET,aff,MMAQI
-  - RULE-SET,yun,MMAQI
   - RULE-SET,oki,NNAQI
-  - RULE-SET,doki,NNAQI
   - RULE-SET,xal,TTAQI
-  - GEOIP,IR,TTAQI
+  - RULE-SET,yun,MMAQI,no-resolve
+  - RULE-SET,doki,NNAQI,no-resolve
+  - RULE-SET,loo,TTAQI,no-resolve
+  - GEOIP,IR,TTAQI,no-resolve
   - MATCH,NNAQI
