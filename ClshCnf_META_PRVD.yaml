@@ -9,7 +9,6 @@ interface-name: en0
 external-controller: 127.0.0.1:9090
 external-controller-tls: 127.0.0.1:9443
 secret: ""
-external-ui: folder
 
 experimental:
   ignore-resolve-fail: true
@@ -37,9 +36,9 @@ dns:
   ipv6: false
   use-hosts: true
   default-nameserver:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
-    - https://208.67.222.222/dns-query
+    - 1.1.1.1
+    - 8.8.8.8
+    - 208.67.222.222
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -90,7 +89,6 @@ tun:
   stack: system
   dns-hijack:
     - any:53
-    - tcp://any:53
   auto-route: true
   device: utun0
   mtu: 9000
