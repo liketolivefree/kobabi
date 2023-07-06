@@ -7,7 +7,6 @@ ipv6: false
 interface-name: en0
 
 external-controller: 127.0.0.1:9090
-external-controller-tls: 127.0.0.1:9443
 secret: ""
 
 experimental:
@@ -16,9 +15,7 @@ experimental:
 profile:
   store-selected: true
   store-fake-ip: true
-  tracing: true
 
-unified-delay: false
 tcp-concurrent: true
 find-process-mode: strict
 global-client-fingerprint: chrome
@@ -45,34 +42,21 @@ dns:
     - '*.lan'
     - localhost.ptlogin2.qq.com
   nameserver:
-    - https://cloudflare-dns.com/dns-query
+    - https://208.67.222.222/dns-query
+    - https://dns.adguard-dns.com/dns-query
     - tls://dns.google
-    - https://doh.opendns.com/dns-query
-    - https://doh.mullvad.net/dns-query
+    - tls://1.0.0.2
   fallback:
-    - tls://1dot1dot1dot1.cloudflare-dns.com
-    - https://dns.google/dns-query
-    - https://dns.quad9.net/dns-query
-    - tcp://1.1.1.1
-  proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+    - https://doh.mullvad.net/dns-query
+    - tls://one.one.one.one
+    - tls://149.112.112.11
   fallback-filter:
-   geoip: false
+   geoip: true
+   geoip-code: IR
    ipcidr:
-    - 0.0.0.0/8
-    - 10.0.0.0/8
-    - 100.64.0.0/10
+    - 0.0.0.0/32
     - 127.0.0.0/8
-    - 169.254.0.0/16
-    - 172.16.0.0/12
-    - 192.0.0.0/24
-    - 192.0.2.0/24
-    - 192.88.99.0/24
-    - 192.168.0.0/16
-    - 198.18.0.0/15
-    - 198.51.100.0/24
-    - 203.0.113.0/24
-    - 224.0.0.0/3
     - 240.0.0.0/4
    domain:
     - '+.google.com'
@@ -90,9 +74,6 @@ tun:
   dns-hijack:
     - any:53
   auto-route: true
-  device: utun0
-  mtu: 9000
-  strict-route: true
 
 proxy-providers:
   a:
