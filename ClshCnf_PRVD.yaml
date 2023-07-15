@@ -1,61 +1,37 @@
 port: 7890
 socks-port: 7891
 allow-lan: false
-log-level: info
 mode: rule
+log-level: info
 ipv6: false
-interface-name: en0
-
 external-controller: 127.0.0.1:9090
-secret: ""
-
-experimental:
-  ignore-resolve-fail: true
-
+secret: ''
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
-
 dns:
   enable: true
-  listen: 0.0.0.0:53
   ipv6: false
+  #listen: 0.0.0.0:53
   use-hosts: true
-  default-nameserver:
-    - 1.1.1.1
-    - 8.8.8.8
-    - 208.67.222.222
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-    - '*.lan'
-    - localhost.ptlogin2.qq.com
+  default-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  - 9.9.9.9
   nameserver:
-    - https://208.67.222.222/dns-query
-    - https://dns.adguard-dns.com/dns-query
-    - tls://dns.google
-    - tls://1.0.0.2
+  - https://cloudflare-dns.com/dns-query
+  - https://8.8.8.8/dns-query
+  - https://dns.google/dns-query
+  - https://doh.opendns.com/dns-query
   fallback:
-    - https://8.8.8.8/dns-query
-    - https://doh.mullvad.net/dns-query
-    - tls://one.one.one.one
-    - tls://149.112.112.11
+  - https://1.1.1.1/dns-query
+  - tls://one.one.one.one
+  - tls://dns.google
+  - https://dns.quad9.net/dns-query
   fallback-filter:
-   geoip: true
-   geoip-code: IR
-   ipcidr:
-    - 0.0.0.0/32
-    - 127.0.0.0/8
-    - 240.0.0.0/4
-   domain:
-    - '+.google.com'
-    - '+.facebook.com'
-    - '+.youtube.com'
-    - '+.githubusercontent.com'
-    - '+.twitter.com'
-    - '+.googleapis.com'
-    - '+.bing.com'
-    - '+.github.com'
+    geoip: false
 
 
 proxy-providers:
