@@ -32,6 +32,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_F.yam
 
 ===)) کانفیگهای پرووایدری کلش (این کانفیگها بجای استفاده مستقیم از پروکسی ها، از لینگ حاوی اونها استفاده میکنن):
 برای کلش:
+
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_IR_PRVD.yaml
 
 برای کلش متا (فقط متا):
@@ -42,6 +43,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_PRVD.
 .
 .
 سوپر کانفیگ (این کانفیگ حاوی 11 لینگ پرووایدر پروکسی است که هر کدام بین 2 تا 8 هزار پروکسی دارن):
+
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_SUPRVD.yaml
 
 .
@@ -137,6 +139,7 @@ https://github.com/csj8520/clash_for_flutter
 
 
 همه سیستم عاملها:
+
 https://github.com/hiddify/clashify
 
 https://github.com/Fclash/Fclash
