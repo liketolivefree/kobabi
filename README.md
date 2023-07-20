@@ -49,6 +49,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_SUPRV
 
 فهرست کلاینتهای کلش:
 اندروید:
+
 https://github.com/MetaCubeX/ClashMetaForAndroid (Meta)
 
 https://github.com/hiddify/HiddifyClashAndroid (Meta)
@@ -57,6 +58,7 @@ https://github.com/Kr328/ClashForAndroid
 
 
 ویندوز:
+
 https://github.com/zzzgydi/clash-verge (Meta)
 
 https://github.com/hiddify/HiddifyClashDesktop (Meta)
@@ -91,6 +93,7 @@ https://github.com/tindy2013/clashcmd
 
 
 مک:
+
 https://github.com/zzzgydi/clash-verge (Meta)
 
 https://github.com/hiddify/HiddifyClashDesktop (Meta)
@@ -111,6 +114,7 @@ https://github.com/csj8520/clash_for_flutter
 
 
 لینوکس:
+
 https://github.com/zzzgydi/clash-verge (Meta)
 
 https://github.com/hiddify/HiddifyClashDesktop (Meta)
