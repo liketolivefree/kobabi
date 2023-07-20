@@ -50,7 +50,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr.yaml
 
 ===)) لینگ کانفیگ کلش متا متکی بر پرووایدرها (مخصوص کلش متا. فقط متا اندروید):
 
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/ClshCnf_META_PRVD.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_PRVD.yaml
 
 در این کانفیگ بجای اینکه پروکسی ها رو دونه به دونه ذکر کنیم، اونا رو میندازیم تو یه مخزن و آدرس اون مخزن رو تو کانفیگ ذکر میکنیم. عین همین کار رو در مورد رول ها هم میشه کرد.
 به همین دلیل این نوع کانفیگها خیلی خیلی سبکتر از کانفیگهای معمولی هستن.
@@ -62,6 +62,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/ClshCnf_META_PRVD.y
 
 ===)) لینگ کانفیگ کلش متا متکی بر پرووایدرها (مناسب همه کلاینتهای کلش):
 
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/ClshCnf_PRVD.yaml
+
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_IR_PRVD.yaml
 
 البته کلش ویندوز گاهی جفتک میندازه.
