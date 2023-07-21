@@ -31,7 +31,20 @@ dns:
   - tls://dns.google
   - https://dns.quad9.net/dns-query
   fallback-filter:
-    geoip: false
+    geoip: true
+    geoip-code: IR
+    ipcidr:
+    - 0.0.0.0/32
+    - 127.0.0.1/32
+    - 240.0.0.0/4
+    - 255.255.255.255/32
+interface-name: en0
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+  - any:53
+  auto-route: true
 
 proxy-providers:
   a:
