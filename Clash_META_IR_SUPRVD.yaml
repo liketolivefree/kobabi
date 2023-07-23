@@ -29,30 +29,34 @@ dns:
   - 8.8.8.8
   - 9.9.9.9
   nameserver:
-  - https://cloudflare-dns.com/dns-query
-  - https://8.8.8.8/dns-query
-  - https://dns.google/dns-query
+  - https://security.cloudflare-dns.com/dns-query
+  - https://8.8.4.4/dns-query
+  - tls://dns11.quad9.net
   - https://doh.opendns.com/dns-query
   fallback:
-  - https://1.1.1.1/dns-query
   - tls://one.one.one.one
   - tls://dns.google
   - https://dns.quad9.net/dns-query
+  - https://1.0.0.1/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
     ipcidr:
+    - 0.0.0.0/8
     - 0.0.0.0/32
+    - 127.0.0.0/8
     - 127.0.0.1/32
     - 240.0.0.0/4
     - 255.255.255.255/32
+
+interface-name: en0
 tun:
   enable: true
   stack: system
-  auto-route: true
-  auto-detect-interface: true
   dns-hijack:
   - any:53
+  - tcp://any:53
+  auto-route: true
 
 proxy-providers:
   a:
@@ -182,6 +186,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 600
+  tolerance: 0
   use:
   - a
   - b
