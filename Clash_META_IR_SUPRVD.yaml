@@ -1,5 +1,9 @@
 mixed-port: 7890
 allow-lan: false
+tcp-concurrent: true
+find-process-mode: always
+global-client-fingerprint: random
+geodata-mode: true
 mode: rule
 log-level: info
 ipv6: false
@@ -8,19 +12,10 @@ secret: ''
 profile:
   store-selected: false
   store-fake-ip: true
-geox-url:
-  geoip: https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
-  geosite: https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
-  mmdb: https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb
-geodata-mode: true
-tcp-concurrent: true
-find-process-mode: always
-global-client-fingerprint: random
 dns:
   enable: true
   ipv6: false
-  prefer-h3: true
-  listen: 0.0.0.0:53
+  listen: 127.0.0.1:53
   use-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -41,22 +36,6 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
-    ipcidr:
-    - 0.0.0.0/8
-    - 0.0.0.0/32
-    - 127.0.0.0/8
-    - 127.0.0.1/32
-    - 240.0.0.0/4
-    - 255.255.255.255/32
-
-interface-name: en0
-tun:
-  enable: true
-  stack: system
-  dns-hijack:
-  - any:53
-  - tcp://any:53
-  auto-route: true
 
 proxy-providers:
   a:
