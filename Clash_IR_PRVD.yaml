@@ -9,13 +9,14 @@ secret: ''
 profile:
   store-selected: false
   store-fake-ip: true
+
 dns:
   enable: true
+  #listen: 127.0.0.1:53
   ipv6: false
-  listen: 127.0.0.1:53
   use-hosts: true
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  #fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 1.1.1.1
   - 8.8.8.8
@@ -33,6 +34,7 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
+
 
 proxy-providers:
   a:
@@ -142,8 +144,8 @@ rule-providers:
 rules:
 - RULE-SET,app,TTAQI
 - RULE-SET,aff,MMAQI
-- DOMAIN-SUFFIX,ir,TTAQI
 - RULE-SET,oki,QQOLI
+- DOMAIN-SUFFIX,ir,TTAQI
 - RULE-SET,xal,TTAQI
 - RULE-SET,yun,MMAQI,no-resolve
 - RULE-SET,doki,QQOLI,no-resolve
