@@ -1,9 +1,5 @@
 mixed-port: 7890
 allow-lan: false
-tcp-concurrent: true
-find-process-mode: always
-global-client-fingerprint: random
-geodata-mode: true
 mode: rule
 log-level: info
 ipv6: false
@@ -12,13 +8,19 @@ secret: ''
 profile:
   store-selected: false
   store-fake-ip: true
+tcp-concurrent: true
+find-process-mode: always
+global-client-fingerprint: random
+geodata-mode: true
+
 dns:
   enable: true
+  #listen: 127.0.0.1:53
   ipv6: false
-  listen: 127.0.0.1:53
+  #prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  #fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 1.1.1.1
   - 8.8.8.8
@@ -146,8 +148,8 @@ rule-providers:
 rules:
 - RULE-SET,app,TTAQI
 - RULE-SET,aff,MMAQI
-- DOMAIN-SUFFIX,ir,TTAQI
 - RULE-SET,oki,QQOLI
+- DOMAIN-SUFFIX,ir,TTAQI
 - RULE-SET,xal,TTAQI
 - RULE-SET,yun,MMAQI,no-resolve
 - RULE-SET,doki,QQOLI,no-resolve
