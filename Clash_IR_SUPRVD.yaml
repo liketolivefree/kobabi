@@ -1,0 +1,305 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+secret: ''
+profile:
+  store-selected: false
+  store-fake-ip: true
+
+dns:
+  enable: true
+  #listen: 127.0.0.1:53
+  ipv6: false
+  use-hosts: true
+  enhanced-mode: fake-ip
+  #fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  - 9.9.9.9
+  nameserver:
+  - https://security.cloudflare-dns.com/dns-query
+  - https://8.8.4.4/dns-query
+  - tls://dns11.quad9.net
+  - https://doh.opendns.com/dns-query
+  fallback:
+  - tls://one.one.one.one
+  - tls://dns.google
+  - https://dns.quad9.net/dns-query
+  - https://1.0.0.1/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: IR
+
+
+proxy-providers:
+  a:
+    type: http
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr.yaml"
+    interval: 3600
+    path: ./providers/a.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  b:
+    type: http
+    url: "https://raw.githubusercontent.com/Supprise0924/Top999/master/sub/sub_merge_yaml.yml"
+    interval: 3600
+    path: ./providers/b.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  c:
+    type: http
+    url: "https://raw.githubusercontent.com/Supprise0924/proxy/master/sub/sub_merge_clash.yaml"
+    interval: 3600
+    path: ./providers/c.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  d:
+    type: http
+    url: "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml"
+    interval: 3600
+    path: ./providers/d.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  e:
+    type: http
+    url: "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml"
+    interval: 3600
+    path: ./providers/e.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  f:
+    type: http
+    url: "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml"
+    interval: 3600
+    path: ./providers/f.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  g:
+    type: http
+    url: "https://raw.githubusercontent.com/baipiao250/HigeFreeProxies/master/sub/sub_merge_clash.yaml"
+    interval: 3600
+    path: ./providers/g.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  h:
+    type: http
+    url: "https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml"
+    interval: 3600
+    path: ./providers/h.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  i:
+    type: http
+    url: "https://raw.githubusercontent.com/nineKnight/FreeProxies/master/sub/sub_merge_clash.yaml"
+    interval: 3600
+    path: ./providers/i.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  j:
+    type: http
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml"
+    interval: 3600
+    path: ./providers/j.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  k:
+    type: http
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml"
+    interval: 3600
+    path: ./providers/k.yaml
+    health-check:
+      enable: true
+      interval: 600
+      #lazy: true
+      url: http://www.gstatic.com/generate_204
+
+
+proxy-groups:
+- name: MMOBI
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 0
+  use:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+- name: AALI
+  type: select
+  proxies:
+  - MMOBI
+  - DIRECT
+  use:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+- name: QQOLI
+  type: select
+  proxies:
+  - AALI
+  - MMOBI
+  - TTAQI
+  use:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+- name: TTAQI
+  type: select
+  proxies:
+  - DIRECT
+  - AALI  
+  - MMOBI
+- name: MMAQI
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: NNAQI
+  type: select
+  proxies:
+  - AALI
+  - TTAQI
+  - MMOBI
+  use:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+
+rule-providers:
+  aff:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_fr.txt"
+    path: ./ruleset/aff.yaml
+    interval: 86400
+
+  yun:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_fr.txt"
+    path: ./ruleset/yun.yaml
+    interval: 86400
+
+  oki:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt"
+    path: ./ruleset/oki.yaml
+    interval: 86400
+
+  doki:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt"
+    path: ./ruleset/doki.yaml
+    interval: 86400
+
+  xal:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt"
+    path: ./ruleset/xal.yaml
+    interval: 86400
+
+  loo:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt"
+    path: ./ruleset/loo.yaml
+    interval: 86400
+
+  app:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_app.txt"
+    path: ./ruleset/app.yaml
+    interval: 86400
+
+rules:
+- RULE-SET,app,TTAQI
+- RULE-SET,aff,MMAQI
+- RULE-SET,oki,QQOLI
+- DOMAIN-SUFFIX,ir,TTAQI
+- RULE-SET,xal,TTAQI
+- RULE-SET,yun,MMAQI,no-resolve
+- RULE-SET,doki,QQOLI,no-resolve
+- RULE-SET,loo,TTAQI,no-resolve
+- GEOIP,IR,TTAQI,no-resolve
+- MATCH,NNAQI
