@@ -253,7 +253,7 @@ rule-providers:
   yun:
     type: http
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_fr.txt"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.txt"
     path: ./ruleset/yun.yaml
     interval: 86400
 
