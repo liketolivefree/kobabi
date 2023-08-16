@@ -12,7 +12,6 @@ tcp-concurrent: true
 find-process-mode: always
 global-client-fingerprint: random
 geodata-mode: true
-
 dns:
   enable: true
   #listen: 127.0.0.1:53
@@ -38,7 +37,14 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
-
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+  - any:53
+  auto-route: true
+  auto-detect-interface: true
+  #mtu: 9000
 
 proxy-providers:
   a:
