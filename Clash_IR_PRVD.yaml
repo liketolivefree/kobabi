@@ -9,6 +9,7 @@ secret: ''
 profile:
   store-selected: false
   store-fake-ip: true
+
 dns:
   enable: true
   #listen: 127.0.0.1:53
@@ -33,6 +34,7 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
+
 tun:
   enable: true
   stack: system
