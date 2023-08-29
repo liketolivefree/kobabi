@@ -134,20 +134,9 @@ proxy-providers:
 
   i:
     type: http
-    url: "https://raw.githubusercontent.com/baipiao250/HigeFreeProxies/master/sub/sub_merge_clash.yaml"
-    interval: 3600
-    path: ./providers/i.yaml
-    health-check:
-      enable: true
-      interval: 600
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-
-  j:
-    type: http
     url: "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml"
     interval: 3600
-    path: ./providers/j.yaml
+    path: ./providers/i.yaml
     health-check:
       enable: true
       interval: 600
@@ -171,7 +160,7 @@ proxy-groups:
   - g
   - h
   - i
-  - j
+
 - name: AALI
   type: select
   proxies:
@@ -187,7 +176,7 @@ proxy-groups:
   - g
   - h
   - i
-  - j
+
 - name: QQOLI
   type: select
   proxies:
@@ -204,7 +193,7 @@ proxy-groups:
   - g
   - h
   - i
-  - j
+
 - name: TTAQI
   type: select
   proxies:
@@ -232,7 +221,6 @@ proxy-groups:
   - g
   - h
   - i
-  - j
 
 rule-providers:
   aff:
