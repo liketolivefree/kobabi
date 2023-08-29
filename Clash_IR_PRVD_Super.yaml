@@ -57,7 +57,7 @@ proxy-providers:
 
   b:
     type: http
-    url: "https://raw.githubusercontent.com/Supprise0924/Top999/master/sub/sub_merge_yaml.yml"
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml"
     interval: 3600
     path: ./providers/b.yaml
     health-check:
@@ -68,7 +68,7 @@ proxy-providers:
 
   c:
     type: http
-    url: "https://raw.githubusercontent.com/Supprise0924/proxy/master/sub/sub_merge_clash.yaml"
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml"
     interval: 3600
     path: ./providers/c.yaml
     health-check:
@@ -79,7 +79,7 @@ proxy-providers:
 
   d:
     type: http
-    url: "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml"
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/update/provider/provider-all.yml"
     interval: 3600
     path: ./providers/d.yaml
     health-check:
@@ -90,7 +90,7 @@ proxy-providers:
 
   e:
     type: http
-    url: "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml"
+    url: "https://raw.githubusercontent.com/tony-sung/clash-meta-configurations/main/subscription/0.yaml"
     interval: 3600
     path: ./providers/e.yaml
     health-check:
@@ -101,7 +101,7 @@ proxy-providers:
 
   f:
     type: http
-    url: "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml"
+    url: "https://raw.githubusercontent.com/tony-sung/clash-meta-configurations/main/subscription/1.yaml"
     interval: 3600
     path: ./providers/f.yaml
     health-check:
@@ -112,7 +112,7 @@ proxy-providers:
 
   g:
     type: http
-    url: "https://raw.githubusercontent.com/baipiao250/HigeFreeProxies/master/sub/sub_merge_clash.yaml"
+    url: "https://raw.githubusercontent.com/tony-sung/clash-meta-configurations/main/subscription/2.yaml"
     interval: 3600
     path: ./providers/g.yaml
     health-check:
@@ -123,7 +123,7 @@ proxy-providers:
 
   h:
     type: http
-    url: "https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml"
+    url: "https://raw.githubusercontent.com/nineKnight/FreeProxies/master/sub/sub_merge_clash.yaml"
     interval: 3600
     path: ./providers/h.yaml
     health-check:
@@ -134,7 +134,7 @@ proxy-providers:
 
   i:
     type: http
-    url: "https://raw.githubusercontent.com/nineKnight/FreeProxies/master/sub/sub_merge_clash.yaml"
+    url: "https://raw.githubusercontent.com/baipiao250/HigeFreeProxies/master/sub/sub_merge_clash.yaml"
     interval: 3600
     path: ./providers/i.yaml
     health-check:
@@ -145,20 +145,9 @@ proxy-providers:
 
   j:
     type: http
-    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml"
+    url: "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml"
     interval: 3600
     path: ./providers/j.yaml
-    health-check:
-      enable: true
-      interval: 600
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-
-  k:
-    type: http
-    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml"
-    interval: 3600
-    path: ./providers/k.yaml
     health-check:
       enable: true
       interval: 600
@@ -183,7 +172,6 @@ proxy-groups:
   - h
   - i
   - j
-  - k
 - name: AALI
   type: select
   proxies:
@@ -200,7 +188,6 @@ proxy-groups:
   - h
   - i
   - j
-  - k
 - name: QQOLI
   type: select
   proxies:
@@ -218,7 +205,6 @@ proxy-groups:
   - h
   - i
   - j
-  - k
 - name: TTAQI
   type: select
   proxies:
@@ -247,7 +233,6 @@ proxy-groups:
   - h
   - i
   - j
-  - k
 
 rule-providers:
   aff:
@@ -292,18 +277,249 @@ rule-providers:
     path: ./ruleset/loo.yaml
     interval: 86400
 
-  app:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_app.txt"
-    path: ./ruleset/app.yaml
-    interval: 86400
-
 rules:
-- RULE-SET,app,TTAQI
+- DOMAIN-SUFFIX,acl4.ssr,TTAQI
+- DOMAIN-SUFFIX,ip6-localhost,TTAQI
+- DOMAIN-SUFFIX,ip6-loopback,TTAQI
+- DOMAIN-SUFFIX,lan,TTAQI
+- DOMAIN-SUFFIX,local,TTAQI
+- DOMAIN-SUFFIX,localdomain,TTAQI
+- DOMAIN-SUFFIX,localhost,TTAQI
+- IP-CIDR,0.0.0.1/32,MMAQI,no-resolve
+- IP-CIDR,10.0.10.128/32,MMAQI,no-resolve
+- IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
+- IP-CIDR,10.11.0.5/32,MMAQI,no-resolve
+- IP-CIDR,10.15.0.17/32,MMAQI,no-resolve
+- IP-CIDR,10.15.0.18/31,MMAQI,no-resolve
+- IP-CIDR,10.15.0.23/32,MMAQI,no-resolve
+- IP-CIDR,10.15.0.30/32,MMAQI,no-resolve
+- IP-CIDR,10.16.0.13/32,MMAQI,no-resolve
+- IP-CIDR,10.16.0.18/32,MMAQI,no-resolve
+- IP-CIDR,10.16.0.30/32,MMAQI,no-resolve
+- IP-CIDR,10.35.70.148/32,MMAQI,no-resolve
+- IP-CIDR,10.72.25.0/24,MMAQI,no-resolve
+- IP-CIDR,10.140.226.6/32,MMAQI,no-resolve
+- IP-CIDR,127.0.0.2/32,MMAQI,no-resolve
+- IP-CIDR,172.22.109.218/32,MMAQI,no-resolve
+- IP-CIDR,172.31.9.183/32,MMAQI,no-resolve
+- IP-CIDR,172.31.22.246/32,MMAQI,no-resolve
+- IP-CIDR,172.31.59.167/32,MMAQI,no-resolve
+- IP-CIDR,224.8.125.117/32,MMAQI,no-resolve
+- IP-CIDR,224.110.0.53/32,MMAQI,no-resolve
+- IP-CIDR,224.145.6.33/32,MMAQI,no-resolve
+- IP-CIDR,225.73.134.162/32,MMAQI,no-resolve
+- IP-CIDR,225.108.223.250/32,MMAQI,no-resolve
+- IP-CIDR,225.191.50.179/32,MMAQI,no-resolve
+- IP-CIDR,226.2.161.184/32,MMAQI,no-resolve
+- IP-CIDR,227.12.148.222/32,MMAQI,no-resolve
+- IP-CIDR,227.92.242.49/32,MMAQI,no-resolve
+- IP-CIDR,227.129.109.91/32,MMAQI,no-resolve
+- IP-CIDR,227.138.255.213/32,MMAQI,no-resolve
+- IP-CIDR,227.172.55.184/32,MMAQI,no-resolve
+- IP-CIDR,227.233.79.54/32,MMAQI,no-resolve
+- IP-CIDR,228.25.115.64/32,MMAQI,no-resolve
+- IP-CIDR,228.41.85.117/32,MMAQI,no-resolve
+- IP-CIDR,228.49.142.11/32,MMAQI,no-resolve
+- IP-CIDR,228.135.88.101/32,MMAQI,no-resolve
+- IP-CIDR,228.194.82.251/32,MMAQI,no-resolve
+- IP-CIDR,229.155.90.63/32,MMAQI,no-resolve
+- IP-CIDR,229.192.93.82/32,MMAQI,no-resolve
+- IP-CIDR,230.134.37.163/32,MMAQI,no-resolve
+- IP-CIDR,230.231.229.10/32,MMAQI,no-resolve
+- IP-CIDR,231.98.184.102/32,MMAQI,no-resolve
+- IP-CIDR,231.118.141.159/32,MMAQI,no-resolve
+- IP-CIDR,231.156.18.117/32,MMAQI,no-resolve
+- IP-CIDR,231.217.204.87/32,MMAQI,no-resolve
+- IP-CIDR,231.228.102.246/32,MMAQI,no-resolve
+- IP-CIDR,232.222.181.12/32,MMAQI,no-resolve
+- IP-CIDR,233.62.189.160/32,MMAQI,no-resolve
+- IP-CIDR,233.91.193.248/32,MMAQI,no-resolve
+- IP-CIDR,233.102.116.211/32,MMAQI,no-resolve
+- IP-CIDR,233.175.187.96/32,MMAQI,no-resolve
+- IP-CIDR,233.184.55.151/32,MMAQI,no-resolve
+- IP-CIDR,234.181.138.54/32,MMAQI,no-resolve
+- IP-CIDR,234.248.206.141/32,MMAQI,no-resolve
+- IP-CIDR,235.25.215.60/32,MMAQI,no-resolve
+- IP-CIDR,235.93.186.127/32,MMAQI,no-resolve
+- IP-CIDR,235.140.200.199/32,MMAQI,no-resolve
+- IP-CIDR,235.167.221.218/32,MMAQI,no-resolve
+- IP-CIDR,236.83.216.21/32,MMAQI,no-resolve
+- IP-CIDR,236.110.58.103/32,MMAQI,no-resolve
+- IP-CIDR,236.195.236.23/32,MMAQI,no-resolve
+- IP-CIDR,237.250.131.153/32,MMAQI,no-resolve
+- IP-CIDR,238.15.66.119/32,MMAQI,no-resolve
+- IP-CIDR,239.11.133.48/32,MMAQI,no-resolve
+- IP-CIDR,239.39.127.10/32,MMAQI,no-resolve
+- IP-CIDR,240.77.2.4/32,MMAQI,no-resolve
+- IP-CIDR,240.116.151.154/32,MMAQI,no-resolve
+- IP-CIDR,240.132.30.162/32,MMAQI,no-resolve
+- IP-CIDR,240.237.58.79/32,MMAQI,no-resolve
+- IP-CIDR,241.0.19.171/32,MMAQI,no-resolve
+- IP-CIDR,241.163.135.223/32,MMAQI,no-resolve
+- IP-CIDR,242.193.131.8/32,MMAQI,no-resolve
+- IP-CIDR,242.232.106.206/32,MMAQI,no-resolve
+- IP-CIDR,243.45.135.100/32,MMAQI,no-resolve
+- IP-CIDR,243.81.43.209/32,MMAQI,no-resolve
+- IP-CIDR,243.87.105.138/32,MMAQI,no-resolve
+- IP-CIDR,244.23.55.232/32,MMAQI,no-resolve
+- IP-CIDR,244.76.41.194/32,MMAQI,no-resolve
+- IP-CIDR,244.137.147.69/32,MMAQI,no-resolve
+- IP-CIDR,245.96.141.154/32,MMAQI,no-resolve
+- IP-CIDR,245.109.55.115/32,MMAQI,no-resolve
+- IP-CIDR,245.152.84.23/32,MMAQI,no-resolve
+- IP-CIDR,245.192.239.164/32,MMAQI,no-resolve
+- IP-CIDR,245.245.176.160/32,MMAQI,no-resolve
+- IP-CIDR,246.47.222.240/32,MMAQI,no-resolve
+- IP-CIDR,246.134.183.74/32,MMAQI,no-resolve
+- IP-CIDR,246.166.147.15/32,MMAQI,no-resolve
+- IP-CIDR,246.179.112.12/32,MMAQI,no-resolve
+- IP-CIDR,246.232.135.28/32,MMAQI,no-resolve
+- IP-CIDR,247.34.180.239/32,MMAQI,no-resolve
+- IP-CIDR,247.44.83.206/32,MMAQI,no-resolve
+- IP-CIDR,247.123.209.17/32,MMAQI,no-resolve
+- IP-CIDR,247.207.208.18/32,MMAQI,no-resolve
+- IP-CIDR,247.224.208.140/32,MMAQI,no-resolve
+- IP-CIDR,249.57.205.117/32,MMAQI,no-resolve
+- IP-CIDR,249.112.226.98/32,MMAQI,no-resolve
+- IP-CIDR,249.250.158.148/32,MMAQI,no-resolve
+- IP-CIDR,250.4.46.84/32,MMAQI,no-resolve
+- IP-CIDR,250.151.244.173/32,MMAQI,no-resolve
+- IP-CIDR,251.19.57.54/32,MMAQI,no-resolve
+- IP-CIDR,251.198.165.196/32,MMAQI,no-resolve
+- IP-CIDR,252.47.83.163/32,MMAQI,no-resolve
+- IP-CIDR,252.56.37.128/32,MMAQI,no-resolve
+- IP-CIDR,252.75.45.182/32,MMAQI,no-resolve
+- IP-CIDR,252.90.109.242/32,MMAQI,no-resolve
+- IP-CIDR,252.124.102.160/32,MMAQI,no-resolve
+- IP-CIDR,252.187.191.102/32,MMAQI,no-resolve
+- IP-CIDR,253.1.163.108/32,MMAQI,no-resolve
+- IP-CIDR,253.13.70.127/32,MMAQI,no-resolve
+- IP-CIDR,253.21.192.23/32,MMAQI,no-resolve
+- IP-CIDR,253.165.60.220/32,MMAQI,no-resolve
+- IP-CIDR,254.230.180.37/32,MMAQI,no-resolve
+- IP-CIDR,254.237.190.31/32,MMAQI,no-resolve
+- IP-CIDR,255.99.94.68/32,MMAQI,no-resolve
+- IP-CIDR,0.0.0.0/8,TTAQI,no-resolve
+- IP-CIDR,10.0.0.0/8,TTAQI,no-resolve
+- IP-CIDR,100.64.0.0/10,TTAQI,no-resolve
+- IP-CIDR,127.0.0.0/8,TTAQI,no-resolve
+- IP-CIDR,169.254.0.0/16,TTAQI,no-resolve
+- IP-CIDR,172.16.0.0/12,TTAQI,no-resolve
+- IP-CIDR,192.0.0.0/24,TTAQI,no-resolve
+- IP-CIDR,192.0.2.0/24,TTAQI,no-resolve
+- IP-CIDR,192.88.99.0/24,TTAQI,no-resolve
+- IP-CIDR,192.168.0.0/16,TTAQI,no-resolve
+- IP-CIDR,198.18.0.0/15,TTAQI,no-resolve
+- IP-CIDR,198.51.100.0/24,TTAQI,no-resolve
+- IP-CIDR,203.0.113.0/24,TTAQI,no-resolve
+- IP-CIDR,224.0.0.0/4,TTAQI,no-resolve
+- IP-CIDR,233.252.0.0/24,TTAQI,no-resolve
+- IP-CIDR,240.0.0.0/4,TTAQI,no-resolve
+- IP-CIDR,255.255.255.255/32,TTAQI,no-resolve
+- IP-CIDR6,::/128,TTAQI,no-resolve
+- IP-CIDR6,::1/128,TTAQI,no-resolve
+- IP-CIDR6,::ffff:0:0/96,TTAQI,no-resolve
+- IP-CIDR6,::ffff:0:0:0/96,TTAQI,no-resolve
+- IP-CIDR6,64:ff9b::/96,TTAQI,no-resolve
+- IP-CIDR6,64:ff9b:1::/48,TTAQI,no-resolve
+- IP-CIDR6,100::/64,TTAQI,no-resolve
+- IP-CIDR6,2001:0000::/32,TTAQI,no-resolve
+- IP-CIDR6,2001:20::/28,TTAQI,no-resolve
+- IP-CIDR6,2001:db8::/32,TTAQI,no-resolve
+- IP-CIDR6,2002::/16,TTAQI,no-resolve
+- IP-CIDR6,fc00::/7,TTAQI,no-resolve
+- IP-CIDR6,fe80::/10,TTAQI,no-resolve
+- IP-CIDR6,ff00::/8,TTAQI,no-resolve
+- PROCESS-NAME,aria2,TTAQI
+- PROCESS-NAME,aria2.exe,TTAQI
+- PROCESS-NAME,aria2c,TTAQI
+- PROCESS-NAME,aria2c.exe,TTAQI
+- PROCESS-NAME,BitComet,TTAQI
+- PROCESS-NAME,BitComet.exe,TTAQI
+- PROCESS-NAME,DownloadService,TTAQI
+- PROCESS-NAME,fdm,TTAQI
+- PROCESS-NAME,fdm.exe,TTAQI
+- PROCESS-NAME,Folx,TTAQI
+- PROCESS-NAME,hysteria,TTAQI
+- PROCESS-NAME,hysteria.exe,TTAQI
+- PROCESS-NAME,leaf,TTAQI
+- PROCESS-NAME,leaf.exe,TTAQI
+- PROCESS-NAME,naive,TTAQI
+- PROCESS-NAME,naive.exe,TTAQI
+- PROCESS-NAME,NeatDM,TTAQI
+- PROCESS-NAME,NeatDM.exe,TTAQI
+- PROCESS-NAME,NetTransport,TTAQI
+- PROCESS-NAME,NetTransport.exe,TTAQI
+- PROCESS-NAME,privoxy,TTAQI
+- PROCESS-NAME,privoxy.exe,TTAQI
+- PROCESS-NAME,proxifier,TTAQI
+- PROCESS-NAME,proxifier,TTAQI
+- PROCESS-NAME,qBittorrent,TTAQI
+- PROCESS-NAME,qbittorrent.exe,TTAQI
+- PROCESS-NAME,shadowsocks,TTAQI
+- PROCESS-NAME,shadowsocks.exe,TTAQI
+- PROCESS-NAME,shadowsocksr,TTAQI
+- PROCESS-NAME,shadowsocksr.exe,TTAQI
+- PROCESS-NAME,sing-box,TTAQI
+- PROCESS-NAME,sing-box.exe,TTAQI
+- PROCESS-NAME,speeder,TTAQI
+- PROCESS-NAME,speeder.exe,TTAQI
+- PROCESS-NAME,speederv2,TTAQI
+- PROCESS-NAME,speederv2.exe,TTAQI
+- PROCESS-NAME,sslocal,TTAQI
+- PROCESS-NAME,ss-local,TTAQI
+- PROCESS-NAME,sslocal.exe,TTAQI
+- PROCESS-NAME,ss-local.exe,TTAQI
+- PROCESS-NAME,Surge,TTAQI
+- PROCESS-NAME,Surge 2,TTAQI
+- PROCESS-NAME,Surge 3,TTAQI
+- PROCESS-NAME,Surge 4,TTAQI
+- PROCESS-NAME,Surge%202,TTAQI
+- PROCESS-NAME,Surge%203,TTAQI
+- PROCESS-NAME,Surge%204,TTAQI
+- PROCESS-NAME,Thunder,TTAQI
+- PROCESS-NAME,Thunder.exe,TTAQI
+- PROCESS-NAME,ThunderVIP.exe,TTAQI
+- PROCESS-NAME,tinyvpn,TTAQI
+- PROCESS-NAME,tinyvpn.exe,TTAQI
+- PROCESS-NAME,Transmission,TTAQI
+- PROCESS-NAME,transmission-daemon.exe,TTAQI
+- PROCESS-NAME,transmission-qt.exe,TTAQI
+- PROCESS-NAME,trojan,TTAQI
+- PROCESS-NAME,trojan.exe,TTAQI
+- PROCESS-NAME,trojan-go,TTAQI
+- PROCESS-NAME,trojan-go.exe,TTAQI
+- PROCESS-NAME,tuic,TTAQI
+- PROCESS-NAME,tuic.exe,TTAQI
+- PROCESS-NAME,tuic-client,TTAQI
+- PROCESS-NAME,tuic-client.exe,TTAQI
+- PROCESS-NAME,udp2raw,TTAQI
+- PROCESS-NAME,udp2raw.exe,TTAQI
+- PROCESS-NAME,udp2raw_mp,TTAQI
+- PROCESS-NAME,udp2raw_mp.exe,TTAQI
+- PROCESS-NAME,uTorrent,TTAQI
+- PROCESS-NAME,uTorrent.exe,TTAQI
+- PROCESS-NAME,v2ray,TTAQI
+- PROCESS-NAME,v2ray.exe,TTAQI
+- PROCESS-NAME,WebTorrent,TTAQI
+- PROCESS-NAME,WebTorrent.exe,TTAQI
+- PROCESS-NAME,xdm,TTAQI
+- PROCESS-NAME,xdm.exe,TTAQI
+- PROCESS-NAME,xdman,TTAQI
+- PROCESS-NAME,xdman.exe,TTAQI
+- PROCESS-NAME,xray,TTAQI
+- PROCESS-NAME,xray.exe,TTAQI
+- PROCESS-NAME,nekoray,TTAQI
+- PROCESS-NAME,nekoray.exe,TTAQI
+- PROCESS-NAME,v2rayN,TTAQI
+- PROCESS-NAME,v2rayN.exe,TTAQI
+- PROCESS-NAME,WinCFScan,TTAQI
+- PROCESS-NAME,WinCFScan.exe,TTAQI
+- PROCESS-NAME,WinCFScan.dll,TTAQI
+- PROCESS-NAME,CloudflareST,TTAQI
+- PROCESS-NAME,CloudflareST.exe,TTAQI
 - RULE-SET,aff,MMAQI
 - RULE-SET,oki,QQOLI
-- DOMAIN-SUFFIX,ir,TTAQI
 - RULE-SET,xal,TTAQI
 - RULE-SET,yun,MMAQI,no-resolve
 - RULE-SET,doki,QQOLI,no-resolve
