@@ -9,6 +9,7 @@ secret: ''
 profile:
   store-selected: false
   store-fake-ip: true
+
 dns:
   enable: true
   #listen: 127.0.0.1:53
@@ -33,6 +34,7 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
+
 tun:
   enable: true
   stack: system
@@ -107,14 +109,14 @@ rule-providers:
   yun:
     type: http
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.txt"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_fr.txt"
     path: ./ruleset/yun.yaml
     interval: 86400
 
   oki:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_fr.txt"
     path: ./ruleset/oki.yaml
     interval: 86400
 
