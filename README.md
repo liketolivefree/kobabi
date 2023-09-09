@@ -19,6 +19,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_f.yaml
 
 
 ===)) لینگ کلش ویندوز (مخصوص کلش ویندوز):
+
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_win.yaml
 
 .
