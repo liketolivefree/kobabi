@@ -11,18 +11,23 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub.txt
 
 ===)) لینگ کلش (قابل استفاده در همه کلاینتهای کلش، مثل کلش متا، کلش ویندوز، کلش اندروید و ...):
 
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_IR_L.yaml
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_IR_F.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_l.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_f.yaml
 
 تفاوت این دو نسخه فقط در تعداد رول هاست. رول های نسخه F خیلی کاملتر از نسخه L است.
+
+
+
+===)) لینگ کلش ویندوز (مخصوص کلش ویندوز):
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_win.yaml
 
 .
 
 
 ===)) لینگ کلش متا (مخصوص کلش متا. فقط متا):
 
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_L.yaml
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_F.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_f.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_l.yaml
 
 تفاوت این دو نسخه فقط در تعداد رول هاست. رول های نسخه F خیلی کاملتر از نسخه L است.
 
@@ -31,21 +36,22 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_F.yam
 
 
 ===)) کانفیگهای پرووایدری کلش (این کانفیگها بجای استفاده مستقیم از پروکسی ها، از لینگ حاوی اونها استفاده میکنن):
-برای کلش:
+برای کلش (معمولی یا متا فرقی نداره):
 
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_IR_PRVD.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd.yaml
 
-برای کلش متا (فقط متا):
+نسخه حجیم تر و کامل تر:
 
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_PRVD.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_frk.yaml
 
 
 .
 .
 سوپر کانفیگ (این کانفیگ حاوی 11 لینگ پرووایدر پروکسی است که هر کدام بین 2 تا 8 هزار پروکسی دارن):
+این سوپرکانفیگ ترجیحا با کلاینتهای کلش متا اجرا بشه چون گاهی لابلای پروکسی ها ممکنه ویلس هم باشه که در اینصورت کلش معمولی خطا میگیره.
 
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/Clash_META_IR_SUPRVD.yaml
 
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_prvd_spr.yaml
 .
 .
 
