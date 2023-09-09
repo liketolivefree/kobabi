@@ -177,10 +177,9 @@ rules:
 - IP-CIDR6,fe80::/10,TTAQI,no-resolve
 - IP-CIDR6,ff00::/8,TTAQI,no-resolve
 - RULE-SET,aff,MMAQI
-- RULE-SET,oki,QQOLI
 - DOMAIN-SUFFIX,ir,TTAQI
+- RULE-SET,oki,QQOLI
 - RULE-SET,yun,MMAQI,no-resolve
-- RULE-SET,doki,QQOLI,no-resolve
 - RULE-SET,loo,TTAQI,no-resolve
-- GEOIP,IR,TTAQI,no-resolve
+- RULE-SET,doki,QQOLI,no-resolve
 - MATCH,NNAQI
