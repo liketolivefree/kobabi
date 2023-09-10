@@ -46,7 +46,7 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr_mom.yaml"
     interval: 3600
     path: ./providers/a.yaml
     health-check:
