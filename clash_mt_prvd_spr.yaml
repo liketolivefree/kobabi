@@ -227,7 +227,7 @@ rule-providers:
     type: http
     behavior: "domain"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_sp.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_fr.yaml"
     path: ./aff.yaml
     interval: 86400
   yun:
@@ -241,7 +241,7 @@ rule-providers:
     type: http
     behavior: "domain"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_fr.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.yaml"
     path: ./oki.yaml
     interval: 86400
   doki:
