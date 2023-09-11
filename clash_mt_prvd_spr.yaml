@@ -54,7 +54,6 @@ proxy-providers:
       interval: 600
       #lazy: true
       url: http://www.gstatic.com/generate_204
-
   b:
     type: http
     url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml"
@@ -65,7 +64,6 @@ proxy-providers:
       interval: 600
       #lazy: true
       url: http://www.gstatic.com/generate_204
-
   c:
     type: http
     url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml"
@@ -76,7 +74,6 @@ proxy-providers:
       interval: 600
       #lazy: true
       url: http://www.gstatic.com/generate_204
-
   d:
     type: http
     url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/update/provider/provider-all.yml"
@@ -87,10 +84,9 @@ proxy-providers:
       interval: 600
       #lazy: true
       url: http://www.gstatic.com/generate_204
-
   e:
     type: http
-    url: "https://raw.githubusercontent.com/tony-sung/clash-meta-configurations/main/subscription/0.yaml"
+    url: "https://raw.githubusercontent.com/nineKnight/FreeProxies/master/sub/sub_merge_clash.yaml"
     interval: 3600
     path: ./providers/e.yaml
     health-check:
@@ -98,45 +94,11 @@ proxy-providers:
       interval: 600
       #lazy: true
       url: http://www.gstatic.com/generate_204
-
   f:
-    type: http
-    url: "https://raw.githubusercontent.com/tony-sung/clash-meta-configurations/main/subscription/1.yaml"
-    interval: 3600
-    path: ./providers/f.yaml
-    health-check:
-      enable: true
-      interval: 600
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-
-  g:
-    type: http
-    url: "https://raw.githubusercontent.com/tony-sung/clash-meta-configurations/main/subscription/2.yaml"
-    interval: 3600
-    path: ./providers/g.yaml
-    health-check:
-      enable: true
-      interval: 600
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-
-  h:
-    type: http
-    url: "https://raw.githubusercontent.com/nineKnight/FreeProxies/master/sub/sub_merge_clash.yaml"
-    interval: 3600
-    path: ./providers/h.yaml
-    health-check:
-      enable: true
-      interval: 600
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-
-  i:
     type: http
     url: "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml"
     interval: 3600
-    path: ./providers/i.yaml
+    path: ./providers/f.yaml
     health-check:
       enable: true
       interval: 600
@@ -157,10 +119,6 @@ proxy-groups:
   - d
   - e
   - f
-  - g
-  - h
-  - i
-
 - name: AALI
   type: select
   proxies:
@@ -173,10 +131,6 @@ proxy-groups:
   - d
   - e
   - f
-  - g
-  - h
-  - i
-
 - name: QQOLI
   type: select
   proxies:
@@ -190,10 +144,6 @@ proxy-groups:
   - d
   - e
   - f
-  - g
-  - h
-  - i
-
 - name: TTAQI
   type: select
   proxies:
@@ -218,9 +168,6 @@ proxy-groups:
   - d
   - e
   - f
-  - g
-  - h
-  - i
 
 rule-providers:
   aff:
