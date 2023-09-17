@@ -18,6 +18,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub_all.txt
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_l.yaml
 
+
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_f.yaml
 
 تفاوت این دو نسخه فقط در تعداد رول هاست. رول های نسخه F خیلی کاملتر از نسخه L است.
@@ -37,6 +38,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_win.yaml
 ===)) لینگ کلش متا (مخصوص کلش متا. فقط متا):
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_f.yaml
+
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_l.yaml
 
