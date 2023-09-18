@@ -252,7 +252,7 @@ rule-providers:
     type: http
     behavior: "domain"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.yaml"
     path: ./aff.yaml
     interval: 86400
   yun:
