@@ -187,30 +187,30 @@ rule-providers:
   oki:
     type: http
     behavior: "domain"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.yaml"
-    path: ./oki.yaml
+    format: 'text'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt"
+    path: ./ruleset/oki.txt
     interval: 86400
   doki:
     type: http
     behavior: "ipcidr"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.yaml"
-    path: ./doki.yaml
+    format: 'text'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt"
+    path: ./ruleset/doki.txt
     interval: 86400
   xal:
     type: http
     behavior: "domain"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.yaml"
-    path: ./xal.yaml
+    format: 'text'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt"
+    path: ./ruleset/xal.txt
     interval: 86400
   loo:
     type: http
     behavior: "ipcidr"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.yaml"
-    path: ./loo.yaml
+    format: 'text'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt"
+    path: ./ruleset/loo.txt
     interval: 86400
 
 rules:
@@ -235,10 +235,12 @@ rules:
   - IP-CIDR,10.35.70.148/32,MMAQI,no-resolve
   - IP-CIDR,10.72.25.0/24,MMAQI,no-resolve
   - IP-CIDR,10.140.226.6/32,MMAQI,no-resolve
+  - IP-CIDR,100.95.210.126/32,MMAQI,no-resolve
   - IP-CIDR,127.0.0.2/32,MMAQI,no-resolve
   - IP-CIDR,172.22.109.218/32,MMAQI,no-resolve
   - IP-CIDR,172.31.9.183/32,MMAQI,no-resolve
   - IP-CIDR,172.31.22.246/32,MMAQI,no-resolve
+  - IP-CIDR,172.31.27.185/32,MMAQI,no-resolve
   - IP-CIDR,172.31.59.167/32,MMAQI,no-resolve
   - IP-CIDR,224.8.125.117/32,MMAQI,no-resolve
   - IP-CIDR,224.110.0.53/32,MMAQI,no-resolve
