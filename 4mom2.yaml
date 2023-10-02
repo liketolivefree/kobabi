@@ -10459,7 +10459,7 @@ rules:
   - DOMAIN-SUFFIX,zzy1.mipujia.com,MMAQI
   - DOMAIN-SUFFIX,zzy1.quyaoya.com,MMAQI
   - DOMAIN-SUFFIX,ir,TTAQI
-  - DOMAIN-SUFFIX,fmoviesz.to,TTAQI
+  - DOMAIN-SUFFIX,fmoviesz.to,TTAQI  
   - DOMAIN-SUFFIX,00078966.com,QQOLI
   - DOMAIN-SUFFIX,004296.com,QQOLI
   - DOMAIN-SUFFIX,004297.com,QQOLI
@@ -20250,7 +20250,7 @@ rules:
   - DOMAIN-SUFFIX,zyxel.com,QQOLI
   - DOMAIN-SUFFIX,zyzc9.com,QQOLI
   - DOMAIN-SUFFIX,zzcartoon.com,QQOLI
-  - DOMAIN-SUFFIX,zzcloud.me,QQOLI
+  - DOMAIN-SUFFIX,zzcloud.me,QQOLI 
   - IP-CIDR,1.3.0.10/32,MMAQI,no-resolve
   - IP-CIDR,3.64.163.50/32,MMAQI,no-resolve
   - IP-CIDR,3.209.25.139/32,MMAQI,no-resolve
@@ -22635,7 +22635,7 @@ rules:
   - IP-CIDR,223.87.182.11/32,MMAQI,no-resolve
   - IP-CIDR,223.87.182.52/32,MMAQI,no-resolve
   - IP-CIDR,223.87.182.101/32,MMAQI,no-resolve
-  - IP-CIDR,223.87.182.102/32,MMAQI,no-resolve
+  - IP-CIDR,223.87.182.102/32,MMAQI,no-resolve 
   - IP-CIDR,2.57.3.0/24,TTAQI,no-resolve
   - IP-CIDR,2.144.0.0/14,TTAQI,no-resolve
   - IP-CIDR,2.176.0.0/12,TTAQI,no-resolve
@@ -25155,7 +25155,7 @@ rules:
   - IP-CIDR6,2a13:e180::/29,TTAQI,no-resolves
   - IP-CIDR6,2a13:ed80::/29,TTAQI,no-resolves
   - IP-CIDR6,2a13:ef80::/29,TTAQI,no-resolves
-  - IP-CIDR6,2a13:f480::/29,TTAQI,no-resolves
+  - IP-CIDR6,2a13:f480::/29,TTAQI,no-resolves  
   - IP-CIDR,1.0.0.0/24,QQOLI,no-resolve
   - IP-CIDR,1.1.1.0/24,QQOLI,no-resolve
   - IP-CIDR,1.44.96.0/24,QQOLI,no-resolve
