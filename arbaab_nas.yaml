@@ -1017,44 +1017,44 @@ rule-providers:
   aff:
     type: http
     behavior: "domain"
-    format: 'text'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.txt"
-    path: ./ruleset/aff.txt
+    format: 'yaml'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.yaml"
+    path: ./aff.yaml
     interval: 86400
   yun:
     type: http
     behavior: "ipcidr"
-    format: 'text'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.txt"
-    path: ./ruleset/yun.txt
+    format: 'yaml'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.yaml"
+    path: ./yun.yaml
     interval: 86400
   oki:
     type: http
     behavior: "domain"
-    format: 'text'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt"
-    path: ./ruleset/oki.txt
+    format: 'yaml'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.yaml"
+    path: ./oki.yaml
     interval: 86400
   doki:
     type: http
     behavior: "ipcidr"
-    format: 'text'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt"
-    path: ./ruleset/doki.txt
+    format: 'yaml'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.yaml"
+    path: ./doki.yaml
     interval: 86400
   xal:
     type: http
     behavior: "domain"
-    format: 'text'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt"
-    path: ./ruleset/xal.txt
+    format: 'yaml'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.yaml"
+    path: ./xal.yaml
     interval: 86400
   loo:
     type: http
     behavior: "ipcidr"
-    format: 'text'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt"
-    path: ./ruleset/loo.txt
+    format: 'yaml'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.yaml"
+    path: ./loo.yaml
     interval: 86400
 
 rules:
