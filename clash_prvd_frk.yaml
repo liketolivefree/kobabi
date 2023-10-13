@@ -110,7 +110,7 @@ rule-providers:
     type: http
     behavior: "ipcidr"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_fr.yaml"
     path: ./yun.yaml
     interval: 86400
   oki:
@@ -152,7 +152,6 @@ rules:
   - DOMAIN-SUFFIX,localhost,TTAQI
   - IP-CIDR,0.0.0.1/32,MMAQI,no-resolve
   - IP-CIDR,10.0.10.128/32,MMAQI,no-resolve
-  - IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
   - IP-CIDR,10.11.0.5/32,MMAQI,no-resolve
   - IP-CIDR,10.15.0.17/32,MMAQI,no-resolve
   - IP-CIDR,10.15.0.18/31,MMAQI,no-resolve
@@ -162,15 +161,10 @@ rules:
   - IP-CIDR,10.16.0.18/32,MMAQI,no-resolve
   - IP-CIDR,10.16.0.30/32,MMAQI,no-resolve
   - IP-CIDR,10.35.70.148/32,MMAQI,no-resolve
-  - IP-CIDR,10.72.25.0/24,MMAQI,no-resolve
   - IP-CIDR,10.140.226.6/32,MMAQI,no-resolve
-  - IP-CIDR,100.95.210.126/32,MMAQI,no-resolve
-  - IP-CIDR,127.0.0.2/32,MMAQI,no-resolve
-  - IP-CIDR,172.22.109.218/32,MMAQI,no-resolve
-  - IP-CIDR,172.31.9.183/32,MMAQI,no-resolve
-  - IP-CIDR,172.31.22.246/32,MMAQI,no-resolve
-  - IP-CIDR,172.31.27.185/32,MMAQI,no-resolve
-  - IP-CIDR,172.31.59.167/32,MMAQI,no-resolve
+  - IP-CIDR,198.51.100.1/32,MMAQI,no-resolve
+  - IP-CIDR,198.51.100.187/32,MMAQI,no-resolve
+  - IP-CIDR,203.0.113.99/32,MMAQI,no-resolve
   - IP-CIDR,224.8.125.117/32,MMAQI,no-resolve
   - IP-CIDR,224.110.0.53/32,MMAQI,no-resolve
   - IP-CIDR,224.145.6.33/32,MMAQI,no-resolve
@@ -208,7 +202,6 @@ rules:
   - IP-CIDR,234.248.206.141/32,MMAQI,no-resolve
   - IP-CIDR,235.25.215.60/32,MMAQI,no-resolve
   - IP-CIDR,235.93.186.127/32,MMAQI,no-resolve
-  - IP-CIDR,235.140.200.199/32,MMAQI,no-resolve
   - IP-CIDR,235.167.221.218/32,MMAQI,no-resolve
   - IP-CIDR,236.83.216.21/32,MMAQI,no-resolve
   - IP-CIDR,236.110.58.103/32,MMAQI,no-resolve
@@ -231,8 +224,6 @@ rules:
   - IP-CIDR,244.23.55.232/32,MMAQI,no-resolve
   - IP-CIDR,244.76.41.194/32,MMAQI,no-resolve
   - IP-CIDR,244.137.147.69/32,MMAQI,no-resolve
-  - IP-CIDR,245.96.141.154/32,MMAQI,no-resolve
-  - IP-CIDR,245.109.55.115/32,MMAQI,no-resolve
   - IP-CIDR,245.152.84.23/32,MMAQI,no-resolve
   - IP-CIDR,245.192.239.164/32,MMAQI,no-resolve
   - IP-CIDR,245.245.176.160/32,MMAQI,no-resolve
@@ -266,6 +257,18 @@ rules:
   - IP-CIDR,254.230.180.37/32,MMAQI,no-resolve
   - IP-CIDR,254.237.190.31/32,MMAQI,no-resolve
   - IP-CIDR,255.99.94.68/32,MMAQI,no-resolve
+  #- IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
+  #- IP-CIDR,10.72.25.0/24,MMAQI,no-resolve
+  #- IP-CIDR,100.95.210.126/32,MMAQI,no-resolve
+  #- IP-CIDR,127.0.0.2/32,MMAQI,no-resolve
+  #- IP-CIDR,172.22.109.218/32,MMAQI,no-resolve
+  #- IP-CIDR,172.31.9.183/32,MMAQI,no-resolve
+  #- IP-CIDR,172.31.22.246/32,MMAQI,no-resolve
+  #- IP-CIDR,172.31.27.185/32,MMAQI,no-resolve
+  #- IP-CIDR,172.31.59.167/32,MMAQI,no-resolve
+  #- IP-CIDR,235.140.200.199/32,MMAQI,no-resolve
+  #- IP-CIDR,245.96.141.154/32,MMAQI,no-resolve
+  #- IP-CIDR,245.109.55.115/32,MMAQI,no-resolve
   - IP-CIDR,0.0.0.0/8,TTAQI,no-resolve
   - IP-CIDR,10.0.0.0/8,TTAQI,no-resolve
   - IP-CIDR,100.64.0.0/10,TTAQI,no-resolve
@@ -297,6 +300,39 @@ rules:
   - IP-CIDR6,fc00::/7,TTAQI,no-resolve
   - IP-CIDR6,fe80::/10,TTAQI,no-resolve
   - IP-CIDR6,ff00::/8,TTAQI,no-resolve
+  - DOMAIN-SUFFIX,accounts.google.com,QQOLI
+  - DOMAIN-SUFFIX,answers.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,api.amazon.com,QQOLI
+  - DOMAIN-SUFFIX,aws.amazon.com,QQOLI
+  - DOMAIN-SUFFIX,books.google.com,QQOLI
+  - DOMAIN-SUFFIX,calendar.google.com,QQOLI
+  - DOMAIN-SUFFIX,chrome.google.com,QQOLI
+  - DOMAIN-SUFFIX,consent.google.com,QQOLI
+  - DOMAIN-SUFFIX,contacts.google.com,QQOLI
+  - DOMAIN-SUFFIX,db187550c7dkf.cloudfront.net,QQOLI
+  - DOMAIN-SUFFIX,docs.google.com,QQOLI
+  - DOMAIN-SUFFIX,docs.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,download.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,dqpnq362acqdi.cloudfront.net,QQOLI
+  - DOMAIN-SUFFIX,drive.google.com,QQOLI
+  - DOMAIN-SUFFIX,endpoints.office.com,QQOLI
+  - DOMAIN-SUFFIX,images.google.com,QQOLI
+  - DOMAIN-SUFFIX,learn.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,mail.google.com,QQOLI
+  - DOMAIN-SUFFIX,maps.google.com,QQOLI
+  - DOMAIN-SUFFIX,maps.googleapis.com,QQOLI
+  - DOMAIN-SUFFIX,photos.google.com,QQOLI
+  - DOMAIN-SUFFIX,play.google.com,QQOLI
+  - DOMAIN-SUFFIX,plus.google.com,QQOLI
+  - DOMAIN-SUFFIX,scholar.google.com,QQOLI
+  - DOMAIN-SUFFIX,support.google.com,QQOLI
+  - DOMAIN-SUFFIX,support.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,translate.google.com,QQOLI
+  - DOMAIN-SUFFIX,translate.googleapis.com,QQOLI
+  - DOMAIN-SUFFIX,trends.google.com,QQOLI
+  - DOMAIN-SUFFIX,video.google.com,QQOLI
+  - DOMAIN-SUFFIX,www.google.com,QQOLI
+  - DOMAIN-SUFFIX,www.microsoft.com,QQOLI
   - RULE-SET,aff,MMAQI
   - RULE-SET,xal,TTAQI
   - RULE-SET,oki,QQOLI
