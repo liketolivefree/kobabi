@@ -51,7 +51,7 @@ proxy-providers:
     path: ./providers/a.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 500
       url: http://www.gstatic.com/generate_204
 
 
@@ -59,7 +59,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 300
+  interval: 500
   tolerance: 0
   use:
   - a
