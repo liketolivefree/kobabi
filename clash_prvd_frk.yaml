@@ -340,6 +340,8 @@ rules:
   - DOMAIN-SUFFIX,video.google.com,QQOLI
   - DOMAIN-SUFFIX,www.google.com,QQOLI
   - DOMAIN-SUFFIX,www.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,rr3---sn-4g5edndl.googlevideo.com,QQOLI
+  - DOMAIN-SUFFIX,rr2---sn-2gb7sn7y.googlevideo.com,QQOLI
   - RULE-SET,aff,MMAQI
   - RULE-SET,xal,TTAQI
   - RULE-SET,oki,QQOLI
