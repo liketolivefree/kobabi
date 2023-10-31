@@ -46,7 +46,7 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml"
     interval: 3600
     path: ./providers/a.yaml
     health-check:
@@ -130,7 +130,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1000
-  tolerance: 0
+  tolerance: 100
   use:
   - a
   - b
@@ -201,14 +201,14 @@ rule-providers:
     type: http
     behavior: "domain"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.yaml"
     path: ./aff.yaml
     interval: 86400
   yun:
     type: http
     behavior: "ipcidr"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.yaml"
     path: ./yun.yaml
     interval: 86400
   oki:
