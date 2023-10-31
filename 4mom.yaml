@@ -46,7 +46,7 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr_mom.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml"
     interval: 3600
     path: ./providers/a.yaml
     health-check:
@@ -60,7 +60,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 500
-  tolerance: 0
+  tolerance: 50
   use:
   - a
 - name: AALI
@@ -103,29 +103,36 @@ rule-providers:
     type: http
     behavior: "domain"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_mom.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.yaml"
     path: ./aff.yaml
     interval: 86400
   yun:
     type: http
     behavior: "ipcidr"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.yaml"
     path: ./yun.yaml
     interval: 86400
   oki:
     type: http
     behavior: "domain"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_mom.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.yaml"
     path: ./oki.yaml
     interval: 86400
   doki:
     type: http
     behavior: "ipcidr"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_mom.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.yaml"
     path: ./doki.yaml
+    interval: 86400
+  xal:
+    type: http
+    behavior: "domain"
+    format: 'yaml'
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.yaml"
+    path: ./xal.yaml
     interval: 86400
   loo:
     type: http
@@ -134,6 +141,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.yaml"
     path: ./loo.yaml
     interval: 86400
+
 
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,TTAQI
@@ -299,7 +307,7 @@ rules:
   - IP-CIDR6,fe80::/10,TTAQI,no-resolve
   - IP-CIDR6,ff00::/8,TTAQI,no-resolve
   - RULE-SET,aff,MMAQI
-  - DOMAIN-SUFFIX,ir,TTAQI
+  - RULE-SET,xal,TTAQI
   - RULE-SET,oki,QQOLI
   - RULE-SET,yun,MMAQI,no-resolve
   - RULE-SET,loo,TTAQI,no-resolve
