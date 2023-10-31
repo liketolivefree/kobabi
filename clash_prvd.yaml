@@ -46,7 +46,7 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_pr.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml"
     interval: 3600
     path: ./providers/a.yaml
     health-check:
@@ -60,7 +60,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 500
-  tolerance: 0
+  tolerance: 50
   use:
   - a
 - name: AALI
