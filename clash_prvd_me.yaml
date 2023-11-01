@@ -266,7 +266,7 @@ rules:
   - IP-CIDR,254.230.180.37/32,MMAQI,no-resolve
   - IP-CIDR,254.237.190.31/32,MMAQI,no-resolve
   - IP-CIDR,255.99.94.68/32,MMAQI,no-resolve
-  #- IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
+  - IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
   #- IP-CIDR,10.72.25.0/24,MMAQI,no-resolve
   #- IP-CIDR,127.0.0.2/32,MMAQI,no-resolve
   #- IP-CIDR,172.31.22.246/32,MMAQI,no-resolve
