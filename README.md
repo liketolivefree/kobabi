@@ -30,9 +30,6 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_l.yaml
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_l.yaml
 
-.
-
-
 (اولی برای همه کلاینهای کلش. دومی مخصوص کلش متا. سومی از نوع پرووایدری و مناسب هر کلایتی که بتواند آن را اجرا کند)
 
 .
