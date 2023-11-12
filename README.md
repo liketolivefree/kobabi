@@ -45,7 +45,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_frk.yaml
 
 .
 
-===)) کانفیگ کلش ویندوز (مخصوص کلش ویندوز):
+===)) کانفیگ کلش ویندوز (مخصوص کلش ویندوز. تنها درصورتی که کلش ویندوز سایر کانفیگها را با دشواری اجرا کند):
 
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_win.yaml
