@@ -12,7 +12,9 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub.txt
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub_all.txt
 
 
-توجه! کانفیگهای کلش این کانال مخصوص کاربران داخل ایران هستند و طوری طراحی شدن که به وبسایتها و بیشتر اپلیکیشنهای داخلی بدون پروکسی وصل بشن.
+.
+.
+.
 
 ===)) لینگ کلش (قابل استفاده در همه کلاینتهای کلش، مثل کلش متا، کلش ویندوز، کلش اندروید و ...):
 
