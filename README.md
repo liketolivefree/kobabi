@@ -44,12 +44,15 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_f.yaml
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd.yaml
 
 (اولی برای همه کلاینهای کلش. دومی مخصوص کلش متا. سومی از نوع پرووایدری و مناسب هر کلایتی که بتواند آن را اجرا کند)
+
 .
-.
+
+
 
 ===)) کانفیگ کلش فیریک (مناسب کاربران خوره یا کاربرانی که امنیت و حریم خصوصی اولویت اول آنهاست):
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_frk.yaml
+
 
 .
 
@@ -59,18 +62,17 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_frk.yaml
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_win.yaml
 
 
-
 .
 
-
-.
-.
 ===)) سوپرکانفیگ کلش (حاوی تعداد بسیار زیادی پروکسی. مناسب فیلترینگ شدید. ترجیحا با کلاینتهای کلش متا اجرا شود):
 
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_prvd_spr.yaml
+
 .
+
 .
+
 ========= ================= ========================
 
 فهرست کلاینتهای کلش:
