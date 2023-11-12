@@ -24,7 +24,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub_all.txt
 .
 .
 
-===)) کانفیگ کلش سبک (مناسب کاربران کم تجربه یا کاربرانی که تنها اولویت آنها اتصال به اینترنت آزاد است):
+===)) کانفیگهای سبک کلش (مناسب کاربران کم تجربه یا کاربرانی که تنها اولویت آنها اتصال به اینترنت آزاد است):
 
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_l.yaml
@@ -33,10 +33,10 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_l.yaml
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_l.yaml
 
+(اولی برای همه کلاینهای کلش. دومی مخصوص کلش متا. سومی از نوع پرووایدری و مناسب هر کلایتی که بتواند آن را اجرا کند)
 .
 .
-.
-===)) کانفیگ کلش کامل (مناسب کاربران با تجربه یا کاربرانی به امنیت و حریم خصوصی اهمیت میدهند):
+===)) کانفیگهای کامل کلش (مناسب کاربران با تجربه یا کاربرانی به امنیت و حریم خصوصی اهمیت میدهند):
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_f.yaml
 
@@ -44,7 +44,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_f.yaml
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd.yaml
 
-
+(اولی برای همه کلاینهای کلش. دومی مخصوص کلش متا. سومی از نوع پرووایدری و مناسب هر کلایتی که بتواند آن را اجرا کند)
 .
 
 ===)) کانفیگ کلش فیریک (مناسب کاربران خوره یا کاربرانی که امنیت و حریم خصوصی اولویت اول آنهاست):
