@@ -20,9 +20,11 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub.txt
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub_all.txt
 
 
-.
-.
-.
+
+
+
+
+
 
 ===)) کانفیگهای سبک کلش (مناسب کاربران کم تجربه یا کاربرانی که تنها اولویت آنها اتصال به اینترنت آزاد است):
 
