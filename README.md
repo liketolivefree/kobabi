@@ -36,12 +36,12 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_l.yaml
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_l.yaml
 
 (اولی برای همه کلاینهای کلش. دومی مخصوص کلش متا. سومی از نوع پرووایدری و مناسب هر کلایتی که بتواند آن را اجرا کند)
-.
 
-.
-.
-.
-.
+
+
+
+
+
 ===)) کانفیگهای کامل کلش (مناسب کاربران با تجربه یا کاربرانی به امنیت و حریم خصوصی اهمیت میدهند):
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_f.yaml
