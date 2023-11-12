@@ -19,12 +19,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub.txt
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub_all.txt
 
-
-
-
-
-
-
+.
 
 ===)) کانفیگهای سبک کلش (مناسب کاربران کم تجربه یا کاربرانی که تنها اولویت آنها اتصال به اینترنت آزاد است):
 
@@ -35,11 +30,12 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_l.yaml
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_l.yaml
 
+.
+
+
 (اولی برای همه کلاینهای کلش. دومی مخصوص کلش متا. سومی از نوع پرووایدری و مناسب هر کلایتی که بتواند آن را اجرا کند)
 
-
-
-
+.
 
 
 ===)) کانفیگهای کامل کلش (مناسب کاربران با تجربه یا کاربرانی به امنیت و حریم خصوصی اهمیت میدهند):
