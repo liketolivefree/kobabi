@@ -16,18 +16,36 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub_all.txt
 .
 .
 
-===)) لینگ کلش (قابل استفاده در همه کلاینتهای کلش، مثل کلش متا، کلش ویندوز، کلش اندروید و ...):
+===)) کانفیگ کلش سبک (مناسب کاربران کم تجربه یا کاربرانی که تنها اولویت آنها اتصال به اینترنت آزاد است):
+
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_l.yaml
 
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_l.yaml
+
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_l.yaml
+
+.
+.
+.
+===)) کانفیگ کلش کامل (مناسب کاربران با تجربه یا کاربرانی به امنیت و حریم خصوصی اهمیت میدهند):
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_f.yaml
 
-تفاوت این دو نسخه فقط در تعداد رول هاست. رول های نسخه F خیلی کاملتر از نسخه L است.
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_f.yaml
+
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd.yaml
 
 
+.
 
-===)) لینگ کلش ویندوز (مخصوص کلش ویندوز):
+===)) کانفیگ کلش فیریک (مناسب کاربران خوره یا کاربرانی که امنیت و حریم خصوصی اولویت اول آنهاست):
+
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_frk.yaml
+
+.
+
+===)) کانفیگ کلش ویندوز (مخصوص کلش ویندوز):
 
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_win.yaml
@@ -37,38 +55,15 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_ir_win.yaml
 .
 
 
-===)) لینگ کلش متا (مخصوص کلش متا. فقط متا):
-
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_f.yaml
-
-
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_l.yaml
-
-تفاوت این دو نسخه فقط در تعداد رول هاست. رول های نسخه F خیلی کاملتر از نسخه L است.
-
-
-.
-
-
-===)) کانفیگهای پرووایدری کلش (این کانفیگها بجای استفاده مستقیم از پروکسی ها، از لینگ حاوی اونها استفاده میکنن):
-برای کلش (معمولی یا متا فرقی نداره):
-
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd.yaml
-
-نسخه حجیم تر و کامل تر:
-
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_prvd_frk.yaml
-
-
 .
 .
-سوپر کانفیگ (این کانفیگ حاوی 11 لینگ پرووایدر پروکسی است که هر کدام بین 2 تا 8 هزار پروکسی دارن):
-این سوپرکانفیگ ترجیحا با کلاینتهای کلش متا اجرا بشه چون گاهی لابلای پروکسی ها ممکنه ویلس هم باشه که در اینصورت کلش معمولی خطا میگیره.
+===)) سوپرکانفیگ کلش (حاوی تعداد بسیار زیادی پروکسی. مناسب فیلترینگ شدید. ترجیحا با کلاینتهای کلش متا اجرا شود):
 
 
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_prvd_spr.yaml
 .
 .
+========= ================= ========================
 
 فهرست کلاینتهای کلش:
 اندروید:
