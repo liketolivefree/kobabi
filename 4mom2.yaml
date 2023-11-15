@@ -12,36 +12,48 @@ profile:
 
 dns:
   enable: true
-  #listen: 127.0.0.1:53
-  ipv6: false
+  listen: 0.0.0.0:53
+  ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
-  #fake-ip-range: 198.18.0.1/16
+  fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 1.1.1.1
-  - 8.8.8.8
   - 9.9.9.9
   nameserver:
-  - https://security.cloudflare-dns.com/dns-query
+  - https://cloudflare-dns.com/dns-query
   - https://8.8.4.4/dns-query
   - tls://dns11.quad9.net
-  - https://doh.opendns.com/dns-query
   fallback:
-  - tls://one.one.one.one
   - tls://dns.google
   - https://dns.quad9.net/dns-query
-  - https://1.0.0.1/dns-query
+  - https://1.1.1.1/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
+    ipcidr:
+    - 0.0.0.0/32
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 224.0.0.0/4
+    - 240.0.0.0/4
 
 tun:
   enable: true
   stack: system
   dns-hijack:
+  - 0.0.0.0:53
   - any:53
   auto-route: true
   auto-detect-interface: true
+
 
 proxies:
   - {"name":"mom_1","type":"vmess","server":"amini2.ddns.net","port":443,"cipher":"chacha20-poly1305","uuid":"172dc69f-3b43-4457-8ef8-d555b2d37f4a","alterId":0,"tls":true,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/OqkskdkeaHFYCl4zLtIwwkkwJewoowepo0YwKHeQ","headers":{"host":"service1.karop.homes"}}}
