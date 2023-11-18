@@ -12,7 +12,7 @@ profile:
 
 dns:
   enable: true
-  listen: 0.0.0.0:53
+  listen: 0.0.0.0:1053
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
@@ -21,29 +21,16 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - https://cloudflare-dns.com/dns-query
-  - https://8.8.4.4/dns-query
-  - tls://dns11.quad9.net
-  fallback:
+  - tls://dns.quad9.net
   - tls://dns.google
+  - https://8.8.4.4/dns-query
+  fallback:
+  - https://cloudflare-dns.com/dns-query
   - https://dns.quad9.net/dns-query
   - https://1.1.1.1/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
-    ipcidr:
-    - 0.0.0.0/32
-    - 0.0.0.0/8
-    - 10.0.0.0/8
-    - 100.64.0.0/10
-    - 127.0.0.0/8
-    - 172.16.0.0/12
-    - 192.0.0.0/24
-    - 192.0.2.0/24
-    - 192.88.99.0/24
-    - 192.168.0.0/16
-    - 224.0.0.0/4
-    - 240.0.0.0/4
 
 tun:
   enable: true
@@ -53,7 +40,6 @@ tun:
   - any:53
   auto-route: true
   auto-detect-interface: true
-
 
 proxy-providers:
   a:
@@ -184,6 +170,7 @@ rules:
   - IP-CIDR,172.31.9.183/32,MMAQI,no-resolve
   - IP-CIDR,172.31.27.185/32,MMAQI,no-resolve
   - IP-CIDR,172.31.59.167/32,MMAQI,no-resolve
+  - IP-CIDR,198.18.53.53/32,MMAQI,no-resolve
   - IP-CIDR,198.51.100.1/32,MMAQI,no-resolve
   - IP-CIDR,198.51.100.187/32,MMAQI,no-resolve
   - IP-CIDR,203.0.113.99/32,MMAQI,no-resolve
