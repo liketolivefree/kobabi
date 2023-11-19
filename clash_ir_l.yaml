@@ -148,7 +148,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 500
-  tolerance: 50
+  tolerance: 0
   #disable-udp: true
   proxies:
   - qv11-18_1
