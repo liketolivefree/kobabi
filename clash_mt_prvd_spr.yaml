@@ -128,7 +128,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1000
-  tolerance: 100
+  tolerance: 0
   use:
   - a
   - b
