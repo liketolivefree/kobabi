@@ -161,10 +161,12 @@ rules:
   - IP-CIDR,10.35.70.148/32,MMAQI,no-resolve
   - IP-CIDR,10.140.226.6/32,MMAQI,no-resolve
   - IP-CIDR,100.72.162.1/32,MMAQI,no-resolve
+  - IP-CIDR,100.80.114.4/32,MMAQI,no-resolve  
   - IP-CIDR,100.86.76.144/32,MMAQI,no-resolve
   - IP-CIDR,100.95.210.126/32,MMAQI,no-resolve
   - IP-CIDR,100.113.42.160/32,MMAQI,no-resolve
   - IP-CIDR,100.120.100.90/32,MMAQI,no-resolve
+  - IP-CIDR,100.126.50.154/32,MMAQI,no-resolve
   - IP-CIDR,172.22.109.218/32,MMAQI,no-resolve
   - IP-CIDR,172.31.9.183/32,MMAQI,no-resolve
   - IP-CIDR,172.31.27.185/32,MMAQI,no-resolve
@@ -265,14 +267,7 @@ rules:
   - IP-CIDR,254.230.180.37/32,MMAQI,no-resolve
   - IP-CIDR,254.237.190.31/32,MMAQI,no-resolve
   - IP-CIDR,255.99.94.68/32,MMAQI,no-resolve
-  - IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
-  #- IP-CIDR,10.72.25.0/24,MMAQI,no-resolve
-  #- IP-CIDR,127.0.0.2/32,MMAQI,no-resolve
-  #- IP-CIDR,172.31.22.246/32,MMAQI,no-resolve
-  #- IP-CIDR,172.31.59.167/32,MMAQI,no-resolve
-  #- IP-CIDR,235.140.200.199/32,MMAQI,no-resolve
-  #- IP-CIDR,245.96.141.154/32,MMAQI,no-resolve
-  #- IP-CIDR,245.109.55.115/32,MMAQI,no-resolve
+  #- IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
   - IP-CIDR,0.0.0.0/8,TTAQI,no-resolve
   - IP-CIDR,10.0.0.0/8,TTAQI,no-resolve
   - IP-CIDR,100.64.0.0/10,TTAQI,no-resolve
