@@ -323,6 +323,7 @@ rules:
   - DOMAIN-SUFFIX,trends.google.com,QQOLI
   - DOMAIN-SUFFIX,video.google.com,QQOLI
   - DOMAIN-SUFFIX,www.google.com,QQOLI
+  - DOMAIN-SUFFIX,www.google-analytics.l.google.com,QQOLI
   - DOMAIN-SUFFIX,chopsdash.appspot.com,QQOLI
   - DOMAIN-SUFFIX,chrome-devtools-frontend.appspot.com,QQOLI
   - DOMAIN-SUFFIX,hostsaway.appspot.com,QQOLI
@@ -337,13 +338,8 @@ rules:
   - DOMAIN-SUFFIX,learn.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,news.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,support.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,technet.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,www.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,cdn-client.medium.com,QQOLI
-  - DOMAIN-SUFFIX,cdn-images-1.medium.com,QQOLI
-  - DOMAIN-SUFFIX,cdn-static-1.medium.com,QQOLI
-  - DOMAIN-SUFFIX,glyph.medium.com,QQOLI
-  - DOMAIN-SUFFIX,miro.medium.com,QQOLI
-  - DOMAIN-SUFFIX,tachyondevel.medium.com,QQOLI
   - DOMAIN-SUFFIX,cf-wkrs-pages-vless-aoy.pages.dev,QQOLI
   - DOMAIN-SUFFIX,edtunnel-b6t.pages.dev,QQOLI
   - DOMAIN-SUFFIX,malware-filter.pages.dev,QQOLI
