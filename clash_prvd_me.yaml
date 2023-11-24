@@ -333,13 +333,15 @@ rules:
   - DOMAIN-SUFFIX,docs.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,download.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,edge.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,endpoints.office.com,QQOLI
+  - DOMAIN-SUFFIX,technet.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,go.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,learn.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,news.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,support.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,technet.microsoft.com,QQOLI
   - DOMAIN-SUFFIX,www.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,res-1.cdn.office.net,QQOLI
+  - DOMAIN-SUFFIX,support.content.office.net,QQOLI
+  - DOMAIN-SUFFIX,endpoints.office.com,QQOLI
   - DOMAIN-SUFFIX,cf-wkrs-pages-vless-aoy.pages.dev,QQOLI
   - DOMAIN-SUFFIX,edtunnel-b6t.pages.dev,QQOLI
   - DOMAIN-SUFFIX,malware-filter.pages.dev,QQOLI
