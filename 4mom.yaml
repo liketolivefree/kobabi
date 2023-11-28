@@ -41,15 +41,6 @@ tun:
   auto-route: true
   auto-detect-interface: true
 
-enable-process: true
-tcp-concurrent: true
-find-process-mode: always
-global-client-fingerprint: chrome
-geodata-mode: true
-geox-url:
-  geoip: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311252208/geoip.dat"
-  geosite: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311252208/geosite.dat"
-  mmdb: "https://github.com/Loyalsoldier/geoip/releases/download/202311230058/Country.mmdb"
 
 proxy-providers:
   a:
