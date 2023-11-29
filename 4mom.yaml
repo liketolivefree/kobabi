@@ -12,7 +12,7 @@ profile:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  #listen: 0.0.0.0:1053
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
