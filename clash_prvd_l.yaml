@@ -12,11 +12,11 @@ profile:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  #listen: 0.0.0.0:1053
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  #fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
