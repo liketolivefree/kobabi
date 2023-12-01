@@ -12,11 +12,11 @@ profile:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  #listen: 0.0.0.0:1053
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  #fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
@@ -67,16 +67,6 @@ proxy-providers:
     url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/update/provider/provider-all.yml"
     interval: 3600
     path: ./providers/c.yml
-    health-check:
-      enable: true
-      interval: 1000
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-  d:
-    type: http
-    url: "https://raw.githubusercontent.com/baipiao250/HigeFreeProxies/master/sub/sub_merge_clash.yaml"
-    interval: 3600
-    path: ./providers/d.yaml
     health-check:
       enable: true
       interval: 1000
@@ -133,7 +123,6 @@ proxy-groups:
   - a
   - b
   - c
-  - d
   - e
   - f
   - g
@@ -147,7 +136,6 @@ proxy-groups:
   - a
   - b
   - c
-  - d
   - e
   - f
   - g
@@ -162,7 +150,6 @@ proxy-groups:
   - a
   - b
   - c
-  - d
   - e
   - f
   - g
@@ -188,7 +175,6 @@ proxy-groups:
   - a
   - b
   - c
-  - d
   - e
   - f
   - g
