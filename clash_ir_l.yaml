@@ -1409,7 +1409,6 @@ rules:
   - DOMAIN-SUFFIX,supports-microsoft.com,MMAQI
   - DOMAIN-SUFFIX,himicrosoft.com,MMAQI
   - DOMAIN-SUFFIX,c1.microsoft.com,MMAQI
-  - DOMAIN-SUFFIX,ads.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,bingads.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,watson.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,track.mp.microsoft.com,MMAQI
@@ -1425,7 +1424,6 @@ rules:
   - DOMAIN-SUFFIX,vortex-win-sandbox.data.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,settings-sandbox.data.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,settings-win-ppe.data.microsoft.com,MMAQI
-  - DOMAIN-SUFFIX,pipe.aria.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,rad.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,redir.metaservices.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,romeccs.microsoft.com,MMAQI
@@ -1456,7 +1454,6 @@ rules:
   - DOMAIN-SUFFIX,win10.ipv6.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,win8.ipv6.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,logging.windows.microsoft.com,MMAQI
-  - DOMAIN-SUFFIX,ztd.dds.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,advertising.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,analyticspixel.microsoft.com,MMAQI
   - DOMAIN-SUFFIX,applicationinsights.microsoft.com,MMAQI
@@ -1562,7 +1559,6 @@ rules:
   - DOMAIN-SUFFIX,cache.datamart.windows.com,MMAQI
   - DOMAIN-SUFFIX,feedback.windows.com,MMAQI
   - DOMAIN-SUFFIX,sa.windows.com,MMAQI
-  - DOMAIN-SUFFIX,activity.windows.com,MMAQI
   - DOMAIN-SUFFIX,g.microsoftonline.com,MMAQI
   - DOMAIN-SUFFIX,ads-inmobi-com-tm.trafficmanager.net,MMAQI
   - DOMAIN-SUFFIX,aerserv-ads.trafficmanager.net,MMAQI
@@ -1628,12 +1624,10 @@ rules:
   - DOMAIN-SUFFIX,bn2-ris-ap-prod-atm.trafficmanager.net,MMAQI
   - DOMAIN-SUFFIX,bn2-ris-prod-atm.trafficmanager.net,MMAQI
   - DOMAIN-SUFFIX,compatexchange1.trafficmanager.net,MMAQI
-  - DOMAIN-SUFFIX,insideruser.trafficmanager.net,MMAQI
   - DOMAIN-SUFFIX,tele.trafficmanager.net,MMAQI
   - DOMAIN-SUFFIX,appexbingfinance.trafficmanager.net,MMAQI
   - DOMAIN-SUFFIX,appexbingweather.trafficmanager.net,MMAQI
   - DOMAIN-SUFFIX,appexsports.trafficmanager.net,MMAQI
-  - DOMAIN-SUFFIX,rewardsprod.trafficmanager.net,MMAQI
   - DOMAIN-SUFFIX,msads.net,MMAQI
   - DOMAIN-SUFFIX,assets.msn.cn,MMAQI
   - DOMAIN-SUFFIX,ntp.msn.cn,MMAQI
@@ -1678,7 +1672,6 @@ rules:
   - DOMAIN-SUFFIX,toolbar.msn.com,MMAQI
   - DOMAIN-SUFFIX,zmetrics.msn.com,MMAQI
   - DOMAIN-SUFFIX,ac2.msn.com,MMAQI
-  - DOMAIN-SUFFIX,c.msn.com,MMAQI
   - DOMAIN-SUFFIX,otf.msn.com,MMAQI
   - DOMAIN-SUFFIX,udc.msn.com,MMAQI
   - DOMAIN-SUFFIX,events.data.msn.com,MMAQI
@@ -1785,16 +1778,12 @@ rules:
   - DOMAIN-SUFFIX,analytics.live.com,MMAQI
   - DOMAIN-SUFFIX,c.live.com,MMAQI
   - DOMAIN-SUFFIX,choice.live.com,MMAQI
-  - DOMAIN-SUFFIX,nexus.live.com,MMAQI
-  - DOMAIN-SUFFIX,nexusrules.live.com,MMAQI
   - DOMAIN-SUFFIX,outlookads.live.com,MMAQI
   - DOMAIN-SUFFIX,presence.teams.live.com,MMAQI
   - DOMAIN-SUFFIX,rad.live.com,MMAQI
   - DOMAIN-SUFFIX,spaces.live.com,MMAQI
   - DOMAIN-SUFFIX,ssw.live.com,MMAQI
   - DOMAIN-SUFFIX,watson.live.com,MMAQI
-  - DOMAIN-SUFFIX,nexus.officeapps.live.com,MMAQI
-  - DOMAIN-SUFFIX,nexusrules.officeapps.live.com,MMAQI
   - DOMAIN-SUFFIX,auc-visio-telemetry.officeapps.live.com,MMAQI
   - DOMAIN-SUFFIX,brc-visio-telemetry.officeapps.live.com,MMAQI
   - DOMAIN-SUFFIX,cac-visio-telemetry.officeapps.live.com,MMAQI
@@ -1944,7 +1933,6 @@ rules:
   - DOMAIN-SUFFIX,masdpanalytics.azureedge.net,MMAQI
   - DOMAIN-SUFFIX,mktdplp102cdn.azureedge.net,MMAQI
   - DOMAIN-SUFFIX,msadsscale.azureedge.net,MMAQI
-  - DOMAIN-SUFFIX,nlo-stl-web.azureedge.net,MMAQI
   - DOMAIN-SUFFIX,odinvzc.azureedge.net,MMAQI
   - DOMAIN-SUFFIX,opimedia.azureedge.net,MMAQI
   - DOMAIN-SUFFIX,pestcontrol-uc1.azureedge.net,MMAQI
@@ -2309,7 +2297,6 @@ rules:
   - DOMAIN-SUFFIX,c.xbox.com,MMAQI
   - DOMAIN-SUFFIX,expbl2ro.xbox.com,MMAQI
   - DOMAIN-SUFFIX,fpt.xbox.com,MMAQI
-  - DOMAIN-SUFFIX,click.engage.xbox.com,MMAQI
   - DOMAIN-SUFFIX,beacons.xboxlive.com,MMAQI
   - DOMAIN-SUFFIX,a4.bing.com,MMAQI
   - DOMAIN-SUFFIX,ads.bing.com,MMAQI
@@ -2360,7 +2347,6 @@ rules:
   - DOMAIN-SUFFIX,metrics.nsatc.net,MMAQI
   - DOMAIN-SUFFIX,telemetry.microsoft.com.nsatc.net,MMAQI
   - DOMAIN-SUFFIX,choice.microsoft.com.nsatc.net,MMAQI
-  - DOMAIN-SUFFIX,g.msn.com.nsatc.net,MMAQI
   - DOMAIN-SUFFIX,i1.services.social.microsoft.com.nsatc.net,MMAQI
   - DOMAIN-SUFFIX,oca.telemetry.microsoft.com.nsatc.net,MMAQI
   - DOMAIN-SUFFIX,sqm.telemetry.microsoft.com.nsatc.net,MMAQI
@@ -2384,7 +2370,6 @@ rules:
   - DOMAIN-SUFFIX,db5-eap.settings-win.data.microsoft.com.akadns.net,MMAQI
   - DOMAIN-SUFFIX,geo.settings-win.data.microsoft.com.akadns.net,MMAQI
   - DOMAIN-SUFFIX,a.trouter.io,MMAQI
-  - DOMAIN-SUFFIX,ecn.dev.virtualearth.net,MMAQI
   - DOMAIN-SUFFIX,windowssearch.com,MMAQI
   - DOMAIN-SUFFIX,microsoft-accesscontrol.wibdowsupdate.com,MMAQI
   - DOMAIN-SUFFIX,fpt.windowsazure.com,MMAQI
@@ -2915,7 +2900,6 @@ rules:
   - DOMAIN-SUFFIX,windowsshop.cc,MMAQI
   - DOMAIN-SUFFIX,windowstats.com,MMAQI
   - DOMAIN-SUFFIX,windows-tech.info,MMAQI
-  - DOMAIN-SUFFIX,windowsupdate.com,MMAQI
   - DOMAIN-SUFFIX,windowsupdate.social,MMAQI
   - DOMAIN-SUFFIX,windows-update-02-en.com,MMAQI
   - DOMAIN-SUFFIX,windowsupdatecdn.com,MMAQI
@@ -3259,7 +3243,6 @@ rules:
   - DOMAIN-SUFFIX,info.sec.miui.com,MMAQI
   - DOMAIN-SUFFIX,in-miuilog.sms.intl.xiaomi.com,MMAQI
   - DOMAIN-SUFFIX,in-protect-dev.sec.intl.miui.com,MMAQI
-  - DOMAIN-SUFFIX,insights.samsung.com,MMAQI
   - DOMAIN-SUFFIX,intl.up.w.xk.miui.com,MMAQI
   - DOMAIN-SUFFIX,intranetpa.clxsamsung.com,MMAQI
   - DOMAIN-SUFFIX,invitation.samsungiotcloud.com,MMAQI
@@ -3561,7 +3544,6 @@ rules:
   - DOMAIN-SUFFIX,2632ce734-frontier.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,aan.amazon.co.jp,MMAQI
   - DOMAIN-SUFFIX,aan.amazon.co.uk,MMAQI
-  - DOMAIN-SUFFIX,aan.amazon.com,MMAQI
   - DOMAIN-SUFFIX,aan.amazon.de,MMAQI
   - DOMAIN-SUFFIX,aan.amazon.es,MMAQI
   - DOMAIN-SUFFIX,aan.amazon.fr,MMAQI
@@ -3573,7 +3555,6 @@ rules:
   - DOMAIN-SUFFIX,aax-dtb-cf.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,aax-dtb-mobile-geo.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,aax-eu.amazon-adsystem.com,MMAQI
-  - DOMAIN-SUFFIX,aax-fe.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,aax-fe-sin.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,aax-ott.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,aax-ott-c2s.amazon-adsystem.com,MMAQI
@@ -3652,7 +3633,6 @@ rules:
   - DOMAIN-SUFFIX,books-analytics-events.apple.com,MMAQI
   - DOMAIN-SUFFIX,bugsnag.appstore.a2z.com,MMAQI
   - DOMAIN-SUFFIX,business-api.tiktok.com,MMAQI
-  - DOMAIN-SUFFIX,c.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,cdn-a.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,d3p8zr0ffa9t17.cloudfront.net,MMAQI
   - DOMAIN-SUFFIX,device-metrics-us.amazon.com,MMAQI
@@ -3912,7 +3892,6 @@ rules:
   - DOMAIN-SUFFIX,mcs-va-useast2a.tiktokv.com,MMAQI
   - DOMAIN-SUFFIX,mercury-sdk.snssdk.com,MMAQI
   - DOMAIN-SUFFIX,metrics.apple.com,MMAQI
-  - DOMAIN-SUFFIX,metrics.icloud.com,MMAQI
   - DOMAIN-SUFFIX,metrics.media-amazon.com,MMAQI
   - DOMAIN-SUFFIX,metrics.mzstatic.com,MMAQI
   - DOMAIN-SUFFIX,mobileanalytics.us-east-1.amazonaws.com,MMAQI
@@ -4092,7 +4071,6 @@ rules:
   - DOMAIN-SUFFIX,sgee-log.byteoversea.com,MMAQI
   - DOMAIN-SUFFIX,sgee-mcs.byteoversea.com,MMAQI
   - DOMAIN-SUFFIX,sq-tungsten-ts.amazon-adsystem.com,MMAQI
-  - DOMAIN-SUFFIX,stocks-analytics-events.apple.com,MMAQI
   - DOMAIN-SUFFIX,supportmetrics.apple.com,MMAQI
   - DOMAIN-SUFFIX,tbm.snssdk.com,MMAQI
   - DOMAIN-SUFFIX,telemetry.insights.video.a2z.com,MMAQI
@@ -4128,7 +4106,6 @@ rules:
   - DOMAIN-SUFFIX,unagi.amazon.sg,MMAQI
   - DOMAIN-SUFFIX,unagi-eu.amazon.com,MMAQI
   - DOMAIN-SUFFIX,unagi-fe.amazon.com,MMAQI
-  - DOMAIN-SUFFIX,unagi-na.amazon.com,MMAQI
   - DOMAIN-SUFFIX,v16-ad.byteoversea.com,MMAQI
   - DOMAIN-SUFFIX,vaali-mcs.byteoversea.com,MMAQI
   - DOMAIN-SUFFIX,vaali-mcs-useast1a.byteoversea.com,MMAQI
@@ -4166,7 +4143,6 @@ rules:
   - DOMAIN-SUFFIX,xlog-va.tiktokv.com,MMAQI
   - DOMAIN-SUFFIX,xlog-va-useast2a.byteoversea.com,MMAQI
   - DOMAIN-SUFFIX,xlog-va-useast2a.tiktokv.com,MMAQI
-  - DOMAIN-SUFFIX,xp.apple.com,MMAQI
   - DOMAIN-SUFFIX,z-eu.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,z-fe.amazon-adsystem.com,MMAQI
   - DOMAIN-SUFFIX,z-in.amazon-adsystem.com,MMAQI
@@ -6821,7 +6797,6 @@ rules:
   - DOMAIN-SUFFIX,onegate.ir,MMAQI
   - DOMAIN-SUFFIX,onenumberz.ir,MMAQI
   - DOMAIN-SUFFIX,oneshare.ir,MMAQI
-  - DOMAIN-SUFFIX,onesignal.com,MMAQI
   - DOMAIN-SUFFIX,onestarclick.ir,MMAQI
   - DOMAIN-SUFFIX,one-ten.ir,MMAQI
   - DOMAIN-SUFFIX,onlinecareer.ir,MMAQI
@@ -8827,6 +8802,7 @@ rules:
   - DOMAIN-SUFFIX,ads.feedly.com,MMAQI
   - DOMAIN-SUFFIX,ads.genieessp.com,MMAQI
   - DOMAIN-SUFFIX,ads.gmodules.com,MMAQI
+  - DOMAIN-SUFFIX,ads.healthline.com,MMAQI
   - DOMAIN-SUFFIX,ads.house365.com,MMAQI
   - DOMAIN-SUFFIX,ads.mojicdn.com,MMAQI
   - DOMAIN-SUFFIX,ads.prd.ie.internal.unity3d.com,MMAQI
@@ -9921,7 +9897,6 @@ rules:
   - DOMAIN-SUFFIX,change-infos.com,MMAQI
   - DOMAIN-SUFFIX,changhehengqi.com,MMAQI
   - DOMAIN-SUFFIX,channel.fanxing.kugou.com,MMAQI
-  - DOMAIN-SUFFIX,channeladvisor.com,MMAQI
   - DOMAIN-SUFFIX,chaojilamei.cn,MMAQI
   - DOMAIN-SUFFIX,chaomaoaluoi.com,MMAQI
   - DOMAIN-SUFFIX,chartboost.com,MMAQI
@@ -10129,7 +10104,6 @@ rules:
   - DOMAIN-SUFFIX,conv.youdao.com,MMAQI
   - DOMAIN-SUFFIX,convercatioon.workers.dev,MMAQI
   - DOMAIN-SUFFIX,conversion.pro.cn,MMAQI
-  - DOMAIN-SUFFIX,conviva.com,MMAQI
   - DOMAIN-SUFFIX,coocaatv.com,MMAQI
   - DOMAIN-SUFFIX,coolexer.com,MMAQI
   - DOMAIN-SUFFIX,coolguang.com,MMAQI
@@ -10875,7 +10849,6 @@ rules:
   - DOMAIN-SUFFIX,er.dlhygj.com,MMAQI
   - DOMAIN-SUFFIX,erdalcengiz.com,MMAQI
   - DOMAIN-SUFFIX,erebor.douban.com,MMAQI
-  - DOMAIN-SUFFIX,ereg.adobe.com,MMAQI
   - DOMAIN-SUFFIX,erfolgsgruender.com,MMAQI
   - DOMAIN-SUFFIX,ergorb.pl,MMAQI
   - DOMAIN-SUFFIX,erikenlevi.nl,MMAQI
@@ -11374,6 +11347,7 @@ rules:
   - DOMAIN-SUFFIX,gt4ec.net,MMAQI
   - DOMAIN-SUFFIX,gtags.net,MMAQI
   - DOMAIN-SUFFIX,gtf.rs,MMAQI
+  - DOMAIN-SUFFIX,gtm-server.healthline.com,MMAQI
   - DOMAIN-SUFFIX,gtn.cl,MMAQI
   - DOMAIN-SUFFIX,gtz.my.id,MMAQI
   - DOMAIN-SUFFIX,guang.sdsgwy.com,MMAQI
@@ -13370,6 +13344,7 @@ rules:
   - DOMAIN-SUFFIX,paste-bin.xyz,MMAQI
   - DOMAIN-SUFFIX,patrialand.com,MMAQI
   - DOMAIN-SUFFIX,patriot.cs.pp.cn,MMAQI
+  - DOMAIN-SUFFIX,pavlov-prod.healthline.com,MMAQI
   - DOMAIN-SUFFIX,pawlukojc.pl,MMAQI
   - DOMAIN-SUFFIX,pay.holaq.com,MMAQI
   - DOMAIN-SUFFIX,pay.mobile.sina.cn,MMAQI
@@ -13918,6 +13893,7 @@ rules:
   - DOMAIN-SUFFIX,rusticironstore.com,MMAQI
   - DOMAIN-SUFFIX,rutrk.org,MMAQI
   - DOMAIN-SUFFIX,ruxianke.com,MMAQI
+  - DOMAIN-SUFFIX,rvo-cohesion.healthline.com,MMAQI
   - DOMAIN-SUFFIX,rwjfs.com,MMAQI
   - DOMAIN-SUFFIX,rwq.youle55.com,MMAQI
   - DOMAIN-SUFFIX,rxwan.com,MMAQI
