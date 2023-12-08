@@ -108,7 +108,7 @@ rule-providers:
     type: http
     behavior: "ipcidr"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.yaml"
     path: ./yun.yaml
     interval: 86400
   oki:
