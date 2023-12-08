@@ -12,7 +12,7 @@ profile:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  #listen: 0.0.0.0:1053
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
@@ -24707,7 +24707,6 @@ rules:
   - IP-CIDR,15.197.244.48/32,MMAQI,no-resolve
   - IP-CIDR,23.81.64.183/32,MMAQI,no-resolve
   - IP-CIDR,23.94.26.138/32,MMAQI,no-resolve
-  - IP-CIDR,23.109.82./32,MMAQI,no-resolve
   - IP-CIDR,23.109.82.41/32,MMAQI,no-resolve
   - IP-CIDR,23.109.82.43/32,MMAQI,no-resolve
   - IP-CIDR,23.109.82.44/32,MMAQI,no-resolve
@@ -24719,7 +24718,6 @@ rules:
   - IP-CIDR,23.109.82.144/32,MMAQI,no-resolve
   - IP-CIDR,23.109.82.173/32,MMAQI,no-resolve
   - IP-CIDR,23.109.82.202/32,MMAQI,no-resolve
-  - IP-CIDR,23.109.87./32,MMAQI,no-resolve
   - IP-CIDR,23.109.87.14/31,MMAQI,no-resolve
   - IP-CIDR,23.109.87.42/32,MMAQI,no-resolve
   - IP-CIDR,23.109.87.45/32,MMAQI,no-resolve
