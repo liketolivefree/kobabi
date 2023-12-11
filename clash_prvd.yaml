@@ -164,8 +164,6 @@ rules:
   - IP-CIDR,224.0.0.0/4,TTAQI,no-resolve
   - IP-CIDR,233.252.0.0/24,TTAQI,no-resolve
   - IP-CIDR,240.0.0.0/4,TTAQI,no-resolve
-  - IP-CIDR,255.255.255.255/32,TTAQI,no-resolve
-  - IP-CIDR6,::/128,TTAQI,no-resolve
   - IP-CIDR6,::1/128,TTAQI,no-resolve
   - IP-CIDR6,::ffff:0:0/96,TTAQI,no-resolve
   - IP-CIDR6,::ffff:0:0:0/96,TTAQI,no-resolve
