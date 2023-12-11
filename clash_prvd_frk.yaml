@@ -12,7 +12,7 @@ profile:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  #listen: 0.0.0.0:1053
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
@@ -22,8 +22,7 @@ dns:
   - 9.9.9.9
   nameserver:
   - tls://dns.quad9.net
-  - tls://dns.google
-  - https://8.8.4.4/dns-query
+  - tls://one.one.one.one
   fallback:
   - https://cloudflare-dns.com/dns-query
   - https://dns.quad9.net/dns-query
