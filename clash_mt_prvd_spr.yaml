@@ -49,84 +49,18 @@ proxy-providers:
     path: ./providers/a.yaml
     health-check:
       enable: true
-      interval: 1000
-      #lazy: true
+      interval: 500
       url: http://www.gstatic.com/generate_204
-  b:
-    type: http
-    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml"
-    interval: 3600
-    path: ./providers/b.yml
-    health-check:
-      enable: true
-      interval: 1000
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-  c:
-    type: http
-    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/update/provider/provider-all.yml"
-    interval: 3600
-    path: ./providers/c.yml
-    health-check:
-      enable: true
-      interval: 1000
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-  e:
-    type: http
-    url: "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml"
-    interval: 3600
-    path: ./providers/e.yaml
-    health-check:
-      enable: true
-      interval: 1000
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-  f:
-    type: http
-    url: "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml"
-    interval: 3600
-    path: ./providers/f.yml
-    health-check:
-      enable: true
-      interval: 1000
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-  g:
-    type: http
-    url: "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml"
-    interval: 3600
-    path: ./providers/g.yaml
-    health-check:
-      enable: true
-      interval: 1000
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-  h:
-    type: http
-    url: "https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml"
-    interval: 3600
-    path: ./providers/h.yaml
-    health-check:
-      enable: true
-      interval: 1000
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
+
 
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 1000
+  interval: 500
   tolerance: 0
   use:
   - a
-  - b
-  - c
-  - e
-  - f
-  - g
-  - h
 - name: AALI
   type: select
   proxies:
@@ -134,12 +68,6 @@ proxy-groups:
   - DIRECT
   use:
   - a
-  - b
-  - c
-  - e
-  - f
-  - g
-  - h
 - name: QQOLI
   type: select
   proxies:
@@ -148,12 +76,6 @@ proxy-groups:
   - TTAQI
   use:
   - a
-  - b
-  - c
-  - e
-  - f
-  - g
-  - h
 - name: TTAQI
   type: select
   proxies:
@@ -173,26 +95,20 @@ proxy-groups:
   - MMOBI
   use:
   - a
-  - b
-  - c
-  - e
-  - f
-  - g
-  - h
 
 rule-providers:
   aff:
     type: http
     behavior: "domain"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.yaml"
     path: ./aff.yaml
     interval: 86400
   yun:
     type: http
     behavior: "ipcidr"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.yaml"
     path: ./yun.yaml
     interval: 86400
   oki:
