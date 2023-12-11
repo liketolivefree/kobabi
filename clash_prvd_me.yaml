@@ -12,7 +12,7 @@ profile:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  #listen: 0.0.0.0:1053
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
@@ -22,8 +22,7 @@ dns:
   - 9.9.9.9
   nameserver:
   - tls://dns.quad9.net
-  - tls://dns.google
-  - https://8.8.4.4/dns-query
+  - tls://one.one.one.one
   fallback:
   - https://cloudflare-dns.com/dns-query
   - https://dns.quad9.net/dns-query
@@ -284,8 +283,6 @@ rules:
   - IP-CIDR,224.0.0.0/4,TTAQI,no-resolve
   - IP-CIDR,233.252.0.0/24,TTAQI,no-resolve
   - IP-CIDR,240.0.0.0/4,TTAQI,no-resolve
-  - IP-CIDR,255.255.255.255/32,TTAQI,no-resolve
-  - IP-CIDR6,::/128,TTAQI,no-resolve
   - IP-CIDR6,::1/128,TTAQI,no-resolve
   - IP-CIDR6,::ffff:0:0/96,TTAQI,no-resolve
   - IP-CIDR6,::ffff:0:0:0/96,TTAQI,no-resolve
