@@ -16,18 +16,18 @@ dns:
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
-  #fake-ip-range: 198.18.0.1/16
+  fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
   - tls://dns.quad9.net
-  - tls://dns.google
-  - https://8.8.4.4/dns-query
   fallback:
-  - https://cloudflare-dns.com/dns-query
+  - tcp://1.1.1.1
+  - tls://one.one.one.one
   - https://dns.quad9.net/dns-query
-  - https://1.1.1.1/dns-query
+  - tls://8.8.8.8:853
+  - 1.0.0.1
   fallback-filter:
     geoip: true
     geoip-code: IR
