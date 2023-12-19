@@ -22,12 +22,14 @@ dns:
   - 9.9.9.9
   nameserver:
   - tls://dns.quad9.net
-  - tls://dns.google
-  - https://8.8.4.4/dns-query
-  fallback:
   - https://cloudflare-dns.com/dns-query
+  fallback:
   - https://dns.quad9.net/dns-query
   - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - tls://dns.google
+  - 1.0.0.1
+  - 9.9.9.9
   fallback-filter:
     geoip: true
     geoip-code: IR
