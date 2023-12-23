@@ -21,13 +21,15 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - tls://dns.quad9.net
+  - tcp://1.1.1.1
+  - https://1.1.1.1/dns-query
+  - https://dns.quad9.net/dns-query
+  - https://8.8.8.8/dns-query
   fallback:
   - tcp://1.1.1.1
-  - tls://one.one.one.one
+  - https://1.1.1.1/dns-query
   - https://dns.quad9.net/dns-query
-  - tls://8.8.8.8:853
-  - 1.0.0.1
+  - https://8.8.8.8/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
