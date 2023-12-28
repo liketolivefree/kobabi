@@ -1877,6 +1877,8 @@ rules:
   - IP-CIDR,224.0.0.0/4,TTAQI,no-resolve
   - IP-CIDR,233.252.0.0/24,TTAQI,no-resolve
   - IP-CIDR,240.0.0.0/4,TTAQI,no-resolve
+  - IP-CIDR,255.255.255.255/32,TTAQI,no-resolve
+  - IP-CIDR6,::/128,TTAQI,no-resolve
   - IP-CIDR6,::1/128,TTAQI,no-resolve
   - IP-CIDR6,::ffff:0:0/96,TTAQI,no-resolve
   - IP-CIDR6,::ffff:0:0:0/96,TTAQI,no-resolve
@@ -4645,6 +4647,9 @@ rules:
   - DOMAIN-SUFFIX,1001shab4bagh.com,MMAQI
   - DOMAIN-SUFFIX,100ostad.ir,MMAQI
   - DOMAIN-SUFFIX,100si.com,MMAQI
+  - DOMAIN-SUFFIX,107.ir.cdn.ir,MMAQI
+  - DOMAIN-SUFFIX,108.ir.cdn.ir,MMAQI
+  - DOMAIN-SUFFIX,109.ir.cdn.ir,MMAQI
   - DOMAIN-SUFFIX,10click.ir,MMAQI
   - DOMAIN-SUFFIX,10iranfilm.com,MMAQI
   - DOMAIN-SUFFIX,10voiranime.com,MMAQI
@@ -4687,9 +4692,15 @@ rules:
   - DOMAIN-SUFFIX,7div.ir,MMAQI
   - DOMAIN-SUFFIX,7eghlimco.com,MMAQI
   - DOMAIN-SUFFIX,82k.ir,MMAQI
+  - DOMAIN-SUFFIX,89857.ir.cdn.ir,MMAQI
   - DOMAIN-SUFFIX,9121441618.ir,MMAQI
   - DOMAIN-SUFFIX,9183139716.ir,MMAQI
+  - DOMAIN-SUFFIX,93.ir.cdn.ir,MMAQI
+  - DOMAIN-SUFFIX,94.ir.cdn.ir,MMAQI
+  - DOMAIN-SUFFIX,95.ir.cdn.ir,MMAQI
+  - DOMAIN-SUFFIX,96.ir.cdn.ir,MMAQI
   - DOMAIN-SUFFIX,9746801364.digihive.ir,MMAQI
+  - DOMAIN-SUFFIX,9828bb4395d04136aafbd6cc5e4b956a.cname.arvancdn.ir,MMAQI
   - DOMAIN-SUFFIX,9movie1.shop,MMAQI
   - DOMAIN-SUFFIX,a.clickyab.com,MMAQI
   - DOMAIN-SUFFIX,a2zclub.ir,MMAQI
@@ -4974,6 +4985,7 @@ rules:
   - DOMAIN-SUFFIX,adtrace.world,MMAQI
   - DOMAIN-SUFFIX,adtube.ir,MMAQI
   - DOMAIN-SUFFIX,advar.net,MMAQI
+  - DOMAIN-SUFFIX,adverge.io,MMAQI
   - DOMAIN-SUFFIX,adverge.ir,MMAQI
   - DOMAIN-SUFFIX,adverigo.com,MMAQI
   - DOMAIN-SUFFIX,advering.com,MMAQI
@@ -5497,6 +5509,7 @@ rules:
   - DOMAIN-SUFFIX,cdn.adivery.com,MMAQI
   - DOMAIN-SUFFIX,cdn.asriran.com,MMAQI
   - DOMAIN-SUFFIX,cdn.divantheme.ir,MMAQI
+  - DOMAIN-SUFFIX,cdn.hostdl.com,MMAQI
   - DOMAIN-SUFFIX,cdn.iranweb.click,MMAQI
   - DOMAIN-SUFFIX,cdn.kaprila.com,MMAQI
   - DOMAIN-SUFFIX,cdn.mgsrvr.com,MMAQI
@@ -5865,6 +5878,7 @@ rules:
   - DOMAIN-SUFFIX,edalat-iran-ir.ml,MMAQI
   - DOMAIN-SUFFIX,edalet-iran.ml,MMAQI
   - DOMAIN-SUFFIX,edck.areu.ir,MMAQI
+  - DOMAIN-SUFFIX,edge10.85.ir.cdn.ir,MMAQI
   - DOMAIN-SUFFIX,ediran.vip,MMAQI
   - DOMAIN-SUFFIX,edl-iiiran.ml,MMAQI
   - DOMAIN-SUFFIX,edl-iiran.xyz,MMAQI
