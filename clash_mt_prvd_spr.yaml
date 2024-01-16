@@ -1,8 +1,9 @@
 port: 7890
+mixed-port: 7890
 socks-port: 7891
 allow-lan: false
 mode: rule
-log-level: info
+log-level: error
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
@@ -12,11 +13,11 @@ profile:
 
 dns:
   enable: true
-  #listen: 0.0.0.0:1053
+  #listen: 127.0.0.1:53
   ipv6: true
   use-hosts: true
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  #fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
@@ -52,7 +53,6 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1000
-      #lazy: true
       url: http://www.gstatic.com/generate_204
   b:
     type: http
@@ -62,7 +62,6 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1000
-      #lazy: true
       url: http://www.gstatic.com/generate_204
   c:
     type: http
@@ -72,47 +71,42 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1000
-      #lazy: true
       url: http://www.gstatic.com/generate_204
-  e:
+  d:
     type: http
     url: "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml"
     interval: 3600
-    path: ./providers/e.yaml
+    path: ./providers/d.yaml
     health-check:
       enable: true
       interval: 1000
-      #lazy: true
       url: http://www.gstatic.com/generate_204
-  f:
+  e:
     type: http
     url: "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml"
     interval: 3600
-    path: ./providers/f.yml
+    path: ./providers/e.yml
     health-check:
       enable: true
       interval: 1000
-      #lazy: true
+      url: http://www.gstatic.com/generate_204
+  f:
+    type: http
+    url: "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml"
+    interval: 3600
+    path: ./providers/f.yaml
+    health-check:
+      enable: true
+      interval: 1000
       url: http://www.gstatic.com/generate_204
   g:
     type: http
-    url: "https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml"
+    url: "https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml"
     interval: 3600
     path: ./providers/g.yaml
     health-check:
       enable: true
       interval: 1000
-      #lazy: true
-      url: http://www.gstatic.com/generate_204
-  h:
-    type: http
-    url: "https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml"
-    interval: 3600
-    path: ./providers/h.yaml
-    health-check:
-      enable: true
-      interval: 1000
-      #lazy: true
       url: http://www.gstatic.com/generate_204
 
 proxy-groups:
@@ -125,10 +119,10 @@ proxy-groups:
   - a
   - b
   - c
+  - d
   - e
   - f
   - g
-  - h
 - name: AALI
   type: select
   proxies:
@@ -138,10 +132,10 @@ proxy-groups:
   - a
   - b
   - c
+  - d
   - e
   - f
   - g
-  - h
 - name: QQOLI
   type: select
   proxies:
@@ -152,10 +146,10 @@ proxy-groups:
   - a
   - b
   - c
+  - d
   - e
   - f
   - g
-  - h
 - name: TTAQI
   type: select
   proxies:
@@ -177,10 +171,10 @@ proxy-groups:
   - a
   - b
   - c
+  - d
   - e
   - f
   - g
-  - h
 
 rule-providers:
   aff:
