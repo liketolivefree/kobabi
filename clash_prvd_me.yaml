@@ -22,15 +22,11 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - tcp://1.1.1.1
   - https://1.1.1.1/dns-query
   - https://dns.quad9.net/dns-query
-  - https://8.8.8.8/dns-query
   fallback:
-  - tcp://1.1.1.1
   - https://1.1.1.1/dns-query
   - https://dns.quad9.net/dns-query
-  - https://8.8.8.8/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -47,7 +43,7 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_me.yaml"
     interval: 3600
     path: ./providers/a.yaml
     health-check:
