@@ -1,35 +1,52 @@
-port: 7890
 mixed-port: 7890
 socks-port: 7891
 allow-lan: false
 mode: rule
-log-level: error
+log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
+enable-process: true
+tcp-concurrent: true
+keep-alive-interval: 15
+find-process-mode: always
+unified-delay: true
+global-client-fingerprint: random
+geodata-mode: true
+geox-url:
+  geoip: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat"
+  geosite: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat"
+  mmdb: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb"
+  
 profile:
   store-selected: false
   store-fake-ip: true
-
+  
+experimental:
+  ignore-resolve-fail: true
+  sniff-tls-sni: true
+  tracing: true
+  
 dns:
   enable: true
-  #listen: 127.0.0.1:53
+  #listen: 127.0.0.1:1053
   ipv6: true
+  prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
-  #fake-ip-range: 198.18.0.1/16
+  fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
   - tcp://1.1.1.1
   - https://1.1.1.1/dns-query
-  - https://dns.quad9.net/dns-query
+  - udp://1.1.1.1
   - https://8.8.8.8/dns-query
   fallback:
   - tcp://1.1.1.1
   - https://1.1.1.1/dns-query
-  - https://dns.quad9.net/dns-query
+  - udp://1.1.1.1
   - https://8.8.8.8/dns-query
   fallback-filter:
     geoip: true
@@ -37,33 +54,55 @@ dns:
 
 tun:
   enable: true
-  stack: system
+  stack: mixed
   dns-hijack:
-  - 0.0.0.0:53
-  - any:53
+  - 'any:53'
+  - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
+  mtu: 9000
+  strict-route: true
+
 
 proxy-providers:
   a:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_mom.yaml"
+    url: "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix"
     interval: 3600
     path: ./providers/a.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-
+  b:
+    type: http
+    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
+    interval: 3600
+    path: ./providers/b.yaml
+    health-check:
+      enable: true
+      interval: 1000
+      url: http://www.gstatic.com/generate_204
+  c:
+    type: http
+    url: "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/vless"
+    interval: 3600
+    path: ./providers/c.yaml
+    health-check:
+      enable: true
+      interval: 1000
+      url: http://www.gstatic.com/generate_204
 
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 300
+  interval: 1000
   tolerance: 0
   use:
   - a
+  - b
+  - c
 - name: AALI
   type: select
   proxies:
@@ -71,6 +110,8 @@ proxy-groups:
   - DIRECT
   use:
   - a
+  - b
+  - c
 - name: QQOLI
   type: select
   proxies:
@@ -79,6 +120,8 @@ proxy-groups:
   - TTAQI
   use:
   - a
+  - b
+  - c
 - name: TTAQI
   type: select
   proxies:
@@ -98,6 +141,8 @@ proxy-groups:
   - MMOBI
   use:
   - a
+  - b
+  - c
 
 rule-providers:
   aff:
