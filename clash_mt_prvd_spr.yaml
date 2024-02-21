@@ -5,23 +5,34 @@ mode: rule
 log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
+# external-controller-tls: 127.0.0.1:9443
 secret: ''
+# external-ui: /path/to/ui/folder/
+# external-ui-name: xd
+# external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 enable-process: true
 tcp-concurrent: true
+# keep-alive-interval: 15
 find-process-mode: always
-#unified-delay: false
+unified-delay: true
 global-client-fingerprint: random
 geodata-mode: true
 geox-url:
-  geoip: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311252208/geoip.dat"
-  geosite: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311252208/geosite.dat"
-  mmdb: "https://github.com/Loyalsoldier/geoip/releases/download/202311230058/Country.mmdb"
+  geoip: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat"
+  geosite: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat"
+  mmdb: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb"
 
+# geo-auto-update: true
+# geo-update-interval: 72
+# geosite-matcher: mph
 hosts:
-  "localhost": 127.0.0.1
+  'loca': 127.0.0.1
+  '*.mihomo.dev': 127.0.0.1
+  '.dev': 127.0.0.1
+  'alpha.mihomo.dev': '::1'
   
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
   
 experimental:
@@ -95,12 +106,12 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - tcp://1.1.1.1
+  - 1.1.1.1
   - https://1.1.1.1/dns-query
   - https://dns.quad9.net/dns-query
   - https://8.8.8.8/dns-query
   fallback:
-  - tcp://1.1.1.1
+  - 1.1.1.1
   - https://1.1.1.1/dns-query
   - https://dns.quad9.net/dns-query
   - https://8.8.8.8/dns-query
@@ -119,40 +130,11 @@ tun:
   mtu: 9000
   strict-route: true
   #device: utun
-
-sniffer:
-  enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
-  override-destination: true
-  sniff:
-    TLS:
-      ports: [443, 8443]
-      override-destination: true	  
-    HTTP:
-      ports: [80, 8080-8880]
-      override-destination: true
-    QUIC:
-      ports: [443, 8443]
-      override-destination: true	  
-  force-domain:
-  - '+.v2ex.com'
-  - www.google.com
-  - google.com
-  skip-domain:
-  - Mijia Cloud
-  - dlg.io.mi.com
-  sniffing:
-  - tls
-  - http
-  port-whitelist:
-  - '80'
-  - '443'
   
 proxy-providers:
   a:
     type: http
-    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
+    url: "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix"
     interval: 3600
     path: ./providers/a.yaml
     health-check:
@@ -162,7 +144,7 @@ proxy-providers:
 
   b:
     type: http
-    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/actives_under_1500ms.yaml"
+    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
     interval: 3600
     path: ./providers/b.yaml
     health-check:
@@ -170,35 +152,6 @@ proxy-providers:
       interval: 1000
       url: http://www.gstatic.com/generate_204
 
-  c:
-    type: http
-    url: "https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml"
-    interval: 3600
-    path: ./providers/c.yaml
-    health-check:
-      enable: true
-      interval: 1000
-      url: http://www.gstatic.com/generate_204
-
-  d:
-    type: http
-    url: "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml"
-    interval: 3600
-    path: ./providers/d.yaml
-    health-check:
-      enable: true
-      interval: 1000
-      url: http://www.gstatic.com/generate_204
-      
-  e:
-    type: http
-    url: "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix"
-    interval: 3600
-    path: ./providers/e.yaml
-    health-check:
-      enable: true
-      interval: 1000
-      url: http://www.gstatic.com/generate_204      
 
 proxy-groups:
 - name: MMOBI
@@ -209,9 +162,6 @@ proxy-groups:
   use:
   - a
   - b
-  - c
-  - d
-  - e
 - name: AALI
   type: select
   proxies:
@@ -220,9 +170,6 @@ proxy-groups:
   use:
   - a
   - b
-  - c
-  - d
-  - e
 - name: QQOLI
   type: select
   proxies:
@@ -232,9 +179,6 @@ proxy-groups:
   use:
   - a
   - b
-  - c
-  - d
-  - e
 - name: TTAQI
   type: select
   proxies:
@@ -255,23 +199,20 @@ proxy-groups:
   use:
   - a
   - b
-  - c
-  - d
-  - e
 
 rule-providers:
   aff:
     type: http
     behavior: "domain"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.yaml"
     path: ./aff.yaml
     interval: 86400
   yun:
     type: http
     behavior: "ipcidr"
     format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.yaml"
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.yaml"
     path: ./yun.yaml
     interval: 86400
   oki:
@@ -460,104 +401,6 @@ rules:
   - IP-CIDR6,fc00::/7,TTAQI,no-resolve
   - IP-CIDR6,fe80::/10,TTAQI,no-resolve
   - IP-CIDR6,ff00::/8,TTAQI,no-resolve
-  - DOMAIN-SUFFIX,accounts.google.com,QQOLI
-  - DOMAIN-SUFFIX,books.google.com,QQOLI
-  - DOMAIN-SUFFIX,calendar.google.com,QQOLI
-  - DOMAIN-SUFFIX,chrome.google.com,QQOLI
-  - DOMAIN-SUFFIX,code.google.com,QQOLI
-  - DOMAIN-SUFFIX,consent.google.com,QQOLI
-  - DOMAIN-SUFFIX,contacts.google.com,QQOLI
-  - DOMAIN-SUFFIX,docs.google.com,QQOLI
-  - DOMAIN-SUFFIX,drive.google.com,QQOLI
-  - DOMAIN-SUFFIX,images.google.com,QQOLI
-  - DOMAIN-SUFFIX,mail.google.com,QQOLI
-  - DOMAIN-SUFFIX,maps.google.com,QQOLI
-  - DOMAIN-SUFFIX,maps.googleapis.com,QQOLI
-  - DOMAIN-SUFFIX,maps.gstatic.com,QQOLI
-  - DOMAIN-SUFFIX,photos.google.com,QQOLI
-  - DOMAIN-SUFFIX,play.google.com,QQOLI
-  - DOMAIN-SUFFIX,plus.google.com,QQOLI
-  - DOMAIN-SUFFIX,scholar.google.com,QQOLI
-  - DOMAIN-SUFFIX,support.google.com,QQOLI
-  - DOMAIN-SUFFIX,translate.google.com,QQOLI
-  - DOMAIN-SUFFIX,translate.googleapis.com,QQOLI
-  - DOMAIN-SUFFIX,trends.google.com,QQOLI
-  - DOMAIN-SUFFIX,video.google.com,QQOLI
-  - DOMAIN-SUFFIX,www.google-analytics.l.google.com,QQOLI
-  - DOMAIN-SUFFIX,chromewebstore.google.com,QQOLI
-  - DOMAIN-SUFFIX,developer.android.com,QQOLI
-  - DOMAIN-SUFFIX,encrypted.google.com,QQOLI
-  - DOMAIN-SUFFIX,sites.google.com,QQOLI
-  - DOMAIN-SUFFIX,chopsdash.appspot.com,QQOLI
-  - DOMAIN-SUFFIX,chrome-devtools-frontend.appspot.com,QQOLI
-  - DOMAIN-SUFFIX,hostsaway.appspot.com,QQOLI
-  - DOMAIN-SUFFIX,shaka-player-demo.appspot.com,QQOLI
-  - DOMAIN-SUFFIX,answers.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,cxcs.microsoft.net,QQOLI
-  - DOMAIN-SUFFIX,docs.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,download.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,technet.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,go.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,learn.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,support.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,www.microsoft.com,QQOLI
-  - DOMAIN-SUFFIX,clients.config.office.net,QQOLI
-  - DOMAIN-SUFFIX,res-1.cdn.office.net,QQOLI
-  - DOMAIN-SUFFIX,support.content.office.net,QQOLI
-  - DOMAIN-SUFFIX,endpoints.office.com,QQOLI
-  - DOMAIN-SUFFIX,ecs.office.com,QQOLI
-  - DOMAIN-SUFFIX,r4.res.office365.com,QQOLI
-  - DOMAIN-SUFFIX,cf-wkrs-pages-vless-aoy.pages.dev,QQOLI
-  - DOMAIN-SUFFIX,edtunnel-b6t.pages.dev,QQOLI
-  - DOMAIN-SUFFIX,malware-filter.pages.dev,QQOLI
-  - DOMAIN-SUFFIX,phishing-filter.pages.dev,QQOLI
-  - DOMAIN-SUFFIX,ublockorigin.pages.dev,QQOLI
-  - DOMAIN-SUFFIX,api.amazon.com,QQOLI
-  - DOMAIN-SUFFIX,aws.amazon.com,QQOLI
-  - DOMAIN-SUFFIX,images.amazon.com,QQOLI
-  - DOMAIN-SUFFIX,ip-ranges.amazonaws.com,QQOLI
-  - DOMAIN-SUFFIX,db187550c7dkf.cloudfront.net,QQOLI
-  - DOMAIN-SUFFIX,dqpnq362acqdi.cloudfront.net,QQOLI
-  - DOMAIN-SUFFIX,ebay.doubleclick.net,QQOLI
-  - DOMAIN-SUFFIX,trk.free.fr,QQOLI
-  - DOMAIN-SUFFIX,f001.backblazeb2.com,QQOLI
-  - DOMAIN-SUFFIX,bold-grass-94d6.gmail-ejvon.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,cool-hill-3b3a.beshir-beisel.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,curly-glade-71dd.hite-nomade.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,green-wood-ed6a.gmail-ejvon.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,hello-world-broken-dream-77e4.gotthold-overworked.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,hello-world-crimson-paper-0a6f.plzthsmdnss-7d8ly.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,hello-world-delicate-unit-a89d.hite-nomade.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,hello-world-nameless-truth-a630.email-0kn8d.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,hello-world-plain-credit-4a53.turkeys-radford.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,hello-world-small-cake-51e5.zemel-yesenia1720.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,hello-world-tight-breeze-862c.wwwjoecartoonscom-vaalco.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,icy-butterfly-4100.email-0kn8d.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,icy-tooth-3d05.plzthsmdnss-7d8ly.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,long-pine-b60f.plzthsmdnss-7d8ly.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,misty-dew-e2f1.turkeys-radford.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,nameless-term-fd47.zemel-yesenia1720.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,proud-union-8659.email-0kn8d.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,purple-bar-6c07.gotthold-overworked.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,purple-dream-438f.wwwjoecartoonscom-vaalco.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,rough-wildflower-0b5e.zemel-yesenia1720.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,silent-shadow-e713.gotthold-overworked.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,snowy-river-f497.turkeys-radford.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,square-snowflake-486a.beshir-beisel.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,throbbing-shape-90d7.hite-nomade.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,white-darkness-1c56.gmail-ejvon.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,withered-disk-c4c0.wwwjoecartoonscom-vaalco.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-aged-cloud-948f.hite-nomade.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-aged-flower-b22b.gmail-ejvon.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-late-lab-7e3c.turkeys-radford.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-muddy-waterfall-a6c3.email-0kn8d.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-mute-wildflower-c66b.wwwjoecartoonscom-vaalco.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-raspy-boat-9cd4.beshir-beisel.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-shy-moon-7cb5.email-0kn8d.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-silent-darkness-4ef2.beshir-beisel.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-silent-rain-67f9.zemel-yesenia1720.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-soft-smoke-52fe.gotthold-overworked.workers.dev,TTAQI
-  - DOMAIN-SUFFIX,worker-wild-salad-01b6.plzthsmdnss-7d8ly.workers.dev,TTAQI
   - RULE-SET,aff,MMAQI
   - RULE-SET,xal,TTAQI
   - RULE-SET,oki,QQOLI
