@@ -21,8 +21,8 @@ geox-url:
 
 # geo-auto-update: true
 # geo-update-interval: 72
-# geodata-loader: memconservative
-# geosite-matcher: mph
+geodata-loader: memconservative
+geosite-matcher: mph
 
 profile:
   store-selected: false
@@ -73,9 +73,15 @@ proxy-providers:
     path: ./providers/a.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 300
       url: http://www.gstatic.com/generate_204
-
+      timeout: 3000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: "ss|http"
   b:
     type: http
     url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
@@ -83,15 +89,21 @@ proxy-providers:
     path: ./providers/b.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 300
       url: http://www.gstatic.com/generate_204
-
+      timeout: 3000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: "ss|http"
 
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 1000
+  interval: 300
   tolerance: 0
   use:
   - a
