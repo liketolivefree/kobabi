@@ -104,7 +104,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 0
+  tolerance: 50
   use:
   - a
   - b
