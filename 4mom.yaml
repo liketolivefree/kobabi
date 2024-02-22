@@ -6,30 +6,31 @@ log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
+interface-name: en0
 enable-process: true
 tcp-concurrent: true
-keep-alive-interval: 15
+keep-alive-interval: 30
 find-process-mode: always
 unified-delay: true
 global-client-fingerprint: random
 geodata-mode: true
 geox-url:
-  geoip: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat"
-  geosite: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat"
-  mmdb: "https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb"
-  
+  geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
+  geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
+  mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
+
+# geo-auto-update: true
+# geo-update-interval: 72
+# geodata-loader: memconservative
+# geosite-matcher: mph
+
 profile:
   store-selected: false
   store-fake-ip: true
-  
-experimental:
-  ignore-resolve-fail: true
-  sniff-tls-sni: true
-  tracing: true
-  
+
 dns:
   enable: true
-  #listen: 127.0.0.1:1053
+  listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
   use-hosts: true
@@ -60,8 +61,8 @@ tun:
   - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
-  mtu: 9000
   strict-route: true
+  mtu: 9000
 
 
 proxy-providers:
