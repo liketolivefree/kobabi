@@ -10,7 +10,7 @@ interface-name: en0
 enable-process: true
 tcp-concurrent: true
 keep-alive-interval: 30
-find-process-mode: always
+find-process-mode: strict
 unified-delay: true
 global-client-fingerprint: random
 geodata-mode: true
@@ -21,7 +21,7 @@ geox-url:
 geodata-loader: memconservative
 geosite-matcher: mph
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 dns:
   enable: true
@@ -55,11 +55,9 @@ tun:
   stack: mixed
   dns-hijack:
   - 'any:53'
-  - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
   mtu: 9000
-  strict-route: true
 
 proxy-providers:
   a:
@@ -71,13 +69,8 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
   b:
     type: http
     url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
@@ -87,13 +80,8 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
 
 proxy-groups:
 - name: MMOBI
@@ -102,14 +90,12 @@ proxy-groups:
   interval: 300
   tolerance: 50
   lazy: true
-  timeout: 3000
-  exclude-type: 'ss|ssr|http'
+  timeout: 5000
   use:
   - a
   - b
 - name: AALI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - MMOBI
   - DIRECT
@@ -118,7 +104,6 @@ proxy-groups:
   - b
 - name: QQOLI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - AALI
   - MMOBI
@@ -128,20 +113,17 @@ proxy-groups:
   - b
 - name: TTAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - DIRECT
   - AALI  
   - MMOBI
 - name: MMAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - REJECT
   - DIRECT
 - name: NNAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - AALI
   - TTAQI
@@ -195,8 +177,6 @@ rule-providers:
     interval: 86400
 
 rules:
-- GEOIP,lan,TTAQI,no-resolve
-- PROCESS-NAME,curl,QQOLI
 - DOMAIN-SUFFIX,lan,TTAQI
 - DOMAIN-SUFFIX,local,TTAQI
 - DOMAIN-SUFFIX,localdomain,TTAQI
