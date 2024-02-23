@@ -2,7 +2,7 @@ mixed-port: 7890
 socks-port: 7891
 allow-lan: false
 mode: rule
-log-level: info
+log-level: error
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
@@ -18,16 +18,11 @@ geox-url:
   geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
   geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
   mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
-
-# geo-auto-update: true
-# geo-update-interval: 72
-# geodata-loader: memconservative
-# geosite-matcher: mph
-
+geodata-loader: memconservative
+geosite-matcher: mph
 profile:
   store-selected: false
   store-fake-ip: true
-
 dns:
   enable: true
   listen: 0.0.0.0:1053
@@ -36,21 +31,25 @@ dns:
   use-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '+.lan'
+  - '+.local'
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
   - 1.1.1.1
+  - 8.8.8.8
   - https://8.8.8.8/dns-query
   - https://1.1.1.1/dns-query
   fallback:
   - 1.1.1.1
+  - 8.8.8.8
   - https://8.8.8.8/dns-query
   - https://1.1.1.1/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
-
 tun:
   enable: true
   stack: mixed
@@ -61,41 +60,56 @@ tun:
   auto-detect-interface: true
   mtu: 9000
   strict-route: true
-  #device: utun
-  
+
 proxy-providers:
   a:
     type: http
-    url: "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix"
+    url: 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix'
     interval: 3600
-    path: ./providers/a.yaml
+    path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 1000
-      url: http://www.gstatic.com/generate_204
-
+      interval: 300
+      url: 'http://www.gstatic.com/generate_204'
+      timeout: 3000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
   b:
     type: http
-    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
+    url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
     interval: 3600
-    path: ./providers/b.yaml
+    path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 1000
-      url: http://www.gstatic.com/generate_204
-
+      interval: 300
+      url: 'http://www.gstatic.com/generate_204'
+      timeout: 3000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
 
 proxy-groups:
 - name: MMOBI
   type: url-test
-  url: http://www.gstatic.com/generate_204
-  interval: 1000
-  tolerance: 0
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+  tolerance: 50
+  lazy: true
+  timeout: 3000
+  exclude-type: 'ss|ssr|http'
   use:
   - a
   - b
 - name: AALI
   type: select
+  exclude-type: 'ss|ssr|http'
   proxies:
   - MMOBI
   - DIRECT
@@ -104,6 +118,7 @@ proxy-groups:
   - b
 - name: QQOLI
   type: select
+  exclude-type: 'ss|ssr|http'
   proxies:
   - AALI
   - MMOBI
@@ -113,17 +128,20 @@ proxy-groups:
   - b
 - name: TTAQI
   type: select
+  exclude-type: 'ss|ssr|http'
   proxies:
   - DIRECT
   - AALI  
   - MMOBI
 - name: MMAQI
   type: select
+  exclude-type: 'ss|ssr|http'
   proxies:
   - REJECT
   - DIRECT
 - name: NNAQI
   type: select
+  exclude-type: 'ss|ssr|http'
   proxies:
   - AALI
   - TTAQI
@@ -135,88 +153,86 @@ proxy-groups:
 rule-providers:
   aff:
     type: http
-    behavior: "domain"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.yaml"
-    path: ./aff.yaml
+    behavior: domain
+    format: text
+    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.txt'
+    path: ./rule-providers/aff.txt   
     interval: 86400
   yun:
     type: http
-    behavior: "ipcidr"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.yaml"
-    path: ./yun.yaml
+    behavior: ipcidr
+    format: text
+    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.txt'
+    path: ./rule-providers/yun.txt
     interval: 86400
   oki:
     type: http
-    behavior: "domain"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.yaml"
-    path: ./oki.yaml
+    behavior: domain
+    format: text
+    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.txt'
+    path: ./rule-providers/oki.txt
     interval: 86400
   doki:
     type: http
-    behavior: "ipcidr"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.yaml"
-    path: ./doki.yaml
+    behavior: ipcidr
+    format: text
+    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.txt'
+    path: ./rule-providers/doki.txt
     interval: 86400
   xal:
     type: http
-    behavior: "domain"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.yaml"
-    path: ./xal.yaml
+    behavior: domain
+    format: text
+    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt'
+    path: ./rule-providers/xal.txt
     interval: 86400
   loo:
     type: http
-    behavior: "ipcidr"
-    format: 'yaml'
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.yaml"
-    path: ./loo.yaml
+    behavior: ipcidr
+    format: text
+    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt'
+    path: ./rule-providers/loo.txt
     interval: 86400
 
 rules:
-  - DOMAIN-SUFFIX,acl4.ssr,TTAQI
-  - DOMAIN-SUFFIX,ip6-localhost,TTAQI
-  - DOMAIN-SUFFIX,ip6-loopback,TTAQI
-  - DOMAIN-SUFFIX,lan,TTAQI
-  - DOMAIN-SUFFIX,local,TTAQI
-  - DOMAIN-SUFFIX,localdomain,TTAQI
-  - DOMAIN-SUFFIX,localhost,TTAQI
-  - IP-CIDR,0.0.0.0/8,TTAQI,no-resolve
-  - IP-CIDR,10.0.0.0/8,TTAQI,no-resolve
-  - IP-CIDR,100.64.0.0/10,TTAQI,no-resolve
-  - IP-CIDR,127.0.0.0/8,TTAQI,no-resolve
-  - IP-CIDR,169.254.0.0/16,TTAQI,no-resolve
-  - IP-CIDR,172.16.0.0/12,TTAQI,no-resolve
-  - IP-CIDR,192.0.0.0/24,TTAQI,no-resolve
-  - IP-CIDR,192.0.2.0/24,TTAQI,no-resolve
-  - IP-CIDR,192.88.99.0/24,TTAQI,no-resolve
-  - IP-CIDR,192.168.0.0/16,TTAQI,no-resolve
-  - IP-CIDR,198.18.0.0/15,TTAQI,no-resolve
-  - IP-CIDR,198.51.100.0/24,TTAQI,no-resolve
-  - IP-CIDR,203.0.113.0/24,TTAQI,no-resolve
-  - IP-CIDR,224.0.0.0/4,TTAQI,no-resolve
-  - IP-CIDR,233.252.0.0/24,TTAQI,no-resolve
-  - IP-CIDR,240.0.0.0/4,TTAQI,no-resolve
-  - IP-CIDR6,::1/128,TTAQI,no-resolve
-  - IP-CIDR6,::ffff:0:0/96,TTAQI,no-resolve
-  - IP-CIDR6,::ffff:0:0:0/96,TTAQI,no-resolve
-  - IP-CIDR6,64:ff9b::/96,TTAQI,no-resolve
-  - IP-CIDR6,64:ff9b:1::/48,TTAQI,no-resolve
-  - IP-CIDR6,100::/64,TTAQI,no-resolve
-  - IP-CIDR6,2001:0000::/32,TTAQI,no-resolve
-  - IP-CIDR6,2001:20::/28,TTAQI,no-resolve
-  - IP-CIDR6,2001:db8::/32,TTAQI,no-resolve
-  - IP-CIDR6,2002::/16,TTAQI,no-resolve
-  - IP-CIDR6,fc00::/7,TTAQI,no-resolve
-  - IP-CIDR6,fe80::/10,TTAQI,no-resolve
-  - IP-CIDR6,ff00::/8,TTAQI,no-resolve
-  - RULE-SET,aff,MMAQI
-  - RULE-SET,xal,TTAQI
-  - RULE-SET,oki,QQOLI
-  - RULE-SET,yun,MMAQI,no-resolve
-  - RULE-SET,loo,TTAQI,no-resolve
-  - RULE-SET,doki,QQOLI,no-resolve
-  - MATCH,NNAQI
+- GEOIP,lan,TTAQI,no-resolve
+- PROCESS-NAME,curl,QQOLI
+- DOMAIN-SUFFIX,lan,TTAQI
+- DOMAIN-SUFFIX,local,TTAQI
+- DOMAIN-SUFFIX,localdomain,TTAQI
+- DOMAIN-SUFFIX,localhost,TTAQI
+- DOMAIN-SUFFIX,ip6-localhost,TTAQI
+- DOMAIN-SUFFIX,ip6-loopback,TTAQI
+- IP-CIDR,127.0.0.0/8,TTAQI,no-resolve
+- IP-CIDR,169.254.0.0/16,TTAQI,no-resolve
+- IP-CIDR,172.16.0.0/12,TTAQI,no-resolve
+- IP-CIDR,192.0.0.0/24,TTAQI,no-resolve
+- IP-CIDR,192.0.2.0/24,TTAQI,no-resolve
+- IP-CIDR,192.88.99.0/24,TTAQI,no-resolve
+- IP-CIDR,192.168.0.0/16,TTAQI,no-resolve
+- IP-CIDR,198.18.0.0/15,TTAQI,no-resolve
+- IP-CIDR,198.51.100.0/24,TTAQI,no-resolve
+- IP-CIDR,203.0.113.0/24,TTAQI,no-resolve
+- IP-CIDR,224.0.0.0/4,TTAQI,no-resolve
+- IP-CIDR,240.0.0.0/4,TTAQI,no-resolve
+- IP-CIDR6,::1/128,TTAQI,no-resolve
+- IP-CIDR6,::ffff:0:0/96,TTAQI,no-resolve
+- IP-CIDR6,::ffff:0:0:0/96,TTAQI,no-resolve
+- IP-CIDR6,64:ff9b::/96,TTAQI,no-resolve
+- IP-CIDR6,64:ff9b:1::/48,TTAQI,no-resolve
+- IP-CIDR6,100::/64,TTAQI,no-resolve
+- IP-CIDR6,2001:0000::/32,TTAQI,no-resolve
+- IP-CIDR6,2001:20::/28,TTAQI,no-resolve
+- IP-CIDR6,2001:db8::/32,TTAQI,no-resolve
+- IP-CIDR6,2002::/16,TTAQI,no-resolve
+- IP-CIDR6,fc00::/7,TTAQI,no-resolve
+- IP-CIDR6,fe80::/10,TTAQI,no-resolve
+- IP-CIDR6,ff00::/8,TTAQI,no-resolve
+- RULE-SET,aff,MMAQI
+- DOMAIN-SUFFIX,ir,TTAQI
+- RULE-SET,xal,TTAQI
+- RULE-SET,oki,QQOLI
+- RULE-SET,yun,MMAQI,no-resolve
+- RULE-SET,loo,TTAQI,no-resolve
+- RULE-SET,doki,QQOLI,no-resolve
+- MATCH,NNAQI
