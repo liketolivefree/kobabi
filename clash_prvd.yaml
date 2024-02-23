@@ -21,7 +21,7 @@ geox-url:
 geodata-loader: memconservative
 geosite-matcher: mph
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 dns:
   enable: true
@@ -315,7 +315,6 @@ rules:
 - IP-CIDR,254.230.180.37/32,MMAQI,no-resolve
 - IP-CIDR,254.237.190.31/32,MMAQI,no-resolve
 - IP-CIDR,255.99.94.68/32,MMAQI,no-resolve
-- IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
 - IP-CIDR,127.0.0.0/8,TTAQI,no-resolve
 - IP-CIDR,169.254.0.0/16,TTAQI,no-resolve
 - IP-CIDR,172.16.0.0/12,TTAQI,no-resolve
