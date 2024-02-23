@@ -21,7 +21,7 @@ geox-url:
 geodata-loader: memconservative
 geosite-matcher: mph
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 dns:
   enable: true
@@ -38,15 +38,15 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - 'https://1.1.1.1/dns-query#QQOLI'
-  - 'https://8.8.8.8/dns-query#QQOLI'
-  - 'https://dns.quad9.net/dns-query#QQOLI'
-  - 'https://mozilla.cloudflare-dns.com/dns-query#QQOLI&h3=true'
+  - 'https://1.1.1.1/dns-query'
+  - 'https://8.8.8.8/dns-query'
+  - 'https://dns.quad9.net/dns-query'
+  - 'https://mozilla.cloudflare-dns.com/dns-query'
   fallback:
-  - 'https://1.1.1.1/dns-query#QQOLI'
-  - 'https://8.8.8.8/dns-query#QQOLI'
-  - 'https://dns.quad9.net/dns-query#QQOLI'
-  - 'https://mozilla.cloudflare-dns.com/dns-query#QQOLI&h3=true'
+  - 'https://1.1.1.1/dns-query'
+  - 'https://8.8.8.8/dns-query'
+  - 'https://dns.quad9.net/dns-query'
+  - 'https://mozilla.cloudflare-dns.com/dns-query'
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -106,13 +106,11 @@ proxy-groups:
   tolerance: 50
   lazy: true
   timeout: 3000
-  exclude-type: 'ss|ssr|http'
   use:
   - a
   - b
 - name: AALI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - MMOBI
   - DIRECT
@@ -121,7 +119,6 @@ proxy-groups:
   - b
 - name: QQOLI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - AALI
   - MMOBI
@@ -131,20 +128,17 @@ proxy-groups:
   - b
 - name: TTAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - DIRECT
   - AALI  
   - MMOBI
 - name: MMAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - REJECT
   - DIRECT
 - name: NNAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - AALI
   - TTAQI
@@ -198,7 +192,6 @@ rule-providers:
     interval: 86400
 
 rules:
-- GEOIP,lan,TTAQI,no-resolve
 - PROCESS-NAME,curl,QQOLI
 - NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,TTAQI
