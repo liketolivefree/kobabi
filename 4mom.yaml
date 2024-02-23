@@ -103,13 +103,11 @@ proxy-groups:
   tolerance: 50
   lazy: true
   timeout: 3000
-  exclude-type: 'ss|ssr|http'
   use:
   - a
   - b
 - name: AALI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - MMOBI
   - DIRECT
@@ -118,7 +116,6 @@ proxy-groups:
   - b
 - name: QQOLI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - AALI
   - MMOBI
@@ -128,20 +125,17 @@ proxy-groups:
   - b
 - name: TTAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - DIRECT
   - AALI  
   - MMOBI
 - name: MMAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - REJECT
   - DIRECT
 - name: NNAQI
   type: select
-  exclude-type: 'ss|ssr|http'
   proxies:
   - AALI
   - TTAQI
@@ -195,7 +189,6 @@ rule-providers:
     interval: 86400
 
 rules:
-- GEOIP,lan,TTAQI,no-resolve
 - DOMAIN-SUFFIX,lan,TTAQI
 - DOMAIN-SUFFIX,local,TTAQI
 - DOMAIN-SUFFIX,localdomain,TTAQI
