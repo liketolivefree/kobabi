@@ -63,7 +63,15 @@ tun:
   strict-route: true
   exclude-package:
   - com.android.captiveportallogin
-  
+  - com.xiaomi.finddevice
+  - com.miui.securitycenter
+  - com.mi.globalbrowser
+  - com.miui.player
+  - com.miui.videoplayer
+  - com.miui.weather2
+  - com.facemoji.lite.xiaomi
+  - com.miui.android.fashiongallery
+ 
 proxy-providers:
   a:
     type: http
