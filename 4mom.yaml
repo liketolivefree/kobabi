@@ -10,7 +10,7 @@ interface-name: en0
 enable-process: true
 tcp-concurrent: true
 keep-alive-interval: 30
-find-process-mode: always
+find-process-mode: strict
 unified-delay: true
 global-client-fingerprint: random
 geodata-mode: true
@@ -21,7 +21,7 @@ geox-url:
 geodata-loader: memconservative
 geosite-matcher: mph
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 dns:
   enable: true
@@ -40,13 +40,13 @@ dns:
   nameserver:
   - 1.1.1.1
   - 8.8.8.8
-  - https://8.8.8.8/dns-query
-  - https://1.1.1.1/dns-query
+  - 'https://8.8.8.8/dns-query'
+  - 'https://1.1.1.1/dns-query'
   fallback:
   - 1.1.1.1
   - 8.8.8.8
-  - https://8.8.8.8/dns-query
-  - https://1.1.1.1/dns-query
+  - 'https://8.8.8.8/dns-query'
+  - 'https://1.1.1.1/dns-query'
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -55,11 +55,9 @@ tun:
   stack: mixed
   dns-hijack:
   - 'any:53'
-  - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
   mtu: 9000
-  strict-route: true
 
 proxy-providers:
   a:
@@ -69,15 +67,10 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 500
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
   b:
     type: http
     url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
@@ -85,24 +78,19 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 500
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
 
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: 'http://www.gstatic.com/generate_204'
-  interval: 300
+  interval: 500
   tolerance: 50
   lazy: true
-  timeout: 3000
+  timeout: 5000
   use:
   - a
   - b
