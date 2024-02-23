@@ -38,19 +38,16 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - 'https://1.1.1.1/dns-query#QQOLI'
-  - 'https://8.8.8.8/dns-query#QQOLI'
-  - 'https://dns.quad9.net/dns-query#QQOLI'
-  - 'https://mozilla.cloudflare-dns.com/dns-query#QQOLI&h3=true'
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - https://dns.quad9.net/dns-query
   fallback:
-  - 'https://1.1.1.1/dns-query#QQOLI'
-  - 'https://8.8.8.8/dns-query#QQOLI'
-  - 'https://dns.quad9.net/dns-query#QQOLI'
-  - 'https://mozilla.cloudflare-dns.com/dns-query#QQOLI&h3=true'
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - https://dns.quad9.net/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
-
 tun:
   enable: true
   stack: mixed
@@ -158,14 +155,14 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt'
+    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.txt'
     path: ./rule-providers/aff.txt   
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_fr.txt'
+    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.txt'
     path: ./rule-providers/yun.txt
     interval: 86400
   oki:
@@ -200,7 +197,6 @@ rule-providers:
 rules:
 - GEOIP,lan,TTAQI,no-resolve
 - PROCESS-NAME,curl,QQOLI
-- NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,TTAQI
 - DOMAIN-SUFFIX,local,TTAQI
 - DOMAIN-SUFFIX,localdomain,TTAQI
@@ -352,67 +348,6 @@ rules:
 - IP-CIDR6,fc00::/7,TTAQI,no-resolve
 - IP-CIDR6,fe80::/10,TTAQI,no-resolve
 - IP-CIDR6,ff00::/8,TTAQI,no-resolve
-- DOMAIN-SUFFIX,accounts.google.com,QQOLI
-- DOMAIN-SUFFIX,books.google.com,QQOLI
-- DOMAIN-SUFFIX,calendar.google.com,QQOLI
-- DOMAIN-SUFFIX,chrome.google.com,QQOLI
-- DOMAIN-SUFFIX,code.google.com,QQOLI
-- DOMAIN-SUFFIX,consent.google.com,QQOLI
-- DOMAIN-SUFFIX,contacts.google.com,QQOLI
-- DOMAIN-SUFFIX,docs.google.com,QQOLI
-- DOMAIN-SUFFIX,drive.google.com,QQOLI
-- DOMAIN-SUFFIX,images.google.com,QQOLI
-- DOMAIN-SUFFIX,mail.google.com,QQOLI
-- DOMAIN-SUFFIX,maps.google.com,QQOLI
-- DOMAIN-SUFFIX,maps.googleapis.com,QQOLI
-- DOMAIN-SUFFIX,maps.gstatic.com,QQOLI
-- DOMAIN-SUFFIX,photos.google.com,QQOLI
-- DOMAIN-SUFFIX,play.google.com,QQOLI
-- DOMAIN-SUFFIX,plus.google.com,QQOLI
-- DOMAIN-SUFFIX,scholar.google.com,QQOLI
-- DOMAIN-SUFFIX,support.google.com,QQOLI
-- DOMAIN-SUFFIX,translate.google.com,QQOLI
-- DOMAIN-SUFFIX,translate.googleapis.com,QQOLI
-- DOMAIN-SUFFIX,trends.google.com,QQOLI
-- DOMAIN-SUFFIX,video.google.com,QQOLI
-- DOMAIN-SUFFIX,www.google-analytics.l.google.com,QQOLI
-- DOMAIN-SUFFIX,chromewebstore.google.com,QQOLI
-- DOMAIN-SUFFIX,developer.android.com,QQOLI
-- DOMAIN-SUFFIX,encrypted.google.com,QQOLI
-- DOMAIN-SUFFIX,sites.google.com,QQOLI
-- DOMAIN-SUFFIX,chopsdash.appspot.com,QQOLI
-- DOMAIN-SUFFIX,chrome-devtools-frontend.appspot.com,QQOLI
-- DOMAIN-SUFFIX,hostsaway.appspot.com,QQOLI
-- DOMAIN-SUFFIX,shaka-player-demo.appspot.com,QQOLI
-- DOMAIN-SUFFIX,answers.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,cxcs.microsoft.net,QQOLI
-- DOMAIN-SUFFIX,docs.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,download.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,technet.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,go.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,learn.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,support.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,www.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,clients.config.office.net,QQOLI
-- DOMAIN-SUFFIX,res-1.cdn.office.net,QQOLI
-- DOMAIN-SUFFIX,support.content.office.net,QQOLI
-- DOMAIN-SUFFIX,endpoints.office.com,QQOLI
-- DOMAIN-SUFFIX,ecs.office.com,QQOLI
-- DOMAIN-SUFFIX,r4.res.office365.com,QQOLI
-- DOMAIN-SUFFIX,cf-wkrs-pages-vless-aoy.pages.dev,QQOLI
-- DOMAIN-SUFFIX,edtunnel-b6t.pages.dev,QQOLI
-- DOMAIN-SUFFIX,malware-filter.pages.dev,QQOLI
-- DOMAIN-SUFFIX,phishing-filter.pages.dev,QQOLI
-- DOMAIN-SUFFIX,ublockorigin.pages.dev,QQOLI
-- DOMAIN-SUFFIX,api.amazon.com,QQOLI
-- DOMAIN-SUFFIX,aws.amazon.com,QQOLI
-- DOMAIN-SUFFIX,images.amazon.com,QQOLI
-- DOMAIN-SUFFIX,ip-ranges.amazonaws.com,QQOLI
-- DOMAIN-SUFFIX,db187550c7dkf.cloudfront.net,QQOLI
-- DOMAIN-SUFFIX,dqpnq362acqdi.cloudfront.net,QQOLI
-- DOMAIN-SUFFIX,ebay.doubleclick.net,QQOLI
-- DOMAIN-SUFFIX,trk.free.fr,QQOLI
-- DOMAIN-SUFFIX,f001.backblazeb2.com,QQOLI
 - RULE-SET,aff,MMAQI
 - DOMAIN-SUFFIX,ir,TTAQI
 - RULE-SET,xal,TTAQI
