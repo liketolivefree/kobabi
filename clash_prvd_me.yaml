@@ -25,7 +25,7 @@ profile:
   store-fake-ip: true
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  # listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
   use-hosts: true
@@ -53,7 +53,7 @@ dns:
 
 tun:
   enable: true
-  stack: mixed
+  stack: system
   dns-hijack:
   - 'any:53'
   - 'tcp://any:53'
@@ -200,8 +200,6 @@ rule-providers:
     interval: 86400
 
 rules:
-- PROCESS-NAME,curl,QQOLI
-- NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,TTAQI
 - DOMAIN-SUFFIX,local,TTAQI
 - DOMAIN-SUFFIX,localdomain,TTAQI
