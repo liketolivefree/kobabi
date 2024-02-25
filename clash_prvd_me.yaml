@@ -38,12 +38,12 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - 1.1.1.1
+  - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
   - https://dns.quad9.net/dns-query
   - https://mozilla.cloudflare-dns.com/dns-query
   fallback:
-  - 1.1.1.1
+  - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
   - https://dns.quad9.net/dns-query
   - https://mozilla.cloudflare-dns.com/dns-query
@@ -201,7 +201,6 @@ rule-providers:
 
 rules:
 - PROCESS-NAME,curl,QQOLI
-- NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,TTAQI
 - DOMAIN-SUFFIX,local,TTAQI
 - DOMAIN-SUFFIX,localdomain,TTAQI
