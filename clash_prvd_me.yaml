@@ -38,15 +38,9 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - https://1.1.1.1/dns-query
-  - https://8.8.8.8/dns-query
-  - https://dns.quad9.net/dns-query
-  - https://mozilla.cloudflare-dns.com/dns-query
+  - udp://1.1.1.1
   fallback:
-  - https://1.1.1.1/dns-query
-  - https://8.8.8.8/dns-query
-  - https://dns.quad9.net/dns-query
-  - https://mozilla.cloudflare-dns.com/dns-query
+  - udp://1.1.1.1
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -84,11 +78,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 3000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: ss|ssr|http
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -100,11 +89,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 3000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: ss|ssr|http
 
 proxy-groups:
 - name: MMOBI
@@ -200,7 +184,6 @@ rule-providers:
     interval: 86400
 
 rules:
-- PROCESS-NAME,curl,QQOLI
 - DOMAIN-SUFFIX,lan,TTAQI
 - DOMAIN-SUFFIX,local,TTAQI
 - DOMAIN-SUFFIX,localdomain,TTAQI
