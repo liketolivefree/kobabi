@@ -15,9 +15,9 @@ unified-delay: true
 global-client-fingerprint: random
 geodata-mode: true
 geox-url:
-  geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
-  geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
-  mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
+  geoip: https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
+  geosite: https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
+  mmdb: https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb
 geodata-loader: memconservative
 geosite-matcher: mph
 profile:
@@ -38,24 +38,25 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - 'https://1.1.1.1/dns-query'
-  - 'https://8.8.8.8/dns-query'
-  - 'https://dns.quad9.net/dns-query'
-  - 'https://mozilla.cloudflare-dns.com/dns-query'
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - https://dns.quad9.net/dns-query
+  - https://mozilla.cloudflare-dns.com/dns-query
   fallback:
-  - 'https://1.1.1.1/dns-query'
-  - 'https://8.8.8.8/dns-query'
-  - 'https://dns.quad9.net/dns-query'
-  - 'https://mozilla.cloudflare-dns.com/dns-query'
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - https://dns.quad9.net/dns-query
+  - https://mozilla.cloudflare-dns.com/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
+
 tun:
   enable: true
   stack: system
   dns-hijack:
-  - 'any:53'
-  - 'tcp://any:53'
+  - any:53
+  - tcp://any:53
   auto-route: true
   auto-detect-interface: true
   mtu: 9000
@@ -70,42 +71,60 @@ tun:
   - com.miui.weather2
   - com.facemoji.lite.xiaomi
   - com.miui.android.fashiongallery
-p: &p
-  type: http
-  interval: 3600
-  health-check:
-    enable: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    timeout: 3000
-    lazzy: true
-  override:
-    skip-cert-verify: false
-    udp: true
-    ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+ 
 proxy-providers:
-  provider2:
-    <<: *p
-    url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
-    path: ./proxy-providers/provider2.yaml
+  a:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 3600
+    path: ./proxy-providers/a.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: http://www.gstatic.com/generate_204
+      timeout: 3000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: ss|ssr|http
+  b:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 3600
+    path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: http://www.gstatic.com/generate_204
+      timeout: 3000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: ss|ssr|http
+
 proxy-groups:
 - name: MMOBI
   type: url-test
-  url: 'http://www.gstatic.com/generate_204'
+  url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   lazy: true
   timeout: 3000
   use:
-  - provider2
+  - a 
+  - b
 - name: AALI
   type: select
   proxies:
   - MMOBI
   - DIRECT
   use:
-  - provider2
+  - a
+  - b
 - name: QQOLI
   type: select
   proxies:
@@ -113,7 +132,8 @@ proxy-groups:
   - MMOBI
   - TTAQI
   use:
-  - provider2
+  - a
+  - b
 - name: TTAQI
   type: select
   proxies:
@@ -132,50 +152,53 @@ proxy-groups:
   - TTAQI
   - MMOBI
   use:
-  - provider2
+  - a
+  - b
+
 rule-providers:
   aff:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
     path: ./rule-providers/aff.txt   
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt
     path: ./rule-providers/yun.txt
     interval: 86400
   oki:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt
     path: ./rule-providers/oki.txt
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt
     path: ./rule-providers/doki.txt
     interval: 86400
   xal:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
     path: ./rule-providers/xal.txt
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
+
 rules:
 - PROCESS-NAME,curl,QQOLI
 - NETWORK,udp,QQOLI
