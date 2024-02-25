@@ -85,10 +85,6 @@ p: &p
     ip-version: ipv4-prefer 
     exclude-type: 'ss|ssr|http'
 proxy-providers:
-  provider1:
-    <<: *p
-    url: 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix'
-    path: ./proxy-providers/provider1.yaml
   provider2:
     <<: *p
     url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
@@ -102,7 +98,6 @@ proxy-groups:
   lazy: true
   timeout: 3000
   use:
-  - provider1
   - provider2
 - name: AALI
   type: select
@@ -110,7 +105,6 @@ proxy-groups:
   - MMOBI
   - DIRECT
   use:
-  - provider1
   - provider2
 - name: QQOLI
   type: select
@@ -119,7 +113,6 @@ proxy-groups:
   - MMOBI
   - TTAQI
   use:
-  - provider1
   - provider2
 - name: TTAQI
   type: select
@@ -139,7 +132,6 @@ proxy-groups:
   - TTAQI
   - MMOBI
   use:
-  - provider1
   - provider2
 rule-providers:
   aff:
