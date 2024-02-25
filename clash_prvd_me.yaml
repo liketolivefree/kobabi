@@ -25,7 +25,7 @@ profile:
   store-fake-ip: true
 dns:
   enable: true
-  # listen: 0.0.0.0:1053
+  listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
   use-hosts: true
@@ -50,7 +50,6 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
-
 tun:
   enable: true
   stack: system
@@ -71,41 +70,29 @@ tun:
   - com.miui.weather2
   - com.facemoji.lite.xiaomi
   - com.miui.android.fashiongallery
- 
+p: &p
+  type: http
+  interval: 3600
+  health-check:
+    enable: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    timeout: 3000
+    lazzy: true
+  override:
+    skip-cert-verify: false
+    udp: true
+    ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
 proxy-providers:
-  a:
-    type: http
+  provider1:
+    <<: *p
     url: 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix'
-    interval: 3600
-    path: ./proxy-providers/a.yaml
-    health-check:
-      enable: true
-      interval: 300
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
-      lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
-  b:
-    type: http
+    path: ./proxy-providers/provider1.yaml
+  provider2:
+    <<: *p
     url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
-    interval: 3600
-    path: ./proxy-providers/b.yaml
-    health-check:
-      enable: true
-      interval: 300
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
-      lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
-
+    path: ./proxy-providers/provider2.yaml
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -115,16 +102,16 @@ proxy-groups:
   lazy: true
   timeout: 3000
   use:
-  - a
-  - b
+  - provider1
+  - provider2
 - name: AALI
   type: select
   proxies:
   - MMOBI
   - DIRECT
   use:
-  - a
-  - b
+  - provider1
+  - provider2
 - name: QQOLI
   type: select
   proxies:
@@ -132,8 +119,8 @@ proxy-groups:
   - MMOBI
   - TTAQI
   use:
-  - a
-  - b
+  - provider1
+  - provider2
 - name: TTAQI
   type: select
   proxies:
@@ -152,9 +139,8 @@ proxy-groups:
   - TTAQI
   - MMOBI
   use:
-  - a
-  - b
-
+  - provider1
+  - provider2
 rule-providers:
   aff:
     type: http
@@ -198,8 +184,9 @@ rule-providers:
     url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt'
     path: ./rule-providers/loo.txt
     interval: 86400
-
 rules:
+- PROCESS-NAME,curl,QQOLI
+- NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,TTAQI
 - DOMAIN-SUFFIX,local,TTAQI
 - DOMAIN-SUFFIX,localdomain,TTAQI
