@@ -38,12 +38,12 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - https://1.1.1.1/dns-query
+  - 1.1.1.1
   - https://8.8.8.8/dns-query
   - https://dns.quad9.net/dns-query
   - https://mozilla.cloudflare-dns.com/dns-query
   fallback:
-  - https://1.1.1.1/dns-query
+  - 1.1.1.1
   - https://8.8.8.8/dns-query
   - https://dns.quad9.net/dns-query
   - https://mozilla.cloudflare-dns.com/dns-query
