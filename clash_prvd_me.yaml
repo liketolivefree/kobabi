@@ -63,8 +63,8 @@ dns:
   nameserver-policy:
     'geosite:ir,geoip:ir,+.ir,+.bonyan.co':
     - 217.218.155.155
-    - https://dns.403.online/dns-query 	
-    - https://dns.shecan.ir/dns-query	
+    - 'https://dns.403.online/dns-query'
+    - 'https://dns.shecan.ir/dns-query'
 sniffer:
   enable: true
   force-dns-mapping: true
@@ -103,15 +103,15 @@ tun:
   mtu: 9000
   strict-route: true
   exclude-package:
-  - com.android.captiveportallogin
-  - com.xiaomi.finddevice
-  - com.miui.securitycenter
-  - com.mi.globalbrowser
-  - com.miui.player
-  - com.miui.videoplayer
-  - com.miui.weather2
-  - com.facemoji.lite.xiaomi
-  - com.miui.android.fashiongallery
+  - 'com.android.captiveportallogin'
+  - 'com.xiaomi.finddevice'
+  - 'com.miui.securitycenter'
+  - 'com.mi.globalbrowser'
+  - 'com.miui.player'
+  - 'com.miui.videoplayer'
+  - 'com.miui.weather2'
+  - 'com.facemoji.lite.xiaomi'
+  - 'com.miui.android.fashiongallery'
  
 proxy-providers:
   a:
@@ -243,12 +243,12 @@ rule-providers:
 rules:
 - PROCESS-NAME,curl,QQOLI
 - NETWORK,udp,QQOLI
-- DOMAIN-SUFFIX,lan,TTAQI
-- DOMAIN-SUFFIX,local,TTAQI
-- DOMAIN-SUFFIX,localdomain,TTAQI
-- DOMAIN-SUFFIX,localhost,TTAQI
-- DOMAIN-SUFFIX,ip6-localhost,TTAQI
-- DOMAIN-SUFFIX,ip6-loopback,TTAQI
+- DOMAIN-SUFFIX,lan,DIRECT
+- DOMAIN-SUFFIX,local,DIRECT
+- DOMAIN-SUFFIX,localdomain,DIRECT
+- DOMAIN-SUFFIX,localhost,DIRECT
+- DOMAIN-SUFFIX,ip6-localhost,DIRECT
+- DOMAIN-SUFFIX,ip6-loopback,DIRECT
 - IP-CIDR,0.0.0.1/32,MMAQI,no-resolve
 - IP-CIDR,10.0.10.128/32,MMAQI,no-resolve
 - IP-CIDR,10.11.0.5/32,MMAQI,no-resolve
@@ -369,18 +369,18 @@ rules:
 - IP-CIDR,254.237.190.31/32,MMAQI,no-resolve
 - IP-CIDR,255.99.94.68/32,MMAQI,no-resolve
 - IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
-- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-- IP-CIDR,192.0.0.0/24,DIRECT,no-resolve
-- IP-CIDR,192.0.2.0/24,DIRECT,no-resolve
-- IP-CIDR,192.88.99.0/24,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-- IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
-- IP-CIDR,198.51.100.0/24,DIRECT,no-resolve
-- IP-CIDR,203.0.113.0/24,DIRECT,no-resolve
-- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
+- IP-CIDR,127.0.0.1/8,DIRECT,no-resolve
+- IP-CIDR,169.254.0.1/16,DIRECT,no-resolve
+- IP-CIDR,172.16.0.1/12,DIRECT,no-resolve
+- IP-CIDR,192.0.0.1/24,DIRECT,no-resolve
+- IP-CIDR,192.0.2.1/24,DIRECT,no-resolve
+- IP-CIDR,192.88.99.1/24,DIRECT,no-resolve
+- IP-CIDR,192.168.0.1/16,DIRECT,no-resolve
+- IP-CIDR,198.18.0.1/15,DIRECT,no-resolve
+- IP-CIDR,198.51.100.1/24,DIRECT,no-resolve
+- IP-CIDR,203.0.113.1/24,DIRECT,no-resolve
+- IP-CIDR,224.0.0.1/4,DIRECT,no-resolve
+- IP-CIDR,240.0.0.1/4,DIRECT,no-resolve
 - IP-CIDR6,::1/128,DIRECT,no-resolve
 - IP-CIDR6,::ffff:0:0/96,DIRECT,no-resolve
 - IP-CIDR6,::ffff:0:0:0/96,DIRECT,no-resolve
