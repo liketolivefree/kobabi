@@ -19,7 +19,13 @@ geox-url:
   geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
   mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
 geodata-loader: memconservative
-geosite-matcher: mph
+geosite-matcher: succinct
+experimental:
+  ignore-resolve-fail: true
+  sniff-tls-sni: true
+  tracing: true
+hosts:
+  'localhost': 127.0.0.1
 profile:
   store-selected: true
   store-fake-ip: true
@@ -38,18 +44,54 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - 1.1.1.1
-  - https://1.1.1.1/dns-query
+  - udp://1.1.1.1
   - 8.8.8.8
-  - https://8.8.8.8/dns-query
+  - 'https://8.8.8.8/dns-query'
+  - 'https://1.1.1.1/dns-query'
   fallback:
-  - 1.1.1.1
-  - https://1.1.1.1/dns-query
+  - udp://1.1.1.1
   - 8.8.8.8
-  - https://8.8.8.8/dns-query
+  - 'https://8.8.8.8/dns-query'
+  - 'https://1.1.1.1/dns-query'
   fallback-filter:
     geoip: true
     geoip-code: IR
+    ipcidr:
+    - 10.0.0.0/8
+    domain:
+    - '+.recaptcha.net'
+  nameserver-policy:
+    'geosite:ir,geoip:ir,+.ir,+.bonyan.co':
+    - 217.218.155.155
+    - 'https://dns.403.online/dns-query'
+    - 'https://dns.shecan.ir/dns-query'
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  sniff:
+    TLS:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+  force-domain:
+  - '+.v2ex.com'
+  - www.google.com
+  - google.com
+  skip-domain:
+  - Mijia Cloud
+  # - dlg.io.mi.com      
+  sniffing:
+  - tls
+  - http
+  port-whitelist:
+  - '80'
+  - '443'
 tun:
   enable: true
   stack: mixed
@@ -252,37 +294,37 @@ rule-providers:
     interval: 86400
 
 rules:
-- DOMAIN-SUFFIX,lan,TTAQI
-- DOMAIN-SUFFIX,local,TTAQI
-- DOMAIN-SUFFIX,localdomain,TTAQI
-- DOMAIN-SUFFIX,localhost,TTAQI
-- DOMAIN-SUFFIX,ip6-localhost,TTAQI
-- DOMAIN-SUFFIX,ip6-loopback,TTAQI
-- IP-CIDR,127.0.0.0/8,TTAQI,no-resolve
-- IP-CIDR,169.254.0.0/16,TTAQI,no-resolve
-- IP-CIDR,172.16.0.0/12,TTAQI,no-resolve
-- IP-CIDR,192.0.0.0/24,TTAQI,no-resolve
-- IP-CIDR,192.0.2.0/24,TTAQI,no-resolve
-- IP-CIDR,192.88.99.0/24,TTAQI,no-resolve
-- IP-CIDR,192.168.0.0/16,TTAQI,no-resolve
-- IP-CIDR,198.18.0.0/15,TTAQI,no-resolve
-- IP-CIDR,198.51.100.0/24,TTAQI,no-resolve
-- IP-CIDR,203.0.113.0/24,TTAQI,no-resolve
-- IP-CIDR,224.0.0.0/4,TTAQI,no-resolve
-- IP-CIDR,240.0.0.0/4,TTAQI,no-resolve
-- IP-CIDR6,::1/128,TTAQI,no-resolve
-- IP-CIDR6,::ffff:0:0/96,TTAQI,no-resolve
-- IP-CIDR6,::ffff:0:0:0/96,TTAQI,no-resolve
-- IP-CIDR6,64:ff9b::/96,TTAQI,no-resolve
-- IP-CIDR6,64:ff9b:1::/48,TTAQI,no-resolve
-- IP-CIDR6,100::/64,TTAQI,no-resolve
-- IP-CIDR6,2001:0000::/32,TTAQI,no-resolve
-- IP-CIDR6,2001:20::/28,TTAQI,no-resolve
-- IP-CIDR6,2001:db8::/32,TTAQI,no-resolve
-- IP-CIDR6,2002::/16,TTAQI,no-resolve
-- IP-CIDR6,fc00::/7,TTAQI,no-resolve
-- IP-CIDR6,fe80::/10,TTAQI,no-resolve
-- IP-CIDR6,ff00::/8,TTAQI,no-resolve
+- DOMAIN-SUFFIX,lan,DIRECT
+- DOMAIN-SUFFIX,local,DIRECT
+- DOMAIN-SUFFIX,localdomain,DIRECT
+- DOMAIN-SUFFIX,localhost,DIRECT
+- DOMAIN-SUFFIX,ip6-localhost,DIRECT
+- DOMAIN-SUFFIX,ip6-loopback,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+- IP-CIDR,192.0.0.0/24,DIRECT,no-resolve
+- IP-CIDR,192.0.2.0/24,DIRECT,no-resolve
+- IP-CIDR,192.88.99.0/24,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
+- IP-CIDR,198.51.100.0/24,DIRECT,no-resolve
+- IP-CIDR,203.0.113.0/24,DIRECT,no-resolve
+- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
+- IP-CIDR6,::1/128,DIRECT,no-resolve
+- IP-CIDR6,::ffff:0:0/96,DIRECT,no-resolve
+- IP-CIDR6,::ffff:0:0:0/96,DIRECT,no-resolve
+- IP-CIDR6,64:ff9b::/96,DIRECT,no-resolve
+- IP-CIDR6,64:ff9b:1::/48,DIRECT,no-resolve
+- IP-CIDR6,100::/64,DIRECT,no-resolve
+- IP-CIDR6,2001:0000::/32,DIRECT,no-resolve
+- IP-CIDR6,2001:20::/28,DIRECT,no-resolve
+- IP-CIDR6,2001:db8::/32,DIRECT,no-resolve
+- IP-CIDR6,2002::/16,DIRECT,no-resolve
+- IP-CIDR6,fc00::/7,DIRECT,no-resolve
+- IP-CIDR6,fe80::/10,DIRECT,no-resolve
+- IP-CIDR6,ff00::/8,DIRECT,no-resolve
 - RULE-SET,aff,MMAQI
 - DOMAIN-SUFFIX,ir,TTAQI
 - RULE-SET,xal,TTAQI
