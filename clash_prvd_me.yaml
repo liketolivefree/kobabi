@@ -6,7 +6,7 @@ log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
-# interface-name: en0
+interface-name: en0
 enable-process: true
 tcp-concurrent: true
 keep-alive-interval: 30
@@ -71,9 +71,13 @@ sniffer:
   parse-pure-ip: true
   sniff:
     TLS:
-      ports: [443, 8443]
+      ports:
+      - 443
+      - 8443
     HTTP:
-      ports: [80, 8080-8880]
+      ports:
+      - 80
+      - 8080-8880
       override-destination: true
   force-domain:
   - '+.v2ex.com'
