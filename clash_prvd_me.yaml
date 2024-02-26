@@ -61,7 +61,7 @@ dns:
     domain:
     - '+.recaptcha.net'
   nameserver-policy:
-    'RULE-SET:loo,geoip:ir,+.ir,+.bonyan.co':
+    'geosite:ir,geoip:ir,+.ir,+.bonyan.co':
     - 217.218.155.155
     - https://dns.403.online/dns-query 	
     - https://dns.shecan.ir/dns-query	
