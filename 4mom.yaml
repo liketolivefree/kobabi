@@ -31,7 +31,7 @@ profile:
   store-fake-ip: true
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  # listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
   use-hosts: true
