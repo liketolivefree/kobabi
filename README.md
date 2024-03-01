@@ -1,9 +1,9 @@
-
 پروکسی رایگان برای ویتوری و کلش. برای استفاده کافیه لینگ مناسب وارد کلاینت مربوطه بشه. بعدش با هر بار آپدیت پروکسی های تازه ای وارد کلاینت خواهد شد.
+
 -
--
--
+
 معرفی لینگ ها:
+
 ===)) پروکسی های تست شده و سالم ویتوری (قابل استفاده در همه کلاینتهای ویتوری، مثل ویتوری ویندوز، ویتوری اندروید، نکوری ویندوز، متسوری اندروید، شدوراکت آیفون و ...):
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub.txt
@@ -18,27 +18,28 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_l.
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_nrm_l.yaml
 -
--
+
 ===)) کانفیگهای کامل کلش (مناسب کاربران با تجربه یا کاربرانی به امنیت و حریم خصوصی اهمیت میدهند):
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_f.yaml
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_nrm_f.yaml
+-
 
--
--
 ===)) کانفیگ کلش فیریک (مناسب کاربران خوره یا کاربرانی که امنیت و حریم خصوصی اولویت اول آنهاست):
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_frk.yaml
 -
--
+
 ===)) سوپرکانفیگ کلش (حاوی تعداد بسیار زیادی پروکسی. مناسب فیلترینگ شدید.
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_spr.yaml
 -
--
--
+
+
 ========= ================= ========================
+
+
 فهرست کلاینتهای کلش: اندروید:
 
 https://github.com/MetaCubeX/ClashMetaForAndroid
@@ -99,4 +100,3 @@ https://github.com/juewuy/ShellClash
 
 
 Tel: https://t.me/kuntmxr
-
