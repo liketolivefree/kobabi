@@ -6,7 +6,7 @@ log-level: error
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
-interface-name: en0
+# interface-name: en0
 enable-process: true
 tcp-concurrent: true
 keep-alive-interval: 30
@@ -110,7 +110,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -126,7 +126,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -142,7 +142,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
