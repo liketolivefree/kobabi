@@ -6,7 +6,7 @@ log-level: error
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
-interface-name: en0
+# interface-name: en0
 enable-process: true
 tcp-concurrent: true
 keep-alive-interval: 30
