@@ -169,6 +169,7 @@ proxy-groups:
   lazy: true
   timeout: 5000
   use:
+  - qol  
   - a
   - b
 - name: AALI
@@ -177,6 +178,7 @@ proxy-groups:
   - MMOBI
   - DIRECT
   use:
+  - qol  
   - a
   - b
 - name: QQOLI
@@ -186,6 +188,7 @@ proxy-groups:
   - MMOBI
   - TTAQI
   use:
+  - qol  
   - a
   - b
 - name: TTAQI
@@ -206,6 +209,7 @@ proxy-groups:
   - TTAQI
   - MMOBI
   use:
+  - qol  
   - a
   - b
 
