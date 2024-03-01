@@ -85,7 +85,6 @@ sniffer:
   - google.com
   skip-domain:
   - Mijia Cloud
-  # - dlg.io.mi.com      
   sniffing:
   - tls
   - http
