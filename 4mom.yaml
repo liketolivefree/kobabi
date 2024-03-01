@@ -110,13 +110,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
-      lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+      timeout: 5000
   qol:
     type: http
     url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_mom.yaml'
@@ -126,13 +120,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
-      lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'    
+      timeout: 5000
   b:
     type: http
     url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
@@ -142,21 +130,14 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
-      lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+      timeout: 5000
 
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: 'http://www.gstatic.com/generate_204'
-  interval: 500
+  interval: 300
   tolerance: 50
-  lazy: true
   timeout: 5000
   use:
   - a
