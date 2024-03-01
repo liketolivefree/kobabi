@@ -6,7 +6,7 @@ log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
-interface-name: en0
+# interface-name: en0
 enable-process: true
 tcp-concurrent: true
 keep-alive-interval: 30
@@ -84,8 +84,7 @@ sniffer:
   - www.google.com
   - google.com
   skip-domain:
-  - Mijia Cloud
-  # - dlg.io.mi.com      
+  - Mijia Cloud  
   sniffing:
   - tls
   - http
@@ -115,7 +114,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -131,7 +130,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -147,7 +146,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: 'http://www.gstatic.com/generate_204'
-      timeout: 3000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -162,7 +161,7 @@ proxy-groups:
   interval: 300
   tolerance: 50
   lazy: true
-  timeout: 3000
+  timeout: 5000
   use:
   - a
   - b
@@ -250,6 +249,7 @@ rule-providers:
 
 rules:
   - PROCESS-NAME,curl,QQOLI
+  - NETWORK,udp,QQOLI  
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,localdomain,DIRECT
