@@ -140,18 +140,18 @@ proxy-groups:
   tolerance: 50
   timeout: 5000
   use:
+  - qol  
   - a
   - b
-  - qol
 - name: AALI
   type: select
   proxies:
   - MMOBI
   - DIRECT
   use:
+  - qol  
   - a
   - b
-  - qol
 - name: QQOLI
   type: select
   proxies:
@@ -159,9 +159,9 @@ proxy-groups:
   - MMOBI
   - TTAQI
   use:
+  - qol  
   - a
   - b
-  - qol
 - name: TTAQI
   type: select
   proxies:
@@ -180,9 +180,9 @@ proxy-groups:
   - TTAQI
   - MMOBI
   use:
+  - qol  
   - a
   - b
-  - qol
 
 rule-providers:
   aff:
