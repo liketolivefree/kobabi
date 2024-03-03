@@ -13,13 +13,7 @@ keep-alive-interval: 30
 find-process-mode: strict
 unified-delay: true
 global-client-fingerprint: random
-geodata-mode: true
-geox-url:
-  geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
-  geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
-  mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
-geodata-loader: memconservative
-geosite-matcher: succinct
+geodata-mode: false
 experimental:
   ignore-resolve-fail: true
   sniff-tls-sni: true
@@ -178,7 +172,18 @@ proxy-providers:
       url: 'http://www.gstatic.com/generate_204'
       timeout: 5000
       lazzy: true
-
+  h:
+    type: http
+    url: 'https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml'
+    interval: 3600
+    path: ./proxy-providers/h.yaml
+    health-check:
+      enable: true
+      interval: 500
+      url: 'http://www.gstatic.com/generate_204'
+      timeout: 5000
+      lazzy: true
+ 
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -195,6 +200,7 @@ proxy-groups:
   - e
   - f
   - g
+  - h
 - name: AALI
   type: select
   proxies:
@@ -208,6 +214,7 @@ proxy-groups:
   - e
   - f
   - g
+  - h
 - name: QQOLI
   type: select
   proxies:
@@ -222,6 +229,7 @@ proxy-groups:
   - e
   - f
   - g
+  - h
 - name: TTAQI
   type: select
   proxies:
@@ -247,6 +255,7 @@ proxy-groups:
   - e
   - f
   - g
+  - h
 
 rule-providers:
   aff:
