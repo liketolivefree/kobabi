@@ -13,13 +13,7 @@ keep-alive-interval: 30
 find-process-mode: always
 unified-delay: true
 global-client-fingerprint: random
-geodata-mode: true
-geox-url:
-  geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
-  geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
-  mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
-geodata-loader: memconservative
-geosite-matcher: succinct
+geodata-mode: false
 experimental:
   ignore-resolve-fail: true
   sniff-tls-sni: true
