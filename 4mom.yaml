@@ -52,7 +52,6 @@ dns:
     - 10.0.0.0/8
     domain:
     - '+.recaptcha.net'
-
 sniffer:
   enable: true
   force-dns-mapping: true
