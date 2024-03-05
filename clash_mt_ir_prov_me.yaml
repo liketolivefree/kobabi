@@ -21,7 +21,7 @@ experimental:
 hosts:
   'localhost': 127.0.0.1
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
 dns:
   enable: true
@@ -55,10 +55,7 @@ dns:
     domain:
     - '+.recaptcha.net'
   nameserver-policy:
-    'RULE-SET:xal,RULE-SET:loo,+.ir':
-    - https://dns.shecan.ir/dns-query    
-    - 217.218.155.155
-    - 8.8.8.8
+    'RULE-SET:xal,loo,+.ir': [https://dns.shecan.ir/dns-query, 217.218.155.155, 8.8.8.8]
 sniffer:
   enable: true
   force-dns-mapping: true
