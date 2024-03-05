@@ -58,6 +58,7 @@ dns:
     'geosite:ir,geoip:ir,+.ir,+.bonyan.co':
     - 217.218.155.155
     - 'https://dns.shecan.ir/dns-query'
+    - 8.8.8.8
 sniffer:
   enable: true
   force-dns-mapping: true
