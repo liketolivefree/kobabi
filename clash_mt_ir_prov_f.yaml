@@ -54,11 +54,6 @@ dns:
     - 10.0.0.0/8
     domain:
     - '+.recaptcha.net'
-  nameserver-policy:
-    'RULE-SET:xal,RULE-SET:loo,+.ir':
-    - https://dns.shecan.ir/dns-query    
-    - 217.218.155.155
-    - 8.8.8.8
 sniffer:
   enable: true
   force-dns-mapping: true
