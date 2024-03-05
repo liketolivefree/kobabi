@@ -40,13 +40,13 @@ dns:
   nameserver:
   - udp://1.1.1.1
   - 8.8.8.8
-  - 'https://8.8.8.8/dns-query'
-  - 'https://1.1.1.1/dns-query'
+  - https://8.8.8.8/dns-query
+  - https://1.1.1.1/dns-query
   fallback:
   - udp://1.1.1.1
   - 8.8.8.8
-  - 'https://8.8.8.8/dns-query'
-  - 'https://1.1.1.1/dns-query'
+  - https://8.8.8.8/dns-query
+  - https://1.1.1.1/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -55,9 +55,9 @@ dns:
     domain:
     - '+.recaptcha.net'
   nameserver-policy:
-    'geosite:ir,geoip:ir,+.ir,+.bonyan.co':
+    'RULE-SET:xal,RULE-SET:loo,+.ir':
+    - https://dns.shecan.ir/dns-query    
     - 217.218.155.155
-    - 'https://dns.shecan.ir/dns-query'
     - 8.8.8.8
 sniffer:
   enable: true
@@ -97,40 +97,40 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix'
+    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 300
-      url: 'http://www.gstatic.com/generate_204'
+      interval: 500
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
   qol:
     type: http
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_mom.yaml'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_mom.yaml
     interval: 3600
     path: ./proxy-providers/qol.yaml
     health-check:
       enable: true
-      interval: 300
-      url: 'http://www.gstatic.com/generate_204'
+      interval: 500
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
   b:
     type: http
-    url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
     interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 300
-      url: 'http://www.gstatic.com/generate_204'
+      interval: 500
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
 
 proxy-groups:
 - name: MMOBI
   type: url-test
-  url: 'http://www.gstatic.com/generate_204'
-  interval: 300
+  url: http://www.gstatic.com/generate_204
+  interval: 500
   tolerance: 50
   timeout: 5000
   use:
@@ -183,42 +183,42 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.txt
     path: ./rule-providers/aff.txt   
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.txt
     path: ./rule-providers/yun.txt
     interval: 86400
   oki:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.txt
     path: ./rule-providers/oki.txt
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.txt
     path: ./rule-providers/doki.txt
     interval: 86400
   xal:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
     path: ./rule-providers/xal.txt
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
 
