@@ -13,13 +13,7 @@ keep-alive-interval: 30
 find-process-mode: strict
 unified-delay: true
 global-client-fingerprint: random
-geodata-mode: true
-geox-url:
-  geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
-  geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
-  mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
-geodata-loader: memconservative
-geosite-matcher: succinct
+geodata-mode: false
 experimental:
   ignore-resolve-fail: true
   sniff-tls-sni: true
@@ -63,8 +57,8 @@ dns:
   nameserver-policy:
     'geosite:ir,geoip:ir,+.ir,+.bonyan.co':
     - 217.218.155.155
-    - 'https://dns.403.online/dns-query'
     - 'https://dns.shecan.ir/dns-query'
+    - 8.8.8.8
 sniffer:
   enable: true
   force-dns-mapping: true
