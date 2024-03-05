@@ -40,13 +40,11 @@ dns:
   nameserver:
   - udp://1.1.1.1
   - 8.8.8.8
-  - 'https://8.8.8.8/dns-query'
-  - 'https://1.1.1.1/dns-query'
+  - 94.140.14.14
   fallback:
   - udp://1.1.1.1
   - 8.8.8.8
-  - 'https://8.8.8.8/dns-query'
-  - 'https://1.1.1.1/dns-query'
+  - 94.140.14.14
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -55,9 +53,9 @@ dns:
     domain:
     - '+.recaptcha.net'
   nameserver-policy:
-    'geosite:ir,geoip:ir,+.ir,+.bonyan.co':
+    'RULE-SET:xal,RULE-SET:loo,+.ir':
+    - 194.225.73.141  
     - 217.218.155.155
-    - 'https://dns.shecan.ir/dns-query'
     - 8.8.8.8
 sniffer:
   enable: true
@@ -97,101 +95,101 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix'
+    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
       interval: 500
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 5000
+      url: http://www.gstatic.com/generate_204
+      timeout: 7000
       lazzy: true
   b:
     type: http
-    url: 'https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml'
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
     interval: 3600
     path: ./proxy-providers/b.yml
     health-check:
       enable: true
       interval: 500
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 5000
+      url: http://www.gstatic.com/generate_204
+      timeout: 7000
       lazzy: true
   c:
     type: http
-    url: 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix'
+    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/c.yml
     health-check:
       enable: true
       interval: 500
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 5000
+      url: http://www.gstatic.com/generate_204
+      timeout: 7000
       lazzy: true
   d:
     type: http
-    url: 'https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml'
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
       interval: 500
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 5000
+      url: http://www.gstatic.com/generate_204
+      timeout: 7000
       lazzy: true
   e:
     type: http
-    url: 'https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml'
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
     interval: 3600
     path: ./proxy-providers/e.yml
     health-check:
       enable: true
       interval: 500
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 5000
+      url: http://www.gstatic.com/generate_204
+      timeout: 7000
       lazzy: true
   f:
     type: http
-    url: 'https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml'
+    url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
       interval: 500
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 5000
+      url: http://www.gstatic.com/generate_204
+      timeout: 7000
       lazzy: true
   g:
     type: http
-    url: 'https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml'
+    url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
     interval: 3600
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
       interval: 500
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 5000
+      url: http://www.gstatic.com/generate_204
+      timeout: 7000
       lazzy: true
   h:
     type: http
-    url: 'https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml'
+    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
     interval: 3600
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
       interval: 500
-      url: 'http://www.gstatic.com/generate_204'
-      timeout: 5000
+      url: http://www.gstatic.com/generate_204
+      timeout: 7000
       lazzy: true
  
 proxy-groups:
 - name: MMOBI
   type: url-test
-  url: 'http://www.gstatic.com/generate_204'
+  url: http://www.gstatic.com/generate_204
   interval: 500
   tolerance: 50
   lazy: true
-  timeout: 5000
+  timeout: 7000
   use:
   - a
   - b
@@ -262,42 +260,42 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.txt
     path: ./rule-providers/aff.txt   
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.txt
     path: ./rule-providers/yun.txt
     interval: 86400
   oki:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.txt
     path: ./rule-providers/oki.txt
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.txt
     path: ./rule-providers/doki.txt
     interval: 86400
   xal:
     type: http
     behavior: domain
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
     path: ./rule-providers/xal.txt
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
     format: text
-    url: 'https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt'
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
 
