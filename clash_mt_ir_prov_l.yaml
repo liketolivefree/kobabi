@@ -21,7 +21,7 @@ experimental:
 hosts:
   'localhost': 127.0.0.1
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
 dns:
   enable: true
