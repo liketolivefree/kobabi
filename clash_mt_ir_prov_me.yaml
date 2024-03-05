@@ -57,10 +57,6 @@ dns:
   nameserver-policy:
     'geosite:ir,geoip:ir,+.ir,+.bonyan.co':
     - 217.218.155.155
-    - 194.225.73.141
-    - 'https://persia.iranet.ir/dns-query'
-    - 'https://ourdns1.tums.ac.ir/dns-query'
-    - 'https://dns.403.online/dns-query'
     - 'https://dns.shecan.ir/dns-query'
 sniffer:
   enable: true
