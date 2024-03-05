@@ -102,7 +102,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 500
       url: 'http://www.gstatic.com/generate_204'
       timeout: 5000
       lazzy: true
@@ -113,7 +113,7 @@ proxy-providers:
     path: ./proxy-providers/qol.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 500
       url: 'http://www.gstatic.com/generate_204'
       timeout: 5000
       lazzy: true 
@@ -124,7 +124,7 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 500
       url: 'http://www.gstatic.com/generate_204'
       timeout: 5000
       lazzy: true
