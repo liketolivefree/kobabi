@@ -40,13 +40,11 @@ dns:
   nameserver:
   - udp://1.1.1.1
   - 8.8.8.8
-  - https://8.8.8.8/dns-query
-  - https://1.1.1.1/dns-query
+  - 94.140.14.14
   fallback:
   - udp://1.1.1.1
   - 8.8.8.8
-  - https://8.8.8.8/dns-query
-  - https://1.1.1.1/dns-query
+  - 94.140.14.14
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -56,7 +54,7 @@ dns:
     - '+.recaptcha.net'
   nameserver-policy:
     'RULE-SET:xal,RULE-SET:loo,+.ir':
-    - https://dns.shecan.ir/dns-query    
+    - 194.225.73.141  
     - 217.218.155.155
     - 8.8.8.8
 sniffer:
