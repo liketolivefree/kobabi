@@ -14,19 +14,13 @@ find-process-mode: always
 unified-delay: true
 global-client-fingerprint: random
 geodata-mode: false
-experimental:
-  ignore-resolve-fail: true
-  sniff-tls-sni: true
-  tracing: true
 hosts:
   'localhost': 127.0.0.1
-profile:
-  store-selected: false
-  store-fake-ip: true
+
 dns:
   enable: true
   # listen: 0.0.0.0:1053
-  ipv6: true
+  ipv6: false
   prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
@@ -80,7 +74,7 @@ sniffer:
   - '443'
 tun:
   enable: true
-  stack: system
+  stack: mixed
   dns-hijack:
   - 'any:53'
   - 'tcp://any:53'
@@ -90,14 +84,6 @@ tun:
   strict-route: true
   exclude-package:
   - com.android.captiveportallogin
-  - com.xiaomi.finddevice
-  - com.miui.securitycenter
-  - com.mi.globalbrowser
-  - com.miui.player
-  - com.miui.videoplayer
-  - com.miui.weather2
-  - com.facemoji.lite.xiaomi
-  - com.miui.android.fashiongallery
  
 proxy-providers:
   a:
@@ -109,7 +95,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 7000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -118,20 +104,19 @@ proxy-providers:
     exclude-type: 'ss|ssr|http'
   qol:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_me.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
     interval: 3600
     path: ./proxy-providers/qol.yaml
     health-check:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 7000
       lazzy: true
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'    
+      ip-version: ipv4-prefer       
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -141,7 +126,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 7000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -156,7 +141,7 @@ proxy-groups:
   interval: 500
   tolerance: 50
   lazy: true
-  timeout: 5000
+  timeout: 7000
   use:
   - qol  
   - a
