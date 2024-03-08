@@ -1,0 +1,344 @@
+mixed-port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+secret: ''
+enable-process: true
+find-process-mode: always
+tcp-concurrent: true
+global-client-fingerprint: random
+keep-alive-interval: 30
+geodata-mode: true
+hosts:
+  'localhost': 127.0.0.1
+profile:
+  store-selected: false
+  store-fake-ip: true
+dns:
+  enable: true
+  # listen: 0.0.0.0:1053
+  ipv6: false
+  prefer-h3: true
+  use-hosts: true
+  enhanced-mode: redir-host
+  default-nameserver:
+  - 1.1.1.1
+  - 9.9.9.9
+  nameserver:
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - tls://dns.google
+  - tls://one.one.one.one
+  fallback:
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - tls://dns.google
+  - tls://one.one.one.one
+  fallback-filter:
+    geoip: true
+    geoip-code: IR
+    ipcidr:
+    - 10.0.0.0/8
+    domain:
+    - '+.recaptcha.net'
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  sniff:
+    TLS:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+  force-domain:
+  - '+.v2ex.com'
+  skip-domain:
+  - Mijia Cloud  
+  sniffing:
+  - tls
+  - http
+  port-whitelist:
+  - '80'
+  - '443'
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+  - 'any:53'
+  - 'tcp://any:53'
+  auto-route: true
+  auto-detect-interface: true
+  mtu: 9000
+  strict-route: true
+  exclude-package:
+  - com.android.captiveportallogin
+  - com.xiaomi.finddevice
+  - com.miui.securitycenter
+  - com.mi.globalbrowser
+  - com.miui.player
+  - com.miui.videoplayer
+  - com.miui.weather2
+  - com.facemoji.lite.xiaomi
+  - com.miui.android.fashiongallery
+ 
+proxy-providers:
+  a:
+    type: http
+    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
+    interval: 3600
+    path: ./proxy-providers/a.yaml
+    health-check:
+      enable: true
+      interval: 500
+      url: http://www.gstatic.com/generate_204
+      timeout: 5000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
+  qol:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 3600
+    path: ./proxy-providers/qol.yaml
+    health-check:
+      enable: true
+      interval: 500
+      url: http://www.gstatic.com/generate_204
+      timeout: 5000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'    
+  b:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 3600
+    path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 500
+      url: http://www.gstatic.com/generate_204
+      timeout: 5000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
+
+proxy-groups:
+- name: MMOBI
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 500
+  tolerance: 50
+  lazy: true
+  timeout: 5000
+  use:
+  - qol  
+  - a
+  - b
+- name: AALI
+  type: select
+  proxies:
+  - MMOBI
+  - DIRECT
+  use:
+  - qol  
+  - a
+  - b
+- name: QQOLI
+  type: select
+  proxies:
+  - AALI
+  - MMOBI
+  - TTAQI
+  use:
+  - qol  
+  - a
+  - b
+- name: TTAQI
+  type: select
+  proxies:
+  - DIRECT
+  - AALI  
+  - MMOBI
+- name: MMAQI
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: NNAQI
+  type: select
+  proxies:
+  - AALI
+  - TTAQI
+  - MMOBI
+  use:
+  - qol  
+  - a
+  - b
+
+rule-providers:
+  aff:
+    type: http
+    behavior: domain
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
+    path: ./rule-providers/aff.txt   
+    interval: 86400
+  yun:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt
+    path: ./rule-providers/yun.txt
+    interval: 86400
+  oki:
+    type: http
+    behavior: domain
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt
+    path: ./rule-providers/oki.txt
+    interval: 86400
+  doki:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt
+    path: ./rule-providers/doki.txt
+    interval: 86400
+  xal:
+    type: http
+    behavior: domain
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
+    path: ./rule-providers/xal.txt
+    interval: 86400
+  loo:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
+    path: ./rule-providers/loo.txt
+    interval: 86400
+
+rules:
+  - PROCESS-NAME,curl,QQOLI
+  - NETWORK,udp,QQOLI
+  - DOMAIN-SUFFIX,lan,DIRECT
+  - DOMAIN-SUFFIX,local,DIRECT
+  - DOMAIN-SUFFIX,localdomain,DIRECT
+  - DOMAIN-SUFFIX,localhost,DIRECT
+  - DOMAIN-SUFFIX,ip6-localhost,DIRECT
+  - DOMAIN-SUFFIX,ip6-loopback,DIRECT
+  - IP-CIDR,0.0.0.1/32,MMAQI,no-resolve
+  - IP-CIDR,10.0.10.128/32,MMAQI,no-resolve
+  - IP-CIDR,10.10.34.0/24,MMAQI,no-resolve
+  - IP-CIDR,127.0.0.1/8,DIRECT,no-resolve
+  - IP-CIDR,169.254.0.1/16,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.1/12,DIRECT,no-resolve
+  - IP-CIDR,192.0.0.1/24,DIRECT,no-resolve
+  - IP-CIDR,192.0.2.1/24,DIRECT,no-resolve
+  - IP-CIDR,192.88.99.1/24,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.1/16,DIRECT,no-resolve
+  - IP-CIDR,198.18.0.1/15,DIRECT,no-resolve
+  - IP-CIDR,198.51.100.1/24,DIRECT,no-resolve
+  - IP-CIDR,203.0.113.1/24,DIRECT,no-resolve
+  - IP-CIDR,224.0.0.1/4,DIRECT,no-resolve
+  - IP-CIDR,240.0.0.1/4,DIRECT,no-resolve
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
+  - IP-CIDR6,::ffff:0:0/96,DIRECT,no-resolve
+  - IP-CIDR6,::ffff:0:0:0/96,DIRECT,no-resolve
+  - IP-CIDR6,64:ff9b::/96,DIRECT,no-resolve
+  - IP-CIDR6,64:ff9b:1::/48,DIRECT,no-resolve
+  - IP-CIDR6,100::/64,DIRECT,no-resolve
+  - IP-CIDR6,2001:0000::/32,DIRECT,no-resolve
+  - IP-CIDR6,2001:20::/28,DIRECT,no-resolve
+  - IP-CIDR6,2001:db8::/32,DIRECT,no-resolve
+  - IP-CIDR6,2002::/16,DIRECT,no-resolve
+  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+  - IP-CIDR6,fe80::/10,DIRECT,no-resolve
+  - IP-CIDR6,ff00::/8,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,accounts.google.com,QQOLI
+  - DOMAIN-SUFFIX,books.google.com,QQOLI
+  - DOMAIN-SUFFIX,calendar.google.com,QQOLI
+  - DOMAIN-SUFFIX,chrome.google.com,QQOLI
+  - DOMAIN-SUFFIX,code.google.com,QQOLI
+  - DOMAIN-SUFFIX,consent.google.com,QQOLI
+  - DOMAIN-SUFFIX,contacts.google.com,QQOLI
+  - DOMAIN-SUFFIX,docs.google.com,QQOLI
+  - DOMAIN-SUFFIX,drive.google.com,QQOLI
+  - DOMAIN-SUFFIX,images.google.com,QQOLI
+  - DOMAIN-SUFFIX,mail.google.com,QQOLI
+  - DOMAIN-SUFFIX,maps.google.com,QQOLI
+  - DOMAIN-SUFFIX,maps.googleapis.com,QQOLI
+  - DOMAIN-SUFFIX,maps.gstatic.com,QQOLI
+  - DOMAIN-SUFFIX,photos.google.com,QQOLI
+  - DOMAIN-SUFFIX,play.google.com,QQOLI
+  - DOMAIN-SUFFIX,plus.google.com,QQOLI
+  - DOMAIN-SUFFIX,scholar.google.com,QQOLI
+  - DOMAIN-SUFFIX,support.google.com,QQOLI
+  - DOMAIN-SUFFIX,translate.google.com,QQOLI
+  - DOMAIN-SUFFIX,translate.googleapis.com,QQOLI
+  - DOMAIN-SUFFIX,trends.google.com,QQOLI
+  - DOMAIN-SUFFIX,video.google.com,QQOLI
+  - DOMAIN-SUFFIX,www.google-analytics.l.google.com,QQOLI
+  - DOMAIN-SUFFIX,chromewebstore.google.com,QQOLI
+  - DOMAIN-SUFFIX,developer.android.com,QQOLI
+  - DOMAIN-SUFFIX,encrypted.google.com,QQOLI
+  - DOMAIN-SUFFIX,sites.google.com,QQOLI
+  - DOMAIN-SUFFIX,chopsdash.appspot.com,QQOLI
+  - DOMAIN-SUFFIX,chrome-devtools-frontend.appspot.com,QQOLI
+  - DOMAIN-SUFFIX,hostsaway.appspot.com,QQOLI
+  - DOMAIN-SUFFIX,shaka-player-demo.appspot.com,QQOLI
+  - DOMAIN-SUFFIX,answers.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,cxcs.microsoft.net,QQOLI
+  - DOMAIN-SUFFIX,docs.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,download.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,technet.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,go.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,learn.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,support.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,www.microsoft.com,QQOLI
+  - DOMAIN-SUFFIX,clients.config.office.net,QQOLI
+  - DOMAIN-SUFFIX,res-1.cdn.office.net,QQOLI
+  - DOMAIN-SUFFIX,support.content.office.net,QQOLI
+  - DOMAIN-SUFFIX,endpoints.office.com,QQOLI
+  - DOMAIN-SUFFIX,ecs.office.com,QQOLI
+  - DOMAIN-SUFFIX,r4.res.office365.com,QQOLI
+  - DOMAIN-SUFFIX,cf-wkrs-pages-vless-aoy.pages.dev,QQOLI
+  - DOMAIN-SUFFIX,edtunnel-b6t.pages.dev,QQOLI
+  - DOMAIN-SUFFIX,malware-filter.pages.dev,QQOLI
+  - DOMAIN-SUFFIX,phishing-filter.pages.dev,QQOLI
+  - DOMAIN-SUFFIX,ublockorigin.pages.dev,QQOLI
+  - DOMAIN-SUFFIX,api.amazon.com,QQOLI
+  - DOMAIN-SUFFIX,aws.amazon.com,QQOLI
+  - DOMAIN-SUFFIX,images.amazon.com,QQOLI
+  - DOMAIN-SUFFIX,ip-ranges.amazonaws.com,QQOLI
+  - DOMAIN-SUFFIX,db187550c7dkf.cloudfront.net,QQOLI
+  - DOMAIN-SUFFIX,dqpnq362acqdi.cloudfront.net,QQOLI
+  - DOMAIN-SUFFIX,ebay.doubleclick.net,QQOLI
+  - DOMAIN-SUFFIX,trk.free.fr,QQOLI
+  - DOMAIN-SUFFIX,f001.backblazeb2.com,QQOLI
+  - RULE-SET,aff,MMAQI
+  - DOMAIN-SUFFIX,ir,TTAQI
+  - RULE-SET,xal,TTAQI
+  - RULE-SET,oki,QQOLI
+  - RULE-SET,yun,MMAQI,no-resolve
+  - RULE-SET,loo,TTAQI,no-resolve
+  - RULE-SET,doki,QQOLI,no-resolve
+  - MATCH,NNAQI
