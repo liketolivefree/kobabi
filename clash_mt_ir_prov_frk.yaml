@@ -6,17 +6,17 @@ log-level: info
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
-# interface-name: en0
 enable-process: true
-tcp-concurrent: true
-keep-alive-interval: 30
 find-process-mode: always
-unified-delay: true
+tcp-concurrent: true
 global-client-fingerprint: random
-geodata-mode: false
+keep-alive-interval: 30
+geodata-mode: true
 hosts:
   'localhost': 127.0.0.1
-
+profile:
+  store-selected: false
+  store-fake-ip: true
 dns:
   enable: true
   # listen: 0.0.0.0:1053
@@ -95,7 +95,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -104,19 +104,20 @@ proxy-providers:
     exclude-type: 'ss|ssr|http'
   qol:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_me.yaml
     interval: 3600
     path: ./proxy-providers/qol.yaml
     health-check:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer       
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'    
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -126,7 +127,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -141,7 +142,7 @@ proxy-groups:
   interval: 500
   tolerance: 50
   lazy: true
-  timeout: 7000
+  timeout: 5000
   use:
   - qol  
   - a
