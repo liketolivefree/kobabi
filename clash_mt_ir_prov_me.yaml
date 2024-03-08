@@ -7,33 +7,15 @@ ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
 # interface-name: en0
-enable-process: true
-tcp-concurrent: true
 keep-alive-interval: 30
-find-process-mode: always
-unified-delay: true
 global-client-fingerprint: random
-geodata-mode: false
-experimental:
-  ignore-resolve-fail: true
-  sniff-tls-sni: true
-  tracing: true
-hosts:
-  'localhost': 127.0.0.1
-profile:
-  store-selected: false
-  store-fake-ip: true
 dns:
   enable: true
   # listen: 0.0.0.0:1053
-  ipv6: true
+  ipv6: false
   prefer-h3: true
   use-hosts: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-  - '+.lan'
-  - '+.local'
+  enhanced-mode: redir-host
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
@@ -109,7 +91,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -125,8 +107,13 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
-      lazzy: true   
+      timeout: 5000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'    
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -136,7 +123,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -151,7 +138,7 @@ proxy-groups:
   interval: 500
   tolerance: 50
   lazy: true
-  timeout: 10000
+  timeout: 5000
   use:
   - qol  
   - a
