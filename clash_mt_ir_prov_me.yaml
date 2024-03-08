@@ -109,7 +109,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -125,13 +125,8 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
-      lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'    
+      timeout: 10000
+      lazzy: true   
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -141,7 +136,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -156,7 +151,7 @@ proxy-groups:
   interval: 500
   tolerance: 50
   lazy: true
-  timeout: 5000
+  timeout: 10000
   use:
   - qol  
   - a
