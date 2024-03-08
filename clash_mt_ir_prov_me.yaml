@@ -108,7 +108,7 @@ proxy-providers:
     exclude-type: 'ss|ssr|http'
   qol:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_me.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
     interval: 3600
     path: ./proxy-providers/qol.yaml
     health-check:
