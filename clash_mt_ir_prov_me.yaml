@@ -7,8 +7,16 @@ ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
 # interface-name: en0
+enable-process: true
+tcp-concurrent: true
 keep-alive-interval: 30
+find-process-mode: always
+unified-delay: true
 global-client-fingerprint: random
+geodata-mode: false
+hosts:
+  'localhost': 127.0.0.1
+
 dns:
   enable: true
   # listen: 0.0.0.0:1053
