@@ -27,7 +27,114 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - '+.lan'
-  - '+.local'
+  - '+.localdomain'
+  - '+.home.arpa'  
+  - '*.example'
+  - '*.invalid'
+  - '*.localhost'
+  - '*.test'
+  - '*.local'
+  - time.apple.com
+  - time.asia.apple.com
+  - time.nist.gov
+  - time.windows.com
+  - time1.apple.com
+  - time1.google.com
+  - time2.apple.com
+  - time2.google.com
+  - time3.apple.com
+  - time3.google.com
+  - time4.apple.com
+  - time4.google.com
+  - time5.apple.com
+  - time6.apple.com
+  - time7.apple.com
+  - time-ios.apple.com
+  - 'Mijia Cloud'
+  - 'WORKGROUP'
+  - localhost.ptlogin2.qq.com
+  - localhost.sec.qq.com
+  - miwifi.com
+  - na.b.g-tun.com
+  - network-test.debian.org
+  - ntp.ubuntu.com
+  - proxy.golang.org
+  - router.asus.com
+  - repeater.asus.com
+  - routerlogin.com
+  - routerlogin.net
+  - tendawifi.com
+  - tendawifi.net
+  - tplinklogin.net
+  - tplinkrepeater.net
+  - tplinkwifi.net
+  - mesu.apple.com
+  - swcdn.apple.com
+  - swdist.apple.com
+  - swdownload.apple.com
+  - swquery.apple.com
+  - swscan.apple.com
+  - lens.l.google.com
+  - stun.l.google.com
+  - dl.google.com
+  - in.appcenter.ms
+  - adguardteam.github.io
+  - static.adtidy.org
+  - local.adguard.org
+  - anti-ad.net
+  - cable.auth.com
+  - detectportal.firefox.com
+  - ff.dorado.sdo.com
+  - shark007.net
+  - speedtest.cros.wr.pvp.net
+  - resolver1.opendns.com
+  - 'time.*.com'
+  - 'time.*.gov'
+  - 'time.*.apple.com'
+  - 'time-ios.apple.com'
+  - 'time1.*.com'
+  - 'time2.*.com'
+  - 'time3.*.com'
+  - 'time4.*.com'
+  - 'time5.*.com'
+  - 'time6.*.com'
+  - 'time7.*.com'
+  - 'ntp.*.com'
+  - 'ntp1.*.com'
+  - 'ntp2.*.com'
+  - 'ntp3.*.com'
+  - 'ntp4.*.com'
+  - 'ntp5.*.com'
+  - 'ntp6.*.com'
+  - 'ntp7.*.com'
+  - '+.pool.ntp.org'
+  - 'stun.*.*'
+  - 'stun.*.*.*'
+  - '+.stun.*.*'
+  - '+.stun.*.*.*'
+  - '+.stun.*.*.*.*'
+  - '+.stun.*.*.*.*.*'
+  - '*.linksys.com'
+  - '*.linksyssmartwifi.com'
+  - '*.router.asus.com'
+  - '+.nflxvideo.net'
+  - '*.square-enix.com'
+  - '*.finalfantasyxiv.com'
+  - '*.ffxiv.com'
+  - '*.ff14.sdo.com'
+  - '+.media.dssott.com'
+  - '+.ipv6.microsoft.com'
+  - '+.msftconnecttest.com'
+  - '+.msftncsi.com'
+  - '+.srv.nintendo.net'
+  - '+.stun.playstation.net'
+  - '+.xboxlive.com'
+  - 'xbox.*.microsoft.com'
+  - '+.wargaming.net'
+  - 'GC._msDCS.*.*'
+  - 'DC._msDCS.*.*'
+  - 'PDC._msDCS.*.*'
+  - '+.termux.org'
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
@@ -104,7 +211,7 @@ proxy-providers:
     exclude-type: 'ss|ssr|http'
   qol:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_me.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
     interval: 3600
     path: ./proxy-providers/qol.yaml
     health-check:
