@@ -6,18 +6,12 @@ log-level: error
 ipv6: false
 external-controller: 127.0.0.1:9090
 secret: ''
-# interface-name: en0
 enable-process: true
-tcp-concurrent: true
-keep-alive-interval: 30
 find-process-mode: strict
-unified-delay: true
+tcp-concurrent: true
 global-client-fingerprint: random
-geodata-mode: false
-experimental:
-  ignore-resolve-fail: true
-  sniff-tls-sni: true
-  tracing: true
+keep-alive-interval: 30
+geodata-mode: true
 hosts:
   'localhost': 127.0.0.1
 profile:
@@ -26,14 +20,121 @@ profile:
 dns:
   enable: true
   # listen: 0.0.0.0:1053
-  ipv6: true
+  ipv6: false
   prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - '+.lan'
-  - '+.local'
+  - '+.localdomain'
+  - '+.home.arpa'  
+  - '*.example'
+  - '*.invalid'
+  - '*.localhost'
+  - '*.test'
+  - '*.local'
+  - time.apple.com
+  - time.asia.apple.com
+  - time.nist.gov
+  - time.windows.com
+  - time1.apple.com
+  - time1.google.com
+  - time2.apple.com
+  - time2.google.com
+  - time3.apple.com
+  - time3.google.com
+  - time4.apple.com
+  - time4.google.com
+  - time5.apple.com
+  - time6.apple.com
+  - time7.apple.com
+  - time-ios.apple.com
+  - 'Mijia Cloud'
+  - 'WORKGROUP'
+  - localhost.ptlogin2.qq.com
+  - localhost.sec.qq.com
+  - miwifi.com
+  - na.b.g-tun.com
+  - network-test.debian.org
+  - ntp.ubuntu.com
+  - proxy.golang.org
+  - router.asus.com
+  - repeater.asus.com
+  - routerlogin.com
+  - routerlogin.net
+  - tendawifi.com
+  - tendawifi.net
+  - tplinklogin.net
+  - tplinkrepeater.net
+  - tplinkwifi.net
+  - mesu.apple.com
+  - swcdn.apple.com
+  - swdist.apple.com
+  - swdownload.apple.com
+  - swquery.apple.com
+  - swscan.apple.com
+  - lens.l.google.com
+  - stun.l.google.com
+  - dl.google.com
+  - in.appcenter.ms
+  - adguardteam.github.io
+  - static.adtidy.org
+  - local.adguard.org
+  - anti-ad.net
+  - cable.auth.com
+  - detectportal.firefox.com
+  - ff.dorado.sdo.com
+  - shark007.net
+  - speedtest.cros.wr.pvp.net
+  - resolver1.opendns.com
+  - 'time.*.com'
+  - 'time.*.gov'
+  - 'time.*.apple.com'
+  - 'time-ios.apple.com'
+  - 'time1.*.com'
+  - 'time2.*.com'
+  - 'time3.*.com'
+  - 'time4.*.com'
+  - 'time5.*.com'
+  - 'time6.*.com'
+  - 'time7.*.com'
+  - 'ntp.*.com'
+  - 'ntp1.*.com'
+  - 'ntp2.*.com'
+  - 'ntp3.*.com'
+  - 'ntp4.*.com'
+  - 'ntp5.*.com'
+  - 'ntp6.*.com'
+  - 'ntp7.*.com'
+  - '+.pool.ntp.org'
+  - 'stun.*.*'
+  - 'stun.*.*.*'
+  - '+.stun.*.*'
+  - '+.stun.*.*.*'
+  - '+.stun.*.*.*.*'
+  - '+.stun.*.*.*.*.*'
+  - '*.linksys.com'
+  - '*.linksyssmartwifi.com'
+  - '*.router.asus.com'
+  - '+.nflxvideo.net'
+  - '*.square-enix.com'
+  - '*.finalfantasyxiv.com'
+  - '*.ffxiv.com'
+  - '*.ff14.sdo.com'
+  - '+.media.dssott.com'
+  - '+.ipv6.microsoft.com'
+  - '+.msftconnecttest.com'
+  - '+.msftncsi.com'
+  - '+.srv.nintendo.net'
+  - '+.stun.playstation.net'
+  - '+.xboxlive.com'
+  - 'xbox.*.microsoft.com'
+  - '+.wargaming.net'
+  - 'GC._msDCS.*.*'
+  - 'DC._msDCS.*.*'
+  - 'PDC._msDCS.*.*'
+  - '+.termux.org'
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
@@ -85,106 +186,107 @@ tun:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
+  strict-route: true
   mtu: 9000
   
 proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 3600
+    interval: 18000
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 10000
       lazzy: true
   b:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 3600
+    interval: 18000
     path: ./proxy-providers/b.yml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 10000
       lazzy: true
   c:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 3600
+    interval: 18000
     path: ./proxy-providers/c.yml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 10000
       lazzy: true
   d:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 3600
+    interval: 18000
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 10000
       lazzy: true
   e:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
-    interval: 3600
+    interval: 18000
     path: ./proxy-providers/e.yml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 10000
       lazzy: true
   f:
     type: http
     url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
-    interval: 3600
+    interval: 18000
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 10000
       lazzy: true
   g:
     type: http
     url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
-    interval: 3600
+    interval: 18000
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 10000
       lazzy: true
   h:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 3600
+    interval: 18000
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 10000
       lazzy: true
  
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 500
-  tolerance: 50
+  interval: 1000
+  tolerance: 10
   lazy: true
-  timeout: 7000
+  timeout: 10000
   use:
   - a
   - b
