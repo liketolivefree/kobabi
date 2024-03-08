@@ -17,6 +17,10 @@ hosts:
 profile:
   store-selected: false
   store-fake-ip: true
+experimental:
+  ignore-resolve-fail: true
+  sniff-tls-sni: true
+  tracing: true   
 dns:
   enable: true
   # listen: 0.0.0.0:1053
