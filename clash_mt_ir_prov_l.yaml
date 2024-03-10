@@ -10,7 +10,7 @@ enable-process: true
 find-process-mode: strict
 tcp-concurrent: true
 global-client-fingerprint: random
-keep-alive-interval: 15
+keep-alive-interval: 30
 geodata-mode: true
 hosts:
   'localhost': 127.0.0.1
@@ -208,20 +208,6 @@ proxy-providers:
     override:
       udp: true
       ip-version: ipv4-prefer 
-  qol:
-    type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
-    path: ./proxy-providers/qol.yaml
-    health-check:
-      enable: true
-      interval: 500
-      url: http://www.gstatic.com/generate_204
-      timeout: 7000
-      lazzy: true
-    override:
-      udp: true
-      ip-version: ipv4-prefer 
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -246,7 +232,6 @@ proxy-groups:
   lazy: true
   timeout: 7000
   use:
-  - qol  
   - a
   - b
 - name: AALI
@@ -255,7 +240,6 @@ proxy-groups:
   - MMOBI
   - DIRECT
   use:
-  - qol  
   - a
   - b
 - name: QQOLI
@@ -265,7 +249,6 @@ proxy-groups:
   - MMOBI
   - TTAQI
   use:
-  - qol  
   - a
   - b
 - name: TTAQI
@@ -286,7 +269,6 @@ proxy-groups:
   - TTAQI
   - MMOBI
   use:
-  - qol  
   - a
   - b
 
