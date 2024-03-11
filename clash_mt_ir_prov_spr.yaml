@@ -93,6 +93,11 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer
+    exclude-type: 'ss|ssr|http'
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -103,7 +108,12 @@ proxy-providers:
       interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true      
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer
+    exclude-type: 'ss|ssr|http'
   c:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -115,6 +125,11 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
   d:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
@@ -126,6 +141,11 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
   e:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
@@ -137,6 +157,11 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
   f:
     type: http
     url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
@@ -148,6 +173,11 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
   g:
     type: http
     url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
@@ -159,6 +189,11 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
   h:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -170,7 +205,12 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
- 
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer
+    exclude-type: 'ss|ssr|http'
+
 proxy-groups:
 - name: MMOBI
   type: url-test
