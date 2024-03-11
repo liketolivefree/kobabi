@@ -19,7 +19,6 @@ profile:
   store-fake-ip: true
 experimental:
   ignore-resolve-fail: true
-  sniff-tls-sni: true
   tracing: true   
 dns:
   enable: true
@@ -92,40 +91,40 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
   b:
     type: http
-    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
     interval: 18000
-    path: ./proxy-providers/b.yml
+    path: ./proxy-providers/b.yaml
     health-check:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
-      lazzy: true
+      timeout: 5000
+      lazzy: true      
   c:
     type: http
-    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
     interval: 18000
     path: ./proxy-providers/c.yml
     health-check:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
   d:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
     interval: 18000
-    path: ./proxy-providers/d.yaml
+    path: ./proxy-providers/d.yml
     health-check:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
   e:
     type: http
@@ -136,7 +135,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
   f:
     type: http
@@ -147,7 +146,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
   g:
     type: http
@@ -158,7 +157,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
   h:
     type: http
@@ -169,17 +168,16 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 10000
+      timeout: 5000
       lazzy: true
  
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 1000
-  tolerance: 10
+  interval: 500
+  tolerance: 50
   lazy: true
-  timeout: 10000
   use:
   - a
   - b
@@ -189,11 +187,26 @@ proxy-groups:
   - f
   - g
   - h
-- name: AALI
-  type: select
-  proxies:
-  - MMOBI
-  - DIRECT
+- name: FFBB
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 500
+  lazy: true
+  use:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+- name: LLBB
+  type: load-balance
+  url: http://www.gstatic.com/generate_204
+  interval: 500
+  strategy: consistent-hashing
+  lazy: true
   use:
   - a
   - b
@@ -206,9 +219,10 @@ proxy-groups:
 - name: QQOLI
   type: select
   proxies:
-  - AALI
   - MMOBI
-  - TTAQI
+  - FFBB
+  - LLBB
+  - DIRECT
   use:
   - a
   - b
@@ -222,8 +236,7 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
-  - AALI  
-  - MMOBI
+  - QQOLI
 - name: MMAQI
   type: select
   proxies:
@@ -232,7 +245,7 @@ proxy-groups:
 - name: NNAQI
   type: select
   proxies:
-  - AALI
+  - QQOLI
   - TTAQI
   - MMOBI
   use:
