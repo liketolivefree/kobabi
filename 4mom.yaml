@@ -203,11 +203,13 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 5000
       lazzy: true
     override:
+      skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -217,11 +219,13 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 7000
+      timeout: 5000
       lazzy: true
     override:
+      skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
 
 proxy-groups:
 - name: MMOBI
@@ -229,24 +233,34 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 500
   tolerance: 50
-  timeout: 7000
+  lazy: true
   use:
   - a
   - b
-- name: AALI
-  type: select
-  proxies:
-  - MMOBI
-  - DIRECT
+- name: FFBB
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 500
+  lazy: true
+  use:
+  - a
+  - b
+- name: LLBB
+  type: load-balance
+  url: http://www.gstatic.com/generate_204
+  interval: 500
+  strategy: consistent-hashing
+  lazy: true
   use:
   - a
   - b
 - name: QQOLI
   type: select
   proxies:
-  - AALI
   - MMOBI
-  - TTAQI
+  - FFBB
+  - LLBB
+  - DIRECT
   use:
   - a
   - b
@@ -254,8 +268,7 @@ proxy-groups:
   type: select
   proxies:
   - DIRECT
-  - AALI  
-  - MMOBI
+  - QQOLI
 - name: MMAQI
   type: select
   proxies:
@@ -264,7 +277,7 @@ proxy-groups:
 - name: NNAQI
   type: select
   proxies:
-  - AALI
+  - QQOLI
   - TTAQI
   - MMOBI
   use:
