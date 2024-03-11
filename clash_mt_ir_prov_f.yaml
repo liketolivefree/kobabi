@@ -333,7 +333,6 @@ rule-providers:
     interval: 86400
 
 rules:
-  - PROCESS-NAME,curl,QQOLI
   - NETWORK,udp,QQOLI  
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
