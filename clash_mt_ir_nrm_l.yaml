@@ -1,5 +1,4 @@
 mixed-port: 7890
-socks-port: 7891
 allow-lan: false
 mode: rule
 log-level: error
@@ -9,8 +8,9 @@ secret: ''
 enable-process: true
 find-process-mode: strict
 tcp-concurrent: true
+unified-delay: true
 global-client-fingerprint: random
-keep-alive-interval: 30
+keep-alive-interval: 15
 geodata-mode: true
 hosts:
   'localhost': 127.0.0.1
@@ -145,10 +145,12 @@ dns:
   - udp://1.1.1.1
   - 8.8.8.8
   - 94.140.14.14
+  - https://8.8.8.8/dns-query  
   fallback:
   - udp://1.1.1.1
   - 8.8.8.8
   - 94.140.14.14
+  - https://8.8.8.8/dns-query  
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -900,7 +902,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 500
+  interval: 300
   tolerance: 50
   lazy: true
   proxies:
@@ -1609,7 +1611,7 @@ proxy-groups:
 - name: FFBB
   type: fallback
   url: http://www.gstatic.com/generate_204
-  interval: 500
+  interval: 600
   lazy: true
   proxies:
   - q_1
@@ -2317,7 +2319,7 @@ proxy-groups:
 - name: LLBB
   type: load-balance
   url: http://www.gstatic.com/generate_204
-  interval: 500
+  interval: 900
   strategy: consistent-hashing
   lazy: true
   proxies:
