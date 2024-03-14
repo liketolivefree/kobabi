@@ -1,5 +1,4 @@
 mixed-port: 7890
-socks-port: 7891
 allow-lan: false
 mode: rule
 log-level: info
@@ -9,8 +8,9 @@ secret: ''
 enable-process: true
 find-process-mode: always
 tcp-concurrent: true
+unified-delay: true
 global-client-fingerprint: random
-keep-alive-interval: 30
+keep-alive-interval: 15
 geodata-mode: true
 hosts:
   'localhost': 127.0.0.1
@@ -145,7 +145,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 600
+  interval: 300
   tolerance: 50
   lazy: true
   use:
@@ -154,7 +154,7 @@ proxy-groups:
 - name: FFBB
   type: fallback
   url: http://www.gstatic.com/generate_204
-  interval: 900
+  interval: 600
   lazy: true
   use:
   - a
@@ -162,7 +162,7 @@ proxy-groups:
 - name: LLBB
   type: load-balance
   url: http://www.gstatic.com/generate_204
-  interval: 1200
+  interval: 900
   strategy: consistent-hashing
   lazy: true
   use:
