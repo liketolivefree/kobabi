@@ -111,13 +111,13 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 7200
+    interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 300
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -127,13 +127,13 @@ proxy-providers:
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 7200
+    interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 300
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -147,9 +147,9 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 300
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
       lazzy: true
     override:
       skip-cert-verify: false
@@ -171,7 +171,7 @@ proxy-groups:
 - name: FFBB
   type: fallback
   url: http://www.gstatic.com/generate_204
-  interval: 600
+  interval: 300
   lazy: true
   use:
   - a
@@ -180,7 +180,7 @@ proxy-groups:
 - name: LLBB
   type: load-balance
   url: http://www.gstatic.com/generate_204
-  interval: 900
+  interval: 300
   strategy: consistent-hashing
   lazy: true
   use:
