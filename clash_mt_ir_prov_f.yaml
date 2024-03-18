@@ -230,6 +230,22 @@ proxy-providers:
       udp: true
       ip-version: ipv4-prefer 
     exclude-type: 'ss|ssr|http'
+  q:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 172000
+    path: ./proxy-providers/q.yaml
+    health-check:
+      enable: true
+      interval: 1000
+      url: http://www.gstatic.com/generate_204
+      timeout: 5000
+      lazzy: true
+    override:
+      skip-cert-verify: false
+      udp: true
+      ip-version: ipv4-prefer 
+    exclude-type: 'ss|ssr|http'
 
 proxy-groups:
 - name: MMOBI
@@ -241,6 +257,7 @@ proxy-groups:
   use:
   - a
   - b
+  - q
 - name: FFBB
   type: fallback
   url: http://www.gstatic.com/generate_204
@@ -249,6 +266,7 @@ proxy-groups:
   use:
   - a
   - b
+  - q
 - name: LLBB
   type: load-balance
   url: http://www.gstatic.com/generate_204
@@ -258,6 +276,7 @@ proxy-groups:
   use:
   - a
   - b
+  - q
 - name: QQOLI
   type: select
   proxies:
@@ -268,6 +287,7 @@ proxy-groups:
   use:
   - a
   - b
+  - q
 - name: TTAQI
   type: select
   proxies:
@@ -287,6 +307,7 @@ proxy-groups:
   use:
   - a
   - b
+  - q
   
 rule-providers:
   aff:
