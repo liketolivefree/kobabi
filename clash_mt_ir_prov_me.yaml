@@ -190,9 +190,9 @@ proxy-groups:
 - name: QQOLI
   type: select
   proxies:
-  - FFBB
-  - MMOBI
   - LLBB
+  - MMOBI
+  - FFBB
   - DIRECT
   use:
   - a
