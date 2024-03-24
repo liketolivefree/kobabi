@@ -180,7 +180,7 @@ proxy-groups:
 - name: LLBB
   type: load-balance
   url: http://www.gstatic.com/generate_204
-  interval: 900
+  interval: 600
   strategy: consistent-hashing
   lazy: true
   use:
@@ -211,8 +211,8 @@ proxy-groups:
 - name: NNAQI
   type: select
   proxies:
-  - QQOLI
-  - TTAQI
+  - LLBB
+  - FFBB
   - MMOBI
   use:
   - a
