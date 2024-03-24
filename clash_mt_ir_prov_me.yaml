@@ -171,7 +171,7 @@ proxy-groups:
 - name: FFBB
   type: fallback
   url: http://www.gstatic.com/generate_204
-  interval: 600
+  interval: 300
   lazy: true
   use:
   - a
@@ -180,7 +180,7 @@ proxy-groups:
 - name: LLBB
   type: load-balance
   url: http://www.gstatic.com/generate_204
-  interval: 600
+  interval: 300
   strategy: consistent-hashing
   lazy: true
   use:
@@ -190,8 +190,8 @@ proxy-groups:
 - name: QQOLI
   type: select
   proxies:
-  - MMOBI
   - FFBB
+  - MMOBI
   - LLBB
   - DIRECT
   use:
