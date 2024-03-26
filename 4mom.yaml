@@ -213,7 +213,7 @@ proxy-providers:
       skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+    exclude-type: 'ss|ssr|http|trojan'
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -229,7 +229,7 @@ proxy-providers:
       skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+    exclude-type: 'ss|ssr|http|trojan'
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -245,7 +245,7 @@ proxy-providers:
       skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+    exclude-type: 'ss|ssr|http|trojan'
     
 proxy-groups:
 - name: MMOBI
