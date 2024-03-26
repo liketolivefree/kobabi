@@ -193,11 +193,6 @@ proxy-groups:
   - LLBB
   - MMOBI
   - FFBB
-  - DIRECT
-  use:
-  - a
-  - b
-  - q
 - name: TTAQI
   type: select
   proxies:
@@ -214,10 +209,6 @@ proxy-groups:
   - LLBB
   - FFBB
   - MMOBI
-  use:
-  - a
-  - b
-  - q
 
 rule-providers:
   aff:
