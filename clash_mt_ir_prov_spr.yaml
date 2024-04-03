@@ -31,12 +31,12 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - udp://1.1.1.1
+  - 1.0.0.1
   - 8.8.8.8
   - 94.140.14.14
   - https://8.8.8.8/dns-query  
   fallback:
-  - udp://1.1.1.1
+  - 1.0.0.1
   - 8.8.8.8
   - 94.140.14.14
   - https://8.8.8.8/dns-query  
@@ -45,6 +45,9 @@ dns:
     geoip-code: IR
     ipcidr:
     - 10.0.0.0/8
+    - 240.0.0.0/4
+    - 0.0.0.0/32
+    - 127.0.0.1/32
     domain:
     - '+.recaptcha.net'
 sniffer:
@@ -82,7 +85,7 @@ tun:
   auto-detect-interface: true
   strict-route: true
   mtu: 9000
-  
+  device: Meta   
 proxy-providers:
   a:
     type: http
@@ -99,7 +102,6 @@ proxy-providers:
       skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer
-    exclude-type: 'ss|ssr|http'
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -115,7 +117,6 @@ proxy-providers:
       skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer
-    exclude-type: 'ss|ssr|http'
   c:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -130,24 +131,22 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+      ip-version: ipv4-prefer
   d:
     type: http
-    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 18000
-    path: ./proxy-providers/d.yml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 172000
+    path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 500
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+      ip-version: ipv4-prefer
   e:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
@@ -162,8 +161,7 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+      ip-version: ipv4-prefer
   f:
     type: http
     url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
@@ -178,8 +176,7 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+      ip-version: ipv4-prefer
   g:
     type: http
     url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
@@ -194,8 +191,7 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http'
+      ip-version: ipv4-prefer
   h:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -211,43 +207,13 @@ proxy-providers:
       skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer
-    exclude-type: 'ss|ssr|http'
 
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 600
+  interval: 300
   tolerance: 50
-  lazy: true
-  use:
-  - a
-  - b
-  - c
-  - d
-  - e
-  - f
-  - g
-  - h
-- name: FFBB
-  type: fallback
-  url: http://www.gstatic.com/generate_204
-  interval: 900
-  lazy: true
-  use:
-  - a
-  - b
-  - c
-  - d
-  - e
-  - f
-  - g
-  - h
-- name: LLBB
-  type: load-balance
-  url: http://www.gstatic.com/generate_204
-  interval: 1200
-  strategy: consistent-hashing
   lazy: true
   use:
   - a
@@ -262,18 +228,6 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-  - FFBB
-  - LLBB
-  - DIRECT
-  use:
-  - a
-  - b
-  - c
-  - d
-  - e
-  - f
-  - g
-  - h
 - name: TTAQI
   type: select
   proxies:
@@ -283,23 +237,11 @@ proxy-groups:
   type: select
   proxies:
   - REJECT
-  - DIRECT
 - name: NNAQI
   type: select
   proxies:
-  - QQOLI
-  - TTAQI
   - MMOBI
-  use:
-  - a
-  - b
-  - c
-  - d
-  - e
-  - f
-  - g
-  - h
-
+  - QQOLI
 rule-providers:
   aff:
     type: http
@@ -343,7 +285,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
-
 rules:
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
