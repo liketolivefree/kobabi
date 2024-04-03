@@ -192,14 +192,13 @@ tun:
   stack: mixed
   dns-hijack:
   - 'any:53'
-  - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
   mtu: 9000
   strict-route: true
   exclude-package:
   - com.android.captiveportallogin
-  
+  device: Meta
 proxy-providers:
   a:
     type: http
@@ -215,8 +214,7 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http|trojan'
+      ip-version: ipv4-prefer
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -231,8 +229,7 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http|trojan'
+      ip-version: ipv4-prefer
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -247,9 +244,7 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer 
-    exclude-type: 'ss|ssr|http|trojan'
-
+      ip-version: ipv4-prefer
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -261,36 +256,10 @@ proxy-groups:
   - a
   - b
   - q
-- name: FFBB
-  type: fallback
-  url: http://www.gstatic.com/generate_204
-  interval: 600
-  lazy: true
-  use:
-  - a
-  - b
-  - q
-- name: LLBB
-  type: load-balance
-  url: http://www.gstatic.com/generate_204
-  interval: 900
-  strategy: consistent-hashing
-  lazy: true
-  use:
-  - a
-  - b
-  - q
 - name: QQOLI
   type: select
   proxies:
   - MMOBI
-  - FFBB
-  - LLBB
-  - DIRECT
-  use:
-  - a
-  - b
-  - q
 - name: TTAQI
   type: select
   proxies:
@@ -300,18 +269,11 @@ proxy-groups:
   type: select
   proxies:
   - REJECT
-  - DIRECT
 - name: NNAQI
   type: select
   proxies:
+  - MMOBI  
   - QQOLI
-  - TTAQI
-  - MMOBI
-  use:
-  - a
-  - b
-  - q
-  
 rule-providers:
   aff:
     type: http
@@ -355,7 +317,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
-
 rules:
   - NETWORK,udp,QQOLI  
   - DOMAIN-SUFFIX,lan,DIRECT
