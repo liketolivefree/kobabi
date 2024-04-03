@@ -1,64 +1,44 @@
-mode: rule
-mixed-port: 7897
-socks-port: 7898
-port: 7899
+mixed-port: 7890
 allow-lan: false
+mode: rule
 log-level: info
 ipv6: false
+external-controller: 127.0.0.1:9090
 secret: ''
-external-controller: 127.0.0.1:9097
-hosts:
-  localhost: 127.0.0.1
-keep-alive-interval: 15
-tcp-concurrent: true
-geodata-mode: true
-global-client-fingerprint: random
+enable-process: true
 find-process-mode: always
+tcp-concurrent: true
+unified-delay: true
+global-client-fingerprint: random
+keep-alive-interval: 15
+geodata-mode: true
+hosts:
+  'localhost': 127.0.0.1
 profile:
   store-selected: false
   store-fake-ip: true
-sniffer:
-  enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
-  sniff:
-    TLS:
-      ports:
-      - 443
-      - 8443
-    HTTP:
-      ports:
-      - 80
-      - 8080-8880
-      override-destination: true
-  force-domain:
-  - +.v2ex.com
-  skip-domain:
-  - Mijia Cloud
-  sniffing:
-  - tls
-  - http
-  port-whitelist:
-  - '80'
-  - '443'
+experimental:
+  ignore-resolve-fail: true
+  tracing: true  
 dns:
   enable: true
+  # listen: 0.0.0.0:1053
   ipv6: false
   prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-  - +.lan
-  - +.localdomain
-  - +.home.arpa
+  - '+.lan'
+  - '+.localdomain'
+  - '+.home.arpa'  
   - '*.example'
   - '*.invalid'
   - '*.localhost'
   - '*.test'
   - '*.local'
   - time.nist.gov
-  - Mijia Cloud
+  - 'Mijia Cloud'
   default-nameserver:
   - 1.1.1.1
   - 9.9.9.9
@@ -81,13 +61,36 @@ dns:
     - 0.0.0.0/32
     - 127.0.0.1/32
     domain:
-    - +.recaptcha.net
-enable-process: true
+    - '+.recaptcha.net'
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  sniff:
+    TLS:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+  force-domain:
+  - '+.v2ex.com'
+  skip-domain:
+  - Mijia Cloud  
+  sniffing:
+  - tls
+  - http
+  port-whitelist:
+  - '80'
+  - '443'
 tun:
   enable: true
   stack: system
   dns-hijack:
-  - any:53
+  - 'any:53'
   auto-route: true
   auto-detect-interface: true
   mtu: 9000
@@ -102,11 +105,8 @@ tun:
   - com.miui.weather2
   - com.facemoji.lite.xiaomi
   - com.miui.android.fashiongallery
-  device: Meta
-experimental:
-  ignore-resolve-fail: true
-  tracing: true
-unified-delay: true
+  device: Meta 
+
 proxy-providers:
   a:
     type: http
@@ -153,6 +153,7 @@ proxy-providers:
       skip-cert-verify: false
       udp: true
       ip-version: ipv4-prefer
+    
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -180,15 +181,16 @@ proxy-groups:
 - name: NNAQI
   type: select
   proxies:
-  - MMOBI
+  - MMOBI  
   - QQOLI
+
 rule-providers:
   aff:
     type: http
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
-    path: ./rule-providers/aff.txt
+    path: ./rule-providers/aff.txt   
     interval: 86400
   yun:
     type: http
@@ -225,6 +227,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
+
 rules:
 - NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,DIRECT
@@ -232,7 +235,7 @@ rules:
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-localhost,DIRECT
-- DOMAIN-SUFFIX,ip6-loopback,DIRECT
+- DOMAIN-SUFFIX,ip6-loopback,DIRECT  
 - IP-CIDR,0.0.0.1/32,REJECT,no-resolve
 - IP-CIDR,10.0.10.128/32,REJECT,no-resolve
 - IP-CIDR,10.9.36.186/32,REJECT,no-resolve
@@ -480,8 +483,8 @@ rules:
 - IP-CIDR,255.99.94.68/32,REJECT,no-resolve
 - IP-CIDR,255.115.3.251/32,REJECT,no-resolve
 - IP-CIDR,255.172.122.71/32,REJECT,no-resolve
-- IP-CIDR,255.243.43.85/32,REJECT,no-resolve
-- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+- IP-CIDR,255.243.43.85/32,REJECT,no-resolve 
+- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve  
 - IP-CIDR,127.0.0.1/8,DIRECT,no-resolve
 - IP-CIDR,169.254.0.1/16,DIRECT,no-resolve
 - IP-CIDR,172.16.0.1/12,DIRECT,no-resolve
@@ -493,7 +496,7 @@ rules:
 - IP-CIDR,198.51.100.1/24,DIRECT,no-resolve
 - IP-CIDR,203.0.113.1/24,DIRECT,no-resolve
 - IP-CIDR,224.0.0.1/4,DIRECT,no-resolve
-- IP-CIDR,240.0.0.1/4,DIRECT,no-resolve
+- IP-CIDR,240.0.0.1/4,DIRECT,no-resolve  
 - IP-CIDR6,::1/128,DIRECT,no-resolve
 - IP-CIDR6,::ffff:0:0/96,DIRECT,no-resolve
 - IP-CIDR6,::ffff:0:0:0/96,DIRECT,no-resolve
