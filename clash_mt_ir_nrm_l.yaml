@@ -197,7 +197,6 @@ tun:
   strict-route: true
   mtu: 9000
   device: Meta
-
   proxies:
   - {"name":"q_1","type":"vless","server":"104.22.11.204","port":8080,"uuid":"1732c28e-9328-4246-bed6-de522bb6e102","tls":false,"servername":"FAQ.khamenei.bio","network":"ws","ws-opts":{"path":"/"},"client-fingerprint":"random"}
   - {"name":"q_2","type":"vless","server":"141.147.189.242","port":8080,"uuid":"d674009a-4a87-4180-a8fe-9a54f66bd7c9","tls":false,"servername":"vpn.restia.love","network":"ws","ws-opts":{"path":"/?ed=2048"},"client-fingerprint":"random"}
@@ -738,7 +737,6 @@ tun:
   proxies:
   - MMOBI  
   - QQOLI
- 
 rules:
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
