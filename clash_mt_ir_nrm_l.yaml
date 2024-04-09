@@ -455,7 +455,6 @@ tun:
   - {"name":"q_254","type":"vmess","server":"jpc.flha.ru","port":2095,"cipher":"auto","uuid":"7a737f41-b792-4260-94ff-3d864da67b80","alterId":0,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":""}}
   - {"name":"q_255","type":"vmess","server":"47.106.112.114","port":80,"cipher":"auto","uuid":"7c1d9869-ecac-4ca6-b7e7-ecb60f503078","alterId":-1,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/","headers":{"host":"tms.dingtalk.com"}}}
   - {"name":"q_256","type":"vmess","server":"47.106.112.114","port":80,"cipher":"auto","uuid":"7c1d9869-ecac-4ca6-b7e7-ecb60f503078","alterId":-1,"tls":false,"skip-cert-verify":true,"network":"ws","ws-opts":{"path":"/"}}
-  
  proxy-groups:
 - name: MMOBI
   type: url-test
