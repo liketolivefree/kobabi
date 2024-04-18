@@ -37,33 +37,10 @@ dns:
   - '*.localhost'
   - '*.test'
   - '*.local'
-  - time.apple.com
-  - time.asia.apple.com
-  - time.nist.gov
-  - time.windows.com
-  - time1.apple.com
-  - time1.google.com
-  - time2.apple.com
-  - time2.google.com
-  - time3.apple.com
-  - time3.google.com
-  - time4.apple.com
-  - time4.google.com
-  - time5.apple.com
-  - time6.apple.com
-  - time7.apple.com
-  - time-ios.apple.com
   - 'Mijia Cloud'
   - 'WORKGROUP'
-  - localhost.ptlogin2.qq.com
-  - localhost.sec.qq.com
   - miwifi.com
   - na.b.g-tun.com
-  - network-test.debian.org
-  - ntp.ubuntu.com
-  - proxy.golang.org
-  - router.asus.com
-  - repeater.asus.com
   - routerlogin.com
   - routerlogin.net
   - tendawifi.com
@@ -71,30 +48,18 @@ dns:
   - tplinklogin.net
   - tplinkrepeater.net
   - tplinkwifi.net
-  - mesu.apple.com
-  - swcdn.apple.com
-  - swdist.apple.com
-  - swdownload.apple.com
-  - swquery.apple.com
-  - swscan.apple.com
   - lens.l.google.com
   - stun.l.google.com
   - dl.google.com
   - in.appcenter.ms
   - adguardteam.github.io
-  - static.adtidy.org
-  - local.adguard.org
-  - anti-ad.net
   - cable.auth.com
-  - detectportal.firefox.com
   - ff.dorado.sdo.com
   - shark007.net
   - speedtest.cros.wr.pvp.net
   - resolver1.opendns.com
   - 'time.*.com'
   - 'time.*.gov'
-  - 'time.*.apple.com'
-  - 'time-ios.apple.com'
   - 'time1.*.com'
   - 'time2.*.com'
   - 'time3.*.com'
@@ -126,17 +91,6 @@ dns:
   - '*.ffxiv.com'
   - '*.ff14.sdo.com'
   - '+.media.dssott.com'
-  - '+.ipv6.microsoft.com'
-  - '+.msftconnecttest.com'
-  - '+.msftncsi.com'
-  - '+.srv.nintendo.net'
-  - '+.stun.playstation.net'
-  - '+.xboxlive.com'
-  - 'xbox.*.microsoft.com'
-  - '+.wargaming.net'
-  - 'GC._msDCS.*.*'
-  - 'DC._msDCS.*.*'
-  - 'PDC._msDCS.*.*'
   - '+.termux.org'
   default-nameserver:
   - 1.1.1.1
@@ -231,7 +185,7 @@ proxy-providers:
       ip-version: ipv4-prefer
   q:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
     interval: 172000
     path: ./proxy-providers/q.yaml
     health-check:
