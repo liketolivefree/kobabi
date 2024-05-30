@@ -135,7 +135,7 @@ proxy-providers:
   d:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 86400
+    interval: 18000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
