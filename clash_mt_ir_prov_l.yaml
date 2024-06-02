@@ -213,7 +213,6 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -228,22 +227,19 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 7200
+    interval: 3600
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
 
 proxy-groups:
 - name: MMOBI
