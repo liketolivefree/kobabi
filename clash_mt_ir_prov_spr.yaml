@@ -101,7 +101,6 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -116,7 +115,6 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   c:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -131,11 +129,10 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   d:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 18000
+    interval: 172000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
@@ -146,7 +143,6 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   e:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
@@ -161,7 +157,6 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   f:
     type: http
     url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
@@ -176,7 +171,6 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   g:
     type: http
     url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
@@ -191,7 +185,6 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
   h:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -206,7 +199,6 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-      ip-version: ipv4-prefer
 
 proxy-groups:
 - name: MMOBI
