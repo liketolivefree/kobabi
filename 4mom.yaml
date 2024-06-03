@@ -95,12 +95,12 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - https://8.8.8.8/dns-query
+  - https://dns.quad9.net/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
   - 8.8.8.8
   fallback:
-  - https://8.8.8.8/dns-query
+  - https://dns.quad9.net/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
   - 8.8.8.8
