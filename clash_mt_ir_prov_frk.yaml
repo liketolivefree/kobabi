@@ -1,5 +1,5 @@
 mixed-port: 7890
-allow-lan: false
+allow-lan: true
 mode: rule
 log-level: info
 ipv6: true
@@ -18,10 +18,10 @@ profile:
   store-fake-ip: true
 experimental:
   ignore-resolve-fail: true
-  tracing: true  
+  tracing: true
 dns:
   enable: true
-  # listen: 0.0.0.0:1053
+  listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
   use-hosts: true
@@ -30,7 +30,7 @@ dns:
   fake-ip-filter:
   - '+.lan'
   - '+.localdomain'
-  - '+.home.arpa'  
+  - '+.home.arpa'
   - '*.example'
   - '*.invalid'
   - '*.localhost'
@@ -39,15 +39,15 @@ dns:
   - time.nist.gov
   - 'Mijia Cloud'
   default-nameserver:
-  - 1.1.1.1
+  - 1.0.0.1
   - 9.9.9.9
   nameserver:
-  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
   - https://dns.quad9.net/dns-query
   - tls://dns.google
   - tls://one.one.one.one
   fallback:
-  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
   - https://dns.quad9.net/dns-query
   - tls://dns.google
   - tls://one.one.one.one
@@ -63,8 +63,6 @@ dns:
     - '+.recaptcha.net'
 sniffer:
   enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
   sniff:
     TLS:
       ports:
@@ -76,9 +74,12 @@ sniffer:
       - 8080-8880
       override-destination: true
   force-domain:
-  - '+.v2ex.com'
+  - "+.v2ex.com"
+  - www.google.com
+  - google.com
   skip-domain:
-  - Mijia Cloud  
+  - Mijia Cloud
+  - dlg.io.mi.com
   sniffing:
   - tls
   - http
@@ -92,11 +93,11 @@ tun:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
-  mtu: 9000
   strict-route: true
+  mtu: 9000
+  device: Meta
   exclude-package:
   - com.android.captiveportallogin
-  device: Meta 
 
 proxy-providers:
   a:
@@ -140,7 +141,7 @@ proxy-providers:
     override:
       skip-cert-verify: false
       udp: true
-    
+
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -168,7 +169,7 @@ proxy-groups:
 - name: NNAQI
   type: select
   proxies:
-  - MMOBI  
+  - MMOBI
   - QQOLI
 
 rule-providers:
@@ -177,13 +178,13 @@ rule-providers:
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
-    path: ./rule-providers/aff.txt   
+    path: ./rule-providers/aff.txt
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_frk.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt
     path: ./rule-providers/yun.txt
     interval: 86400
   oki:
@@ -222,7 +223,7 @@ rules:
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-localhost,DIRECT
-- DOMAIN-SUFFIX,ip6-loopback,DIRECT  
+- DOMAIN-SUFFIX,ip6-loopback,DIRECT
 - IP-CIDR,0.0.0.1/32,REJECT,no-resolve
 - IP-CIDR,10.0.10.128/32,REJECT,no-resolve
 - IP-CIDR,10.9.36.186/32,REJECT,no-resolve
@@ -470,8 +471,8 @@ rules:
 - IP-CIDR,255.99.94.68/32,REJECT,no-resolve
 - IP-CIDR,255.115.3.251/32,REJECT,no-resolve
 - IP-CIDR,255.172.122.71/32,REJECT,no-resolve
-- IP-CIDR,255.243.43.85/32,REJECT,no-resolve 
-- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve  
+- IP-CIDR,255.243.43.85/32,REJECT,no-resolve
+- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
 - IP-CIDR,127.0.0.1/8,DIRECT,no-resolve
 - IP-CIDR,169.254.0.1/16,DIRECT,no-resolve
 - IP-CIDR,172.16.0.1/12,DIRECT,no-resolve
@@ -483,7 +484,7 @@ rules:
 - IP-CIDR,198.51.100.1/24,DIRECT,no-resolve
 - IP-CIDR,203.0.113.1/24,DIRECT,no-resolve
 - IP-CIDR,224.0.0.1/4,DIRECT,no-resolve
-- IP-CIDR,240.0.0.1/4,DIRECT,no-resolve  
+- IP-CIDR,240.0.0.1/4,DIRECT,no-resolve
 - IP-CIDR6,::1/128,DIRECT,no-resolve
 - IP-CIDR6,::ffff:0:0/96,DIRECT,no-resolve
 - IP-CIDR6,::ffff:0:0:0/96,DIRECT,no-resolve
