@@ -11,6 +11,11 @@ tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
 keep-alive-interval: 15
+geodata-mode: true
+geox-url:
+  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
 hosts:
   'localhost': 127.0.0.1
 profile:
