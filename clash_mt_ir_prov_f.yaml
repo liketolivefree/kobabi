@@ -6,7 +6,7 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 secret: ''
 enable-process: true
-find-process-mode: always
+find-process-mode: strict
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
@@ -36,33 +36,10 @@ dns:
   - '*.localhost'
   - '*.test'
   - '*.local'
-  - time.apple.com
-  - time.asia.apple.com
-  - time.nist.gov
-  - time.windows.com
-  - time1.apple.com
-  - time1.google.com
-  - time2.apple.com
-  - time2.google.com
-  - time3.apple.com
-  - time3.google.com
-  - time4.apple.com
-  - time4.google.com
-  - time5.apple.com
-  - time6.apple.com
-  - time7.apple.com
-  - time-ios.apple.com
   - 'Mijia Cloud'
   - 'WORKGROUP'
-  - localhost.ptlogin2.qq.com
-  - localhost.sec.qq.com
   - miwifi.com
   - na.b.g-tun.com
-  - network-test.debian.org
-  - ntp.ubuntu.com
-  - proxy.golang.org
-  - router.asus.com
-  - repeater.asus.com
   - routerlogin.com
   - routerlogin.net
   - tendawifi.com
@@ -70,30 +47,18 @@ dns:
   - tplinklogin.net
   - tplinkrepeater.net
   - tplinkwifi.net
-  - mesu.apple.com
-  - swcdn.apple.com
-  - swdist.apple.com
-  - swdownload.apple.com
-  - swquery.apple.com
-  - swscan.apple.com
   - lens.l.google.com
   - stun.l.google.com
   - dl.google.com
   - in.appcenter.ms
   - adguardteam.github.io
-  - static.adtidy.org
-  - local.adguard.org
-  - anti-ad.net
   - cable.auth.com
-  - detectportal.firefox.com
   - ff.dorado.sdo.com
   - shark007.net
   - speedtest.cros.wr.pvp.net
   - resolver1.opendns.com
   - 'time.*.com'
   - 'time.*.gov'
-  - 'time.*.apple.com'
-  - 'time-ios.apple.com'
   - 'time1.*.com'
   - 'time2.*.com'
   - 'time3.*.com'
@@ -125,31 +90,20 @@ dns:
   - '*.ffxiv.com'
   - '*.ff14.sdo.com'
   - '+.media.dssott.com'
-  - '+.ipv6.microsoft.com'
-  - '+.msftconnecttest.com'
-  - '+.msftncsi.com'
-  - '+.srv.nintendo.net'
-  - '+.stun.playstation.net'
-  - '+.xboxlive.com'
-  - 'xbox.*.microsoft.com'
-  - '+.wargaming.net'
-  - 'GC._msDCS.*.*'
-  - 'DC._msDCS.*.*'
-  - 'PDC._msDCS.*.*'
   - '+.termux.org'
   default-nameserver:
   - 1.0.0.1
   - 9.9.9.9
   nameserver:
-  - https://1.0.0.1/dns-query
   - https://dns.quad9.net/dns-query
-  - tls://dns.google
   - tls://one.one.one.one
+  - 1.0.0.1
+  - 8.8.4.4
   fallback:
-  - https://1.0.0.1/dns-query
   - https://dns.quad9.net/dns-query
-  - tls://dns.google
   - tls://one.one.one.one
+  - 1.0.0.1
+  - 8.8.4.4
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -187,16 +141,13 @@ sniffer:
   - '443'
 tun:
   enable: true
-  stack: system
+  stack: mixed
   dns-hijack:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
   strict-route: true
-  mtu: 9000
   device: Meta
-  exclude-package:
-  - com.android.captiveportallogin
 
 proxy-providers:
   a:
@@ -229,7 +180,7 @@ proxy-providers:
       udp: true
   q:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
     interval: 3600
     path: ./proxy-providers/q.yaml
     health-check:
@@ -249,9 +200,9 @@ proxy-groups:
   tolerance: 50
   lazy: true
   use:
+  - q
   - a
   - b
-  - q
 - name: QQOLI
   type: select
   proxies:
@@ -270,6 +221,7 @@ proxy-groups:
   proxies:
   - MMOBI
   - QQOLI
+
 rule-providers:
   aff:
     type: http
