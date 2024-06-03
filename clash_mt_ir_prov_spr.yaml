@@ -25,20 +25,85 @@ dns:
   ipv6: true
   prefer-h3: true
   use-hosts: true
-  enhanced-mode: redir-host
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '+.lan'
+  - '+.localdomain'
+  - '+.home.arpa'
+  - '*.example'
+  - '*.invalid'
+  - '*.localhost'
+  - '*.test'
+  - '*.local'
+  - 'Mijia Cloud'
+  - 'WORKGROUP'
+  - miwifi.com
+  - na.b.g-tun.com
+  - routerlogin.com
+  - routerlogin.net
+  - tendawifi.com
+  - tendawifi.net
+  - tplinklogin.net
+  - tplinkrepeater.net
+  - tplinkwifi.net
+  - lens.l.google.com
+  - stun.l.google.com
+  - dl.google.com
+  - in.appcenter.ms
+  - adguardteam.github.io
+  - cable.auth.com
+  - ff.dorado.sdo.com
+  - shark007.net
+  - speedtest.cros.wr.pvp.net
+  - resolver1.opendns.com
+  - 'time.*.com'
+  - 'time.*.gov'
+  - 'time1.*.com'
+  - 'time2.*.com'
+  - 'time3.*.com'
+  - 'time4.*.com'
+  - 'time5.*.com'
+  - 'time6.*.com'
+  - 'time7.*.com'
+  - 'ntp.*.com'
+  - 'ntp1.*.com'
+  - 'ntp2.*.com'
+  - 'ntp3.*.com'
+  - 'ntp4.*.com'
+  - 'ntp5.*.com'
+  - 'ntp6.*.com'
+  - 'ntp7.*.com'
+  - '+.pool.ntp.org'
+  - 'stun.*.*'
+  - 'stun.*.*.*'
+  - '+.stun.*.*'
+  - '+.stun.*.*.*'
+  - '+.stun.*.*.*.*'
+  - '+.stun.*.*.*.*.*'
+  - '*.linksys.com'
+  - '*.linksyssmartwifi.com'
+  - '*.router.asus.com'
+  - '+.nflxvideo.net'
+  - '*.square-enix.com'
+  - '*.finalfantasyxiv.com'
+  - '*.ffxiv.com'
+  - '*.ff14.sdo.com'
+  - '+.media.dssott.com'
+  - '+.termux.org'
   default-nameserver:
   - 1.0.0.1
   - 9.9.9.9
   nameserver:
+  - https://dns.quad9.net/dns-query
+  - tls://one.one.one.one
   - 1.0.0.1
   - 8.8.4.4
-  - 94.140.14.14
-  - https://dns.quad9.net/dns-query
   fallback:
+  - https://dns.quad9.net/dns-query
+  - tls://one.one.one.one
   - 1.0.0.1
   - 8.8.4.4
-  - 94.140.14.14
-  - https://dns.quad9.net/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
