@@ -33,12 +33,12 @@ dns:
   - 1.0.0.1
   - 8.8.8.8
   - 94.140.14.14
-  - https://8.8.8.8/dns-query  
+  - https://dns.quad9.net/dns-query
   fallback:
   - 1.0.0.1
   - 8.8.8.8
   - 94.140.14.14
-  - https://8.8.8.8/dns-query  
+  - https://dns.quad9.net/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
