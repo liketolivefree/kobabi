@@ -1,5 +1,5 @@
 mixed-port: 7890
-allow-lan: false
+allow-lan: true
 mode: rule
 log-level: error
 ipv6: true
@@ -18,10 +18,10 @@ profile:
   store-fake-ip: true
 experimental:
   ignore-resolve-fail: true
-  tracing: true   
+  tracing: true
 dns:
   enable: true
-  # listen: 0.0.0.0:1053
+  listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
   use-hosts: true
@@ -30,7 +30,7 @@ dns:
   fake-ip-filter:
   - '+.lan'
   - '+.localdomain'
-  - '+.home.arpa'  
+  - '+.home.arpa'
   - '*.example'
   - '*.invalid'
   - '*.localhost'
@@ -138,15 +138,15 @@ dns:
   - 'PDC._msDCS.*.*'
   - '+.termux.org'
   default-nameserver:
-  - 1.1.1.1
+  - 1.0.0.1
   - 9.9.9.9
   nameserver:
-  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
   - https://dns.quad9.net/dns-query
   - tls://dns.google
   - tls://one.one.one.one
   fallback:
-  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
   - https://dns.quad9.net/dns-query
   - tls://dns.google
   - tls://one.one.one.one
@@ -162,8 +162,6 @@ dns:
     - '+.recaptcha.net'
 sniffer:
   enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
   sniff:
     TLS:
       ports:
@@ -175,11 +173,12 @@ sniffer:
       - 8080-8880
       override-destination: true
   force-domain:
-  - '+.v2ex.com'
+  - "+.v2ex.com"
   - www.google.com
   - google.com
   skip-domain:
-  - Mijia Cloud  
+  - Mijia Cloud
+  - dlg.io.mi.com
   sniffing:
   - tls
   - http
@@ -188,16 +187,17 @@ sniffer:
   - '443'
 tun:
   enable: true
-  stack: mixed
+  stack: system
   dns-hijack:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
-  mtu: 9000
   strict-route: true
+  mtu: 9000
+  device: Meta
   exclude-package:
   - com.android.captiveportallogin
-  device: Meta
+
 proxy-providers:
   a:
     type: http
@@ -268,7 +268,7 @@ proxy-groups:
 - name: NNAQI
   type: select
   proxies:
-  - MMOBI  
+  - MMOBI
   - QQOLI
 rule-providers:
   aff:
@@ -276,7 +276,7 @@ rule-providers:
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.txt
-    path: ./rule-providers/aff.txt   
+    path: ./rule-providers/aff.txt
     interval: 86400
   yun:
     type: http
@@ -314,7 +314,7 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
-  - NETWORK,udp,QQOLI  
+  - NETWORK,udp,QQOLI
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,localdomain,DIRECT
