@@ -2,7 +2,7 @@ mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: info
-ipv6: false
+ipv6: true
 external-controller: 127.0.0.1:9090
 secret: ''
 enable-process: true
@@ -22,7 +22,7 @@ experimental:
 dns:
   enable: true
   # listen: 0.0.0.0:1053
-  ipv6: false
+  ipv6: true
   prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
@@ -43,12 +43,12 @@ dns:
   - 9.9.9.9
   nameserver:
   - https://1.1.1.1/dns-query
-  - https://8.8.8.8/dns-query
+  - https://dns.quad9.net/dns-query
   - tls://dns.google
   - tls://one.one.one.one
   fallback:
   - https://1.1.1.1/dns-query
-  - https://8.8.8.8/dns-query
+  - https://dns.quad9.net/dns-query
   - tls://dns.google
   - tls://one.one.one.one
   fallback-filter:
