@@ -2,7 +2,7 @@ mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: error
-ipv6: false
+ipv6: true
 external-controller: 127.0.0.1:9090
 secret: ''
 enable-process: true
@@ -23,7 +23,7 @@ experimental:
 dns:
   enable: true
   # listen: 0.0.0.0:1053
-  ipv6: false
+  ipv6: true
   prefer-h3: true
   use-hosts: true
   enhanced-mode: redir-host
