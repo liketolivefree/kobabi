@@ -47,7 +47,7 @@ dns:
   - tls://dns.google
   - tls://one.one.one.one
   fallback:
-  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
   - https://dns.quad9.net/dns-query
   - tls://dns.google
   - tls://one.one.one.one
