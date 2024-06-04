@@ -127,7 +127,7 @@ sniffer:
       - 8080-8880
       override-destination: true
   force-domain:
-  - "+.v2ex.com"
+  - '+.v2ex.com'
   - www.google.com
   - google.com
   skip-domain:
