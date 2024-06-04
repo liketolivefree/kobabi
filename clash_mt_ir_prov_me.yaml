@@ -112,8 +112,6 @@ dns:
     - 240.0.0.0/4
     - 0.0.0.0/32
     - 127.0.0.1/32
-    domain:
-    - '+.recaptcha.net'
 sniffer:
   enable: true
   sniff:
