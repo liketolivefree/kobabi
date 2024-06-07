@@ -135,7 +135,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
       lazzy: true
   b:
     type: http
@@ -146,7 +146,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
       lazzy: true
   c:
     type: http
@@ -157,7 +157,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
       lazzy: true
   d:
     type: http
@@ -168,7 +168,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
       lazzy: true
   e:
     type: http
@@ -179,7 +179,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
       lazzy: true
   f:
     type: http
@@ -190,7 +190,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
       lazzy: true
   g:
     type: http
@@ -201,7 +201,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
       lazzy: true
   h:
     type: http
@@ -212,14 +212,14 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
       lazzy: true
 
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 300
+  interval: 500
   tolerance: 50
   lazy: true
   use:
