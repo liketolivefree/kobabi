@@ -135,7 +135,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 1000
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -145,7 +145,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 1000
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -155,7 +155,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 1000
 
 proxy-groups:
 - name: MMOBI
