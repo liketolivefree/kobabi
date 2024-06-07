@@ -135,7 +135,9 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 1000
+      timeout: 3000
+    override:
+      udp: true
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -145,7 +147,9 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 1000
+      timeout: 3000
+    override:
+      udp: true
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -155,7 +159,9 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 1000
+      timeout: 3000
+    override:
+      udp: true
 
 proxy-groups:
 - name: MMOBI
