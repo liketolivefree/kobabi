@@ -199,7 +199,6 @@ proxy-groups:
   tolerance: 50
   lazy: true
   use:
-  - q
   - a
   - b
 - name: QQOLI
