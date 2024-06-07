@@ -135,7 +135,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 1000
+      timeout: 3000
     override:
       udp: true
   b:
@@ -147,7 +147,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 1000
+      timeout: 3000
     override:
       udp: true
   q:
@@ -159,7 +159,7 @@ proxy-providers:
       enable: true
       interval: 500
       url: http://www.gstatic.com/generate_204
-      timeout: 1000
+      timeout: 3000
     override:
       udp: true
 
