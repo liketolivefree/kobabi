@@ -95,15 +95,15 @@ dns:
   - 1.0.0.1
   - 9.9.9.9
   nameserver:
-  - https://dns.quad9.net/dns-query
+  - https://8.8.4.4/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
-  - 8.8.4.4
+  - 9.9.9.9
   fallback:
-  - https://dns.quad9.net/dns-query
+  - https://8.8.4.4/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
-  - 8.8.4.4
+  - 9.9.9.9
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -114,31 +114,6 @@ dns:
     - 127.0.0.1/32
     domain:
     - '+.recaptcha.net'
-sniffer:
-  enable: true
-  sniff:
-    TLS:
-      ports:
-      - 443
-      - 8443
-    HTTP:
-      ports:
-      - 80
-      - 8080-8880
-      override-destination: true
-  force-domain:
-  - '+.v2ex.com'
-  - www.google.com
-  - google.com
-  skip-domain:
-  - Mijia Cloud
-  - dlg.io.mi.com
-  sniffing:
-  - tls
-  - http
-  port-whitelist:
-  - '80'
-  - '443'
 tun:
   enable: true
   stack: mixed
@@ -147,8 +122,8 @@ tun:
   auto-route: true
   auto-detect-interface: true
   strict-route: true
-  mtu: 9000
   device: Meta
+  mtu: 9000
 
 proxy-providers:
   a:
@@ -162,9 +137,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -176,9 +148,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   c:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -190,9 +159,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   d:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -204,9 +170,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   e:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
@@ -218,9 +181,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   f:
     type: http
     url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
@@ -232,9 +192,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   g:
     type: http
     url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
@@ -246,9 +203,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   h:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -260,9 +214,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
 
 proxy-groups:
 - name: MMOBI
