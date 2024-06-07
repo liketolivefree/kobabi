@@ -95,15 +95,15 @@ dns:
   - 1.0.0.1
   - 9.9.9.9
   nameserver:
-  - https://dns.quad9.net/dns-query
+  - https://8.8.4.4/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
-  - 8.8.4.4
+  - 9.9.9.9
   fallback:
-  - https://dns.quad9.net/dns-query
+  - https://8.8.4.4/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
-  - 8.8.4.4
+  - 9.9.9.9
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -114,31 +114,6 @@ dns:
     - 127.0.0.1/32
     domain:
     - '+.recaptcha.net'
-sniffer:
-  enable: true
-  sniff:
-    TLS:
-      ports:
-      - 443
-      - 8443
-    HTTP:
-      ports:
-      - 80
-      - 8080-8880
-      override-destination: true
-  force-domain:
-  - '+.v2ex.com'
-  - www.google.com
-  - google.com
-  skip-domain:
-  - Mijia Cloud
-  - dlg.io.mi.com
-  sniffing:
-  - tls
-  - http
-  port-whitelist:
-  - '80'
-  - '443'
 tun:
   enable: true
   stack: mixed
@@ -148,6 +123,7 @@ tun:
   auto-detect-interface: true
   strict-route: true
   device: Meta
+  mtu: 9000
 
 proxy-providers:
   a:
@@ -160,10 +136,6 @@ proxy-providers:
       interval: 500
       url: http://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -174,10 +146,6 @@ proxy-providers:
       interval: 500
       url: http://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
-    override:
-      skip-cert-verify: false
-      udp: true
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -188,9 +156,6 @@ proxy-providers:
       interval: 500
       url: http://www.gstatic.com/generate_204
       timeout: 5000
-    override:
-      skip-cert-verify: false
-      udp: true
 
 proxy-groups:
 - name: MMOBI
@@ -200,13 +165,15 @@ proxy-groups:
   tolerance: 50
   lazy: true
   use:
-  - q
   - a
+  - q
   - b
 - name: QQOLI
   type: select
   proxies:
   - MMOBI
+  use:
+  - a
 - name: TTAQI
   type: select
   proxies:
