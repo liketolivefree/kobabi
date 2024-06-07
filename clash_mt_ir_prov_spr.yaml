@@ -129,7 +129,7 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 18000
+    interval: 10000
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
@@ -140,7 +140,7 @@ proxy-providers:
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 18000
+    interval: 10000
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
@@ -151,7 +151,7 @@ proxy-providers:
   c:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 18000
+    interval: 10000
     path: ./proxy-providers/c.yml
     health-check:
       enable: true
@@ -162,7 +162,7 @@ proxy-providers:
   d:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 172000
+    interval: 10000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
@@ -173,7 +173,7 @@ proxy-providers:
   e:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
-    interval: 18000
+    interval: 10000
     path: ./proxy-providers/e.yml
     health-check:
       enable: true
@@ -184,7 +184,7 @@ proxy-providers:
   f:
     type: http
     url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
-    interval: 18000
+    interval: 10000
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
@@ -195,7 +195,7 @@ proxy-providers:
   g:
     type: http
     url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
-    interval: 18000
+    interval: 10000
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
@@ -206,7 +206,7 @@ proxy-providers:
   h:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 18000
+    interval: 10000
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
