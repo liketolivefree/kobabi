@@ -123,7 +123,6 @@ tun:
   auto-detect-interface: true
   strict-route: true
   device: Meta
-  mtu: 9000
 
 proxy-providers:
   a:
@@ -136,7 +135,6 @@ proxy-providers:
       interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
-      lazzy: true
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -147,10 +145,9 @@ proxy-providers:
       interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
-      lazzy: true
   c:
     type: http
-    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
     interval: 10000
     path: ./proxy-providers/c.yml
     health-check:
@@ -161,9 +158,9 @@ proxy-providers:
       lazzy: true
   d:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
     interval: 10000
-    path: ./proxy-providers/q.yaml
+    path: ./proxy-providers/d.yaml
     health-check:
       enable: true
       interval: 500
@@ -183,7 +180,7 @@ proxy-providers:
       lazzy: true
   f:
     type: http
-    url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
+    url: https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml
     interval: 10000
     path: ./proxy-providers/f.yaml
     health-check:
@@ -194,7 +191,7 @@ proxy-providers:
       lazzy: true
   g:
     type: http
-    url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
+    url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
     interval: 10000
     path: ./proxy-providers/g.yaml
     health-check:
@@ -205,7 +202,7 @@ proxy-providers:
       lazzy: true
   h:
     type: http
-    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
     interval: 10000
     path: ./proxy-providers/h.yaml
     health-check:
