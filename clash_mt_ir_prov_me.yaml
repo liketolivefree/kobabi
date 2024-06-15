@@ -6,7 +6,7 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 secret: ''
 enable-process: true
-find-process-mode: strict
+find-process-mode: always
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
@@ -162,6 +162,7 @@ proxy-providers:
       lazzy: true
     override:
       udp: true
+    exclude-type: 'ss|http|trojan'
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
