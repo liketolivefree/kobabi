@@ -128,11 +128,11 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 7200
+    interval: 8000
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 2000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -140,11 +140,11 @@ proxy-providers:
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 7200
+    interval: 8000
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 2000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -152,11 +152,11 @@ proxy-providers:
   c:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 7200
+    interval: 8000
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
-      interval: 2000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 3000
       lazzy: true
@@ -166,11 +166,11 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 7200
+    interval: 8000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 2000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -180,7 +180,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 1000
+  interval: 300
   tolerance: 50
   lazy: true
   use:
@@ -192,8 +192,6 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-  use:
-  - a
 - name: TTAQI
   type: select
   proxies:
