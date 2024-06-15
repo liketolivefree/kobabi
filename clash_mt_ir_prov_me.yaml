@@ -6,7 +6,7 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 secret: ''
 enable-process: true
-find-process-mode: always
+find-process-mode: strict
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
@@ -132,7 +132,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -144,7 +144,7 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -156,7 +156,7 @@ proxy-providers:
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
       lazzy: true
@@ -169,7 +169,7 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -179,7 +179,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 300
+  interval: 1000
   tolerance: 50
   lazy: true
   use:
