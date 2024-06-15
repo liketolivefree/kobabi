@@ -132,7 +132,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 2000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -144,7 +144,7 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 2000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -156,12 +156,13 @@ proxy-providers:
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 2000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
       lazzy: true
     override:
       udp: true
+    exclude-type: 'ss|http|trojan'
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -169,7 +170,7 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 2000
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
