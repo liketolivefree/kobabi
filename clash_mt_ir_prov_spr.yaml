@@ -128,11 +128,11 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 10000
+    interval: 16000
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 3000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -140,11 +140,11 @@ proxy-providers:
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 10000
+    interval: 16000
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 3000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -152,11 +152,11 @@ proxy-providers:
   c:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 10000
+    interval: 16000
     path: ./proxy-providers/c.yml
     health-check:
       enable: true
-      interval: 3000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -165,11 +165,11 @@ proxy-providers:
   d:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 10000
+    interval: 16000
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 3000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -178,11 +178,11 @@ proxy-providers:
   e:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
-    interval: 10000
+    interval: 16000
     path: ./proxy-providers/e.yml
     health-check:
       enable: true
-      interval: 3000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -191,11 +191,11 @@ proxy-providers:
   f:
     type: http
     url: https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml
-    interval: 10000
+    interval: 16000
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
-      interval: 3000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -204,11 +204,11 @@ proxy-providers:
   g:
     type: http
     url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
-    interval: 10000
+    interval: 16000
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
-      interval: 3000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -217,11 +217,11 @@ proxy-providers:
   h:
     type: http
     url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
-    interval: 10000
+    interval: 16000
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
-      interval: 3000
+      interval: 1250
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -232,8 +232,8 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 1000
-  tolerance: 50
+  interval: 300
+  tolerance: 10
   lazy: true
   use:
   - a
