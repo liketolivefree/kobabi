@@ -6,7 +6,7 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 secret: ''
 enable-process: true
-find-process-mode: strict
+find-process-mode: always
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
