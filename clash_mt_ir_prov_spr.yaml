@@ -6,7 +6,7 @@ ipv6: true
 external-controller: 127.0.0.1:9090
 secret: ''
 enable-process: true
-find-process-mode: strict
+find-process-mode: always
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
@@ -132,7 +132,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 3000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -144,7 +144,7 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 3000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -156,7 +156,7 @@ proxy-providers:
     path: ./proxy-providers/c.yml
     health-check:
       enable: true
-      interval: 1000
+      interval: 3000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -169,7 +169,7 @@ proxy-providers:
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 3000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -182,7 +182,7 @@ proxy-providers:
     path: ./proxy-providers/e.yml
     health-check:
       enable: true
-      interval: 1000
+      interval: 3000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -195,7 +195,7 @@ proxy-providers:
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 3000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -208,7 +208,7 @@ proxy-providers:
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 3000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
@@ -221,7 +221,7 @@ proxy-providers:
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 3000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
