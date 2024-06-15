@@ -134,7 +134,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -144,7 +144,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
   c:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -154,7 +154,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
       lazzy: true
   d:
     type: http
@@ -163,9 +163,9 @@ proxy-providers:
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 500
+      interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
       lazzy: true
   e:
     type: http
@@ -176,7 +176,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
       lazzy: true
   f:
     type: http
@@ -187,7 +187,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
       lazzy: true
   g:
     type: http
@@ -198,7 +198,7 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
       lazzy: true
   h:
     type: http
@@ -209,14 +209,14 @@ proxy-providers:
       enable: true
       interval: 1000
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
       lazzy: true
 
 proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 500
+  interval: 1000
   tolerance: 50
   lazy: true
   use:
