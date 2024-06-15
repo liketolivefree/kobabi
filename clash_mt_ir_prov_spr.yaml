@@ -135,6 +135,8 @@ proxy-providers:
       interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
+    override:
+      udp: true
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -145,6 +147,8 @@ proxy-providers:
       interval: 1000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
+    override:
+      udp: true
   c:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -156,6 +160,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      udp: true
   d:
     type: http
     url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -163,10 +169,12 @@ proxy-providers:
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 500
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      udp: true
   e:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
@@ -178,6 +186,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      udp: true
   f:
     type: http
     url: https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml
@@ -189,6 +199,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      udp: true
   g:
     type: http
     url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
@@ -200,6 +212,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      udp: true
   h:
     type: http
     url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
@@ -211,6 +225,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
+    override:
+      udp: true
 
 proxy-groups:
 - name: MMOBI
