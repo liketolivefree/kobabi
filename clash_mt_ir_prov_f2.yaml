@@ -1,0 +1,292 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: true
+external-controller: 127.0.0.1:9090
+secret: ''
+enable-process: true
+find-process-mode: always
+tcp-concurrent: true
+unified-delay: true
+global-client-fingerprint: random
+keep-alive-interval: 15
+hosts:
+  'localhost': 127.0.0.1
+profile:
+  store-selected: false
+  store-fake-ip: true
+experimental:
+  ignore-resolve-fail: true
+  tracing: true
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: true
+  prefer-h3: true
+  use-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '+.lan'
+  - '+.localdomain'
+  - '+.home.arpa'
+  - '*.example'
+  - '*.invalid'
+  - '*.localhost'
+  - '*.test'
+  - '*.local'
+  - 'Mijia Cloud'
+  - 'WORKGROUP'
+  - miwifi.com
+  - na.b.g-tun.com
+  - routerlogin.com
+  - routerlogin.net
+  - tendawifi.com
+  - tendawifi.net
+  - tplinklogin.net
+  - tplinkrepeater.net
+  - tplinkwifi.net
+  - lens.l.google.com
+  - stun.l.google.com
+  - dl.google.com
+  - in.appcenter.ms
+  - adguardteam.github.io
+  - cable.auth.com
+  - ff.dorado.sdo.com
+  - shark007.net
+  - speedtest.cros.wr.pvp.net
+  - resolver1.opendns.com
+  - 'time.*.com'
+  - 'time.*.gov'
+  - 'time1.*.com'
+  - 'time2.*.com'
+  - 'time3.*.com'
+  - 'time4.*.com'
+  - 'time5.*.com'
+  - 'time6.*.com'
+  - 'time7.*.com'
+  - 'ntp.*.com'
+  - 'ntp1.*.com'
+  - 'ntp2.*.com'
+  - 'ntp3.*.com'
+  - 'ntp4.*.com'
+  - 'ntp5.*.com'
+  - 'ntp6.*.com'
+  - 'ntp7.*.com'
+  - '+.pool.ntp.org'
+  - 'stun.*.*'
+  - 'stun.*.*.*'
+  - '+.stun.*.*'
+  - '+.stun.*.*.*'
+  - '+.stun.*.*.*.*'
+  - '+.stun.*.*.*.*.*'
+  - '*.linksys.com'
+  - '*.linksyssmartwifi.com'
+  - '*.router.asus.com'
+  - '+.nflxvideo.net'
+  - '*.square-enix.com'
+  - '*.finalfantasyxiv.com'
+  - '*.ffxiv.com'
+  - '*.ff14.sdo.com'
+  - '+.media.dssott.com'
+  - '+.termux.org'
+  default-nameserver:
+  - 1.0.0.1
+  - 9.9.9.9
+  nameserver:
+  - https://dns.quad9.net/dns-query
+  - tls://one.one.one.one
+  - https://1.0.0.1/dns-query
+  - https://8.8.4.4/dns-query
+  fallback:
+  - https://dns.quad9.net/dns-query
+  - tls://one.one.one.one
+  - https://1.0.0.1/dns-query
+  - https://8.8.4.4/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: IR
+    ipcidr:
+    - 10.0.0.0/8
+    - 240.0.0.0/4
+    - 0.0.0.0/32
+    - 127.0.0.1/32
+    domain:
+    - '+.recaptcha.net'
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+  - 'any:53'
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+  device: Meta
+
+proxy-providers:
+  a:
+    type: http
+    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
+    interval: 8000
+    path: ./proxy-providers/a.yaml
+    health-check:
+      enable: true
+      interval: 0
+      url: http://www.gstatic.com/generate_204
+      timeout: 3000
+    override:
+      udp: true
+  b:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 8000
+    path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 0
+      url: http://www.gstatic.com/generate_204
+      timeout: 3000
+    override:
+      udp: true
+  c:
+    type: http
+    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    interval: 8000
+    path: ./proxy-providers/c.yaml
+    health-check:
+      enable: true
+      interval: 0
+      url: http://www.gstatic.com/generate_204
+      timeout: 3000
+    override:
+      udp: true
+    exclude-type: 'ss|http|trojan'
+  q:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 8000
+    path: ./proxy-providers/q.yaml
+    health-check:
+      enable: true
+      interval: 0
+      url: http://www.gstatic.com/generate_204
+      timeout: 3000
+    override:
+      udp: true
+
+proxy-groups:
+- name: MMOBI
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 0
+  use:
+  - a
+  - q
+  - b
+  - c
+- name: QQOLI
+  type: select
+  proxies:
+  - MMOBI
+- name: TTAQI
+  type: select
+  proxies:
+  - DIRECT
+  - QQOLI
+- name: MMAQI
+  type: select
+  proxies:
+  - REJECT
+- name: NNAQI
+  type: select
+  proxies:
+  - MMOBI
+  - QQOLI
+
+rule-providers:
+  aff:
+    type: http
+    behavior: domain
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.txt
+    path: ./rule-providers/aff.txt
+    interval: 86400
+  yun:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.txt
+    path: ./rule-providers/yun.txt
+    interval: 86400
+  oki:
+    type: http
+    behavior: domain
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt
+    path: ./rule-providers/oki.txt
+    interval: 86400
+  doki:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt
+    path: ./rule-providers/doki.txt
+    interval: 86400
+  xal:
+    type: http
+    behavior: domain
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
+    path: ./rule-providers/xal.txt
+    interval: 86400
+  loo:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
+    path: ./rule-providers/loo.txt
+    interval: 86400
+rules:
+  - NETWORK,udp,QQOLI
+  - DOMAIN-SUFFIX,lan,DIRECT
+  - DOMAIN-SUFFIX,local,DIRECT
+  - DOMAIN-SUFFIX,localdomain,DIRECT
+  - DOMAIN-SUFFIX,localhost,DIRECT
+  - DOMAIN-SUFFIX,ip6-localhost,DIRECT
+  - DOMAIN-SUFFIX,ip6-loopback,DIRECT
+  - IP-CIDR,0.0.0.1/32,REJECT,no-resolve
+  - IP-CIDR,10.0.10.128/32,REJECT,no-resolve
+  - IP-CIDR,127.0.0.1/8,DIRECT,no-resolve
+  - IP-CIDR,169.254.0.1/16,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.1/12,DIRECT,no-resolve
+  - IP-CIDR,192.0.0.1/24,DIRECT,no-resolve
+  - IP-CIDR,192.0.2.1/24,DIRECT,no-resolve
+  - IP-CIDR,192.88.99.0/24,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.1/16,DIRECT,no-resolve
+  - IP-CIDR,198.18.0.1/15,DIRECT,no-resolve
+  - IP-CIDR,198.51.100.0/24,DIRECT,no-resolve
+  - IP-CIDR,203.0.113.0/24,DIRECT,no-resolve
+  - IP-CIDR,224.0.0.1/4,DIRECT,no-resolve
+  - IP-CIDR,240.0.0.1/4,DIRECT,no-resolve
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
+  - IP-CIDR6,::ffff:0:0/96,DIRECT,no-resolve
+  - IP-CIDR6,::ffff:0:0:0/96,DIRECT,no-resolve
+  - IP-CIDR6,64:ff9b::/96,DIRECT,no-resolve
+  - IP-CIDR6,64:ff9b:1::/48,DIRECT,no-resolve
+  - IP-CIDR6,100::/64,DIRECT,no-resolve
+  - IP-CIDR6,2001:0000::/32,DIRECT,no-resolve
+  - IP-CIDR6,2001:20::/28,DIRECT,no-resolve
+  - IP-CIDR6,2001:db8::/32,DIRECT,no-resolve
+  - IP-CIDR6,2002::/16,DIRECT,no-resolve
+  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+  - IP-CIDR6,fe80::/10,DIRECT,no-resolve
+  - IP-CIDR6,ff00::/8,DIRECT,no-resolve
+  - RULE-SET,aff,MMAQI
+  - DOMAIN-SUFFIX,ir,TTAQI
+  - RULE-SET,xal,TTAQI
+  - RULE-SET,oki,QQOLI
+  - RULE-SET,yun,MMAQI,no-resolve
+  - RULE-SET,loo,TTAQI,no-resolve
+  - RULE-SET,doki,QQOLI,no-resolve
+  - MATCH,NNAQI
