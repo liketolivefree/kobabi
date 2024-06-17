@@ -149,20 +149,6 @@ proxy-providers:
       timeout: 3000
     override:
       udp: true
-  c:
-    type: http
-    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 8000
-    path: ./proxy-providers/c.yaml
-    health-check:
-      enable: true
-      interval: 300
-      url: http://www.gstatic.com/generate_204
-      timeout: 3000
-      lazzy: true
-    override:
-      udp: true
-    exclude-type: 'ss|http|trojan'
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -187,7 +173,6 @@ proxy-groups:
   - a
   - q
   - b
-  - c
 - name: QQOLI
   type: select
   proxies:
