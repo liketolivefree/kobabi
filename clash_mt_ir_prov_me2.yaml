@@ -132,7 +132,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 0
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -144,7 +144,7 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 0
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -156,7 +156,7 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 1000
+      interval: 0
       url: http://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -167,7 +167,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 0
-  tolerance: 1000
+  tolerance: 2000
   use:
   - a
   - q
