@@ -16,14 +16,14 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/sub_all.txt
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_l.yaml
 -
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_nrm_l.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_l2.yaml
 -
 
-===)) کانفیگهای کامل کلش (مناسب کاربران با تجربه یا کاربرانی به امنیت و حریم خصوصی اهمیت میدهند):
+===)) کانفیگهای حرفه ای کلش (مناسب کاربران با تجربه):
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_f.yaml
 -
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_nrm_f.yaml
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_f2.yaml
 -
 
 ===)) کانفیگ کلش فیریک (مناسب کاربران خوره یا کاربرانی که امنیت و حریم خصوصی اولویت اول آنهاست):
@@ -45,8 +45,6 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_sp
 https://github.com/MetaCubeX/ClashMetaForAndroid
 
 https://github.com/hiddify/hiddify-next
-
-https://github.com/SagerNet/sing-box
 
 
 ویندوز:
