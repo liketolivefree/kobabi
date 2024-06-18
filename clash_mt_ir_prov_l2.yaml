@@ -74,7 +74,7 @@ proxy-providers:
       enable: true
       interval: 0
       url: http://www.gstatic.com/generate_204
-      timeout: 2000
+      timeout: 3000
     override:
       udp: true
   b:
@@ -86,7 +86,7 @@ proxy-providers:
       enable: true
       interval: 0
       url: http://www.gstatic.com/generate_204
-      timeout: 2000
+      timeout: 3000
     override:
       udp: true
   q:
@@ -98,7 +98,7 @@ proxy-providers:
       enable: true
       interval: 0
       url: http://www.gstatic.com/generate_204
-      timeout: 2000
+      timeout: 3000
     override:
       udp: true
 
@@ -107,7 +107,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 0
-  tolerance: 5000
+  tolerance: 2000
   use:
   - a
 - name: QQOLI
