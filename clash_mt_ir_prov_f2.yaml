@@ -107,7 +107,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 0
-  tolerance: 5000
+  tolerance: 2000
   use:
   - a
 - name: QQOLI
