@@ -170,8 +170,6 @@ proxy-groups:
   tolerance: 5000
   use:
   - a
-  - q
-  - b
 - name: QQOLI
   type: select
   proxies:
