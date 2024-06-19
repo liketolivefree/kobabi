@@ -111,6 +111,8 @@ proxy-groups:
   lazy: true
   use:
   - a
+  - q
+  - b
 - name: QQOLI
   type: select
   proxies:
