@@ -67,7 +67,7 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/liketolivefree/test/main/test1.yaml
     interval: 8000
     path: ./proxy-providers/a.yaml
     health-check:
