@@ -110,7 +110,6 @@ proxy-groups:
   tolerance: 2000
   use:
   - a
-  - q
   - b
 - name: QQOLI
   type: select
