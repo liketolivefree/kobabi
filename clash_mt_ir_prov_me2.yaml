@@ -135,6 +135,8 @@ proxy-groups:
   - a
   - q
   - b
+  - site
+  - app  
 - name: QQOLI
   type: select
   proxies:
