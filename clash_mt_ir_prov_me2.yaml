@@ -67,7 +67,7 @@ tun:
 proxy-providers:
   a:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/test/main/test1.yaml
+    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
     interval: 8000
     path: ./proxy-providers/a.yaml
     health-check:
@@ -101,7 +101,30 @@ proxy-providers:
       timeout: 3000
     override:
       udp: true
-
+  site:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/test/main/site.yaml
+    interval: 8000
+    path: ./proxy-providers/site.yaml
+    health-check:
+      enable: true
+      interval: 0
+      url: http://www.gstatic.com/generate_204
+      timeout: 3000
+    override:
+      udp: true
+  app:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/test/main/app.yaml
+    interval: 8000
+    path: ./proxy-providers/app.yaml
+    health-check:
+      enable: true
+      interval: 0
+      url: http://www.gstatic.com/generate_204
+      timeout: 3000
+    override:
+      udp: true      
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -110,6 +133,7 @@ proxy-groups:
   tolerance: 2000
   use:
   - a
+  - q
   - b
 - name: QQOLI
   type: select
