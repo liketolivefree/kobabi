@@ -101,30 +101,7 @@ proxy-providers:
       timeout: 3000
     override:
       udp: true
-  site:
-    type: http
-    url: https://raw.githubusercontent.com/liketolivefree/test/main/site.yaml
-    interval: 8000
-    path: ./proxy-providers/site.yaml
-    health-check:
-      enable: true
-      interval: 0
-      url: http://www.gstatic.com/generate_204
-      timeout: 3000
-    override:
-      udp: true
-  app:
-    type: http
-    url: https://raw.githubusercontent.com/liketolivefree/test/main/app.yaml
-    interval: 8000
-    path: ./proxy-providers/app.yaml
-    health-check:
-      enable: true
-      interval: 0
-      url: http://www.gstatic.com/generate_204
-      timeout: 3000
-    override:
-      udp: true      
+
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -135,8 +112,6 @@ proxy-groups:
   - a
   - q
   - b
-  - site
-  - app  
 - name: QQOLI
   type: select
   proxies:
