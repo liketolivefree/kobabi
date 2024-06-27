@@ -94,7 +94,7 @@ proxy-providers:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
     interval: 8000
-    path: ./proxy-providers/c.yml
+    path: ./proxy-providers/c.yaml
     health-check:
       enable: true
       interval: 300
@@ -120,7 +120,7 @@ proxy-providers:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
     interval: 8000
-    path: ./proxy-providers/e.yml
+    path: ./proxy-providers/e.yaml
     health-check:
       enable: true
       interval: 300
