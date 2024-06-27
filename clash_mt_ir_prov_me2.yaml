@@ -63,6 +63,7 @@ tun:
   auto-detect-interface: true
   strict-route: true
   device: Meta
+  mtu: 9000
 
 proxy-providers:
   a:
