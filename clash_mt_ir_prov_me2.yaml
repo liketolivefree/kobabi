@@ -28,12 +28,11 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-  - '*'
   - '+.lan'
   - '+.local'
   default-nameserver:
   - 1.0.0.1
-  - 9.9.9.9
+  - 8.8.4.4
   nameserver:
   - https://dns.quad9.net/dns-query
   - tls://one.one.one.one
