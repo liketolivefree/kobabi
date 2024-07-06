@@ -80,7 +80,7 @@ proxy-providers:
       udp: true
   b:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    url: https://www.nite07.com/sub/meta?sub=https%3A%2F%2Fraw.githubusercontent.com%2Fyebekhe%2FTVC%2Fmain%2Flite%2Fconfig.txt&nodeList=true
     interval: 8000
     path: ./proxy-providers/b.yaml
     health-check:
