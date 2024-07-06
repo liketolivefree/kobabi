@@ -55,7 +55,7 @@ dns:
     domain:
     - '+.recaptcha.net'
   nameserver-policy:
-    'RULE-SET:xal,geoip:ir': [217.218.155.155, 217.218.127.127, https://dns.403.online/dns-query, https://dns.shecan.ir/dns-query]
+    'RULE-SET:xal,loo': [217.218.155.155, 217.218.127.127, https://dns.403.online/dns-query, https://dns.shecan.ir/dns-query]
 tun:
   enable: true
   stack: system
