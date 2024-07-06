@@ -53,7 +53,7 @@ dns:
     - 0.0.0.0/32
     - 127.0.0.1/32
     domain:
-    - '+.recaptcha.net' 
+    - '+.recaptcha.net'
 tun:
   enable: true
   stack: system
