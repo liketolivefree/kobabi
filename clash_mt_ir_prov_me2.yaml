@@ -55,7 +55,7 @@ dns:
     domain:
     - '+.recaptcha.net'
   nameserver-policy:
-    "rule-set:xal,+.ir,+.bonyan.co":
+    "rule-set:xal,+.ir":
     - 217.218.155.155
     - 217.218.127.127
     - https://dns.403.online/dns-query
