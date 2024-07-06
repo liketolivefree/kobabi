@@ -28,12 +28,11 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-  - '*'
   - '+.lan'
   - '+.local'
   default-nameserver:
   - 1.0.0.1
-  - 9.9.9.9
+  - 8.8.4.4
   nameserver:
   - https://dns.quad9.net/dns-query
   - tls://one.one.one.one
@@ -47,13 +46,7 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
-    ipcidr:
-    - 10.0.0.0/8
-    - 240.0.0.0/4
-    - 0.0.0.0/32
-    - 127.0.0.1/32
-    domain:
-    - '+.recaptcha.net'
+
 tun:
   enable: true
   stack: mixed
@@ -62,7 +55,7 @@ tun:
   auto-route: true
   auto-detect-interface: true
   strict-route: true
-  device: Meta
+  device: Mihomo
   mtu: 9000
 
 proxy-providers:
@@ -105,20 +98,9 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-- name: TTAQI
-  type: select
-  proxies:
-  - DIRECT
-  - QQOLI
-- name: MMAQI
-  type: select
-  proxies:
-  - REJECT
-- name: NNAQI
-  type: select
-  proxies:
-  - MMOBI
-  - QQOLI
+  use:
+  - a
+  - q
 
 rule-providers:
   aff:
@@ -163,46 +145,23 @@ rule-providers:
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
+
 rules:
-  - NETWORK,udp,QQOLI
-  - DOMAIN-SUFFIX,lan,DIRECT
-  - DOMAIN-SUFFIX,local,DIRECT
-  - DOMAIN-SUFFIX,localdomain,DIRECT
-  - DOMAIN-SUFFIX,localhost,DIRECT
-  - DOMAIN-SUFFIX,ip6-localhost,DIRECT
-  - DOMAIN-SUFFIX,ip6-loopback,DIRECT
-  - IP-CIDR,0.0.0.1/32,REJECT,no-resolve
-  - IP-CIDR,10.0.10.128/32,REJECT,no-resolve
-  - IP-CIDR,127.0.0.1/8,DIRECT,no-resolve
-  - IP-CIDR,169.254.0.1/16,DIRECT,no-resolve
-  - IP-CIDR,172.16.0.1/12,DIRECT,no-resolve
-  - IP-CIDR,192.0.0.1/24,DIRECT,no-resolve
-  - IP-CIDR,192.0.2.1/24,DIRECT,no-resolve
-  - IP-CIDR,192.88.99.0/24,DIRECT,no-resolve
-  - IP-CIDR,192.168.0.1/16,DIRECT,no-resolve
-  - IP-CIDR,198.18.0.1/15,DIRECT,no-resolve
-  - IP-CIDR,198.51.100.0/24,DIRECT,no-resolve
-  - IP-CIDR,203.0.113.0/24,DIRECT,no-resolve
-  - IP-CIDR,224.0.0.1/4,DIRECT,no-resolve
-  - IP-CIDR,240.0.0.1/4,DIRECT,no-resolve
-  - IP-CIDR6,::1/128,DIRECT,no-resolve
-  - IP-CIDR6,::ffff:0:0/96,DIRECT,no-resolve
-  - IP-CIDR6,::ffff:0:0:0/96,DIRECT,no-resolve
-  - IP-CIDR6,64:ff9b::/96,DIRECT,no-resolve
-  - IP-CIDR6,64:ff9b:1::/48,DIRECT,no-resolve
-  - IP-CIDR6,100::/64,DIRECT,no-resolve
-  - IP-CIDR6,2001:0000::/32,DIRECT,no-resolve
-  - IP-CIDR6,2001:20::/28,DIRECT,no-resolve
-  - IP-CIDR6,2001:db8::/32,DIRECT,no-resolve
-  - IP-CIDR6,2002::/16,DIRECT,no-resolve
-  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
-  - IP-CIDR6,fe80::/10,DIRECT,no-resolve
-  - IP-CIDR6,ff00::/8,DIRECT,no-resolve
-  - RULE-SET,aff,MMAQI
-  - DOMAIN-SUFFIX,ir,TTAQI
-  - RULE-SET,xal,TTAQI
-  - RULE-SET,oki,QQOLI
-  - RULE-SET,yun,MMAQI,no-resolve
-  - RULE-SET,loo,TTAQI,no-resolve
-  - RULE-SET,doki,QQOLI,no-resolve
-  - MATCH,NNAQI
+- NETWORK,udp,QQOLI
+- DOMAIN-SUFFIX,lan,DIRECT
+- DOMAIN-SUFFIX,local,DIRECT
+- DOMAIN-SUFFIX,localdomain,DIRECT
+- DOMAIN-SUFFIX,localhost,DIRECT
+- DOMAIN-SUFFIX,ip6-localhost,DIRECT
+- DOMAIN-SUFFIX,ip6-loopback,DIRECT
+- IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
+- IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
+- IP-CIDR6,::1/128,DIRECT,no-resolve
+- RULE-SET,aff,REJECT
+- DOMAIN-SUFFIX,ir,DIRECT
+- RULE-SET,xal,DIRECT
+- RULE-SET,oki,QQOLI
+- RULE-SET,yun,REJECT,no-resolve
+- RULE-SET,loo,DIRECT,no-resolve
+- RULE-SET,doki,QQOLI,no-resolve
+- MATCH,QQOLI
