@@ -78,18 +78,6 @@ proxy-providers:
       timeout: 3000
     override:
       udp: true
-  b:
-    type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 8000
-    path: ./proxy-providers/b.yaml
-    health-check:
-      enable: true
-      interval: 300
-      url: http://www.gstatic.com/generate_204
-      timeout: 3000
-    override:
-      udp: true
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
@@ -113,7 +101,6 @@ proxy-groups:
   use:
   - a
   - q
-  - b
 - name: QQOLI
   type: select
   proxies:
