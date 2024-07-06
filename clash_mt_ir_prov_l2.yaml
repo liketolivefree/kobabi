@@ -28,32 +28,25 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-  - '*'
   - '+.lan'
   - '+.local'
   default-nameserver:
   - 1.0.0.1
-  - 9.9.9.9
+  - 8.8.4.4
   nameserver:
   - https://8.8.4.4/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
-  - 9.9.9.9
+  - 8.8.4.4
   fallback:
   - https://8.8.4.4/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
-  - 9.9.9.9
+  - 8.8.4.4
   fallback-filter:
     geoip: true
     geoip-code: IR
-    ipcidr:
-    - 10.0.0.0/8
-    - 240.0.0.0/4
-    - 0.0.0.0/32
-    - 127.0.0.1/32
-    domain:
-    - '+.recaptcha.net'
+
 tun:
   enable: true
   stack: mixed
@@ -62,7 +55,7 @@ tun:
   auto-route: true
   auto-detect-interface: true
   strict-route: true
-  device: Meta
+  device: Mihomo
   mtu: 9000
 
 proxy-providers:
@@ -95,8 +88,9 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 0
-  tolerance: 2000
+  interval: 300
+  tolerance: 50
+  lazy: true
   use:
   - a
   - q
@@ -104,20 +98,9 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-- name: TTAQI
-  type: select
-  proxies:
-  - DIRECT
-  - QQOLI
-- name: MMAQI
-  type: select
-  proxies:
-  - REJECT
-- name: NNAQI
-  type: select
-  proxies:
-  - MMOBI
-  - QQOLI
+  use:
+  - a
+  - q
 
 rule-providers:
   aff:
