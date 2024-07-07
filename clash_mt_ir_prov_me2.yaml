@@ -12,7 +12,7 @@ unified-delay: true
 global-client-fingerprint: random
 keep-alive-interval: 15
 hosts:
-  'localhost': '127.0.0.1'
+  'localhost': 127.0.0.1
 profile:
   store-selected: true
   store-fake-ip: true
@@ -28,19 +28,19 @@ geo-auto-update: true
 geo-update-interval: 24
 dns:
   enable: true
-  listen: '0.0.0.0:1053'
+  listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
-  fake-ip-range: '198.18.0.1/16'
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - '+.lan'
   - '+.local'
   default-nameserver:
   - 1.0.0.1
   nameserver:
-  - 'tls://dns.google'
+  - 'tls://dns.google#QQOLI'
   - 'https://dns.quad9.net/dns-query#QQOLI'
   - 'https://8.8.4.4/dns-query#QQOLI'
   fallback:
@@ -51,10 +51,10 @@ dns:
   - 'tls://dns.google'
   - 'tls://one.one.one.one'
   nameserver-policy:
-    'geosite:ir':
+    'rule-set:xal':
     - 'https://dns.403.online/dns-query'
     - 'https://dns.shecan.ir/dns-query'
-    'rule-set:xal':
+    'geosite:ir':
     - 'https://dns.403.online/dns-query'
     - 'https://dns.shecan.ir/dns-query'
   fallback-filter:
@@ -63,10 +63,11 @@ dns:
 tun:
   enable: true
   stack: system
-  dns-hijack: 'any:53'
+  dns-hijack:
+  - 'any:53'
   auto-route: true
-  auto-detect-interface: true
   device: Mihomo
+  auto-detect-interface: true
   # mtu: 9000
 proxy-providers:
   a:
