@@ -43,6 +43,10 @@ dns:
   - tls://one.one.one.one
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
+  nameserver-policy:
+    'rule-set:xal':
+    - https://dns.403.online/dns-query
+    - https://dns.shecan.ir/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
