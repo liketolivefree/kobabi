@@ -25,7 +25,7 @@ geox-url:
   geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
   mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
 geo-auto-update: true
-geo-update-interval: 24
+geo-update-interval: 72
 dns:
   enable: true
   listen: 0.0.0.0:1053
@@ -40,23 +40,17 @@ dns:
   default-nameserver:
   - 1.0.0.1
   nameserver:
-  - 'tls://dns.google#QQOLI'
-  - 'https://dns.quad9.net/dns-query#QQOLI'
-  - 'https://8.8.4.4/dns-query#QQOLI'
+  - tls://dns.google
+  - https://dns.quad9.net/dns-query
+  - https://8.8.4.4/dns-query
   fallback:
-  - 'tls://one.one.one.one#QQOLI'
-  - 'https://1.0.0.1/dns-query#QQOLI'
-  - 'https://8.8.4.4/dns-query#QQOLI'
-  proxy-server-nameserver:
-  - 'tls://dns.google'
-  - 'tls://one.one.one.one'
+  - tls://one.one.one.one
+  - https://1.0.0.1/dns-query
+  - https://8.8.4.4/dns-query
   nameserver-policy:
     'rule-set:xal':
-    - 'https://dns.403.online/dns-query'
-    - 'https://dns.shecan.ir/dns-query'
-    'geosite:ir':
-    - 'https://dns.403.online/dns-query'
-    - 'https://dns.shecan.ir/dns-query'
+    - https://dns.403.online/dns-query
+    - https://dns.shecan.ir/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
