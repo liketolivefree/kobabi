@@ -34,14 +34,29 @@ dns:
   use-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: '198.18.0.1/16'
-  fake-ip-filter: ['+.lan', '+.local']
-  default-nameserver: '1.0.0.1'
-  nameserver: ['tls://dns.google', 'https://dns.quad9.net/dns-query#QQOLI', 'https://8.8.4.4/dns-query#QQOLI']
-  fallback: ['tls://one.one.one.one#QQOLI', 'https://1.0.0.1/dns-query#QQOLI', 'https://8.8.4.4/dns-query#QQOLI']
-  proxy-server-nameserver: ['tls://dns.google', 'tls://one.one.one.one']
+  fake-ip-filter:
+  - '+.lan'
+  - '+.local'
+  default-nameserver:
+  - 1.0.0.1
+  nameserver:
+  - 'tls://dns.google'
+  - 'https://dns.quad9.net/dns-query#QQOLI'
+  - 'https://8.8.4.4/dns-query#QQOLI'
+  fallback:
+  - 'tls://one.one.one.one#QQOLI'
+  - 'https://1.0.0.1/dns-query#QQOLI'
+  - 'https://8.8.4.4/dns-query#QQOLI'
+  proxy-server-nameserver:
+  - 'tls://dns.google'
+  - 'tls://one.one.one.one'
   nameserver-policy:
-    'geosite:ir': ['https://dns.403.online/dns-query', 'https://dns.shecan.ir/dns-query']
-    'rule-set:xal': ['https://dns.403.online/dns-query', 'https://dns.shecan.ir/dns-query']
+    'geosite:ir':
+    - 'https://dns.403.online/dns-query'
+    - 'https://dns.shecan.ir/dns-query'
+    'rule-set:xal':
+    - 'https://dns.403.online/dns-query'
+    - 'https://dns.shecan.ir/dns-query'
   fallback-filter:
     geoip: true
     geoip-code: IR
