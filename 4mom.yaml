@@ -19,13 +19,6 @@ profile:
 experimental:
   ignore-resolve-fail: true
   tracing: true
-geodata-mode: true
-geox-url:
-  geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
-  geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
-  mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
-geo-auto-update: true
-geo-update-interval: 72
 dns:
   enable: true
   listen: 0.0.0.0:1053
@@ -40,36 +33,32 @@ dns:
   default-nameserver:
   - 1.0.0.1
   nameserver:
-  - 'https://8.8.4.4/dns-query'
-  - 'tls://one.one.one.one'
+  - https://1.0.0.1/dns-query
+  - tls://dns.google
   - 1.0.0.1
   - 8.8.8.8
   fallback:
-  - 'https://8.8.4.4/dns-query'
-  - 'tls://one.one.one.one'
+  - https://8.8.4.4/dns-query
+  - tls://one.one.one.one
   - 1.0.0.1
   - 8.8.8.8
-  proxy-server-nameserver:
-  - 'tls://dns.google'
-  - 'tls://one.one.one.one'
   nameserver-policy:
     'rule-set:xal':
-    - 'https://dns.403.online/dns-query'
-    - 'https://dns.shecan.ir/dns-query'
-    'geosite:ir':
-    - 'https://dns.403.online/dns-query'
-    - 'https://dns.shecan.ir/dns-query'
+    - https://dns.403.online/dns-query
+    - https://dns.shecan.ir/dns-query
+    - 217.218.155.155
   fallback-filter:
     geoip: true
     geoip-code: IR
 tun:
+  device: Mihomo
   enable: true
   stack: mixed
   dns-hijack:
   - 'any:53'
   auto-route: true
-  device: Mihomo
   auto-detect-interface: true
+  # strict-route: true
   # mtu: 9000
 proxy-providers:
   a:
