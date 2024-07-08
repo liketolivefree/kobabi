@@ -32,32 +32,32 @@ dns:
   - '+.local'
   default-nameserver:
   - 1.0.0.1
-  - 8.8.4.4
   nameserver:
-  - https://8.8.4.4/dns-query
-  - tls://one.one.one.one
-  - 1.0.0.1
-  - 8.8.4.4
+  - https://1.0.0.1/dns-query
+  - tls://dns.google
+  - 8.8.8.8
   fallback:
   - https://8.8.4.4/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
-  - 8.8.4.4
+  nameserver-policy:
+    'rule-set:xal':
+    - https://dns.403.online/dns-query
+    - https://dns.shecan.ir/dns-query
+    - 217.218.155.155
   fallback-filter:
     geoip: true
     geoip-code: IR
-
 tun:
+  device: Mihomo
   enable: true
   stack: mixed
   dns-hijack:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
-  strict-route: true
-  device: Mihomo
-  mtu: 9000
-
+  # strict-route: true
+  # mtu: 9000
 proxy-providers:
   a:
     type: http
