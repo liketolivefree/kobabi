@@ -32,36 +32,32 @@ dns:
   - '+.local'
   default-nameserver:
   - 1.0.0.1
-  - 8.8.4.4
   nameserver:
-  - https://dns.quad9.net/dns-query
-  - tls://one.one.one.one
+  - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   fallback:
-  - https://dns.quad9.net/dns-query
   - tls://one.one.one.one
   - https://1.0.0.1/dns-query
-  - https://8.8.4.4/dns-query
+  - tls://dns.google
   nameserver-policy:
     'rule-set:xal':
     - https://dns.403.online/dns-query
     - https://dns.shecan.ir/dns-query
+    - 217.218.155.155
   fallback-filter:
     geoip: true
     geoip-code: IR
-
 tun:
+  device: Mihomo
   enable: true
   stack: system
   dns-hijack:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
-  strict-route: true
-  device: Mihomo
-  mtu: 9000
-
+  # strict-route: true
+  # mtu: 9000
 proxy-providers:
   a:
     type: http
@@ -87,7 +83,6 @@ proxy-providers:
       timeout: 3000
     override:
       udp: true
-
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -105,7 +100,6 @@ proxy-groups:
   use:
   - a
   - q
-
 rule-providers:
   aff:
     type: http
@@ -149,7 +143,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
-
 rules:
 - NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,DIRECT
