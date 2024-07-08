@@ -32,19 +32,23 @@ dns:
   - '+.local'
   default-nameserver:
   - 1.0.0.1
+  - 8.8.8.8
   nameserver:
   - https://1.0.0.1/dns-query
   - tls://dns.google
   - 8.8.8.8
+  - 1.1.1.1
   fallback:
   - https://8.8.4.4/dns-query
   - tls://one.one.one.one
   - 1.0.0.1
+  - 8.8.8.8
   nameserver-policy:
     'rule-set:xal':
     - https://dns.403.online/dns-query
     - https://dns.shecan.ir/dns-query
     - 217.218.155.155
+    - 178.22.122.100
   fallback-filter:
     geoip: true
     geoip-code: IR
