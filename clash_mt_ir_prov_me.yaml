@@ -25,7 +25,7 @@ dns:
   ipv6: true
   prefer-h3: true
   use-hosts: true
-  use-system-hosts: true  
+  use-system-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -35,12 +35,12 @@ dns:
   - 1.0.0.1
   - 8.8.8.8
   nameserver:
-  - tls://one.one.one.one  
+  - tls://one.one.one.one
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   fallback:
-  - tls://one.one.one.one  
+  - tls://one.one.one.one
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
@@ -102,12 +102,12 @@ proxy-groups:
   interval: 300
   use:
   - a
-  - q  
+  - q
 - name: QQOLI
   type: select
   proxies:
   - MMOBI
-  - MMOQI  
+  - MMOQI
   use:
   - a
   - q
@@ -226,6 +226,9 @@ rules:
 - DOMAIN-SUFFIX,ebay.doubleclick.net,QQOLI
 - DOMAIN-SUFFIX,trk.free.fr,QQOLI
 - DOMAIN-SUFFIX,f001.backblazeb2.com,QQOLI
+- DOMAIN-SUFFIX,github.com,QQOLI
+- DOMAIN-SUFFIX,githubassets.com,QQOLI
+- DOMAIN-SUFFIX,githubusercontent.com,QQOLI
 - RULE-SET,aff,REJECT
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
