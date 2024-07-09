@@ -14,7 +14,7 @@ keep-alive-interval: 15
 hosts:
   'localhost': 127.0.0.1
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
 experimental:
   ignore-resolve-fail: true
@@ -30,6 +30,78 @@ dns:
   fake-ip-filter:
   - '+.lan'
   - '+.local'
+  - '*.localhost'
+  - '*.localdomain'
+  - '*.example'
+  - '*.invalid'
+  - '*.test'
+  - '*.home.arpa'
+  - 'time.*.com'
+  - time.windows.com
+  - 'time.*.gov'
+  - time.nist.gov
+  - 'time.*.apple.com'
+  - time-ios.apple.com
+  - 'time1.*.com'
+  - time1.google.com
+  - 'time2.*.com'
+  - 'time3.*.com'
+  - 'time4.*.com'
+  - 'time5.*.com'
+  - 'time6.*.com'
+  - 'time7.*.com'
+  - 'ntp.*.com'
+  - ntp.ubuntu.com
+  - 'ntp1.*.com'
+  - 'ntp2.*.com'
+  - 'ntp3.*.com'
+  - 'ntp4.*.com'
+  - 'ntp5.*.com'
+  - 'ntp6.*.com'
+  - 'ntp7.*.com'
+  - '+.pool.ntp.org'
+  - '*.openwrt.pool.ntp.org'
+  - '+.stun.*.*'
+  - '+.stun.*.*.*'
+  - '+.stun.*.*.*.*'
+  - '+.stun.*.*.*.*.*'
+  - lens.l.google.com
+  - stun.l.google.com
+  - na.b.g-tun.com
+  - '+.msftconnecttest.com'
+  - '+.msftncsi.com'
+  - '*.ipv6.microsoft.com'
+  - Mijia Cloud
+  - WORKGROUP
+  - '+.shark007.net'
+  - '+.shaoxs.top'
+  - '+.termux.org'
+  - speedtest.cros.wr.pvp.net
+  - proxy.golang.org
+  - network-test.debian.org
+  - ntp.ubuntu.com
+  - detectportal.firefox.com
+  - cable.auth.com
+  - miwifi.com
+  - routerlogin.com
+  - routerlogin.net
+  - tendawifi.com
+  - tendawifi.net
+  - tplinklogin.net
+  - tplinkwifi.net
+  - tplinkrepeater.net
+  - '*.linksys.com'
+  - '*.linksyssmartwifi.com'
+  - heartbeat.belkin.com
+  - '*.router.asus.com'
+  - repeater.asus.com
+  - in.appcenter.ms
+  - adguardteam.github.io
+  - static.adtidy.org
+  - local.adguard.org
+  - anti-ad.net
+  - ff.dorado.sdo.com
+  - resolver1.opendns.com
   default-nameserver:
   - 1.0.0.1
   - 8.8.8.8
@@ -45,8 +117,8 @@ dns:
   - https://8.8.4.4/dns-query
   nameserver-policy:
     'rule-set:xal':
+    - system
     - https://dns.shecan.ir/dns-query
-    - 185.51.200.2
     - 217.218.127.127
     - 8.8.8.8
   fallback-filter:
@@ -60,8 +132,29 @@ tun:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
-  # strict-route: true
-  # mtu: 9000
+  strict-route: true
+  mtu: 9000
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+  force-domain:
+  - '+.v2ex.com'
+  skip-domain:
+  - Mijia Cloud
+  sniffing:
+    - tls
+    - http
+  port-whitelist:
+    - '80'
+    - '443'  
 proxy-providers:
   a:
     type: http
