@@ -11,8 +11,6 @@ tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
 keep-alive-interval: 15
-hosts:
-  'localhost': 127.0.0.1
 profile:
   store-selected: true
   store-fake-ip: true
@@ -24,8 +22,8 @@ dns:
   listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
-  use-hosts: true
-  # use-system-hosts: true
+  use-hosts: false
+  use-system-hosts: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
