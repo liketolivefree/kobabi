@@ -47,6 +47,9 @@ dns:
   nameserver-policy:
     'rule-set:xal':
     - system
+    - https://dns.shecan.ir/dns-query
+    - 185.51.200.2
+    - 217.218.127.127
   fallback-filter:
     geoip: true
     geoip-code: IR
