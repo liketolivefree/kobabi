@@ -32,30 +32,30 @@ dns:
   - '+.local'
   default-nameserver:
   - 1.0.0.1
+  - 8.8.8.8
   nameserver:
+  - tls://one.one.one.one
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   fallback:
   - tls://one.one.one.one
-  - https://1.0.0.1/dns-query
   - tls://dns.google
+  - https://1.0.0.1/dns-query
+  - https://8.8.4.4/dns-query
   nameserver-policy:
     'rule-set:xal':
-    - system
     - https://dns.shecan.ir/dns-query
     - 185.51.200.2
     - 217.218.127.127
+    - 8.8.8.8
   fallback-filter:
     geoip: true
     geoip-code: IR
-    ipcidr:
-    - 0.0.0.0/32
-    - 240.0.0.0/4
 tun:
   device: Mihomo
   enable: true
-  stack: system
+  stack: mixed
   dns-hijack:
   - 'any:53'
   auto-route: true
@@ -93,7 +93,6 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 0
   tolerance: 1000
-  lazy: true
   use:
   - a
   - q
@@ -101,9 +100,6 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-  use:
-  - a
-  - q
 rule-providers:
   aff:
     type: http
