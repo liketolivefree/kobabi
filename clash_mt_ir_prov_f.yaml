@@ -45,13 +45,16 @@ dns:
   - https://8.8.4.4/dns-query
   nameserver-policy:
     'rule-set:xal':
+    - system
     - https://dns.shecan.ir/dns-query
-    - https://dns.403.online/dns-query
-    - 178.22.122.100
-    - 217.218.155.155
+    - 185.51.200.2
+    - 217.218.127.127
   fallback-filter:
     geoip: true
     geoip-code: IR
+    ipcidr:
+    - 0.0.0.0/32
+    - 240.0.0.0/4
 tun:
   device: Mihomo
   enable: true
