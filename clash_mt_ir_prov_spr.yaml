@@ -45,16 +45,13 @@ dns:
   - 8.8.8.8
   nameserver-policy:
     'rule-set:xal':
-    - system
     - https://dns.shecan.ir/dns-query
     - 185.51.200.2
     - 217.218.127.127
+    - 8.8.8.8
   fallback-filter:
     geoip: true
     geoip-code: IR
-    ipcidr:
-    - 0.0.0.0/32
-    - 240.0.0.0/4
 tun:
   device: Mihomo
   enable: true
@@ -168,7 +165,6 @@ proxy-providers:
       lazzy: true
     override:
       udp: true
-
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -189,16 +185,6 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-  use:
-  - a
-  - b
-  - c
-  - d
-  - e
-  - f
-  - g
-  - h
-
 rule-providers:
   aff:
     type: http
@@ -242,7 +228,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
-
 rules:
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
