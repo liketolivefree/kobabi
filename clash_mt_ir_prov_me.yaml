@@ -11,6 +11,8 @@ tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
 keep-alive-interval: 15
+hosts:
+  'localhost': 127.0.0.1
 profile:
   store-selected: true
   store-fake-ip: true
@@ -22,8 +24,7 @@ dns:
   listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
-  use-hosts: false
-  use-system-hosts: false
+  use-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -42,12 +43,6 @@ dns:
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
-  nameserver-policy:
-    'rule-set:xal':
-    - https://dns.shecan.ir/dns-query
-    - 185.51.200.2
-    - 217.218.127.127
-    - 8.8.8.8
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -61,10 +56,9 @@ tun:
   dns-hijack:
   - 'any:53'
   auto-route: true
-  auto-redirect: true
   auto-detect-interface: true
-  strict-route: true
-  mtu: 9000
+  # strict-route: true
+  # mtu: 9000
 proxy-providers:
   a:
     type: http
@@ -151,7 +145,6 @@ rule-providers:
     interval: 86400
 rules:
 - NETWORK,udp,QQOLI
-- PROCESS-NAME,curl,QQOLI
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
