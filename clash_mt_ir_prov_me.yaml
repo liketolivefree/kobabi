@@ -219,9 +219,6 @@ rules:
 - DOMAIN-SUFFIX,ebay.doubleclick.net,QQOLI
 - DOMAIN-SUFFIX,trk.free.fr,QQOLI
 - DOMAIN-SUFFIX,f001.backblazeb2.com,QQOLI
-- DOMAIN-SUFFIX,github.com,QQOLI
-- DOMAIN-SUFFIX,githubassets.com,QQOLI
-- DOMAIN-SUFFIX,githubusercontent.com,QQOLI
 - RULE-SET,aff,REJECT
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
