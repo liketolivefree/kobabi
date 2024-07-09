@@ -43,6 +43,12 @@ dns:
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
+  nameserver-policy:
+    'rule-set:xal':
+    - https://dns.shecan.ir/dns-query
+    - 185.51.200.2
+    - 217.218.127.127
+    - 8.8.8.8
   fallback-filter:
     geoip: true
     geoip-code: IR
