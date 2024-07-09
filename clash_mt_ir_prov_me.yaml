@@ -47,9 +47,6 @@ dns:
   nameserver-policy:
     'rule-set:xal':
     - system
-    - https://dns.shecan.ir/dns-query
-    - 185.51.200.2
-    - 217.218.127.127
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -59,13 +56,14 @@ dns:
 tun:
   device: Mihomo
   enable: true
-  stack: system
+  stack: mixed
   dns-hijack:
   - 'any:53'
   auto-route: true
+  auto-redirect: true
   auto-detect-interface: true
-  # strict-route: true
-  # mtu: 9000
+  strict-route: true
+  mtu: 9000
 proxy-providers:
   a:
     type: http
@@ -151,7 +149,8 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
-- NETWORK,udp,QQOLI
+- NETWORK,udp,DIRECT
+- PROCESS-NAME,curl,QQOLI
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
