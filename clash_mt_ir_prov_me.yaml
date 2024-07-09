@@ -52,9 +52,6 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
-    ipcidr:
-    - 0.0.0.0/32
-    - 240.0.0.0/4
 tun:
   device: Mihomo
   enable: true
@@ -103,9 +100,6 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-  use:
-  - a
-  - q
 rule-providers:
   aff:
     type: http
