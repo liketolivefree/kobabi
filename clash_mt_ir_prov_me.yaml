@@ -152,7 +152,7 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
-- NETWORK,udp,DIRECT
+- NETWORK,udp,QQOLI
 - PROCESS-NAME,curl,QQOLI
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
