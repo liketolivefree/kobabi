@@ -238,6 +238,7 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
+- PROCESS-NAME,qbittorrent.exe,DIRECT
 - NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
