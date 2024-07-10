@@ -32,6 +32,7 @@ dns:
   ipv6: true
   prefer-h3: true
   use-hosts: true
+  use-system-hosts: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -124,7 +125,6 @@ dns:
   - https://8.8.4.4/dns-query
   nameserver-policy:
     'rule-set:xal':
-    - system
     - https://dns.shecan.ir/dns-query
     - 217.218.127.127
     - 8.8.8.8
@@ -148,20 +148,24 @@ sniffer:
   override-destination: true
   sniff:
     TLS:
-      ports: [443, 8443]
+      ports:
+      - 443
+      - 8443
     HTTP:
-      ports: [80, 8080-8880]
+      ports:
+      - 80
+      - 8080-8880
       override-destination: true
   force-domain:
   - '+.v2ex.com'
   skip-domain:
   - Mijia Cloud
   sniffing:
-    - tls
-    - http
+  - tls
+  - http
   port-whitelist:
-    - '80'
-    - '443'
+  - '80'
+  - '443'
 proxy-providers:
   a:
     type: http
