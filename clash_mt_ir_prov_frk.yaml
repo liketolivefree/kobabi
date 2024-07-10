@@ -154,7 +154,7 @@ sniffer:
     - http
   port-whitelist:
     - '80'
-    - '443'  
+    - '443'
 proxy-providers:
   a:
     type: http
@@ -165,7 +165,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
     override:
       udp: true
   q:
@@ -177,7 +177,7 @@ proxy-providers:
       enable: true
       interval: 300
       url: http://www.gstatic.com/generate_204
-      timeout: 3000
+      timeout: 5000
     override:
       udp: true
 proxy-groups:
@@ -237,7 +237,6 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
-- NETWORK,udp,QQOLI
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
@@ -247,6 +246,16 @@ rules:
 - IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
 - IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
 - IP-CIDR6,::1/128,DIRECT,no-resolve
+- NETWORK,udp,QQOLI
+- PROCESS-NAME,ir.tgbs.peccharge,DIRECT
+- PROCESS-NAME,com.myirancell,DIRECT
+- PROCESS-NAME,ir.mci.ecareapp,DIRECT
+- PROCESS-NAME,qbittorrent.exe,DIRECT
+- PROCESS-NAME,ir.mobillet.app,DIRECT
+- PROCESS-NAME,com.parsmobapp,DIRECT
+- PROCESS-NAME,ir.mservices.market,DIRECT
+- PROCESS-NAME,com.maskanmobilebank,DIRECT
+- PROCESS-NAME,ir.bmi.bam,DIRECT
 - DOMAIN-SUFFIX,accounts.google.com,QQOLI
 - DOMAIN-SUFFIX,books.google.com,QQOLI
 - DOMAIN-SUFFIX,calendar.google.com,QQOLI
