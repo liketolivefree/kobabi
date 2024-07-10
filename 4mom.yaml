@@ -124,7 +124,6 @@ dns:
   - 8.8.8.8
   nameserver-policy:
     'rule-set:xal':
-    - system
     - https://dns.shecan.ir/dns-query
     - 217.218.127.127
     - 8.8.8.8
