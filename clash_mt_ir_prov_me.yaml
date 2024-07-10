@@ -256,6 +256,7 @@ rules:
 - PROCESS-NAME,ir.mservices.market,DIRECT
 - PROCESS-NAME,com.maskanmobilebank,DIRECT
 - PROCESS-NAME,ir.bmi.bam,DIRECT
+- DOMAIN-SUFFIX,dns.google.com,QQOLI
 - DOMAIN-SUFFIX,accounts.google.com,QQOLI
 - DOMAIN-SUFFIX,books.google.com,QQOLI
 - DOMAIN-SUFFIX,calendar.google.com,QQOLI
