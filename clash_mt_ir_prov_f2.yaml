@@ -19,6 +19,13 @@ profile:
 experimental:
   ignore-resolve-fail: true
   tracing: true
+geodata-mode: true
+geox-url:
+  geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
+  geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
+  mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
+geo-auto-update: false
+geo-update-interval: 24
 dns:
   enable: true
   listen: 0.0.0.0:1053
