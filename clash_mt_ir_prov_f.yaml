@@ -257,7 +257,6 @@ rules:
 - IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
 - IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
 - IP-CIDR6,::1/128,DIRECT,no-resolve
-- NETWORK,udp,QQOLI
 - PROCESS-NAME,ir.tgbs.peccharge,DIRECT
 - PROCESS-NAME,com.myirancell,DIRECT
 - PROCESS-NAME,ir.mci.ecareapp,DIRECT
