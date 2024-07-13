@@ -32,6 +32,7 @@ dns:
   ipv6: true
   prefer-h3: true
   use-hosts: true
+  use-system-hosts: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -256,6 +257,26 @@ rules:
 - IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
 - IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
 - IP-CIDR6,::1/128,DIRECT,no-resolve
+- PROCESS-NAME,BingChatInstaller.EXE,REJECT
+- PROCESS-NAME,MicrosoftEdgeUpdate.exe,REJECT
+- PROCESS-NAME,MpDefenderCoreService.exe,REJECT
+- PROCESS-NAME,MsMpEng.exe,REJECT
+- PROCESS-NAME,NVIDIA GeForce Experience.exe,REJECT
+- PROCESS-NAME,NVIDIA Web Helper.exe,REJECT
+- PROCESS-NAME,OfficeC2RClient.exe,REJECT
+- PROCESS-NAME,OfficeClickToRun.exe,REJECT
+- PROCESS-NAME,SDXHelper.exe,REJECT
+- PROCESS-NAME,SIHClient.exe,REJECT
+- PROCESS-NAME,SearchApp.exe,REJECT
+- PROCESS-NAME,WINWORD.EXE,REJECT
+- PROCESS-NAME,backgroundTaskHost.exe,REJECT
+- PROCESS-NAME,msiexec.exe,REJECT
+- PROCESS-NAME,msoia.exe,REJECT
+- PROCESS-NAME,nvcontainer.exe,REJECT
+- PROCESS-NAME,smartscreen.exe,REJECT
+- PROCESS-NAME,svchost.exe,REJECT
+- PROCESS-NAME,taskhostw.exe,REJECT
+- PROCESS-NAME,updater.exe,REJECT
 - DOMAIN-SUFFIX,dns.google.com,QQOLI
 - DOMAIN-SUFFIX,accounts.google.com,QQOLI
 - DOMAIN-SUFFIX,books.google.com,QQOLI
