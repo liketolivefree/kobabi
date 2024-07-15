@@ -173,7 +173,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 0
+      interval: 4000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -185,7 +185,7 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 0
+      interval: 4000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -194,7 +194,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 0
+  interval: 4000
   tolerance: 500
   use:
   - a
@@ -340,15 +340,6 @@ rules:
 - DOMAIN-SUFFIX,f001.backblazeb2.com,QQOLI
 - RULE-SET,aff,REJECT
 - DOMAIN-SUFFIX,ir,DIRECT
-- PROCESS-NAME,ir.tgbs.peccharge,DIRECT
-- PROCESS-NAME,com.myirancell,DIRECT
-- PROCESS-NAME,ir.mci.ecareapp,DIRECT
-- PROCESS-NAME,qbittorrent.exe,DIRECT
-- PROCESS-NAME,ir.mobillet.app,DIRECT
-- PROCESS-NAME,com.parsmobapp,DIRECT
-- PROCESS-NAME,ir.mservices.market,DIRECT
-- PROCESS-NAME,com.maskanmobilebank,DIRECT
-- PROCESS-NAME,ir.bmi.bam,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
 - RULE-SET,yun,REJECT,no-resolve
