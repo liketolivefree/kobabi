@@ -173,7 +173,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 0
+      interval: 4000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -185,7 +185,7 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 0
+      interval: 4000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -194,7 +194,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 0
+  interval: 4000
   tolerance: 500
   lazy: true
   use:
