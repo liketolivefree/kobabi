@@ -131,19 +131,14 @@ tun:
   - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
-  # strict-route: true
-  # mtu: 9000
 sniffer:
   enable: true
-  # force-dns-mapping: true
-  # parse-pure-ip: true
-  # override-destination: true
   sniff:
     TLS:
       ports:
       - '443'
       - '8443'
-      override-destination: true      
+      override-destination: true
     HTTP:
       ports:
       - '80'
@@ -185,6 +180,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
+
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -209,6 +205,7 @@ proxy-groups:
    use:
   - a
   - q
+
 rule-providers:
   aff:
     type: http
@@ -252,6 +249,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
+
 rules:
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
