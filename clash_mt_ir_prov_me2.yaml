@@ -3,7 +3,7 @@ allow-lan: true
 mode: rule
 log-level: info
 ipv6: true
-external-controller: "127.0.0.1:9090"
+external-controller: 127.0.0.1:9090
 secret: ""
 enable-process: true
 find-process-mode: always
@@ -12,7 +12,7 @@ unified-delay: true
 global-client-fingerprint: chrome
 keep-alive-interval: 15
 hosts:
-  "localhost": "127.0.0.1"
+  "localhost": 127.0.0.1
 profile:
   store-selected: true
   store-fake-ip: true
@@ -29,12 +29,12 @@ geo-auto-update: false
 geo-update-interval: 24
 dns:
   enable: true
-  listen: "0.0.0.0:53"
+  listen: 0.0.0.0:53
   ipv6: true
   prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
-  fake-ip-range: "198.18.0.1/16"
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - "+.lan"
     - "+.local"
@@ -128,7 +128,6 @@ tun:
   stack: mixed
   dns-hijack:
     - "any:53"
-    - "tcp://any:53"
   auto-route: true
   auto-detect-interface: true
 sniffer:
@@ -136,13 +135,13 @@ sniffer:
   sniff:
     TLS:
       ports:
-        - "443"
-        - "8443"
+        - 443
+        - 8443
       override-destination: true
     HTTP:
       ports:
-        - "80"
-        - "8080-8880"
+        - 80
+        - 8080-8880
       override-destination: true
   force-domain:
     - "+.v2ex.com"
@@ -180,7 +179,6 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-
 proxy-groups:
   - name: MMOBI
     type: url-test
@@ -281,26 +279,6 @@ rules:
   - DOMAIN,yacd.haishan.me,DIRECT
   - DOMAIN,yacd.metacubex.one,DIRECT
   - DOMAIN,clash.metacubex.one,DIRECT
-  - PROCESS-NAME,BingChatInstaller.EXE,REJECT
-  - PROCESS-NAME,MicrosoftEdgeUpdate.exe,REJECT
-  - PROCESS-NAME,MpDefenderCoreService.exe,REJECT
-  - PROCESS-NAME,MsMpEng.exe,REJECT
-  - PROCESS-NAME,NVIDIA GeForce Experience.exe,REJECT
-  - PROCESS-NAME,NVIDIA Web Helper.exe,REJECT
-  - PROCESS-NAME,OfficeC2RClient.exe,REJECT
-  - PROCESS-NAME,OfficeClickToRun.exe,REJECT
-  - PROCESS-NAME,SDXHelper.exe,REJECT
-  - PROCESS-NAME,SIHClient.exe,REJECT
-  - PROCESS-NAME,SearchApp.exe,REJECT
-  - PROCESS-NAME,WINWORD.EXE,REJECT
-  - PROCESS-NAME,backgroundTaskHost.exe,REJECT
-  - PROCESS-NAME,msiexec.exe,REJECT
-  - PROCESS-NAME,msoia.exe,REJECT
-  - PROCESS-NAME,nvcontainer.exe,REJECT
-  - PROCESS-NAME,smartscreen.exe,REJECT
-  - PROCESS-NAME,svchost.exe,REJECT
-  - PROCESS-NAME,taskhostw.exe,REJECT
-  - PROCESS-NAME,updater.exe,REJECT
   - DOMAIN-SUFFIX,dns.google.com,QQOLI
   - DOMAIN-SUFFIX,accounts.google.com,QQOLI
   - DOMAIN-SUFFIX,books.google.com,QQOLI
