@@ -191,7 +191,7 @@ proxy-groups:
       - a
       - q
   - name: MMOQI
-    type: url-test
+    type: fallback
     url: "http://www.gstatic.com/generate_204"
     interval: 60
     use:
