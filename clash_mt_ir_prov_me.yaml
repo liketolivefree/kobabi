@@ -119,6 +119,14 @@ dns:
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
+  fallback:
+  - tls://one.one.one.one
+  - tls://dns.google
+  - https://1.0.0.1/dns-query
+  - https://8.8.4.4/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: IR
   nameserver-policy:
     'rule-set:xal': [ https://dns.shecan.ir/dns-query, 217.218.127.127, 8.8.8.8 ]
 
