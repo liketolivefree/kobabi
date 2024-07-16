@@ -118,19 +118,11 @@ dns:
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
-  fallback:
-  - tls://one.one.one.one
-  - tls://dns.google
-  - https://1.0.0.1/dns-query
-  - https://8.8.4.4/dns-query
   nameserver-policy:
     'rule-set:xal':
     - https://dns.shecan.ir/dns-query
     - 217.218.127.127
     - 8.8.8.8
-  fallback-filter:
-    geoip: true
-    geoip-code: IR
 tun:
   device: Mihomo
   enable: true
@@ -143,14 +135,12 @@ tun:
   mtu: 9000
 sniffer:
   enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
-  override-destination: true
   sniff:
     TLS:
       ports:
       - 443
       - 8443
+      override-destination: true
     HTTP:
       ports:
       - 80
@@ -197,7 +187,6 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
-  lazy: true
   use:
   - a
   - q
