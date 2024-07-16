@@ -119,6 +119,14 @@ dns:
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
+  fallback:
+  - tls://one.one.one.one
+  - tls://dns.google
+  - https://1.0.0.1/dns-query
+  - https://8.8.4.4/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: IR
   nameserver-policy:
     'rule-set:xal': [ https://dns.shecan.ir/dns-query, 217.218.127.127, 8.8.8.8 ]
 
@@ -146,11 +154,11 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 3600
+    interval: 5000
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 60
+      interval: 300
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -158,11 +166,11 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
+    interval: 5000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 60
+      interval: 300
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -172,8 +180,15 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 60
+  interval: 300
   tolerance: 50
+  use:
+  - a
+  - q
+- name: MMOQI
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 300
   use:
   - a
   - q
@@ -181,6 +196,10 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
+  - MMOQI
+   use:
+  - a
+  - q
 
 rule-providers:
   aff:
