@@ -119,14 +119,6 @@ dns:
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
-  fallback:
-  - tls://one.one.one.one
-  - tls://dns.google
-  - https://1.0.0.1/dns-query
-  - https://8.8.4.4/dns-query
-  fallback-filter:
-    geoip: true
-    geoip-code: IR
   nameserver-policy:
     'rule-set:xal': [ https://dns.shecan.ir/dns-query, 217.218.127.127, 8.8.8.8 ]
 
@@ -185,21 +177,10 @@ proxy-groups:
   use:
   - a
   - q
-- name: MMOQI
-  type: fallback
-  url: http://www.gstatic.com/generate_204
-  interval: 60
-  use:
-  - a
-  - q
 - name: QQOLI
   type: select
   proxies:
   - MMOBI
-  - MMOQI
-   use:
-  - a
-  - q
 
 rule-providers:
   aff:
