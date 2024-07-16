@@ -124,15 +124,12 @@ dns:
     - 217.218.127.127
     - 8.8.8.8
 tun:
-  device: Mihomo
   enable: true
   stack: mixed
   dns-hijack:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
-  strict-route: true
-  mtu: 9000
 sniffer:
   enable: true
   sniff:
@@ -160,11 +157,11 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 8000
+    interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 60
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -172,11 +169,11 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 8000
+    interval: 3600
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 60
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -185,7 +182,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 300
+  interval: 60
   tolerance: 50
   use:
   - a
@@ -194,7 +191,10 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-
+  use:
+  - a
+  - q
+  
 rule-providers:
   aff:
     type: http
