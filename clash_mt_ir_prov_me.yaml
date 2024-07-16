@@ -178,6 +178,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
+
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -187,14 +188,22 @@ proxy-groups:
   use:
   - a
   - q
+- name: MMOQI
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  use:
+  - a
+  - q
 - name: QQOLI
   type: select
   proxies:
   - MMOBI
+  - MMOQI
   use:
   - a
   - q
-  
+
 rule-providers:
   aff:
     type: http
