@@ -9,16 +9,15 @@ enable-process: true
 find-process-mode: always
 tcp-concurrent: true
 unified-delay: true
-global-client-fingerprint: chrome
+global-client-fingerprint: random
 keep-alive-interval: 15
 hosts:
   'localhost': 127.0.0.1
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
 experimental:
   ignore-resolve-fail: true
-  sniff-tls-sni: true
   tracing: true
 geodata-mode: true
 geox-url:
@@ -27,13 +26,13 @@ geox-url:
   mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
 geo-auto-update: false
 geo-update-interval: 24
-
 dns:
   enable: true
-  listen: 0.0.0.0:53
+  listen: 0.0.0.0:1053
   ipv6: true
   prefer-h3: true
   use-hosts: true
+  use-system-hosts: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -80,8 +79,8 @@ dns:
   - '+.msftconnecttest.com'
   - '+.msftncsi.com'
   - '*.ipv6.microsoft.com'
-  - 'Mijia Cloud'
-  - 'WORKGROUP'
+  - Mijia Cloud
+  - WORKGROUP
   - '+.shark007.net'
   - '+.shaoxs.top'
   - '+.termux.org'
@@ -124,37 +123,54 @@ dns:
   - tls://dns.google
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
+  nameserver-policy:
+    'rule-set:xal':
+    - https://dns.shecan.ir/dns-query
+    - 217.218.127.127
+    - 8.8.8.8
   fallback-filter:
     geoip: true
     geoip-code: IR
-  nameserver-policy:
-    'rule-set:xal': [ https://dns.shecan.ir/dns-query, 217.218.127.127, 8.8.8.8 ]
-
 tun:
+  device: Mihomo
   enable: true
   stack: mixed
   dns-hijack:
   - 'any:53'
   auto-route: true
   auto-detect-interface: true
-
+  strict-route: true
+  mtu: 9000
 sniffer:
   enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
   sniff:
-    http: { ports: [ 1-442, 444-8442, 8444-65535 ], override-destination: true }
-    tls: { ports: [ 1-79, 81-8079, 8081-65535 ], override-destination: true }
+    TLS:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
   force-domain:
   - '+.v2ex.com'
   skip-domain:
   - Mijia Cloud
-  sniffing: [ tls, http ]
-  port-whitelist: [ 80, 443 ]
-
+  sniffing:
+  - tls
+  - http
+  port-whitelist:
+  - '80'
+  - '443'
 proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 5000
+    interval: 8000
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
@@ -166,7 +182,7 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 5000
+    interval: 8000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
@@ -175,7 +191,6 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-
 proxy-groups:
 - name: MMOBI
   type: url-test
@@ -185,22 +200,10 @@ proxy-groups:
   use:
   - a
   - q
-- name: MMOQI
-  type: fallback
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  use:
-  - a
-  - q
 - name: QQOLI
   type: select
   proxies:
   - MMOBI
-  - MMOQI
-   use:
-  - a
-  - q
-
 rule-providers:
   aff:
     type: http
@@ -213,7 +216,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_frk.txt
     path: ./rule-providers/yun.txt
     interval: 86400
   oki:
@@ -244,7 +247,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
     path: ./rule-providers/loo.txt
     interval: 86400
-
 rules:
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
