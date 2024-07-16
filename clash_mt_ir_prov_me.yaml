@@ -128,10 +128,16 @@ tun:
   stack: mixed
   dns-hijack:
   - 'any:53'
+  - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
+  # strict-route: true
+  # mtu: 9000
 sniffer:
   enable: true
+  # force-dns-mapping: true
+  # parse-pure-ip: true
+  # override-destination: true
   sniff:
     TLS:
       ports:
