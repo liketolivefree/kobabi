@@ -9,15 +9,16 @@ enable-process: true
 find-process-mode: always
 tcp-concurrent: true
 unified-delay: true
-global-client-fingerprint: random
+global-client-fingerprint: chrome
 keep-alive-interval: 15
 hosts:
   'localhost': 127.0.0.1
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 experimental:
   ignore-resolve-fail: true
+  sniff-tls-sni: true
   tracing: true
 geodata-mode: true
 geox-url:
@@ -28,11 +29,10 @@ geo-auto-update: false
 geo-update-interval: 24
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  listen: 0.0.0.0:53
   ipv6: true
   prefer-h3: true
   use-hosts: true
-  use-system-hosts: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -197,6 +197,7 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
+  lazy: true
   use:
   - a
   - q
@@ -204,47 +205,48 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
+
 rule-providers:
   aff:
     type: http
     behavior: domain
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt"
     path: ./rule-providers/aff.txt
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_frk.txt
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt"
     path: ./rule-providers/yun.txt
     interval: 86400
   oki:
     type: http
     behavior: domain
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt"
     path: ./rule-providers/oki.txt
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt"
     path: ./rule-providers/doki.txt
     interval: 86400
   xal:
     type: http
     behavior: domain
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt"
     path: ./rule-providers/xal.txt
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt"
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
@@ -255,50 +257,8 @@ rules:
 - DOMAIN-SUFFIX,ip6-localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-loopback,DIRECT
 - IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
+- IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
 - IP-CIDR6,::1/128,DIRECT,no-resolve
-- IP-CIDR,0.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
-- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-- IP-CIDR,192.0.0.0/24,DIRECT,no-resolve
-- IP-CIDR,192.0.2.0/24,DIRECT,no-resolve
-- IP-CIDR,192.88.99.0/24,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-- IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
-- IP-CIDR,198.51.100.0/24,DIRECT,no-resolve
-- IP-CIDR,203.0.113.0/24,DIRECT,no-resolve
-- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR6,::/127,DIRECT,no-resolve
-- IP-CIDR6,fc00::/7,DIRECT,no-resolve
-- IP-CIDR6,fe80::/10,DIRECT,no-resolve
-- IP-CIDR6,ff00::/8,DIRECT,no-resolve
-- DOMAIN,clash.razord.top,DIRECT
-- DOMAIN,yacd.haishan.me,DIRECT
-- DOMAIN,yacd.metacubex.one,DIRECT
-- DOMAIN,clash.metacubex.one,DIRECT
-- PROCESS-NAME,BingChatInstaller.EXE,REJECT
-- PROCESS-NAME,MicrosoftEdgeUpdate.exe,REJECT
-- PROCESS-NAME,MpDefenderCoreService.exe,REJECT
-- PROCESS-NAME,MsMpEng.exe,REJECT
-- PROCESS-NAME,NVIDIA GeForce Experience.exe,REJECT
-- PROCESS-NAME,NVIDIA Web Helper.exe,REJECT
-- PROCESS-NAME,OfficeC2RClient.exe,REJECT
-- PROCESS-NAME,OfficeClickToRun.exe,REJECT
-- PROCESS-NAME,SDXHelper.exe,REJECT
-- PROCESS-NAME,SIHClient.exe,REJECT
-- PROCESS-NAME,SearchApp.exe,REJECT
-- PROCESS-NAME,WINWORD.EXE,REJECT
-- PROCESS-NAME,backgroundTaskHost.exe,REJECT
-- PROCESS-NAME,msiexec.exe,REJECT
-- PROCESS-NAME,msoia.exe,REJECT
-- PROCESS-NAME,nvcontainer.exe,REJECT
-- PROCESS-NAME,smartscreen.exe,REJECT
-- PROCESS-NAME,svchost.exe,REJECT
-- PROCESS-NAME,taskhostw.exe,REJECT
-- PROCESS-NAME,updater.exe,REJECT
 - DOMAIN-SUFFIX,dns.google.com,QQOLI
 - DOMAIN-SUFFIX,accounts.google.com,QQOLI
 - DOMAIN-SUFFIX,books.google.com,QQOLI
