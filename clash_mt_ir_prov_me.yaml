@@ -27,6 +27,7 @@ geox-url:
   mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
 geo-auto-update: false
 geo-update-interval: 24
+
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -119,41 +120,27 @@ dns:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   nameserver-policy:
-    'rule-set:xal':
-    - https://dns.shecan.ir/dns-query
-    - 217.218.127.127
-    - 8.8.8.8
+    'rule-set:xal': [ https://dns.shecan.ir/dns-query, 217.218.127.127, 8.8.8.8 ]
+
 tun:
   enable: true
   stack: mixed
   dns-hijack:
   - 'any:53'
-  - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
+
 sniffer:
   enable: true
   sniff:
-    TLS:
-      ports:
-      - '443'
-      - '8443'
-      override-destination: true
-    HTTP:
-      ports:
-      - '80'
-      - '8080-8880'
-      override-destination: true
+    http: { ports: [ 1-442, 444-8442, 8444-65535 ], override-destination: true }
+    tls: { ports: [ 1-79, 81-8079, 8081-65535 ], override-destination: true }
   force-domain:
   - '+.v2ex.com'
   skip-domain:
-  - 'Mijia Cloud'
-  sniffing:
-  - tls
-  - http
-  port-whitelist:
-  - '80'
-  - '443'
+  - Mijia Cloud
+  sniffing: [ tls, http ]
+  port-whitelist: [ 80, 443 ]
 
 proxy-providers:
   a:
