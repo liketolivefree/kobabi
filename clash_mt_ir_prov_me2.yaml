@@ -200,7 +200,7 @@ proxy-groups:
 - name: MMOQI
   type: fallback
   url: http://www.gstatic.com/generate_204
-  interval: 6000
+  interval: 60
   use:
   - a
   - q
@@ -351,10 +351,11 @@ rules:
 - DOMAIN-SUFFIX,trk.free.fr,QQOLI
 - DOMAIN-SUFFIX,f001.backblazeb2.com,QQOLI
 - RULE-SET,aff,REJECT
+- RULE-SET,yun,REJECT,no-resolve
+- PROCESS-NAME,qbittorrent.exe,DIRECT
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
-- RULE-SET,yun,REJECT,no-resolve
 - RULE-SET,loo,DIRECT,no-resolve
 - RULE-SET,doki,QQOLI,no-resolve
 - MATCH,QQOLI
