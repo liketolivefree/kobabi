@@ -289,10 +289,11 @@ rules:
 - DOMAIN,yacd.metacubex.one,DIRECT
 - DOMAIN,clash.metacubex.one,DIRECT
 - RULE-SET,aff,REJECT
+- RULE-SET,yun,REJECT,no-resolve
+- PROCESS-NAME,qbittorrent.exe,DIRECT
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
-- RULE-SET,yun,REJECT,no-resolve
 - RULE-SET,loo,DIRECT,no-resolve
 - RULE-SET,doki,QQOLI,no-resolve
 - MATCH,QQOLI
