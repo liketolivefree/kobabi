@@ -166,11 +166,11 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
-    interval: 3600
+    interval: 8000
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 60
+      interval: 6000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -178,11 +178,11 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
+    interval: 8000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 60
+      interval: 6000
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -192,15 +192,15 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 50
+  interval: 6000
+  tolerance: 500
   use:
   - a
   - q
 - name: MMOQI
   type: fallback
   url: http://www.gstatic.com/generate_204
-  interval: 60
+  interval: 6000
   use:
   - a
   - q
