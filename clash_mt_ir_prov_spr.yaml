@@ -263,6 +263,11 @@ proxy-providers:
     override:
       udp: true
 proxy-groups:
+- name: QQOLI
+  type: select
+  proxies:
+  - MMOBI
+  - MMOQI
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -289,12 +294,7 @@ proxy-groups:
   - e
   - f
   - g
-  - h  
-- name: QQOLI
-  type: select
-  proxies:
-  - MMOBI
-  - MMOQI  
+  - h
 rule-providers:
   aff:
     type: http
