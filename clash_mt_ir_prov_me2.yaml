@@ -189,11 +189,19 @@ proxy-providers:
       udp: true
 
 proxy-groups:
+- name: QQOLI
+  type: select
+  proxies:
+  - MMOBI
+  - MMOQI
+  use:
+  - a
+  - q
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
-  interval: 6000
-  tolerance: 500
+  interval: 60
+  tolerance: 50
   use:
   - a
   - q
@@ -204,15 +212,6 @@ proxy-groups:
   use:
   - a
   - q
-- name: QQOLI
-  type: select
-  proxies:
-  - MMOBI
-  - MMOQI
-  use:
-  - a
-  - q
-
 rule-providers:
   aff:
     type: http
