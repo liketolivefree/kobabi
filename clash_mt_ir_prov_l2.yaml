@@ -189,21 +189,6 @@ proxy-providers:
       udp: true
 
 proxy-groups:
-- name: MMOBI
-  type: url-test
-  url: http://www.gstatic.com/generate_204
-  interval: 6000
-  tolerance: 500
-  use:
-  - a
-  - q
-- name: MMOQI
-  type: fallback
-  url: http://www.gstatic.com/generate_204
-  interval: 6000
-  use:
-  - a
-  - q
 - name: QQOLI
   type: select
   proxies:
@@ -212,7 +197,21 @@ proxy-groups:
   use:
   - a
   - q
-
+- name: MMOBI
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 50
+  use:
+  - a
+  - q
+- name: MMOQI
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  use:
+  - a
+  - q
 rule-providers:
   aff:
     type: http
