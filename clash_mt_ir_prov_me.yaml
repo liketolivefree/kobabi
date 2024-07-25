@@ -9,7 +9,7 @@ enable-process: true
 find-process-mode: always
 tcp-concurrent: true
 unified-delay: true
-global-client-fingerprint: random
+global-client-fingerprint: chrome
 keep-alive-interval: 15
 hosts:
   'localhost': 127.0.0.1
@@ -30,7 +30,7 @@ geo-update-interval: 24
 dns:
   enable: true
   listen: 0.0.0.0:53
-  ipv6: false
+  ipv6: true
   prefer-h3: true
   use-hosts: true
   enhanced-mode: fake-ip
@@ -114,13 +114,11 @@ dns:
   - 1.0.0.1
   - 8.8.8.8
   nameserver:
-  - https://cloudflare-dns.com/dns-query
   - tls://one.one.one.one
-  - https://8.8.4.4/dns-query
   - tls://dns.google
-
+  - https://1.0.0.1/dns-query
+  - https://8.8.4.4/dns-query
 tun:
-  device: Mihomo
   enable: true
   stack: mixed
   dns-hijack:
@@ -129,21 +127,23 @@ tun:
   auto-route: true
   auto-detect-interface: true
   strict-route: true
-  mtu: 9000
+  # mtu: 9000
 sniffer:
   enable: true
-  # force-dns-mapping: true
-  # parse-pure-ip: true
-  # override-destination: false
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
   sniff:
     TLS:
       ports:
-      - 443
-      - 8443
+      - 1-79
+      - 81-8079
+      - 8081-65535
     HTTP:
       ports:
-      - 80
-      - 8080-8880
+      - 1-442
+      - 444-8442
+      - 8444-65535
       override-destination: true
   sniffing:
   - tls
@@ -190,7 +190,7 @@ proxy-groups:
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 60
-  tolerance: 50
+  tolerance: 0
   use:
   - a
   - q
@@ -201,7 +201,6 @@ proxy-groups:
   use:
   - a
   - q
-
 rule-providers:
   aff:
     type: http
