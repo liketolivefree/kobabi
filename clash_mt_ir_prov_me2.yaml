@@ -301,7 +301,6 @@ rules:
 - DOMAIN-SUFFIX,mail.google.com,QQOLI
 - DOMAIN-SUFFIX,maps.google.com,QQOLI
 - DOMAIN-SUFFIX,maps.googleapis.com,QQOLI
-- DOMAIN-SUFFIX,maps.gstatic.com,QQOLI
 - DOMAIN-SUFFIX,photos.google.com,QQOLI
 - DOMAIN-SUFFIX,play.google.com,QQOLI
 - DOMAIN-SUFFIX,plus.google.com,QQOLI
@@ -341,7 +340,7 @@ rules:
 - DOMAIN-SUFFIX,phishing-filter.pages.dev,QQOLI
 - DOMAIN-SUFFIX,ublockorigin.pages.dev,QQOLI
 - DOMAIN-SUFFIX,api.amazon.com,QQOLI
-- DOMAIN-SUFFIX,aws.amazon.com,QQOLI
+- DOMAIN-SUFFIX,doc.aws.amazon.com,QQOLI
 - DOMAIN-SUFFIX,images.amazon.com,QQOLI
 - DOMAIN-SUFFIX,ip-ranges.amazonaws.com,QQOLI
 - DOMAIN-SUFFIX,db187550c7dkf.cloudfront.net,QQOLI
@@ -349,6 +348,17 @@ rules:
 - DOMAIN-SUFFIX,ebay.doubleclick.net,QQOLI
 - DOMAIN-SUFFIX,trk.free.fr,QQOLI
 - DOMAIN-SUFFIX,f001.backblazeb2.com,QQOLI
+- DOMAIN-SUFFIX,support.apple.com,QQOLI
+- DOMAIN-SUFFIX,cloudflare-scanner.vercel.app,QQOLI
+- DOMAIN-SUFFIX,cloudflare-v2ray.vercel.app,QQOLI
+- DOMAIN-SUFFIX,loon-gallery.vercel.app,QQOLI
+- DOMAIN-SUFFIX,piracy.vercel.app,QQOLI
+- DOMAIN-SUFFIX,proxy-provider-converter.vercel.app,QQOLI
+- DOMAIN-SUFFIX,reac-tube.vercel.app,QQOLI
+- DOMAIN-SUFFIX,sing-box-subscribe-doraemon.vercel.app,QQOLI
+- DOMAIN-SUFFIX,subc.vercel.app,QQOLI
+- DOMAIN-SUFFIX,sub-now-ten.vercel.app,QQOLI
+- DOMAIN-SUFFIX,v2rayfree-waline.vercel.app,QQOLI
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
 - PROCESS-NAME,qbittorrent.exe,DIRECT
