@@ -1,9 +1,9 @@
-mixed-port: 7897
+mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: info
 ipv6: false
-external-controller: 127.0.0.1:9097
+external-controller: 127.0.0.1:9090
 secret: ''
 enable-process: true
 find-process-mode: always
@@ -111,17 +111,17 @@ dns:
   - ff.dorado.sdo.com
   - resolver1.opendns.com
   default-nameserver:
-  - 1.1.1.1
-  - 9.9.9.9
+  - 1.0.0.1
+  - 8.8.8.8
   nameserver:
   - https://cloudflare-dns.com/dns-query
   - tls://one.one.one.one
-  - https://dns.google/dns-query
+  - https://8.8.4.4/dns-query
   - tls://dns.google
   fallback:
   - https://1.0.0.1/dns-query
   - tls://one.one.one.one
-  - https://8.8.4.4/dns-query
+  - https://dns.google/dns-query
   - tls://dns.google
   fallback-filter:
     geoip: true
@@ -143,9 +143,9 @@ tun:
   mtu: 9000
 sniffer:
   enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
-  override-destination: false
+  # force-dns-mapping: true
+  # parse-pure-ip: true
+  # override-destination: false
   sniff:
     TLS:
       ports:
