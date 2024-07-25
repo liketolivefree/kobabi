@@ -118,17 +118,6 @@ dns:
   - tls://one.one.one.one
   - https://8.8.4.4/dns-query
   - tls://dns.google
-  fallback:
-  - https://1.0.0.1/dns-query
-  - tls://one.one.one.one
-  - https://dns.google/dns-query
-  - tls://dns.google
-  fallback-filter:
-    geoip: true
-    geoip-code: IR
-    ipcidr:
-    - 224.0.0.0/4
-    - 240.0.0.0/4
 
 tun:
   device: Mihomo
