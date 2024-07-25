@@ -114,12 +114,12 @@ dns:
   - 1.1.1.1
   - 9.9.9.9
   nameserver:
-  - https://cloudflare-dns.com/dns-query 
+  - https://cloudflare-dns.com/dns-query
   - tls://one.one.one.one
   - https://dns.google/dns-query
   - tls://dns.google
   fallback:
-  - https://1.0.0.1/dns-query  
+  - https://1.0.0.1/dns-query
   - tls://one.one.one.one
   - https://8.8.4.4/dns-query
   - tls://dns.google
@@ -129,12 +129,7 @@ dns:
     ipcidr:
     - 224.0.0.0/4
     - 240.0.0.0/4
-    domain:
-    - '+.cloudflare.com'
-    - '+.google.com'
-  proxy-server-nameserver:
-  - https://dns.google/dns-query
-  - tls://one.one.one.one
+
 tun:
   device: Mihomo
   enable: true
@@ -198,11 +193,22 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
+  - MMOQI
+  use:
+  - a
+  - q
 - name: MMOBI
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 60
-  tolerance: 10
+  tolerance: 50
+  use:
+  - a
+  - q
+- name: MMOQI
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+  interval: 60
   use:
   - a
   - q
