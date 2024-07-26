@@ -16,10 +16,6 @@ hosts:
 profile:
   store-selected: true
   store-fake-ip: true
-experimental:
-  ignore-resolve-fail: true
-  sniff-tls-sni: true
-  tracing: true
 geodata-mode: true
 geox-url:
   geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
