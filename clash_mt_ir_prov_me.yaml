@@ -35,17 +35,19 @@ dns:
   fake-ip-filter:
   - '+.lan'
   - '+.local'
-  - '*.localhost'
-  - '*.localdomain'
+  - '+.localhost'
+  - '+.localdomain'
+  - '+.ip6-localhost'
+  - '+.ip6-loopback'
   - '*.example'
   - '*.invalid'
   - '*.test'
   - '*.home.arpa'
-  - 'time.*.com'
-  - time.windows.com
-  - 'time.*.gov'
   - time.nist.gov
-  - 'time.*.apple.com'
+  - time.windows.com
+  - time.*.apple.com
+  - time.*.gov
+  - time.*.com
   default-nameserver:
   - 1.0.0.1
   - 8.8.8.8
@@ -70,37 +72,10 @@ dns:
     geoip: true
     geoip-code: IR
     ipcidr:
-    - 0.0.0.0/32
-    - 255.255.255.255/32
-    - 127.0.0.1/32
-    - '::1/128'
-    - 0.0.0.0/8
+    - 10.0.0.0/8
     - 127.0.0.0/8
-    - '::/128'
     - 224.0.0.0/4
     - 240.0.0.0/4
-    - 10.0.0.0/8
-    - 100.64.0.0/10
-    - 169.254.0.0/16
-    - 172.16.0.0/12
-    - 192.0.0.0/24
-    - 192.0.2.0/24
-    - 192.88.99.0/24
-    - 192.168.0.0/16
-    - 198.18.0.0/15
-    - 198.51.100.0/24
-    - 203.0.113.0/24
-    - '::ffff:0:0/96'
-    - '::ffff:0:0:0/96'
-    - '64:ff9b::/96'
-    - '100::/64'
-    - '2001::/32'
-    - '2001:20::/28'
-    - '2001:db8::/32'
-    - '2002::/16'
-    - 'fc00::/7'
-    - 'fe80::/10'
-    - 'ff00::/8'
     domain:
     - '+.cloudflare.com'
     - '+.github.com'
@@ -123,6 +98,7 @@ tun:
 
 sniffer:
   enable: true
+  override-destination: false
   sniff:
     TLS:
       ports:
@@ -133,6 +109,9 @@ sniffer:
       - 80
       - 8080-8880
       override-destination: true
+  sniffing:
+  - tls
+  - http
 
 proxy-providers:
   a:
@@ -230,18 +209,20 @@ rule-providers:
     interval: 86400
 
 rules:
+- DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,yacd.haishan.me,DIRECT
+- DOMAIN,yacd.metacubex.one,DIRECT
+- DOMAIN,clash.metacubex.one,DIRECT
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-loopback,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR6,::/127,DIRECT,no-resolve
-- DOMAIN,clash.razord.top,DIRECT
-- DOMAIN,yacd.haishan.me,DIRECT
-- DOMAIN,yacd.metacubex.one,DIRECT
-- DOMAIN,clash.metacubex.one,DIRECT
+- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
 - DOMAIN-SUFFIX,dns.google.com,QQOLI
 - DOMAIN-SUFFIX,accounts.google.com,QQOLI
 - DOMAIN-SUFFIX,books.google.com,QQOLI
