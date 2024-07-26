@@ -23,6 +23,7 @@ geox-url:
   mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
 geo-auto-update: false
 geo-update-interval: 24
+
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -34,24 +35,26 @@ dns:
   fake-ip-filter:
   - '+.lan'
   - '+.local'
-  - '*.localhost'
-  - '*.localdomain'
+  - '+.localhost'
+  - '+.localdomain'
+  - '+.ip6-localhost'
+  - '+.ip6-loopback'
   - '*.example'
   - '*.invalid'
   - '*.test'
   - '*.home.arpa'
-  - 'time.*.com'
-  - time.windows.com
-  - 'time.*.gov'
   - time.nist.gov
-  - 'time.*.apple.com'
+  - time.windows.com
+  - time.*.apple.com
+  - time.*.gov
+  - time.*.com
   default-nameserver:
   - 1.0.0.1
   - 8.8.8.8
   nameserver:
   - tls://one.one.one.one
   - tls://dns.google
-  - https://1.0.0.1/dns-query
+  - https://cloudflare-dns.com/dns-query
   - https://8.8.4.4/dns-query
   proxy-server-nameserver:
   - https://8.8.4.4/dns-query
@@ -60,6 +63,30 @@ dns:
     - https://dns.shecan.ir/dns-query
     - 217.218.127.127
     - tls://one.one.one.one
+  fallback:
+  - tls://one.one.one.one
+  - tls://dns.google
+  - https://dns.google/dns-query
+  - https://1.0.0.1/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: IR
+    ipcidr:
+    - 10.0.0.0/8
+    - 127.0.0.0/8
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    domain:
+    - '+.cloudflare.com'
+    - '+.github.com'
+    - '+.githubusercontent.com'
+    - '+.githubassets.com'
+    - '+.googlevideo.com'
+    - '+.xn--ngstr-lra8j.com'
+    - '+.recaptcha.net'
+
 tun:
   enable: true
   stack: mixed
@@ -70,21 +97,24 @@ tun:
   auto-detect-interface: true
   strict-route: true
   # mtu: 9000
+
 sniffer:
   enable: true
+  override-destination: false
   sniff:
     TLS:
       ports:
-      - 1-79
-      - 81-8079
-      - 8081-65535
-      override-destination: true
+      - 443
+      - 8443
     HTTP:
       ports:
-      - 1-442
-      - 444-8442
-      - 8444-65535
+      - 80
+      - 8080-8880
       override-destination: true
+  sniffing:
+  - tls
+  - http
+
 proxy-providers:
   a:
     type: http
@@ -94,7 +124,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 6000
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
@@ -106,7 +136,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 6000
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
@@ -122,7 +152,7 @@ proxy-groups:
   - q
 - name: MMOBI
   type: url-test
-  url: https://cp.cloudflare.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 6000
   tolerance: 500
   use:
@@ -130,11 +160,12 @@ proxy-groups:
   - q
 - name: MMOQI
   type: fallback
-  url: https://cp.cloudflare.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 6000
   use:
   - a
   - q
+
 rule-providers:
   aff:
     type: http
@@ -178,19 +209,24 @@ rule-providers:
     url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt"
     path: ./rule-providers/loo.txt
     interval: 86400
+
 rules:
+- DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,yacd.haishan.me,DIRECT
+- DOMAIN,yacd.metacubex.one,DIRECT
+- DOMAIN,clash.metacubex.one,DIRECT
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-loopback,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR6,::/127,DIRECT,no-resolve
-- DOMAIN,clash.razord.top,DIRECT
-- DOMAIN,yacd.haishan.me,DIRECT
-- DOMAIN,yacd.metacubex.one,DIRECT
-- DOMAIN,clash.metacubex.one,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
+- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
 - DOMAIN-SUFFIX,dns.google.com,QQOLI
 - DOMAIN-SUFFIX,accounts.google.com,QQOLI
 - DOMAIN-SUFFIX,books.google.com,QQOLI
