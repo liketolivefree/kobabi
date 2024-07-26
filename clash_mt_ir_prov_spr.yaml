@@ -49,67 +49,6 @@ dns:
   - 'time.*.gov'
   - time.nist.gov
   - 'time.*.apple.com'
-  - time-ios.apple.com
-  - 'time1.*.com'
-  - time1.google.com
-  - 'time2.*.com'
-  - 'time3.*.com'
-  - 'time4.*.com'
-  - 'time5.*.com'
-  - 'time6.*.com'
-  - 'time7.*.com'
-  - 'ntp.*.com'
-  - ntp.ubuntu.com
-  - 'ntp1.*.com'
-  - 'ntp2.*.com'
-  - 'ntp3.*.com'
-  - 'ntp4.*.com'
-  - 'ntp5.*.com'
-  - 'ntp6.*.com'
-  - 'ntp7.*.com'
-  - '+.pool.ntp.org'
-  - '*.openwrt.pool.ntp.org'
-  - '+.stun.*.*'
-  - '+.stun.*.*.*'
-  - '+.stun.*.*.*.*'
-  - '+.stun.*.*.*.*.*'
-  - lens.l.google.com
-  - stun.l.google.com
-  - na.b.g-tun.com
-  - '+.msftconnecttest.com'
-  - '+.msftncsi.com'
-  - '*.ipv6.microsoft.com'
-  - Mijia Cloud
-  - WORKGROUP
-  - '+.shark007.net'
-  - '+.shaoxs.top'
-  - '+.termux.org'
-  - speedtest.cros.wr.pvp.net
-  - proxy.golang.org
-  - network-test.debian.org
-  - ntp.ubuntu.com
-  - detectportal.firefox.com
-  - cable.auth.com
-  - miwifi.com
-  - routerlogin.com
-  - routerlogin.net
-  - tendawifi.com
-  - tendawifi.net
-  - tplinklogin.net
-  - tplinkwifi.net
-  - tplinkrepeater.net
-  - '*.linksys.com'
-  - '*.linksyssmartwifi.com'
-  - heartbeat.belkin.com
-  - '*.router.asus.com'
-  - repeater.asus.com
-  - in.appcenter.ms
-  - adguardteam.github.io
-  - static.adtidy.org
-  - local.adguard.org
-  - anti-ad.net
-  - ff.dorado.sdo.com
-  - resolver1.opendns.com
   default-nameserver:
   - 1.0.0.1
   - 8.8.8.8
@@ -118,6 +57,8 @@ dns:
   - tls://dns.google
   - 8.8.8.8
   - 1.1.1.1
+  proxy-server-nameserver:
+  - https://8.8.4.4/dns-query
   nameserver-policy:
     'rule-set:xal':
     - https://dns.shecan.ir/dns-query
@@ -131,34 +72,20 @@ tun:
   - 'tcp://any:53'
   auto-route: true
   auto-detect-interface: true
-  # strict-route: true
+  strict-route: true
   # mtu: 9000
 sniffer:
   enable: true
-  # force-dns-mapping: true
-  # parse-pure-ip: true
-  # override-destination: true
   sniff:
     TLS:
       ports:
       - 443
       - 8443
-      override-destination: true
     HTTP:
       ports:
       - 80
       - 8080-8880
       override-destination: true
-  force-domain:
-  - '+.v2ex.com'
-  skip-domain:
-  - Mijia Cloud
-  sniffing:
-  - tls
-  - http
-  port-whitelist:
-  - '80'
-  - '443'
 proxy-providers:
   a:
     type: http
@@ -168,7 +95,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
@@ -180,7 +107,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
@@ -192,7 +119,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
     override:
@@ -205,7 +132,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
     override:
@@ -218,7 +145,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
     override:
@@ -231,7 +158,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
     override:
@@ -244,7 +171,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
     override:
@@ -257,7 +184,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
       lazzy: true
     override:
@@ -270,9 +197,9 @@ proxy-groups:
   - MMOQI
 - name: MMOBI
   type: url-test
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 10
+  tolerance: 0
   use:
   - a
   - b
@@ -284,7 +211,7 @@ proxy-groups:
   - h
 - name: MMOQI
   type: fallback
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 300
   use:
   - a
@@ -345,34 +272,14 @@ rules:
 - DOMAIN-SUFFIX,localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-loopback,DIRECT
-- IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
-- IP-CIDR6,::1/128,DIRECT,no-resolve
-- IP-CIDR,0.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
-- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-- IP-CIDR,192.0.0.0/24,DIRECT,no-resolve
-- IP-CIDR,192.0.2.0/24,DIRECT,no-resolve
-- IP-CIDR,192.88.99.0/24,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-- IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
-- IP-CIDR,198.51.100.0/24,DIRECT,no-resolve
-- IP-CIDR,203.0.113.0/24,DIRECT,no-resolve
-- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
 - IP-CIDR6,::/127,DIRECT,no-resolve
-- IP-CIDR6,fc00::/7,DIRECT,no-resolve
-- IP-CIDR6,fe80::/10,DIRECT,no-resolve
-- IP-CIDR6,ff00::/8,DIRECT,no-resolve
 - DOMAIN,clash.razord.top,DIRECT
 - DOMAIN,yacd.haishan.me,DIRECT
 - DOMAIN,yacd.metacubex.one,DIRECT
 - DOMAIN,clash.metacubex.one,DIRECT
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
-- PROCESS-NAME,qbittorrent.exe,DIRECT
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
