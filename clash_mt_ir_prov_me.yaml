@@ -23,6 +23,7 @@ geox-url:
   mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
 geo-auto-update: false
 geo-update-interval: 24
+
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -51,7 +52,7 @@ dns:
   nameserver:
   - tls://one.one.one.one
   - tls://dns.google
-  - https://1.0.0.1/dns-query
+  - https://cloudflare-dns.com/dns-query
   - https://8.8.4.4/dns-query
   proxy-server-nameserver:
   - https://8.8.4.4/dns-query
@@ -60,6 +61,55 @@ dns:
     - https://dns.shecan.ir/dns-query
     - 217.218.127.127
     - tls://one.one.one.one
+  fallback:
+  - tls://one.one.one.one
+  - tls://dns.google
+  - https://dns.google/dns-query
+  - https://1.0.0.1/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: IR
+    ipcidr:
+    - 0.0.0.0/32
+    - 255.255.255.255/32
+    - 127.0.0.1/32
+    - '::1/128'
+    - 0.0.0.0/8
+    - 127.0.0.0/8
+    - '::/128'
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - '::ffff:0:0/96'
+    - '::ffff:0:0:0/96'
+    - '64:ff9b::/96'
+    - '100::/64'
+    - '2001::/32'
+    - '2001:20::/28'
+    - '2001:db8::/32'
+    - '2002::/16'
+    - 'fc00::/7'
+    - 'fe80::/10'
+    - 'ff00::/8'
+    domain:
+    - '+.cloudflare.com'
+    - '+.github.com'
+    - '+.githubusercontent.com'
+    - '+.githubassets.com'
+    - '+.googlevideo.com'
+    - '+.xn--ngstr-lra8j.com'
+    - '+.recaptcha.net'
+
 tun:
   enable: true
   stack: mixed
@@ -70,6 +120,7 @@ tun:
   auto-detect-interface: true
   strict-route: true
   # mtu: 9000
+
 sniffer:
   enable: true
   sniff:
@@ -82,6 +133,7 @@ sniffer:
       - 80
       - 8080-8880
       override-destination: true
+
 proxy-providers:
   a:
     type: http
@@ -132,6 +184,7 @@ proxy-groups:
   use:
   - a
   - q
+
 rule-providers:
   aff:
     type: http
@@ -175,6 +228,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt"
     path: ./rule-providers/loo.txt
     interval: 86400
+
 rules:
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
