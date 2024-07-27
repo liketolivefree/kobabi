@@ -222,6 +222,9 @@ rules:
 - IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
 - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
 - IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
+- DOMAIN-SUFFIX,githubassets.com,QQOLI
+- DOMAIN-SUFFIX,githubusercontent.com,QQOLI
+- DOMAIN-SUFFIX,github.com,QQOLI
 - DOMAIN-SUFFIX,dns.google.com,QQOLI
 - DOMAIN-SUFFIX,accounts.google.com,QQOLI
 - DOMAIN-SUFFIX,books.google.com,QQOLI
