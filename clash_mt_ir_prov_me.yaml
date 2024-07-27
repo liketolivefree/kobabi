@@ -58,11 +58,6 @@ dns:
   - https://8.8.4.4/dns-query
   proxy-server-nameserver:
   - https://8.8.4.4/dns-query
-  nameserver-policy:
-    'rule-set:xal':
-    - https://dns.shecan.ir/dns-query
-    - 217.218.127.127
-    - tls://one.one.one.one
   fallback:
   - tls://one.one.one.one
   - tls://dns.google
