@@ -34,32 +34,51 @@ dns:
   fake-ip-filter:
   - '+.lan'
   - '+.local'
-  - '*.localhost'
-  - '*.localdomain'
+  - '+.localhost'
+  - '+.localdomain'
+  - '+.ip6-localhost'
+  - '+.ip6-loopback'
   - '*.example'
   - '*.invalid'
   - '*.test'
   - '*.home.arpa'
-  - 'time.*.com'
-  - time.windows.com
-  - 'time.*.gov'
   - time.nist.gov
-  - 'time.*.apple.com'
+  - time.windows.com
+  - time.*.apple.com
+  - time.*.gov
+  - time.*.com
   default-nameserver:
   - 1.0.0.1
-  - 8.8.8.8
+  - 8.8.4.4
   nameserver:
   - https://1.0.0.1/dns-query
-  - tls://dns.google
-  - 8.8.8.8
-  - 1.1.1.1
-  proxy-server-nameserver:
   - https://8.8.4.4/dns-query
-  nameserver-policy:
-    'rule-set:xal':
-    - https://dns.shecan.ir/dns-query
-    - 217.218.127.127
-    - 8.8.8.8
+  - https://1.1.1.1/dns-query
+  proxy-server-nameserver:
+  - https://8.8.8.8/dns-query
+  fallback:
+  - https://1.0.0.1/dns-query
+  - https://8.8.4.4/dns-query
+  - https://1.1.1.1/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: IR
+    ipcidr:
+    - 0.0.0.0/32
+    - 10.0.0.0/8
+    - 127.0.0.0/8
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    domain:
+    - '+.cloudflare.com'
+    - '+.github.com'
+    - '+.githubusercontent.com'
+    - '+.githubassets.com'
+    - '+.googlevideo.com'
+    - '+.xn--ngstr-lra8j.com'
+    - '+.recaptcha.net'
 tun:
   enable: true
   stack: mixed
@@ -72,6 +91,7 @@ tun:
   # mtu: 9000
 sniffer:
   enable: true
+  override-destination: false
   sniff:
     TLS:
       ports:
@@ -82,6 +102,13 @@ sniffer:
       - 80
       - 8080-8880
       override-destination: true
+  sniffing:
+  - tls
+  - http
+  port-whitelist:
+  - '80'
+  - '443'
+
 proxy-providers:
   a:
     type: http
@@ -114,14 +141,11 @@ proxy-groups:
   proxies:
   - MMOBI
   - MMOQI
-  use:
-  - a
-  - q
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 60
-  tolerance: 50
+  tolerance: 10
   use:
   - a
   - q
@@ -132,6 +156,7 @@ proxy-groups:
   use:
   - a
   - q
+
 rule-providers:
   aff:
     type: http
@@ -176,18 +201,22 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
+- DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,yacd.haishan.me,DIRECT
+- DOMAIN,yacd.metacubex.one,DIRECT
+- DOMAIN,clash.metacubex.one,DIRECT
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-localhost,DIRECT
 - DOMAIN-SUFFIX,ip6-loopback,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR6,::/127,DIRECT,no-resolve
-- DOMAIN,clash.razord.top,DIRECT
-- DOMAIN,yacd.haishan.me,DIRECT
-- DOMAIN,yacd.metacubex.one,DIRECT
-- DOMAIN,clash.metacubex.one,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
+- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
 - PROCESS-NAME,qbittorrent.exe,DIRECT
