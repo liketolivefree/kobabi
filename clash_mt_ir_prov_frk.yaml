@@ -79,6 +79,7 @@ dns:
     - '+.googlevideo.com'
     - '+.xn--ngstr-lra8j.com'
     - '+.recaptcha.net'
+    - '+.google.com'
 tun:
   enable: true
   stack: mixed
@@ -210,14 +211,6 @@ rules:
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
-- DOMAIN-SUFFIX,ip6-localhost,DIRECT
-- DOMAIN-SUFFIX,ip6-loopback,DIRECT
-- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-- IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
-- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
 - DOMAIN-SUFFIX,time.nist.gov,QQOLI
 - DOMAIN-SUFFIX,time.windows.com,QQOLI
 - DOMAIN-SUFFIX,time.apple.com,QQOLI
