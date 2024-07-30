@@ -23,7 +23,6 @@ geox-url:
   mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
 geo-auto-update: false
 geo-update-interval: 24
-
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -105,7 +104,6 @@ tun:
   auto-detect-interface: true
   strict-route: true
   # mtu: 9000
-
 sniffer:
   enable: true
   override-destination: false
@@ -151,7 +149,6 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-
 proxy-groups:
 - name: QQOLI
   type: select
@@ -229,14 +226,6 @@ rules:
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
-- DOMAIN-SUFFIX,ip6-localhost,DIRECT
-- DOMAIN-SUFFIX,ip6-loopback,DIRECT
-- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-- IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
-- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
 - PROCESS-NAME,qbittorrent.exe,DIRECT
