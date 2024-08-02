@@ -45,8 +45,7 @@ dns:
   - time.nist.gov
   - time.windows.com
   - time.*.apple.com
-  - time.*.gov
-  - time.*.com
+  - time.android.com
   default-nameserver:
   - 1.0.0.1
   - 8.8.4.4
@@ -226,6 +225,11 @@ rules:
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
+- DOMAIN,time.android.com,QQOLI
+- DOMAIN,time.apple.com,QQOLI
+- DOMAIN,time.*.apple.com,QQOLI
+- DOMAIN,time.windows.com,QQOLI
+- DOMAIN,time.nist.gov,QQOLI
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
 - PROCESS-NAME,qbittorrent.exe,DIRECT
