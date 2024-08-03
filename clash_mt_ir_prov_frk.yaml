@@ -134,7 +134,6 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-
 proxy-groups:
 - name: QQOLI
   type: select
@@ -281,6 +280,7 @@ rules:
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
 - PROCESS-NAME,qbittorrent.exe,DIRECT
+- PROCESS-NAME,python.exe,DIRECT
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
