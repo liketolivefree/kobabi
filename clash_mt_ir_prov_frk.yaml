@@ -168,7 +168,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_frk.txt
     path: ./rule-providers/yun.txt
     interval: 86400
   oki:
