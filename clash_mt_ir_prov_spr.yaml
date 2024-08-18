@@ -240,9 +240,9 @@ proxy-groups:
   interval: 150
   tolerance: 0
   use:
+  - c
   - a
   - b
-  - c
   - d
   - e
   - f
@@ -253,9 +253,9 @@ proxy-groups:
   url: https://www.gstatic.com/generate_204
   interval: 150
   use:
+  - c
   - a
   - b
-  - c
   - d
   - e
   - f
