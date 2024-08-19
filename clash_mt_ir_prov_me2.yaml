@@ -122,7 +122,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"       
+    exclude-type: "ss|http|trojan"
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
