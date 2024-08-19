@@ -122,6 +122,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
+    exclude-type: "ss|http|trojan"       
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -141,23 +142,23 @@ proxy-groups:
   - MMOBI
   - MMOQI
   use:
-  - q
   - a
+  - q
 - name: MMOBI
   type: url-test
   url: https://cp.cloudflare.com/generate_204
   interval: 6000
   tolerance: 500
   use:
-  - q
   - a
+  - q
 - name: MMOQI
   type: fallback
   url: https://cp.cloudflare.com/generate_204
   interval: 6000
   use:
-  - q
   - a
+  - q
 
 rule-providers:
   aff:
@@ -203,7 +204,6 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
-- IP-CIDR,10.0.0.0/8,REJECT,no-resolve
 - DOMAIN,clash.razord.top,DIRECT
 - DOMAIN,yacd.haishan.me,DIRECT
 - DOMAIN,yacd.metacubex.one,DIRECT
