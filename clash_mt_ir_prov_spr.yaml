@@ -60,7 +60,7 @@ dns:
   fallback:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
-  - https://1.1.1.1/dns-query
+  - https://9.9.9.9/dns-query
   - 8.8.8.8
   fallback-filter:
     geoip: true
