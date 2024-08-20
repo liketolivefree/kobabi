@@ -52,14 +52,16 @@ dns:
   nameserver:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
-  - https://1.1.1.1/dns-query
+  - https://9.9.9.9/dns-query
   - 8.8.8.8
   proxy-server-nameserver:
-  - https://8.8.8.8/dns-query
+  - 8.8.8.8
+  - 1.1.1.1
   fallback:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   - https://1.1.1.1/dns-query
+  - 8.8.8.8
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -149,7 +151,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-  c:
+  q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
     interval: 8000
@@ -240,7 +242,7 @@ proxy-groups:
   interval: 150
   tolerance: 0
   use:
-  - c
+  - q
   - a
   - b
   - d
@@ -253,7 +255,7 @@ proxy-groups:
   url: https://www.gstatic.com/generate_204
   interval: 150
   use:
-  - c
+  - q
   - a
   - b
   - d
