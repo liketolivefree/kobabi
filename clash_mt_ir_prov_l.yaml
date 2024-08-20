@@ -215,6 +215,7 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
+- IP-CIDR,10.10.34.0/24,REJECT,no-resolve
 - DOMAIN,clash.razord.top,DIRECT
 - DOMAIN,yacd.haishan.me,DIRECT
 - DOMAIN,yacd.metacubex.one,DIRECT
