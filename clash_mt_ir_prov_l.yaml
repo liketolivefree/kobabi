@@ -161,15 +161,15 @@ proxy-groups:
   interval: 60
   tolerance: 10
   use:
-  - a
   - q
+  - a
 - name: MMOQI
   type: fallback
   url: https://www.gstatic.com/generate_204
   interval: 60
   use:
-  - a
   - q
+  - a
 
 rule-providers:
   aff:
