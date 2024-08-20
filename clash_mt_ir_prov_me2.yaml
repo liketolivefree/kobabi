@@ -142,23 +142,23 @@ proxy-groups:
   - MMOBI
   - MMOQI
   use:
-  - a
   - q
+  - a
 - name: MMOBI
   type: url-test
   url: https://cp.cloudflare.com/generate_204
   interval: 6000
   tolerance: 500
   use:
-  - a
   - q
+  - a
 - name: MMOQI
   type: fallback
   url: https://cp.cloudflare.com/generate_204
   interval: 6000
   use:
-  - a
   - q
+  - a
 
 rule-providers:
   aff:
