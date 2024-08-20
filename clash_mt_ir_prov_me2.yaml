@@ -52,19 +52,18 @@ dns:
   nameserver:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
-  - https://1.1.1.1/dns-query
+  - https://9.9.9.9/dns-query
   proxy-server-nameserver:
   - https://8.8.8.8/dns-query
   fallback:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
-  - https://1.1.1.1/dns-query
+  - https://9.9.9.9/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
     ipcidr:
     - 0.0.0.0/32
-    - 10.0.0.0/8
     - 127.0.0.0/8
     - 192.168.0.0/16
     - 198.18.0.0/15
