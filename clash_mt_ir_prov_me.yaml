@@ -62,22 +62,6 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
-    ipcidr:
-    - 0.0.0.0/32
-    - 127.0.0.0/8
-    - 192.168.0.0/16
-    - 198.18.0.0/15
-    - 224.0.0.0/4
-    - 240.0.0.0/4
-    domain:
-    - '+.cloudflare.com'
-    - '+.github.com'
-    - '+.githubusercontent.com'
-    - '+.githubassets.com'
-    - '+.googlevideo.com'
-    - '+.xn--ngstr-lra8j.com'
-    - '+.recaptcha.net'
-    - '+.google.com'
 tun:
   enable: true
   stack: mixed
