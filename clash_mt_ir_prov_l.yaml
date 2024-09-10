@@ -14,7 +14,7 @@ keep-alive-interval: 15
 hosts:
   'localhost': 127.0.0.1
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
 geodata-mode: true
 geox-url:
@@ -53,21 +53,19 @@ dns:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   - https://9.9.9.9/dns-query
+  - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
   - https://8.8.8.8/dns-query
   fallback:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   - https://9.9.9.9/dns-query
+  - https://cloudflare-dns.com/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
     ipcidr:
     - 0.0.0.0/32
-    - 127.0.0.0/8
-    - 192.168.0.0/16
-    - 198.18.0.0/15
-    - 224.0.0.0/4
     - 240.0.0.0/4
     domain:
     - '+.cloudflare.com'
@@ -101,10 +99,9 @@ tun:
   auto-route: true
   auto-detect-interface: true
   strict-route: true
-  # mtu: 9000
+  mtu: 9000
 sniffer:
   enable: true
-  override-destination: false
   sniff:
     TLS:
       ports:
@@ -123,6 +120,18 @@ sniffer:
   - '443'
 
 proxy-providers:
+  q:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 3600
+    path: ./proxy-providers/q.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
@@ -136,11 +145,11 @@ proxy-providers:
     override:
       udp: true
     exclude-type: "ss|http|trojan"
-  q:
+  b:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
     interval: 3600
-    path: ./proxy-providers/q.yaml
+    path: ./proxy-providers/b.yaml
     health-check:
       enable: true
       interval: 60
@@ -148,6 +157,73 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
+    exclude-type: "ss|http|trojan"
+  c:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-1.yaml
+    interval: 3600
+    path: ./proxy-providers/c.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  d:
+    type: http
+    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+    interval: 3600
+    path: ./proxy-providers/d.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  e:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 3600
+    path: ./proxy-providers/e.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  f:
+    type: http
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    interval: 3600
+    path: ./proxy-providers/f.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  g:
+    type: http
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    interval: 3600
+    path: ./proxy-providers/g.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+
 proxy-groups:
 - name: QQOLI
   type: select
@@ -161,6 +237,10 @@ proxy-groups:
   tolerance: 10
   use:
   - q
+  - b
+  - e
+  - c
+  - d
   - a
 - name: MMOQI
   type: fallback
@@ -168,6 +248,10 @@ proxy-groups:
   interval: 60
   use:
   - q
+  - b
+  - e
+  - c
+  - d
   - a
 
 rule-providers:
