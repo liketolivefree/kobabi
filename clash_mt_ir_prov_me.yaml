@@ -62,6 +62,22 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: IR
+    ipcidr:
+    - 0.0.0.0/32
+    - 127.0.0.0/8
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    domain:
+    - '+.cloudflare.com'
+    - '+.github.com'
+    - '+.githubusercontent.com'
+    - '+.githubassets.com'
+    - '+.googlevideo.com'
+    - '+.xn--ngstr-lra8j.com'
+    - '+.recaptcha.net'
+    - '+.google.com'
 tun:
   enable: true
   stack: mixed
@@ -105,7 +121,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"  
+    exclude-type: "ss|http|trojan"
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
@@ -118,6 +134,85 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
+  b:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    interval: 3600
+    path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  c:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-1.yaml
+    interval: 3600
+    path: ./proxy-providers/c.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  d:
+    type: http
+    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+    interval: 3600
+    path: ./proxy-providers/d.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  e:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 3600
+    path: ./proxy-providers/e.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  f:
+    type: http
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    interval: 3600
+    path: ./proxy-providers/f.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+  g:
+    type: http
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    interval: 3600
+    path: ./proxy-providers/g.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
+
 proxy-groups:
 - name: QQOLI
   type: select
@@ -132,6 +227,12 @@ proxy-groups:
   use:
   - q
   - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
 - name: MMOQI
   type: fallback
   url: https://www.gstatic.com/generate_204
@@ -139,6 +240,12 @@ proxy-groups:
   use:
   - q
   - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
 
 rule-providers:
   aff:
