@@ -14,7 +14,7 @@ keep-alive-interval: 15
 hosts:
   'localhost': 127.0.0.1
 profile:
-  store-selected: true
+  store-selected: false
   store-fake-ip: true
 geodata-mode: true
 geox-url:
@@ -50,27 +50,23 @@ dns:
   - 1.0.0.1
   - 8.8.4.4
   nameserver:
-  - https://1.0.0.1/dns-query
+  - 1.1.1.1
   - https://8.8.4.4/dns-query
   - https://9.9.9.9/dns-query
-  - 8.8.8.8
+  - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
   - 8.8.8.8
-  - 1.1.1.1
+  - https://1.1.1.1/dns-query
   fallback:
-  - https://1.0.0.1/dns-query
+  - 1.0.0.1
   - https://8.8.4.4/dns-query
   - https://9.9.9.9/dns-query
-  - 8.8.8.8
+  - https://cloudflare-dns.com/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
     ipcidr:
     - 0.0.0.0/32
-    - 127.0.0.0/8
-    - 192.168.0.0/16
-    - 198.18.0.0/15
-    - 224.0.0.0/4
     - 240.0.0.0/4
     domain:
     - '+.cloudflare.com'
@@ -104,10 +100,9 @@ tun:
   auto-route: true
   auto-detect-interface: true
   strict-route: true
-  # mtu: 9000
+  mtu: 9000
 sniffer:
   enable: true
-  override-destination: false
   sniff:
     TLS:
       ports:
@@ -126,6 +121,18 @@ sniffer:
   - '443'
 
 proxy-providers:
+  q:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 8000
+    path: ./proxy-providers/q.yaml
+    health-check:
+      enable: true
+      interval: 160
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
   a:
     type: http
     url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
@@ -133,99 +140,105 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 150
+      interval: 160
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
   b:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
     interval: 8000
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 150
+      interval: 160
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
-  q:
+  c:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-1.yaml
     interval: 8000
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
-      interval: 150
+      interval: 160
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
     override:
       udp: true
   d:
     type: http
-    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
     interval: 8000
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 150
+      interval: 160
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
     override:
       udp: true
   e:
     type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.yml
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
     interval: 8000
     path: ./proxy-providers/e.yaml
     health-check:
       enable: true
-      interval: 150
+      interval: 160
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
     override:
       udp: true
   f:
     type: http
-    url: https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
     interval: 8000
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
-      interval: 150
+      interval: 160
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
     override:
       udp: true
   g:
     type: http
-    url: https://raw.githubusercontent.com/NiceVPN123/NiceVPN/main/utils/pool/output.yaml
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
     interval: 8000
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
-      interval: 150
+      interval: 160
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
     override:
       udp: true
   h:
     type: http
-    url: https://raw.githubusercontent.com/ZGQ-inc/openit/main/utils/pool/output.yaml
+    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
     interval: 8000
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
-      interval: 150
+      interval: 160
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-      lazzy: true
+    override:
+      udp: true
+  i:
+    type: http
+    url: https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml
+    interval: 8000
+    path: ./proxy-providers/i.yaml
+    health-check:
+      enable: true
+      interval: 160
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
     override:
       udp: true
 
@@ -238,30 +251,34 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
-  interval: 150
+  interval: 160
   tolerance: 0
   use:
   - q
-  - a
   - b
-  - d
   - e
+  - c
+  - d
+  - a
   - f
   - g
   - h
+  - i
 - name: MMOQI
   type: fallback
   url: https://www.gstatic.com/generate_204
-  interval: 150
+  interval: 160
   use:
   - q
-  - a
   - b
-  - d
   - e
+  - c
+  - d
+  - a
   - f
   - g
   - h
+  - i
 
 rule-providers:
   aff:
