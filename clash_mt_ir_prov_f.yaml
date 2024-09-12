@@ -90,8 +90,11 @@ dns:
     - '+.x.com'
     - '+.bing.com'
     - '+.facebook.com'
+
+   nameserver-policy:
+    'RULE-SET:xal': ['https://1.0.0.1/dns-query', 'https://8.8.4.4/dns-query', '217.218.155.155', '217.218.127.127', 'https://dns.403.online/dns-query', 'https://dns.shecan.ir/dns-query']
 tun:
-  enable: true
+enable: true
   stack: mixed
   dns-hijack:
   - 'any:53'
