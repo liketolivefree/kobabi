@@ -12,15 +12,15 @@ unified-delay: true
 global-client-fingerprint: chrome
 keep-alive-interval: 15
 hosts:
-  'localhost': 127.0.0.1
+  localhost: 127.0.0.1
 profile:
   store-selected: false
   store-fake-ip: true
 geodata-mode: true
 geox-url:
-  geoip: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat'
-  geosite: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat'
-  mmdb: 'https://github.com/chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb'
+  geoip: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
+  geosite: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
+  mmdb: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb
 geo-auto-update: false
 geo-update-interval: 24
 dns:
@@ -32,12 +32,12 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-  - '+.lan'
-  - '+.local'
-  - '+.localhost'
-  - '+.localdomain'
-  - '+.ip6-localhost'
-  - '+.ip6-loopback'
+  - +.lan
+  - +.local
+  - +.localhost
+  - +.localdomain
+  - +.ip6-localhost
+  - +.ip6-loopback
   - '*.example'
   - '*.invalid'
   - '*.test'
@@ -68,22 +68,25 @@ dns:
     - 0.0.0.0/32
     - 240.0.0.0/4
     domain:
-    - '+.cloudflare.com'
-    - '+.github.com'
-    - '+.githubusercontent.com'
-    - '+.githubassets.com'
-    - '+.googlevideo.com'
-    - '+.xn--ngstr-lra8j.com'
-    - '+.recaptcha.net'
-    - '+.google.com'
+    - +.cloudflare.com
+    - +.github.com
+    - +.githubusercontent.com
+    - +.githubassets.com
+    - +.googlevideo.com
+    - +.xn--ngstr-lra8j.com
+    - +.recaptcha.net
+    - +.google.com
   nameserver-policy:
-    'RULE-SET:xal': ['https://1.0.0.1/dns-query', 'https://8.8.4.4/dns-query', '217.218.155.155', '217.218.127.127', 'https://dns.403.online/dns-query', 'https://dns.shecan.ir/dns-query']
+    RULE-SET:xal:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+    - https://dns.403.online/dns-query
+    - https://dns.shecan.ir/dns-query
 tun:
   enable: true
   stack: mixed
   dns-hijack:
-  - 'any:53'
-  - 'tcp://any:53'
+  - any:53
   auto-route: true
   auto-detect-interface: true
   strict-route: true
@@ -132,7 +135,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
   b:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -145,7 +148,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
   c:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-1.yaml
@@ -158,7 +161,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
   d:
     type: http
     url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
@@ -171,7 +174,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
   e:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -184,7 +187,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
   f:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
@@ -197,7 +200,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
   g:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -210,7 +213,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
 
 proxy-groups:
 - name: QQOLI
@@ -295,6 +298,11 @@ rules:
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
+- DOMAIN-SUFFIX,time.android.com,QQOLI
+- DOMAIN-SUFFIX,time.windows.com,QQOLI
+- DOMAIN-SUFFIX,time.apple.com,QQOLI
+- DOMAIN-SUFFIX,time.*.apple.com,QQOLI
+- DOMAIN-SUFFIX,time.nist.gov,QQOLI
 - DOMAIN,accounts.google.com,QQOLI
 - DOMAIN,books.google.com,QQOLI
 - DOMAIN,chrome.google.com,QQOLI
@@ -321,7 +329,6 @@ rules:
 - DOMAIN,www.gstatic.com,QQOLI
 - DOMAIN,translate.googleapis.com,QQOLI
 - DOMAIN,developer.android.com,QQOLI
-- DOMAIN,time.android.com,QQOLI
 - DOMAIN,chopsdash.appspot.com,QQOLI
 - DOMAIN,chrome-devtools-frontend.appspot.com,QQOLI
 - DOMAIN,hostsaway.appspot.com,QQOLI
@@ -334,10 +341,7 @@ rules:
 - DOMAIN,learn.microsoft.com,QQOLI
 - DOMAIN,support.microsoft.com,QQOLI
 - DOMAIN,www.microsoft.com,QQOLI
-- DOMAIN,time.windows.com,QQOLI
 - DOMAIN,support.apple.com,QQOLI
-- DOMAIN,time.apple.com,QQOLI
-- DOMAIN,time.*.apple.com,QQOLI
 - DOMAIN,api.amazon.com,QQOLI
 - DOMAIN,doc.aws.amazon.com,QQOLI
 - DOMAIN,images.amazon.com,QQOLI
@@ -360,9 +364,9 @@ rules:
 - DOMAIN,subc.vercel.app,QQOLI
 - DOMAIN,sub-now-ten.vercel.app,QQOLI
 - DOMAIN,v2rayfree-waline.vercel.app,QQOLI
+- DOMAIN,sing-box-subscribe.vercel.app,QQOLI
 - DOMAIN,trk.free.fr,QQOLI
 - DOMAIN,f001.backblazeb2.com,QQOLI
-- DOMAIN,time.nist.gov,QQOLI
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
 - PROCESS-NAME,qbittorrent.exe,DIRECT
