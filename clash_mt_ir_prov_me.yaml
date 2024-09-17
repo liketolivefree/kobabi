@@ -10,7 +10,7 @@ find-process-mode: always
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: chrome
-keep-alive-interval: 15
+keep-alive-interval: 30
 hosts:
   localhost: 127.0.0.1
 profile:
@@ -76,6 +76,20 @@ dns:
     - +.xn--ngstr-lra8j.com
     - +.recaptcha.net
     - +.google.com
+    - +.googleapis.com
+    - +.gstatic.com
+    - +.gvt1.com
+    - +.gvt2.com
+    - +.microsoft.com
+    - +.windows.com
+    - +.nist.gov
+    - +.apple.com
+    - +.amazon.com
+    - +.amazonaws.com
+    - +.youtube.com
+    - +.x.com
+    - +.bing.com
+    - +.facebook.com
   nameserver-policy:
     RULE-SET:xal:
     - https://1.1.1.1/dns-query
@@ -125,7 +139,7 @@ proxy-providers:
       udp: true
   a:
     type: http
-    url: https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/update/provider/provider-all.yml
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
@@ -164,7 +178,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   d:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -177,7 +191,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   e:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/spd/sub_merge_yaml.yml
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
@@ -190,7 +204,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   f:
     type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
@@ -214,6 +228,45 @@ proxy-providers:
     override:
       udp: true
     exclude-type: ss|http|trojan
+  h:
+    type: http
+    url: https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml
+    interval: 3600
+    path: ./proxy-providers/h.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: ss|http|trojan
+  i:
+    type: http
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    interval: 3600
+    path: ./proxy-providers/i.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: ss|http|trojan
+  j:
+    type: http
+    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    interval: 3600
+    path: ./proxy-providers/j.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: ss|http|trojan
 
 proxy-groups:
 - name: QQOLI
@@ -228,22 +281,26 @@ proxy-groups:
   tolerance: 10
   use:
   - q
+  - a
   - b
-  - e
   - c
   - d
-  - a
+  - e
+  - f
+  - g
 - name: MMOQI
   type: fallback
   url: https://www.gstatic.com/generate_204
   interval: 60
   use:
   - q
+  - a
   - b
-  - e
   - c
   - d
-  - a
+  - e
+  - f
+  - g
 
 rule-providers:
   aff:
