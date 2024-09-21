@@ -139,7 +139,7 @@ proxy-providers:
       udp: true
   a:
     type: http
-    url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/update/provider/provider-all.yml
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
@@ -152,7 +152,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   b:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-1.yaml
     interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
@@ -191,7 +191,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   e:
     type: http
-    url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/spd/sub_merge_yaml.yml
+    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
@@ -204,7 +204,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   f:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+    url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/update/provider/provider-all.yml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
@@ -217,7 +217,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   g:
     type: http
-    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    url: https://raw.githubusercontent.com/lagzian/V2RayAggregator/master/update/provider/provider-all.yml
     interval: 3600
     path: ./proxy-providers/g.yaml
     health-check:
@@ -230,7 +230,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   h:
     type: http
-    url: https://raw.githubusercontent.com/mfuu/v2ray/master/merge/merge_clash.yaml
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/update/provider/provider-all.yml
     interval: 3600
     path: ./proxy-providers/h.yaml
     health-check:
@@ -256,9 +256,22 @@ proxy-providers:
     exclude-type: ss|http|trojan
   j:
     type: http
-    url: https://raw.githubusercontent.com/youfoundamin/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/spd/sub_merge_yaml.yml
     interval: 3600
     path: ./proxy-providers/j.yaml
+    health-check:
+      enable: true
+      interval: 60
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: ss|http|trojan
+  k:
+    type: http
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    interval: 3600
+    path: ./proxy-providers/k.yaml
     health-check:
       enable: true
       interval: 60
@@ -288,6 +301,8 @@ proxy-groups:
   - e
   - f
   - g
+  - h
+  - i
 - name: MMOQI
   type: fallback
   url: https://www.gstatic.com/generate_204
@@ -301,6 +316,8 @@ proxy-groups:
   - e
   - f
   - g
+  - h
+  - i
 
 rule-providers:
   aff:
