@@ -157,6 +157,8 @@ proxy-groups:
   proxies:
   - MMOBI
   - MMOQI
+  use:
+  - q
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
