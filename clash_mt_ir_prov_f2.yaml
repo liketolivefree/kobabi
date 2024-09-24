@@ -53,14 +53,14 @@ dns:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   - https://9.9.9.9/dns-query
-  - https://cloudflare-dns.com/dns-query
+  - tls://one.one.one.one
   proxy-server-nameserver:
   - https://8.8.8.8/dns-query
   fallback:
   - https://1.0.0.1/dns-query
   - https://8.8.4.4/dns-query
   - https://9.9.9.9/dns-query
-  - https://cloudflare-dns.com/dns-query
+  - tls://one.one.one.one
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -92,7 +92,7 @@ dns:
     - +.facebook.com
   nameserver-policy:
     RULE-SET:xal:
-    - https://1.1.1.1/dns-query
+    - tls://cloudflare-dns.com
     - https://8.8.8.8/dns-query
     - https://dns.403.online/dns-query
     - https://dns.shecan.ir/dns-query
