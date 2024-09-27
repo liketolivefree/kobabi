@@ -123,7 +123,7 @@
       "type": "tun",
       "tag": "tun",
       "interface_name": "tun0",
-      "domain_strategy": "prefer_ipv4"
+      "domain_strategy": "prefer_ipv4",
       "inet4_address": "172.19.0.1/30",
       "inet6_address": "fdfe:dcba:9876::1/126",
       "mtu": 9000,
