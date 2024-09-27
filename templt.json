@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "fatal",
+    "level": "error",
     "timestamp": true
   },
   "experimental": {
@@ -15,7 +15,7 @@
     "cache_file": {
       "enabled": true,
       "store_fakeip": true,
-      "store_rdrc": true
+      "store_rdrc": false
     }
   },
   "dns": {
@@ -26,23 +26,29 @@
     },
     "servers": [
       {
+        "tag": "remote-dns",
         "address": "https://1.1.1.1/dns-query",
-        "address_resolver": "local",
-        "tag": "remote"
+        "address_resolver": "remote-resolver-dns",
+        "detour": "direct"
       },
       {
+        "tag": "local-dns",
         "address": "https://8.8.8.8/dns-query",
-        "address_resolver": "bootstrap",
-        "detour": "direct",
-        "tag": "local"
+        "address_resolver": "resolver-dns",
+        "detour": "direct"
       },
       {
-        "address": "9.9.9.9",
-        "detour": "direct",
-        "tag": "bootstrap"
+        "tag": "resolver-dns",
+        "address": "1.1.1.1",
+        "detour": "direct"
       },
       {
-        "tag": "fakeip",
+        "tag": "remote-resolver-dns",
+        "address": "8.8.8.8",
+        "detour": "direct"
+      },
+      {
+        "tag": "fakeip-dns",
         "address": "fakeip"
       },
       {
@@ -52,40 +58,72 @@
     ],
     "rules": [
       {
+        "rule_set": "geosite-phishing",
+        "server": "block"
+      },
+      {
+        "rule_set": "geosite-malware",
+        "server": "block"
+      },
+      {
+        "rule_set": "geosite-cryptominers",
+        "server": "block"
+      },
+      {
         "rule_set": "geosite-category-ads-all",
         "server": "block"
       },
       {
+        "rule_set": "geosite-ir",
+        "server": "local-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "domain_suffix": [
+              ".lan",
+              ".localdomain",
+              ".example",
+              ".invalid",
+              ".localhost",
+              ".test",
+              ".local",
+              ".home.arpa"
+            ],
+            "invert": true
+          },
+          {
+            "query_type": [
+              "A",
+              "AAAA"
+            ]
+          }
+        ],
+        "server": "fakeip-dns"
+      },
+      {
         "clash_mode": "direct",
-        "server": "local"
+        "server": "local-dns"
       },
       {
         "clash_mode": "global",
-        "server": "remote"
-      },
-      {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "server": "fakeip"
-      },
-      {
-        "rule_set": "geosite-ir",
-        "server": "local"
+        "server": "remote-dns"
       }
     ],
-    "final": "remote",
-    "reverse_mapping": true,
+    "final": "remote-dns",
     "strategy": "prefer_ipv4",
+    "disable_cache": false,
+    "disable_expire": false,
     "independent_cache": true
   },
   "inbounds": [
     {
       "type": "tun",
       "tag": "tun",
-      "domain_strategy": "",
       "interface_name": "tun0",
+      "domain_strategy": "prefer_ipv4"
       "inet4_address": "172.19.0.1/30",
       "inet6_address": "fdfe:dcba:9876::1/126",
       "mtu": 9000,
@@ -104,38 +142,40 @@
       }
     },
     {
-      "domain_strategy": "",
+      "type": "mixed",
+      "tag": "mixed",
       "listen": "0.0.0.0",
       "listen_port": 2080,
       "sniff": true,
       "sniff_override_destination": true,
-      "tag": "mixed",
-      "type": "mixed"
+      "domain_strategy": "prefer_ipv4",
+      "tcp_fast_open": true,
+      "tcp_multi_path": true,
+      "udp_fragment": true
     }
   ],
   "outbounds": [
     {
-      "tag":"proxy",
-      "type":"selector",
-      "interrupt_exist_connections": true,	  
-      "outbounds":[
+      "tag": "proxy",
+      "type": "selector",
+      "interrupt_exist_connections": true,
+      "outbounds": [
         "auto",
         "{all}"
       ]
     },
     {
-      "tag":"auto",
-      "type":"urltest",
-      "outbounds":[
+      "tag": "auto",
+      "type": "urltest",
+      "outbounds": [
         "{all}"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "5m",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "300s",
       "tolerance": 50
     },
     {
       "type": "direct",
-      "domain_strategy": "prefer_ipv4",	  
       "tag": "direct"
     },
     {
@@ -150,34 +190,48 @@
   "route": {
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "final": "proxy",
     "rules": [
       {
-        "outbound": "dns-out",
-        "protocol": "dns"
+        "protocol": "dns",
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "rule_set": "geoip-phishing",
+        "outbound": "block"
+      },
+      {
+        "rule_set": "geoip-malware",
+        "outbound": "block"
+      },
+      {
+        "rule_set": "geosite-phishing",
+        "outbound": "block"
+      },
+      {
+        "rule_set": "geosite-malware",
+        "outbound": "block"
+      },
+      {
+        "rule_set": "geosite-cryptominers",
+        "outbound": "block"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "outbound": "block"
       },
       {
         "ip_is_private": true,
         "outbound": "direct"
       },
       {
-        "outbound": "block",
-        "rule_set": [
-          "geoip-malware",
-          "geoip-phishing",
-          "geosite-category-ads-all",
-          "geosite-cryptominers",
-          "geosite-malware",
-          "geosite-phishing"
-        ]
+        "rule_set": "geoip-ir",
+        "outbound": "direct"
       },
       {
-        "outbound": "direct",
-        "rule_set": [
-          "geoip-ir",
-          "geosite-ir"
-        ]
-      }	
+        "rule_set": "geosite-ir",
+        "outbound": "direct"
+      }
     ],
     "rule_set": [
       {
