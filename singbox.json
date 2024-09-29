@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "error",
+    "level": "info",
     "timestamp": true
   },
   "experimental": {
@@ -37,26 +37,6 @@
       }
     ],
     "rules": [
-      {
-        "rule_set": "geosite-phishing",
-        "server": "dns-block"
-      },
-      {
-        "rule_set": "geosite-malware",
-        "server": "dns-block"
-      },
-      {
-        "rule_set": "geosite-cryptominers",
-        "server": "dns-block"
-      },
-      {
-        "rule_set": "geosite-category-ads-all",
-        "server": "dns-block"
-      },
-      {
-        "rule_set": "geosite-ir",
-        "server": "dns-direct"
-      },
       {
         "clash_mode": "direct",
         "server": "dns-direct"
@@ -110,15 +90,6 @@
           "server_port": 7890
         }
       }
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 7890,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "domain_strategy": "ipv4_only"
     }
   ],
   "outbounds": [
@@ -1191,30 +1162,6 @@
         "outbound": "direct-out"
       },
       {
-        "rule_set": "geoip-phishing",
-        "outbound": "block-out"
-      },
-      {
-        "rule_set": "geoip-malware",
-        "outbound": "block-out"
-      },
-      {
-        "rule_set": "geosite-phishing",
-        "outbound": "block-out"
-      },
-      {
-        "rule_set": "geosite-malware",
-        "outbound": "block-out"
-      },
-      {
-        "rule_set": "geosite-cryptominers",
-        "outbound": "block-out"
-      },
-      {
-        "rule_set": "geosite-category-ads-all",
-        "outbound": "block-out"
-      },
-      {
         "ip_cidr": [
           "0.0.0.0/32",
           "240.0.0.0/4"
@@ -1225,14 +1172,6 @@
         "domain_suffix": [
           ".ir"
         ],
-        "outbound": "direct-out"
-      },
-      {
-        "rule_set": "geoip-ir",
-        "outbound": "direct-out"
-      },
-      {
-        "rule_set": "geosite-ir",
         "outbound": "direct-out"
       },
       {
@@ -1251,64 +1190,6 @@
       {
         "clash_mode": "global",
         "outbound": "qoli"
-      }
-    ],
-    "rule_set": [
-      {
-        "tag": "geosite-ir",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-ir.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "tag": "geoip-ir",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-ir.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "tag": "geosite-category-ads-all",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-category-ads-all.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "tag": "geosite-cryptominers",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-cryptominers.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "tag": "geosite-malware",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-malware.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "tag": "geosite-phishing",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-phishing.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "tag": "geoip-malware",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-malware.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "tag": "geoip-phishing",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-phishing.srs",
-        "download_detour": "direct-out"
       }
     ]
   }
