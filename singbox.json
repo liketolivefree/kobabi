@@ -38,6 +38,26 @@
     ],
     "rules": [
       {
+        "rule_set": "geosite-phishing",
+        "server": "dns-block"
+      },
+      {
+        "rule_set": "geosite-malware",
+        "server": "dns-block"
+      },
+      {
+        "rule_set": "geosite-cryptominers",
+        "server": "dns-block"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "server": "dns-block"
+      },
+      {
+        "rule_set": "geosite-ir",
+        "server": "dns-direct"
+      },
+      {
         "clash_mode": "direct",
         "server": "dns-direct"
       },
@@ -90,67 +110,20 @@
           "server_port": 7890
         }
       }
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7890,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "domain_strategy": "ipv4_only"
     }
   ],
   "outbounds": [
     {
       "tag": "qoli",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "outbounds": [
-        "auto",
-        "🇺🇸 💥🇺🇸 US warpPlus ◈ udp:443 ◈ 8fe51",
-        "🇺🇸 🔒 HYSTERIA-UDP 🇺🇸 US-66.135.11.68:443",
-        "🇺🇸 🔒 HYSTERIA-UDP 🇺🇸 US-45.76.0.86:443",
-        "🇺🇸 💰💥🇺🇸 US warpPlus ◈ udp:443 ◈ 3a210",
-        "🇺🇸 💥🇺🇸 US warpPlus ◈ udp:443 ◈ b0091",
-        "🇺🇸 🔒 HYSTERIA-UDP 🇺🇸 US-207.148.22.93:443",
-        "🇭🇰 HK🇭🇰01(不限流量)",
-        "🇳🇱 💰💥🇳🇱 NL warpPlus ◈ udp:7373 ◈ f8355",
-        "🇺🇸 💰💥🇺🇸 US warpPlus ◈ udp:443 ◈ a5de9",
-        "🇨🇦 👉🆔 @v2ray_configs_pool📡🇨🇦Canada`",
-        "[🇨🇦]t.me/ConfigsHub`",
-        "@vpnclashfa - 82",
-        "🖲️50@oneclickvpnkeys",
-        "RELAY🚩 | 1fdSNA119228928OpS2smTaB228aAsDDsd1ea14532201117.speedy-30.pro-2087 | 2.44ms",
-        "🇨🇦 👉🆔 @v2ray_configs_pool📡🇨🇦Canada` 2",
-        "🇨🇦 👉🆔 @v2ray_configs_pool📡🇨🇦Canada` 3",
-        "🇨🇦 👉🆔 @v2ray_configs_pool📡🇨🇦Canada` 4",
-        "🇨🇦 👉🆔 @v2ray_configs_pool📡🇨🇦Canada` 5",
-        "🇨🇦 👉🆔 @v2ray_configs_pool📡🇨🇦Canada` 6",
-        "@vpnclashfa - 83",
-        "vpnstable کانال تلگرام💟 ایرانسل :",
-        "vpnstable کانال تلگرام",
-        "🇨🇦 👉🆔 @v2ray_configs_pool📡🇨🇦Canada` 7",
-        "vpnstable کانال تلگرام 2",
-        "🇩🇪 💰💥🇩🇪 DE 104.238.158.114 ◈ grpc:443 ◈ The Constant Company / Vultr Holdings ◈ ee26b",
-        "@vpnclashfa - 324",
-        "🇨🇦 🆔هر_روز_وی‌پی‌ان_|_Everyday_VPN 🔒 VL-GRPC-N/A 🇨🇦 CA 9ms",
-        "@vpnclashfa - 80",
-        "🇨🇦 🆔هر_روز_وی‌پی‌ان_|_Everyday_VPN 🔒 VL-GRPC-N/A 🇨🇦 CA 14ms",
-        "@vpnclashfa - 46",
-        "🇩🇪 💥🇩🇪 DE 89.187.169.72 ◈ tcp:443 ◈ Datacamp Limited / Cdn77 FRA ◈ aee28",
-        "🏁RELAY-104.21.83.208-2824",
-        "✔︎𝐜𝐡𝐚𝐧𝐧𝐞𝐥➪@ConfigV2rayForFree",
-        "🇳🇦 Namibia - NA 🌍 VL-WS-TLS 4⃣",
-        "🇳🇦 Namibia - NA 🌍 VM-WS-TLS 4⃣",
-        "🇨🇦 👉🆔 @v2ray_configs_pool📡🇨🇦Canada` 8",
-        "🇩🇪 Германия#2 ❯ XRay abvpn",
-        "🇳🇦 Namibia - NA 🌍 VM-WS-TLS 4⃣ 2",
-        "🇺🇸 US(AzadNet.t.me)_3251",
-        "🏁RELAY-188.114.97.2-2633",
-        "🇳🇦 Namibia - NA 🌍 VM-WS-TLS 4⃣ 3",
-        "🇯🇵 🔒🇯🇵 JP 4.241.144.155 ◈ ws:443 ◈ Microsoft Azure Cloud (japaneast) ◈ 6c20a",
-        "@vpnclashfa - 209",
-        "🇧🇷 BR(AzadNet.t.me)_0042",
-        "t.me/DailyV2ry",
-        "🇺🇸 圣何塞 14",
-        "🇳🇦 Namibia - NA 🌍 VM-WS-TLS 4⃣ 4",
-        "@vpnclashfa - 597"
-      ]
-    },
-    {
-      "tag": "auto",
       "type": "urltest",
       "outbounds": [
         "🇺🇸 💥🇺🇸 US warpPlus ◈ udp:443 ◈ 8fe51",
@@ -1162,6 +1135,30 @@
         "outbound": "direct-out"
       },
       {
+        "rule_set": "geoip-phishing",
+        "outbound": "block-out"
+      },
+      {
+        "rule_set": "geoip-malware",
+        "outbound": "block-out"
+      },
+      {
+        "rule_set": "geosite-phishing",
+        "outbound": "block-out"
+      },
+      {
+        "rule_set": "geosite-malware",
+        "outbound": "block-out"
+      },
+      {
+        "rule_set": "geosite-cryptominers",
+        "outbound": "block-out"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "outbound": "block-out"
+      },
+      {
         "ip_cidr": [
           "0.0.0.0/32",
           "240.0.0.0/4"
@@ -1172,6 +1169,14 @@
         "domain_suffix": [
           ".ir"
         ],
+        "outbound": "direct-out"
+      },
+      {
+        "rule_set": "geoip-ir",
+        "outbound": "direct-out"
+      },
+      {
+        "rule_set": "geosite-ir",
         "outbound": "direct-out"
       },
       {
@@ -1190,6 +1195,64 @@
       {
         "clash_mode": "global",
         "outbound": "qoli"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-ir",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-ir.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "tag": "geoip-ir",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-ir.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-category-ads-all.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "tag": "geosite-cryptominers",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-cryptominers.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "tag": "geosite-malware",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-malware.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "tag": "geosite-phishing",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-phishing.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "tag": "geoip-malware",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-malware.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "tag": "geoip-phishing",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-phishing.srs",
+        "download_detour": "direct-out"
       }
     ]
   }
