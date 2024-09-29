@@ -38,6 +38,10 @@
     ],
     "rules": [
       {
+        "outbound": "any",
+        "server": "dns-direct"
+      },
+      {
         "rule_set": "geosite-phishing",
         "server": "dns-block"
       },
