@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "error",
+    "level": "info",
     "timestamp": true
   },
   "experimental": {
@@ -114,7 +114,7 @@
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "127.0.0.1",
+      "listen": "::",
       "listen_port": 7890,
       "sniff": true,
       "sniff_override_destination": false,
@@ -124,15 +124,6 @@
   "outbounds": [
     {
       "tag": "qoli",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "outbounds": [
-        "auto",
-        "{all}"
-      ]
-    },
-    {
-      "tag": "auto",
       "type": "urltest",
       "outbounds": [
         "{all}"
