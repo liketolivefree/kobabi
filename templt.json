@@ -6,7 +6,7 @@
   "experimental": {
     "cache_file": {
       "enabled": true,
-	  "store_fakeip": true,
+      "store_fakeip": true,
       "store_rdrc": true
     }
   },
@@ -16,14 +16,14 @@
         "tag": "dns-remote",
         "address": "https://1.1.1.1/dns-query",
         "address_resolver": "dns-local",
-		"strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "detour": "qoli"
       },
       {
         "tag": "dns-direct",
         "address": "https://dns.shecan.ir/dns-query",
         "address_resolver": "dns-local",
-		"strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "detour": "direct-out"
       },
       {
@@ -37,10 +37,6 @@
       }
     ],
     "rules": [
-      {
-        "outbound": "any",
-        "server": "dns-direct"
-      },
       {
         "rule_set": "geosite-phishing",
         "server": "dns-block"
@@ -56,6 +52,16 @@
       {
         "rule_set": "geosite-category-ads-all",
         "server": "dns-block"
+      },
+      {
+        "outbound": "any",
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "server": "dns-direct"
       },
       {
         "rule_set": "geosite-ir",
@@ -77,14 +83,21 @@
     "reverse_mapping": false,
     "independent_cache": true
   },
+  "ntp": {
+    "enabled": false,
+    "server": "pool.ntp.org",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "direct-out"
+  },
   "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
-	  "interface_name": "tun0",
+      "interface_name": "tun0",
       "mtu": 9000,
       "auto_route": true,
-	  "strict_route": true,
+      "strict_route": true,
       "stack": "system",
       "domain_strategy": "ipv4_only",
       "sniff": true,
@@ -95,15 +108,15 @@
         "fdfe:dcba:9876::1/126"
       ],
       "route_address": [
-	    "0.0.0.0/1",
-	    "128.0.0.0/1",
-	    "::/1",
-	    "8000::/1"
-	  ],
+        "0.0.0.0/1",
+        "128.0.0.0/1",
+        "::/1",
+        "8000::/1"
+      ],
       "route_exclude_address": [
-	    "192.168.0.0/16",
-	    "fc00::/7"
-	  ],
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
       "exclude_package": [
         "com.android.captiveportallogin"
       ],
@@ -127,32 +140,40 @@
   ],
   "outbounds": [
     {
-      "tag": "qoli",
-      "type": "urltest",
-      "outbounds": [
+      "tag":"qoli",
+      "type":"selector",
+      "outbounds":[
+        "auto",
+        "{all}"
+      ]
+    },
+   {
+      "tag":"auto",
+      "type":"urltest",
+      "outbounds":[
         "{all}"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "300s",
-      "tolerance": 50
+      "interval": "60s",
+      "tolerance": 15
     },
     {
-	  "tag": "direct-out",
-	  "type": "direct"
+      "tag": "direct-out",
+      "type": "direct"
     },
     {
       "tag": "dns-out",
-	  "type": "dns"
+      "type": "dns"
     },
     {
       "tag": "block-out",
-	  "type": "block"
+      "type": "block"
     }
   ],
   "route": {
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "final":  "qoli",
+    "final": "qoli",
     "rules": [
       {
         "protocol": "dns",
@@ -189,7 +210,7 @@
       {
         "ip_cidr": [
           "0.0.0.0/32",
-		  "240.0.0.0/4"
+          "240.0.0.0/4"
         ],
         "outbound": "block-out"
       },
@@ -236,51 +257,51 @@
       {
         "tag": "geoip-ir",
         "type": "remote",
-		"format": "binary",
-		"url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-ir.srs",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-ir.srs",
         "download_detour": "direct-out"
       },
       {
         "tag": "geosite-category-ads-all",
         "type": "remote",
-		"format": "binary",
+        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-category-ads-all.srs",
-		"download_detour": "direct-out"
+        "download_detour": "direct-out"
       },
       {
         "tag": "geosite-cryptominers",
         "type": "remote",
-		"format": "binary",
+        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-cryptominers.srs",
-		"download_detour": "direct-out"
+        "download_detour": "direct-out"
       },
       {
         "tag": "geosite-malware",
         "type": "remote",
-		"format": "binary",
+        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-malware.srs",
-		"download_detour": "direct-out"
+        "download_detour": "direct-out"
       },
       {
         "tag": "geosite-phishing",
         "type": "remote",
-		"format": "binary",
+        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-phishing.srs",
-		"download_detour": "direct-out"
+        "download_detour": "direct-out"
       },
       {
         "tag": "geoip-malware",
         "type": "remote",
-		"format": "binary",
+        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-malware.srs",
-		"download_detour": "direct-out"
+        "download_detour": "direct-out"
       },
       {
         "tag": "geoip-phishing",
         "type": "remote",
-		"format": "binary",
+        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-phishing.srs",
-		"download_detour": "direct-out"
+        "download_detour": "direct-out"
       }
     ]
   }
