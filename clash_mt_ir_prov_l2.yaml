@@ -175,8 +175,6 @@ proxy-groups:
   - MMOQI
   use:
   - q
-  - b
-  - a
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -184,7 +182,6 @@ proxy-groups:
   tolerance: 500
   use:
   - q
-  - b
   - a
 - name: MMOQI
   type: fallback
@@ -192,7 +189,6 @@ proxy-groups:
   interval: 3600
   use:
   - q
-  - b
   - a
 
 rule-providers:
