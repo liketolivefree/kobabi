@@ -75,10 +75,9 @@
     {
       "tag": "direct-in",
       "type": "direct",
-      "domain_strategy": "ipv4_only",
       "listen": "0.0.0.0",
       "listen_port": 6450,
-      "override_address": "8.8.4.4",
+      "override_address": "8.8.8.8",
       "override_port": 53
     },
     {
@@ -97,31 +96,10 @@
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
-      "route_address": [
-        "0.0.0.0/1",
-        "128.0.0.0/1",
-        "::/1",
-        "8000::/1"
-      ],
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "fc00::/7"
-      ],
-      "exclude_package": [
-        "com.android.captiveportallogin"
-      ],
-      "platform": {
-        "http_proxy": {
-          "enabled": false,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-      }
     },
     {
       "tag": "mixed-in",
       "type": "mixed",
-      "domain_strategy": "ipv4_only",
       "listen": "0.0.0.0",
       "listen_port": 2080,
       "sniff": true,
@@ -1768,7 +1746,13 @@
           "geosite-ir"
         ],
         "outbound": "TTAQI"
-      }
+      },
+      {
+        "inbound": [
+          "tun-in"
+        ],
+        "outbound": "QQOLI"
+      }	  
     ],
     "rule_set": [
       {
