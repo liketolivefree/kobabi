@@ -27,13 +27,23 @@
     "servers": [
       {
         "tag": "remote-dns",
-        "address": "https://1.0.0.1/dns-query",
-        "detour": "direct"
+        "address": "https://chrome.cloudflare-dns.com/dns-query",
+        "address_resolver": "1.0.0.1",
+        "strategy": "prefer_ipv4",
+        "detour": "TTAQI"
       },
       {
         "tag": "direct-dns",
+        "address": "https://dns.google/dns-query",
+        "address_resolver": "8.8.4.4",
+        "strategy": "prefer_ipv4",
+        "detour": "TTAQI"
+      },
+      {
+        "tag": "local-dns",
         "address": "local",
-        "detour": "direct"
+        "strategy": "ipv4_only",
+        "detour": "TTAQI"
       },
       {
         "tag": "block-dns",
@@ -46,10 +56,6 @@
     ],
     "rules": [
       {
-        "outbound": "any",
-        "server": "direct-dns"
-      },
-      {
         "rule_set": [
           "geosite-phishing",
           "geosite-malware",
@@ -59,6 +65,32 @@
         "server": "block-dns",
         "disable_cache": true,
         "rewrite_ttl": 0
+      },
+      {
+        "rule_set": [
+          "geosite-private"
+        ],
+        "server": "local-dns"
+      },
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "rule_set": [
+          "geosite-ir"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "clash_mode": "direct",
+        "server": "direct-dns"
       },
       {
         "type": "logical",
@@ -79,36 +111,6 @@
         "rewrite_ttl": 1
       },
       {
-        "domain_suffix": [
-          ".ir",
-          ".time.android.com",
-          ".time.apple.com",
-          ".time.windows.com",
-          ".time.nist.gov",
-          ".pool.ntp.org",
-          ".clash.razord.top",
-          ".yacd.haishan.me",
-          ".yacd.metacubex.one",
-          ".clash.metacubex.one"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "rule_set": [
-          "geosite-private",
-          "geosite-ir"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "clash_mode": "direct",
-        "server": "direct-dns"
-      },
-      {
         "clash_mode": "global",
         "server": "remote-dns"
       }
@@ -125,13 +127,6 @@
     "reverse_mapping": true,
     "independent_cache": true
   },
-  "ntp": {
-    "enabled": false,
-    "server": "pool.ntp.org",
-    "server_port": 123,
-    "interval": "30m",
-    "detour": "TTAQI"
-  },
   "inbounds": [
     {
       "tag": "tun-in",
@@ -143,24 +138,9 @@
       "sniff": true,
       "sniff_override_destination": false,
       "stack": "system",
-      "domain_strategy": "",
-      "endpoint_independent_nat": true,
       "address": [
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
-      ],
-      "route_address": [
-        "0.0.0.0/1",
-        "128.0.0.0/1",
-        "::/1",
-        "8000::/1"
-      ],
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "fc00::/7"
-      ],
-      "exclude_package": [
-        "com.android.captiveportallogin"
       ],
       "platform": {
         "http_proxy": {
@@ -173,7 +153,6 @@
     {
       "tag": "mixed-in",
       "type": "mixed",
-      "domain_strategy": "",
       "listen": "0.0.0.0",
       "listen_port": 2080,
       "sniff": true
@@ -1766,8 +1745,30 @@
     "final": "QQOLI",
     "rules": [
       {
-      "protocol": "dns",
-      "outbound": "NNAQI"
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+        "outbound": "NNAQI"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "network": "udp"
+          },
+          {
+            "port": 443
+          }
+        ],
+        "outbound": "MMAQI"
       },
       {
         "rule_set": [
@@ -1789,29 +1790,30 @@
         "outbound": "MMAQI"
       },
       {
+        "rule_set": [
+          "geosite-private"
+        ],
+        "outbound": "TTAQI"
+      },
+      {
         "ip_is_private": true,
         "outbound": "TTAQI"
       },
       {
         "domain_suffix": [
-          ".ir",
-          ".time.android.com",
-          ".time.apple.com",
-          ".time.windows.com",
-          ".time.nist.gov",
-          ".pool.ntp.org",
-          ".clash.razord.top",
-          ".yacd.haishan.me",
-          ".yacd.metacubex.one",
-          ".clash.metacubex.one"
+          ".ir"
         ],
         "outbound": "TTAQI"
       },
       {
         "rule_set": [
-          "geoip-ir",
-          "geosite-ir",
-          "geosite-private"
+          "geosite-ir"
+        ],
+        "outbound": "TTAQI"
+      },
+      {
+        "rule_set": [
+          "geoip-ir"
         ],
         "outbound": "TTAQI"
       },
