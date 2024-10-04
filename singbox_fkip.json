@@ -1765,30 +1765,8 @@
     "final": "QQOLI",
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": "53"
-          }
-        ],
-        "outbound": "NNAQI"
-      },
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "network": "udp"
-          },
-          {
-            "port": "443"
-          }
-        ],
-        "outbound": "MMAQI"
+      "protocol": "dns",
+      "outbound": "NNAQI"
       },
       {
         "rule_set": [
