@@ -27,12 +27,13 @@
     "servers": [
       {
         "tag": "remote-dns",
-        "address": "https://1.0.0.1/dns-query"
+        "address": "https://1.0.0.1/dns-query",
+        "detour": "direct"
       },
       {
         "tag": "direct-dns",
         "address": "local",
-        "detour": "TTAQI"
+        "detour": "direct"
       },
       {
         "tag": "block-dns",
