@@ -171,39 +171,26 @@
     "final": "QQOLI",
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": "53"
-          }
-        ],
+        "protocol": "dns",
         "outbound": "NNAQI"
       },
       {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "network": "udp"
-          },
-          {
-            "port": "443"
-          }
-        ],
+        "port": "53",
+        "outbound": "NNAQI"
+      },
+      {
+        "network": "udp",
+        "port": "443",
         "outbound": "MMAQI"
       },
-        {
+      {
         "rule_set": [
-          "geosite-category-ads-all",
-          "geosite-cryptominers",
-          "geoip-phishing",
-          "geosite-phishing",
-          "geoip-malware",
-          "geosite-malware"
+		  "geosite-category-ads-all",
+		  "geosite-cryptominers",
+		  "geoip-phishing",
+		  "geosite-phishing",
+		  "geoip-malware",
+		  "geosite-malware"
         ],
         "outbound": "MMAQI"
       },
@@ -217,7 +204,7 @@
       },
       {
         "rule_set": [
-          "geosite-private"
+		  "geosite-private"
         ],
         "outbound": "TTAQI"
       },
@@ -233,25 +220,25 @@
       },
       {
         "rule_set": [
-          "geosite-ir"
-        ],
+		  "geosite-ir"
+		],
         "outbound": "TTAQI"
       },
       {
         "rule_set": [
-          "geoip-ir"
+		  "geoip-ir"
         ],
         "outbound": "TTAQI"
       },
       {
         "clash_mode": "direct",
-        "outbound": "TTAQI"
+		"outbound": "TTAQI"
       },
       {
         "clash_mode": "global",
-        "outbound": "QQOLI"
+		"outbound": "QQOLI"
       }
-	],
+    ],
     "rule_set": [
       {
         "tag": "geosite-ir",
