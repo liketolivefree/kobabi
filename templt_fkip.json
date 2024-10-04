@@ -48,16 +48,78 @@
       {
         "tag": "block-dns",
         "address": "rcode://refused"
+      },
+      {
+        "tag": "fakeip-dns",
+        "address": "fakeip"
       }
     ],
     "rules": [
-      {"rule_set":["geosite-phishing","geosite-malware","geosite-cryptominers","geosite-category-ads-all"],"server":"block-dns","disable_cache":true,"rewrite_ttl":0},
-      {"rule_set":["geosite-private"],"server":"local-dns"},
-      {"domain_suffix":[".ir"],"server":"direct-dns","disable_cache":false,"rewrite_ttl":20},
-      {"rule_set":["geosite-ir"],"server":"direct-dns","disable_cache":false,"rewrite_ttl":20},
-      {"clash_mode":"direct","server":"direct-dns"},
-      {"clash_mode":"global","server":"remote-dns"}
+      {
+        "rule_set": [
+          "geosite-phishing",
+          "geosite-malware",
+          "geosite-cryptominers",
+          "geosite-category-ads-all"
+        ],
+        "server": "block-dns",
+		"disable_cache": true,
+		"rewrite_ttl": 0
+      },
+      {
+        "rule_set": [
+        "geosite-private"
+        ],
+        "server": "local-dns"
+      },
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "rule_set": [
+        "geosite-ir"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "clash_mode": "direct",
+        "server": "direct-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-ir",
+            "invert": true
+          },
+          {
+            "query_type": [
+              "A",
+              "AAAA"
+            ]
+          }
+        ],
+        "server": "fakeip-dns",
+        "rewrite_ttl": 1
+      },
+      {
+        "clash_mode": "global",
+        "server": "remote-dns"
+      }
     ],
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
     "final": "remote-dns",
     "strategy": "ipv4_only",
     "disable_cache": false,
@@ -135,18 +197,88 @@
     "override_android_vpn": true,
     "final": "QQOLI",
     "rules": [
-      {"type":"logical","mode":"or","rules":[{"protocol":"dns"},{"port":"53"}],"outbound":"NNAQI"},
-      {"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":"443"}],"outbound":"MMAQI"},
-      {"rule_set":["geosite-category-ads-all","geosite-cryptominers","geoip-phishing","geosite-phishing","geoip-malware","geosite-malware"],"outbound":"MMAQI"},
-      {"ip_cidr":["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"],"outbound":"MMAQI"},
-      {"rule_set":["geosite-private"],"outbound":"TTAQI"},
-      {"ip_is_private":true,"outbound":"TTAQI"},
-      {"domain_suffix":[".ir"],"outbound":"TTAQI"},
-      {"rule_set":["geosite-ir"],"outbound":"TTAQI"},
-      {"rule_set":["geoip-ir"],"outbound":"TTAQI"},
-      {"clash_mode":"direct","outbound":"TTAQI"},
-      {"clash_mode":"global","outbound":"QQOLI"}
-    ],
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": "53"
+          }
+        ],
+        "outbound": "NNAQI"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "network": "udp"
+          },
+          {
+            "port": "443"
+          }
+        ],
+        "outbound": "MMAQI"
+      },
+        {
+        "rule_set": [
+          "geosite-category-ads-all",
+          "geosite-cryptominers",
+          "geoip-phishing",
+          "geosite-phishing",
+          "geoip-malware",
+          "geosite-malware"
+        ],
+        "outbound": "MMAQI"
+      },
+      {
+        "ip_cidr": [
+          "0.0.0.0/32",
+          "10.10.34.0/24",
+          "240.0.0.0/4"
+        ],
+        "outbound": "MMAQI"
+      },
+      {
+        "rule_set": [
+          "geosite-private"
+        ],
+        "outbound": "TTAQI"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "TTAQI"
+      },
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "outbound": "TTAQI"
+      },
+      {
+        "rule_set": [
+          "geosite-ir"
+        ],
+        "outbound": "TTAQI"
+      },
+      {
+        "rule_set": [
+          "geoip-ir"
+        ],
+        "outbound": "TTAQI"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "TTAQI"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "QQOLI"
+      }
+	],
     "rule_set": [
       {
         "tag": "geosite-ir",
