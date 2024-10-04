@@ -1,1 +1,1873 @@
-{"log":{"level":"info","timestamp":true},"experimental":{"cache_file":{"enabled":true,"store_fakeip":true,"store_rdrc":true},"clash_api":{"external_controller":"127.0.0.1:9090","external_ui":"ui","external_ui_download_url":"https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip","external_ui_download_detour":"TTAQI","secret":"qolqoli","access_control_allow_origin":["http://127.0.0.1","http://yacd.haishan.me"],"access_control_allow_private_network":true,"default_mode":"rule"}},"dns":{"servers":[{"tag":"remote-dns","address":"https://1.0.0.1/dns-query"},{"tag":"direct-dns","address":"local","detour":"TTAQI"},{"tag":"block-dns","address":"rcode://refused"}],"rules":[{"outbound":"any","server":"direct-dns"},{"rule_set":["geosite-phishing","geosite-malware","geosite-cryptominers","geosite-category-ads-all"],"server":"block-dns","disable_cache":true,"rewrite_ttl":0},{"domain_suffix":[".ir",".time.android.com",".time.apple.com",".time.windows.com",".time.nist.gov",".pool.ntp.org",".clash.razord.top",".yacd.haishan.me",".yacd.metacubex.one",".clash.metacubex.one"],"server":"direct-dns","disable_cache":false,"rewrite_ttl":20},{"rule_set":["geosite-private","geosite-ir"],"server":"direct-dns","disable_cache":false,"rewrite_ttl":20},{"clash_mode":"direct","server":"direct-dns"},{"clash_mode":"global","server":"remote-dns"}],"final":"remote-dns","strategy":"ipv4_only","disable_cache":false,"disable_expire":false,"reverse_mapping":true,"independent_cache":true},"ntp":{"enabled":false,"server":"pool.ntp.org","server_port":123,"interval":"30m","detour":"TTAQI"},"inbounds":[{"tag":"tun-in","type":"tun","interface_name":"tun0","mtu":9000,"auto_route":true,"strict_route":true,"sniff":true,"sniff_override_destination":false,"stack":"system","domain_strategy":"","endpoint_independent_nat":true,"address":["172.19.0.1/30","fdfe:dcba:9876::1/126"],"route_address":["0.0.0.0/1","128.0.0.0/1","::/1","8000::/1"],"route_exclude_address":["192.168.0.0/16","fc00::/7"],"exclude_package":["com.android.captiveportallogin"],"platform":{"http_proxy":{"enabled":true,"server":"127.0.0.1","server_port":7890}}},{"tag":"mixed-in","type":"mixed","domain_strategy":"","listen":"0.0.0.0","listen_port":2080,"sniff":true}],"outbounds":[{"tag":"QQOLI","type":"selector","interrupt_exist_connections":false,"outbounds":["MMOBI","q_210","q_211","q_282","q_302","q_309","q_327","q_348","q_354","q_025","q_027","q_029","q_031","q_034","q_044","q_047","q_049","q_052","q_054","q_061","q_067","q_076","q_077","q_080","q_081","q_085","q_088","q_090","q_092","q_094","q_098","q_108","q_109","q_111","q_116","q_117","q_129","q_130","q_133","q_134","q_135","q_136","q_137","q_143","q_149","q_151","q_152","q_154","q_161","q_163","q_166","q_168","q_171","q_173","q_175","q_176","q_178","q_179","q_181","q_185","q_190","q_001","q_002","q_003","q_004","q_005","q_006","q_007","q_008","q_009"]},{"tag":"MMOBI","type":"urltest","url":"https://www.gstatic.com/generate_204","interrupt_exist_connections":false,"interval":"5m","tolerance":50,"outbounds":["q_210","q_211","q_282","q_302","q_309","q_327","q_348","q_354","q_025","q_027","q_029","q_031","q_034","q_044","q_047","q_049","q_052","q_054","q_061","q_067","q_076","q_077","q_080","q_081","q_085","q_088","q_090","q_092","q_094","q_098","q_108","q_109","q_111","q_116","q_117","q_129","q_130","q_133","q_134","q_135","q_136","q_137","q_143","q_149","q_151","q_152","q_154","q_161","q_163","q_166","q_168","q_171","q_173","q_175","q_176","q_178","q_179","q_181","q_185","q_190","q_001","q_002","q_003","q_004","q_005","q_006","q_007","q_008","q_009"]},{"tag":"TTAQI","type":"direct"},{"tag":"NNAQI","type":"dns"},{"tag":"MMAQI","type":"block"},{"tag":"q_210","type":"vmess","server":"85.9.120.5","server_port":443,"uuid":"76221bfb-e92f-4e80-81c5-6fe48f50ac0b","security":"auto","alter_id":0,"packet_encoding":"xudp","tls":{"enabled":true,"insecure":true,"server_name":"vfaridkv4.multifaceted2.workers.dev"},"transport":{"type":"ws","headers":{"Host":"vfaridkv4.multifaceted2.workers.dev"},"path":"/glweidf.sbs:443/linkws"}},{"tag":"q_211","type":"vmess","server":"ip.sb","server_port":80,"uuid":"be9cf152-7cf1-46f9-88ed-a55b343c927b","security":"auto","alter_id":0,"packet_encoding":"xudp","transport":{"type":"ws","headers":{"Host":"luodi.5468936.xyz"},"path":"/linuxdo"}},{"tag":"q_282","type":"vmess","server":"172.67.219.194","server_port":443,"uuid":"b321fd5d-e6ec-4293-a644-164e3885f52e","security":"auto","alter_id":0,"packet_encoding":"xudp","tls":{"enabled":true,"insecure":true,"server_name":"adenc36v.xtooltech.cfd"},"transport":{"type":"ws","headers":{"Host":"adenc36v.xtooltech.cfd"},"path":"/linkws"}},{"tag":"q_302","type":"vmess","server":"cloudflare.182682.xyz","server_port":80,"uuid":"be9cf152-7cf1-46f9-88ed-a55b343c927b","security":"auto","alter_id":0,"packet_encoding":"xudp","transport":{"type":"ws","headers":{"Host":"luodi.5468936.xyz"},"path":"/linuxdo"}},{"tag":"q_309","type":"vmess","server":"S1.HUY.OVH","server_port":10886,"uuid":"d7a3d113-d9c4-49c3-b152-fc9dbf457da5","security":"auto","alter_id":0,"packet_encoding":"xudp"},{"tag":"q_327","type":"vmess","server":"gur.gov.ua","server_port":80,"uuid":"be9cf152-7cf1-46f9-88ed-a55b343c927b","security":"auto","alter_id":0,"packet_encoding":"xudp","transport":{"type":"ws","headers":{"Host":"luodi.5468936.xyz"},"path":"/linuxdo"}},{"tag":"q_348","type":"vmess","server":"cfcdn1.sanfencdn9.com","server_port":2052,"uuid":"423caa0c-0542-4326-92e1-18769b6608e7","security":"auto","alter_id":0,"packet_encoding":"xudp","transport":{"type":"ws","headers":{"Host":"tw1eskJpKcA.inivtrak.xyz"},"path":"/video/WNMicnDh"}},{"tag":"q_354","type":"vmess","server":"188.114.97.210","server_port":443,"uuid":"edbb1059-1633-4271-b66e-ed4fba47a1bf","security":"auto","alter_id":0,"packet_encoding":"xudp","tls":{"enabled":true,"insecure":true,"server_name":"linde06.indiavideo.sbs"},"transport":{"type":"ws","headers":{"Host":"linde06.indiavideo.sbs"},"path":"/linkws"}},{"tag":"q_025","type":"vless","server":"104.18.187.228","server_port":443,"uuid":"8cdc6e73-cbc6-4d4c-abe2-d2eb29fce6c2","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"noodturk.parsianboton.ir"},"transport":{"type":"grpc","service_name":"BuT9Wfa6u5bLQUgA9"}},{"tag":"q_027","type":"vless","server":"parspack.com","server_port":443,"uuid":"8cdc6e73-cbc6-4d4c-abe2-d2eb29fce6c2","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"noodturk.parsianboton.ir"},"transport":{"type":"grpc","service_name":"BuT9Wfa6u5bLQUgA9"}},{"tag":"q_029","type":"vless","server":"162.159.138.101","server_port":443,"uuid":"8cdc6e73-cbc6-4d4c-abe2-d2eb29fce6c2","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"noodturk.parsianboton.ir"},"transport":{"type":"grpc","service_name":"BuT9Wfa6u5bLQUgA9"}},{"tag":"q_031","type":"vless","server":"162.159.138.106","server_port":443,"uuid":"8cdc6e73-cbc6-4d4c-abe2-d2eb29fce6c2","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"noodturk.parsianboton.ir"},"transport":{"type":"grpc","service_name":"BuT9Wfa6u5bLQUgA9"}},{"tag":"q_034","type":"vless","server":"speedtest.org","server_port":2096,"uuid":"89b3cbba-e6ac-485a-9481-976a0415eab9","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"JoinV2nGFaSt-2MM.pAges.DEV"},"transport":{"type":"ws","path":"/Telegram-@V2ray_Alpha/","headers":{"Host":"JoinV2nGFaSt-2MM.pAges.DEV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_044","type":"vless","server":"172.67.204.84","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan","headers":{"Host":"juzibaipiao.5112233.xyz"}}},{"tag":"q_047","type":"vless","server":"185.146.173.237","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan","headers":{"Host":"juzibaipiao.5112233.xyz"}}},{"tag":"q_049","type":"vless","server":"104.16.68.38","server_port":443,"uuid":"a25e8ff9-8650-4098-86af-b524e4ec72d8","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"admin2.pythonic-ai.com"},"transport":{"type":"ws","path":"/vYoLL0j3yXajA2rNVYyVkeSUkkM","headers":{"Host":"admin2.pythonic-ai.com"}}},{"tag":"q_052","type":"vless","server":"mci2.mahxraytm.com","server_port":443,"uuid":"bbbdc3b1-2a8a-4989-9ccd-6a73b77c4af3","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"mahcjf.mahxraytm.com"},"transport":{"type":"ws","path":"/Mahxray","headers":{"Host":"mahcjf.mahxraytm.com"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2095}},{"tag":"q_054","type":"vless","server":"108.162.192.102","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"/","headers":{"Host":"juzibaipiao.5112233.xyz"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_061","type":"vless","server":"198.41.221.141","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"/","headers":{"Host":"juzibaipiao.5112233.xyz"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_067","type":"vless","server":"104.17.65.91","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"/","headers":{"Host":"juzibaipiao.5112233.xyz"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_076","type":"vless","server":"23spt.pages.dev","server_port":443,"uuid":"89b3cbba-e6ac-485a-9481-976a0415eab9","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"23sPT.pAGEs.dEV"},"transport":{"type":"ws","path":"/Tel-@V2ray_Alpha/","headers":{"Host":"23sPT.pAGEs.dEV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_077","type":"vless","server":"172.66.47.61","server_port":443,"uuid":"89b3cbba-e6ac-485a-9481-976a0415eab9","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"23sPT.pAGEs.dEV"},"transport":{"type":"ws","path":"/Telegram@V2ray_Alpha/","headers":{"Host":"23sPT.pAGEs.dEV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_080","type":"vless","server":"198.41.221.80","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"/","headers":{"Host":"juzibaipiao.5112233.xyz"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_081","type":"vless","server":"172.67.203.189","server_port":443,"uuid":"1bf36abe-aa32-41f5-9523-70d713645ba6","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"sinabigo1.soft10.ir"},"transport":{"type":"ws","path":"/Bia--SiNABiGO--SiNABiGO--LqZwXyhqvlBwEC","headers":{"Host":"sinabigo1.soft10.ir"}}},{"tag":"q_085","type":"vless","server":"172.66.47.61","server_port":443,"uuid":"89b3cbba-e6ac-485a-9481-976a0415eab9","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"23sPT.pAGEs.dEV"},"transport":{"type":"ws","path":"/xqc11iXB2DOVwbv9","headers":{"Host":"23sPT.pAGEs.dEV"}}},{"tag":"q_088","type":"vless","server":"23spt.pages.dev","server_port":443,"uuid":"89b3cbba-e6ac-485a-9481-976a0415eab9","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"23sPT.pAGEs.dEV"},"transport":{"type":"ws","path":"/xqc11iXB2DOVwbv9","headers":{"Host":"23sPT.pAGEs.dEV"}}},{"tag":"q_090","type":"vless","server":"23spt.pages.dev","server_port":443,"uuid":"89b3cbba-e6ac-485a-9481-976a0415eab9","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"23sPT.pAGEs.dEV"},"transport":{"type":"ws","path":"/Telegram@V2ray_Alpha/","headers":{"Host":"23sPT.pAGEs.dEV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_092","type":"vless","server":"zdfdf6.azurewebsites.net","server_port":443,"uuid":"6f995056-7802-4a1d-bff7-61678e626c3f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"zdfdf6.azurewebsites.net"},"transport":{"type":"ws","path":"/","headers":{"Host":"zdfdf6.azurewebsites.net"}}},{"tag":"q_094","type":"vless","server":"188.114.96.3","server_port":443,"uuid":"c6d299d4-db0b-4444-8b56-b23bbdcbcd67","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"mIDSUMMEr-BPb.paGes.dEv"},"transport":{"type":"ws","path":"/FRzWs9bX6Lg0vAj0","headers":{"Host":"mIDSUMMEr-BPb.paGes.dEv"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_098","type":"vless","server":"188.114.96.3","server_port":443,"uuid":"c6d299d4-db0b-4444-8b56-b23bbdcbcd67","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"MIDsuMmer-bPB.PAGES.dev"},"transport":{"type":"ws","path":"/S02fqi397xo1WqOG","headers":{"Host":"MIDsuMmer-bPB.PAGES.dev"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_108","type":"vless","server":"zdfdf6.azurewebsites.net","server_port":443,"uuid":"6f995056-7802-4a1d-bff7-61678e626c3f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"zdfdf6.azurewebsites.net"},"transport":{"type":"ws","path":"/","headers":{"Host":"zdfdf6.azurewebsites.net"}}},{"tag":"q_109","type":"vless","server":"104.21.101.130","server_port":443,"uuid":"c6d299d4-db0b-4444-8b56-b23bbdcbcd67","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"mIDSuMMer-bPb.pageS.deV"},"transport":{"type":"ws","path":"/MMjarxEmqb4xtubR","headers":{"Host":"mIDSuMMer-bPb.pageS.deV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_111","type":"vless","server":"188.114.97.3","server_port":2053,"uuid":"c6d299d4-db0b-4444-8b56-b23bbdcbcd67","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"MIDSuMmer-BPb.paGes.DeV"},"transport":{"type":"ws","path":"/lyP3OF3B7VCq5alq","headers":{"Host":"MIDSuMmer-BPb.paGes.DeV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_116","type":"vless","server":"188.114.96.3","server_port":2053,"uuid":"c6d299d4-db0b-4444-8b56-b23bbdcbcd67","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"mIDsUMMER-Bpb.PAGes.Dev"},"transport":{"type":"ws","path":"/DEBiBkIAodNW2f38","headers":{"Host":"mIDsUMMER-Bpb.PAGes.Dev"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_117","type":"vless","server":"hkklo.azurewebsites.net","server_port":443,"uuid":"6f995056-7802-4a1d-bff7-61678e626c3f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"hkklo.azurewebsites.net"},"transport":{"type":"ws","path":"/","headers":{"Host":"hkklo.azurewebsites.net"}}},{"tag":"q_129","type":"vless","server":"gerrrrw.azurewebsites.net","server_port":443,"uuid":"6f995056-7802-4a1d-bff7-61678e626c3f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"gerrrrw.azurewebsites.net"},"transport":{"type":"ws","path":"/","headers":{"Host":"gerrrrw.azurewebsites.net"}}},{"tag":"q_130","type":"vless","server":"noora.ir","server_port":443,"uuid":"f06ac303-e626-451d-bcfc-ee825ee69398","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"AzADnet-semEj.PAGes.dEv"},"transport":{"type":"ws","path":"/","headers":{"Host":"AzADnet-semEj.PAGes.dEv"}}},{"tag":"q_133","type":"vless","server":"bnnm.azurewebsites.net","server_port":443,"uuid":"6f995056-7802-4a1d-bff7-61678e626c3f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"bnnm.azurewebsites.net"},"transport":{"type":"ws","path":"/","headers":{"Host":"bnnm.azurewebsites.net"}}},{"tag":"q_134","type":"vless","server":"20.42.228.160","server_port":443,"uuid":"6f995056-7802-4a1d-bff7-61678e626c3f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"sdfee4.azurewebsites.net"},"transport":{"type":"ws","path":"/","headers":{"Host":"sdfee4.azurewebsites.net"}}},{"tag":"q_135","type":"vless","server":"104.17.148.22","server_port":443,"uuid":"e2f4d1fa-0a6d-48c3-a5bb-8b438e78af23","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"119f3a0b.chikiy123w.pages.dev"},"transport":{"type":"ws","path":"/TELEGRAM-MARAMBASHI/","headers":{"Host":"119f3a0b.chikiy123w.pages.dev"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_136","type":"vless","server":"bnnm.azurewebsites.net","server_port":443,"uuid":"6f995056-7802-4a1d-bff7-61678e626c3f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"bnnm.azurewebsites.net"},"transport":{"type":"ws","path":"/","headers":{"Host":"bnnm.azurewebsites.net"}}},{"tag":"q_137","type":"vless","server":"104.21.69.44","server_port":8443,"uuid":"17fafaf9-7402-40eb-87ae-a75944c84c52","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"ggho.pages.dev."},"transport":{"type":"ws","path":"/TELEGRAM-PROXY_MTM/","headers":{"Host":"ggho.pages.dev."},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_143","type":"vless","server":"172.66.47.200","server_port":443,"uuid":"c6d299d4-db0b-4444-8b56-b23bbdcbcd67","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"midsUMmER-Bpb.pAgES.DEV"},"transport":{"type":"ws","path":"/StDNeNqkbQxrj6Xy","headers":{"Host":"midsUMmER-Bpb.pAgES.DEV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_149","type":"vless","server":"104.21.101.130","server_port":2053,"uuid":"c6d299d4-db0b-4444-8b56-b23bbdcbcd67","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"midSummeR-bpb.PAGES.DEV"},"transport":{"type":"ws","path":"/B3R6mN2HqlB10LJ8","headers":{"Host":"midSummeR-bpb.PAGES.DEV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_151","type":"vless","server":"172.66.47.155","server_port":443,"uuid":"34a83286-ba4e-4f0a-ac08-77a95469eeaf","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"pardazesh18.pages.dev"},"transport":{"type":"ws","path":"/Tel-@V2ray_Alpha/","headers":{"Host":"pardazesh18.pages.dev"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_152","type":"vless","server":"136.175.176.67","server_port":443,"uuid":"27b644d3-d9e8-45b2-96db-36ac1d00d50d","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"tg.cmliussss.giize.com"},"transport":{"type":"ws","path":"/","headers":{"Host":"tg.cmliussss.giize.com"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_154","type":"vless","server":"172.66.47.45","server_port":443,"uuid":"690f16d0-6425-462b-86e0-a70a8169c5d9","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"pardazeshvpn-tg97.pages.dev"},"transport":{"type":"ws","path":"/Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN","headers":{"Host":"pardazeshvpn-tg97.pages.dev"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_161","type":"vless","server":"172.66.44.190","server_port":443,"uuid":"bb27a0c6-aa5e-4105-a943-b87239507057","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"pardazeshvpn-tg86.pages.dev"},"transport":{"type":"ws","path":"/Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN","headers":{"Host":"pardazeshvpn-tg86.pages.dev"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_163","type":"vless","server":"172.67.172.147","server_port":443,"uuid":"e1cf1cbc-a1b0-4db8-86b0-45dd2e8a68da","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"easynet23.gosomok252.workers.dev"},"transport":{"type":"ws","path":"/","headers":{"Host":"easynet23.gosomok252.workers.dev"}}},{"tag":"q_166","type":"vless","server":"172.66.44.56","server_port":443,"uuid":"c6d299d4-db0b-4444-8b56-b23bbdcbcd67","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"midsUMmER-Bpb.pAgES.DEV"},"transport":{"type":"ws","path":"/StDNeNqkbQxrj6Xy","headers":{"Host":"midsUMmER-Bpb.pAgES.DEV"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_168","type":"vless","server":"aksnmaioas.pages.dev","server_port":443,"uuid":"38720105-063f-40f5-a5eb-f3198b9b617d","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"aksnmaioas.pages.dev"},"transport":{"type":"ws","path":"/","headers":{"Host":"aksnmaioas.pages.dev"}}},{"tag":"q_171","type":"vless","server":"104.17.135.153","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"/","headers":{"Host":"juzibaipiao.5112233.xyz"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_173","type":"vless","server":"zula.ir","server_port":443,"uuid":"7a18d85c-ecfa-4e83-9f9c-60df37e68970","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"kahnooj.kermankala.shop"},"transport":{"type":"ws","path":"/d8480275","headers":{"Host":"kahnooj.kermankala.shop"}}},{"tag":"q_175","type":"vless","server":"147.78.140.5","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"/","headers":{"Host":"juzibaipiao.5112233.xyz"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_176","type":"vless","server":"104.16.170.208","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"/","headers":{"Host":"juzibaipiao.5112233.xyz"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_178","type":"vless","server":"198.41.221.12","server_port":443,"uuid":"f775978b-6e22-41a8-ae5e-5f9779e6745f","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"juzibaipiao.5112233.xyz"},"transport":{"type":"ws","path":"/","headers":{"Host":"juzibaipiao.5112233.xyz"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2048}},{"tag":"q_179","type":"vless","server":"speed.cloudflare.com","server_port":443,"uuid":"27b644d3-d9e8-45b2-96db-36ac1d00d50d","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"tg.cmliussss.giize.com"},"transport":{"type":"ws","path":"/?proxyip=proxyip.us.fxxk.dedyn.io","headers":{"Host":"tg.cmliussss.giize.com"}}},{"tag":"q_181","type":"vless","server":"104.16.60.8","server_port":443,"uuid":"962a733d-2614-0b9b-7ffe-9ac92ffea8eb","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"ahmedquran19.xyz"},"transport":{"type":"ws","path":"/current_time","headers":{"Host":"ahmedquran19.xyz"}}},{"tag":"q_185","type":"vless","server":"speed.cloudflare.com","server_port":443,"uuid":"27b644d3-d9e8-45b2-96db-36ac1d00d50d","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"tg.cmliussss.giize.com"},"transport":{"type":"ws","path":"/","headers":{"Host":"tg.cmliussss.giize.com"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_190","type":"vless","server":"bpb-worker-panel1-e4p.pages.dev","server_port":443,"uuid":"4045e84e-5e3c-4f70-8ff5-c1097882a55a","packet_encoding":"xudp","tls":{"enabled":true,"insecure":false,"server_name":"bpb-wOrkeR-PANEl1-E4P.PaGeS.Dev"},"transport":{"type":"ws","path":"/Telegram@V2ray_Alpha/","headers":{"Host":"bpb-wOrkeR-PANEl1-E4P.PaGeS.Dev"},"early_data_header_name":"Sec-WebSocket-Protocol","max_early_data":2560}},{"tag":"q_001","type":"hysteria2","server":"207.148.22.93","server_port":443,"password":"9bb452b106ffc217","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"server_name":"207.148.22.93","insecure":true,"alpn":["h3"]},"obfs":{"type":"salamander","password":"cd29099d"}},{"tag":"q_002","type":"hysteria2","server":"66.135.11.68","server_port":443,"password":"4e9ee29b39a28277","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"insecure":true,"alpn":["h3"]},"obfs":{"type":"salamander","password":"13f7ba5f"}},{"tag":"q_003","type":"hysteria2","server":"45.76.0.86","server_port":443,"password":"1f17cdf0578a2860","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"insecure":true,"alpn":["h3"]},"obfs":{"type":"salamander","password":"4b817757"}},{"tag":"q_004","type":"hysteria2","server":"45.76.0.86","server_port":443,"password":"1f17cdf0578a2860","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"server_name":"vkvd127.mycdn.me","insecure":true,"alpn":["h3"]},"obfs":{"type":"salamander","password":"4b817757"}},{"tag":"q_005","type":"hysteria2","server":"45.76.0.86","server_port":443,"password":"1f17cdf0578a2860","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"server_name":"45.76.0.86","insecure":true,"alpn":["h3"]},"obfs":{"type":"salamander","password":"4b817757"}},{"tag":"q_006","type":"hysteria2","server":"207.148.22.93","server_port":443,"password":"9bb452b106ffc217","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"insecure":true,"alpn":["h3"]},"obfs":{"type":"salamander","password":"cd29099d"}},{"tag":"q_007","type":"hysteria2","server":"45.119.99.148","server_port":30000,"password":"70676b9f-faff-4684-80f0-340465b2307a","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"insecure":true,"alpn":["h3"]}},{"tag":"q_008","type":"hysteria2","server":"77.221.158.52","server_port":7373,"password":"81ea378b37931b23","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"server_name":"vkvd127.mycdn.me","insecure":true,"alpn":["h3"]},"obfs":{"type":"salamander","password":"7d9dff369a11f6e0"}},{"tag":"q_009","type":"hysteria2","server":"207.148.22.93","server_port":443,"password":"9bb452b106ffc217","up_mbps":10,"down_mbps":100,"tls":{"enabled":true,"server_name":"vkvd127.mycdn.me","insecure":true,"alpn":["h3"]},"obfs":{"type":"salamander","password":"cd29099d"}}],"route":{"auto_detect_interface":true,"override_android_vpn":true,"final":"QQOLI","rules":[{"type":"logical","mode":"or","rules":[{"protocol":"dns"},{"port":"53"}],"outbound":"NNAQI"},{"type":"logical","mode":"or","rules":[{"network":"udp"},{"port":"443"}],"outbound":"MMAQI"},{"rule_set":["geosite-category-ads-all","geosite-cryptominers","geoip-phishing","geosite-phishing","geoip-malware","geosite-malware"],"outbound":"MMAQI"},{"ip_cidr":["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"],"outbound":"MMAQI"},{"ip_is_private":true,"outbound":"TTAQI"},{"domain_suffix":[".ir",".time.android.com",".time.apple.com",".time.windows.com",".time.nist.gov",".pool.ntp.org",".clash.razord.top",".yacd.haishan.me",".yacd.metacubex.one",".clash.metacubex.one"],"outbound":"TTAQI"},{"rule_set":["geoip-ir","geosite-ir","geosite-private"],"outbound":"TTAQI"},{"clash_mode":"direct","outbound":"TTAQI"},{"clash_mode":"global","outbound":"QQOLI"}],"rule_set":[{"tag":"geosite-ir","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs","download_detour":"TTAQI"},{"tag":"geosite-private","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-private.srs","download_detour":"TTAQI"},{"tag":"geoip-ir","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs","download_detour":"TTAQI"},{"tag":"geosite-category-ads-all","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs","download_detour":"TTAQI"},{"tag":"geosite-cryptominers","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cryptominers.srs","download_detour":"TTAQI"},{"tag":"geosite-malware","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-malware.srs","download_detour":"TTAQI"},{"tag":"geosite-phishing","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-phishing.srs","download_detour":"TTAQI"},{"tag":"geoip-malware","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-malware.srs","download_detour":"TTAQI"},{"tag":"geoip-phishing","type":"remote","format":"binary","url":"https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-phishing.srs","download_detour":"TTAQI"}]}}
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true,
+      "store_rdrc": true
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "TTAQI",
+      "secret": "qolqoli",
+      "access_control_allow_origin": [
+        "http://127.0.0.1",
+        "http://yacd.haishan.me"
+      ],
+      "access_control_allow_private_network": true,
+      "default_mode": "rule"
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "remote-dns",
+        "address": "https://1.0.0.1/dns-query"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "local",
+        "detour": "TTAQI"
+      },
+      {
+        "tag": "block-dns",
+        "address": "rcode://refused"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "direct-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-phishing",
+          "geosite-malware",
+          "geosite-cryptominers",
+          "geosite-category-ads-all"
+        ],
+        "server": "block-dns",
+        "disable_cache": true,
+        "rewrite_ttl": 0
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".time.android.com",
+          ".time.apple.com",
+          ".time.windows.com",
+          ".time.nist.gov",
+          ".pool.ntp.org",
+          ".clash.razord.top",
+          ".yacd.haishan.me",
+          ".yacd.metacubex.one",
+          ".clash.metacubex.one"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "rule_set": [
+          "geosite-private",
+          "geosite-ir"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "clash_mode": "direct",
+        "server": "direct-dns"
+      },
+      {
+        "clash_mode": "global",
+        "server": "remote-dns"
+      }
+    ],
+    "final": "remote-dns",
+    "strategy": "ipv4_only",
+    "disable_cache": false,
+    "disable_expire": false,
+    "reverse_mapping": true,
+    "independent_cache": true
+  },
+  "ntp": {
+    "enabled": false,
+    "server": "pool.ntp.org",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "TTAQI"
+  },
+  "inbounds": [
+    {
+      "tag": "tun-in",
+      "type": "tun",
+      "interface_name": "tun0",
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": true,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "stack": "system",
+      "domain_strategy": "",
+      "endpoint_independent_nat": true,
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "route_address": [
+        "0.0.0.0/1",
+        "128.0.0.0/1",
+        "::/1",
+        "8000::/1"
+      ],
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
+      "exclude_package": [
+        "com.android.captiveportallogin"
+      ],
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 7890
+        }
+      }
+    },
+    {
+      "tag": "mixed-in",
+      "type": "mixed",
+      "domain_strategy": "",
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "QQOLI",
+      "type": "selector",
+      "interrupt_exist_connections": false,
+      "outbounds": [
+        "MMOBI",
+        "q_210",
+        "q_211",
+        "q_282",
+        "q_302",
+        "q_309",
+        "q_327",
+        "q_348",
+        "q_354",
+        "q_025",
+        "q_027",
+        "q_029",
+        "q_031",
+        "q_034",
+        "q_044",
+        "q_047",
+        "q_049",
+        "q_052",
+        "q_054",
+        "q_061",
+        "q_067",
+        "q_076",
+        "q_077",
+        "q_080",
+        "q_081",
+        "q_085",
+        "q_088",
+        "q_090",
+        "q_092",
+        "q_094",
+        "q_098",
+        "q_108",
+        "q_109",
+        "q_111",
+        "q_116",
+        "q_117",
+        "q_129",
+        "q_130",
+        "q_133",
+        "q_134",
+        "q_135",
+        "q_136",
+        "q_137",
+        "q_143",
+        "q_149",
+        "q_151",
+        "q_152",
+        "q_154",
+        "q_161",
+        "q_163",
+        "q_166",
+        "q_168",
+        "q_171",
+        "q_173",
+        "q_175",
+        "q_176",
+        "q_178",
+        "q_179",
+        "q_181",
+        "q_185",
+        "q_190",
+        "q_001",
+        "q_002",
+        "q_003",
+        "q_004",
+        "q_005",
+        "q_006",
+        "q_007",
+        "q_008",
+        "q_009"
+      ]
+    },
+    {
+      "tag": "MMOBI",
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interrupt_exist_connections": false,
+      "interval": "5m",
+      "tolerance": 50,
+      "outbounds": [
+        "q_210",
+        "q_211",
+        "q_282",
+        "q_302",
+        "q_309",
+        "q_327",
+        "q_348",
+        "q_354",
+        "q_025",
+        "q_027",
+        "q_029",
+        "q_031",
+        "q_034",
+        "q_044",
+        "q_047",
+        "q_049",
+        "q_052",
+        "q_054",
+        "q_061",
+        "q_067",
+        "q_076",
+        "q_077",
+        "q_080",
+        "q_081",
+        "q_085",
+        "q_088",
+        "q_090",
+        "q_092",
+        "q_094",
+        "q_098",
+        "q_108",
+        "q_109",
+        "q_111",
+        "q_116",
+        "q_117",
+        "q_129",
+        "q_130",
+        "q_133",
+        "q_134",
+        "q_135",
+        "q_136",
+        "q_137",
+        "q_143",
+        "q_149",
+        "q_151",
+        "q_152",
+        "q_154",
+        "q_161",
+        "q_163",
+        "q_166",
+        "q_168",
+        "q_171",
+        "q_173",
+        "q_175",
+        "q_176",
+        "q_178",
+        "q_179",
+        "q_181",
+        "q_185",
+        "q_190",
+        "q_001",
+        "q_002",
+        "q_003",
+        "q_004",
+        "q_005",
+        "q_006",
+        "q_007",
+        "q_008",
+        "q_009"
+      ]
+    },
+    {
+      "tag": "TTAQI",
+      "type": "direct"
+    },
+    {
+      "tag": "NNAQI",
+      "type": "dns"
+    },
+    {
+      "tag": "MMAQI",
+      "type": "block"
+    },
+    {
+      "tag": "q_210",
+      "type": "vmess",
+      "server": "85.9.120.5",
+      "server_port": 443,
+      "uuid": "76221bfb-e92f-4e80-81c5-6fe48f50ac0b",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "vfaridkv4.multifaceted2.workers.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "vfaridkv4.multifaceted2.workers.dev"
+        },
+        "path": "/glweidf.sbs:443/linkws"
+      }
+    },
+    {
+      "tag": "q_211",
+      "type": "vmess",
+      "server": "ip.sb",
+      "server_port": 80,
+      "uuid": "be9cf152-7cf1-46f9-88ed-a55b343c927b",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "luodi.5468936.xyz"
+        },
+        "path": "/linuxdo"
+      }
+    },
+    {
+      "tag": "q_282",
+      "type": "vmess",
+      "server": "172.67.219.194",
+      "server_port": 443,
+      "uuid": "b321fd5d-e6ec-4293-a644-164e3885f52e",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "adenc36v.xtooltech.cfd"
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "adenc36v.xtooltech.cfd"
+        },
+        "path": "/linkws"
+      }
+    },
+    {
+      "tag": "q_302",
+      "type": "vmess",
+      "server": "cloudflare.182682.xyz",
+      "server_port": 80,
+      "uuid": "be9cf152-7cf1-46f9-88ed-a55b343c927b",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "luodi.5468936.xyz"
+        },
+        "path": "/linuxdo"
+      }
+    },
+    {
+      "tag": "q_309",
+      "type": "vmess",
+      "server": "S1.HUY.OVH",
+      "server_port": 10886,
+      "uuid": "d7a3d113-d9c4-49c3-b152-fc9dbf457da5",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "q_327",
+      "type": "vmess",
+      "server": "gur.gov.ua",
+      "server_port": 80,
+      "uuid": "be9cf152-7cf1-46f9-88ed-a55b343c927b",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "luodi.5468936.xyz"
+        },
+        "path": "/linuxdo"
+      }
+    },
+    {
+      "tag": "q_348",
+      "type": "vmess",
+      "server": "cfcdn1.sanfencdn9.com",
+      "server_port": 2052,
+      "uuid": "423caa0c-0542-4326-92e1-18769b6608e7",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "tw1eskJpKcA.inivtrak.xyz"
+        },
+        "path": "/video/WNMicnDh"
+      }
+    },
+    {
+      "tag": "q_354",
+      "type": "vmess",
+      "server": "188.114.97.210",
+      "server_port": 443,
+      "uuid": "edbb1059-1633-4271-b66e-ed4fba47a1bf",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "linde06.indiavideo.sbs"
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "linde06.indiavideo.sbs"
+        },
+        "path": "/linkws"
+      }
+    },
+    {
+      "tag": "q_025",
+      "type": "vless",
+      "server": "104.18.187.228",
+      "server_port": 443,
+      "uuid": "8cdc6e73-cbc6-4d4c-abe2-d2eb29fce6c2",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "noodturk.parsianboton.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "BuT9Wfa6u5bLQUgA9"
+      }
+    },
+    {
+      "tag": "q_027",
+      "type": "vless",
+      "server": "parspack.com",
+      "server_port": 443,
+      "uuid": "8cdc6e73-cbc6-4d4c-abe2-d2eb29fce6c2",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "noodturk.parsianboton.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "BuT9Wfa6u5bLQUgA9"
+      }
+    },
+    {
+      "tag": "q_029",
+      "type": "vless",
+      "server": "162.159.138.101",
+      "server_port": 443,
+      "uuid": "8cdc6e73-cbc6-4d4c-abe2-d2eb29fce6c2",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "noodturk.parsianboton.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "BuT9Wfa6u5bLQUgA9"
+      }
+    },
+    {
+      "tag": "q_031",
+      "type": "vless",
+      "server": "162.159.138.106",
+      "server_port": 443,
+      "uuid": "8cdc6e73-cbc6-4d4c-abe2-d2eb29fce6c2",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "noodturk.parsianboton.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "BuT9Wfa6u5bLQUgA9"
+      }
+    },
+    {
+      "tag": "q_034",
+      "type": "vless",
+      "server": "speedtest.org",
+      "server_port": 2096,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "JoinV2nGFaSt-2MM.pAges.DEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram-@V2ray_Alpha/",
+        "headers": {
+          "Host": "JoinV2nGFaSt-2MM.pAges.DEV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_044",
+      "type": "vless",
+      "server": "172.67.204.84",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        }
+      }
+    },
+    {
+      "tag": "q_047",
+      "type": "vless",
+      "server": "185.146.173.237",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan@free_shekan",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        }
+      }
+    },
+    {
+      "tag": "q_049",
+      "type": "vless",
+      "server": "104.16.68.38",
+      "server_port": 443,
+      "uuid": "a25e8ff9-8650-4098-86af-b524e4ec72d8",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "admin2.pythonic-ai.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vYoLL0j3yXajA2rNVYyVkeSUkkM",
+        "headers": {
+          "Host": "admin2.pythonic-ai.com"
+        }
+      }
+    },
+    {
+      "tag": "q_052",
+      "type": "vless",
+      "server": "mci2.mahxraytm.com",
+      "server_port": 443,
+      "uuid": "bbbdc3b1-2a8a-4989-9ccd-6a73b77c4af3",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "mahcjf.mahxraytm.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Mahxray",
+        "headers": {
+          "Host": "mahcjf.mahxraytm.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2095
+      }
+    },
+    {
+      "tag": "q_054",
+      "type": "vless",
+      "server": "108.162.192.102",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_061",
+      "type": "vless",
+      "server": "198.41.221.141",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_067",
+      "type": "vless",
+      "server": "104.17.65.91",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_076",
+      "type": "vless",
+      "server": "23spt.pages.dev",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "23sPT.pAGEs.dEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Tel-@V2ray_Alpha/",
+        "headers": {
+          "Host": "23sPT.pAGEs.dEV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_077",
+      "type": "vless",
+      "server": "172.66.47.61",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "23sPT.pAGEs.dEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/",
+        "headers": {
+          "Host": "23sPT.pAGEs.dEV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_080",
+      "type": "vless",
+      "server": "198.41.221.80",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_081",
+      "type": "vless",
+      "server": "172.67.203.189",
+      "server_port": 443,
+      "uuid": "1bf36abe-aa32-41f5-9523-70d713645ba6",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "sinabigo1.soft10.ir"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Bia--SiNABiGO--SiNABiGO--LqZwXyhqvlBwEC",
+        "headers": {
+          "Host": "sinabigo1.soft10.ir"
+        }
+      }
+    },
+    {
+      "tag": "q_085",
+      "type": "vless",
+      "server": "172.66.47.61",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "23sPT.pAGEs.dEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/xqc11iXB2DOVwbv9",
+        "headers": {
+          "Host": "23sPT.pAGEs.dEV"
+        }
+      }
+    },
+    {
+      "tag": "q_088",
+      "type": "vless",
+      "server": "23spt.pages.dev",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "23sPT.pAGEs.dEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/xqc11iXB2DOVwbv9",
+        "headers": {
+          "Host": "23sPT.pAGEs.dEV"
+        }
+      }
+    },
+    {
+      "tag": "q_090",
+      "type": "vless",
+      "server": "23spt.pages.dev",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "23sPT.pAGEs.dEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/",
+        "headers": {
+          "Host": "23sPT.pAGEs.dEV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_092",
+      "type": "vless",
+      "server": "zdfdf6.azurewebsites.net",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "zdfdf6.azurewebsites.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "zdfdf6.azurewebsites.net"
+        }
+      }
+    },
+    {
+      "tag": "q_094",
+      "type": "vless",
+      "server": "188.114.96.3",
+      "server_port": 443,
+      "uuid": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "mIDSUMMEr-BPb.paGes.dEv"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/FRzWs9bX6Lg0vAj0",
+        "headers": {
+          "Host": "mIDSUMMEr-BPb.paGes.dEv"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_098",
+      "type": "vless",
+      "server": "188.114.96.3",
+      "server_port": 443,
+      "uuid": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "MIDsuMmer-bPB.PAGES.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/S02fqi397xo1WqOG",
+        "headers": {
+          "Host": "MIDsuMmer-bPB.PAGES.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_108",
+      "type": "vless",
+      "server": "zdfdf6.azurewebsites.net",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "zdfdf6.azurewebsites.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "zdfdf6.azurewebsites.net"
+        }
+      }
+    },
+    {
+      "tag": "q_109",
+      "type": "vless",
+      "server": "104.21.101.130",
+      "server_port": 443,
+      "uuid": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "mIDSuMMer-bPb.pageS.deV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/MMjarxEmqb4xtubR",
+        "headers": {
+          "Host": "mIDSuMMer-bPb.pageS.deV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_111",
+      "type": "vless",
+      "server": "188.114.97.3",
+      "server_port": 2053,
+      "uuid": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "MIDSuMmer-BPb.paGes.DeV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/lyP3OF3B7VCq5alq",
+        "headers": {
+          "Host": "MIDSuMmer-BPb.paGes.DeV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_116",
+      "type": "vless",
+      "server": "188.114.96.3",
+      "server_port": 2053,
+      "uuid": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "mIDsUMMER-Bpb.PAGes.Dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/DEBiBkIAodNW2f38",
+        "headers": {
+          "Host": "mIDsUMMER-Bpb.PAGes.Dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_117",
+      "type": "vless",
+      "server": "hkklo.azurewebsites.net",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "hkklo.azurewebsites.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hkklo.azurewebsites.net"
+        }
+      }
+    },
+    {
+      "tag": "q_129",
+      "type": "vless",
+      "server": "gerrrrw.azurewebsites.net",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "gerrrrw.azurewebsites.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "gerrrrw.azurewebsites.net"
+        }
+      }
+    },
+    {
+      "tag": "q_130",
+      "type": "vless",
+      "server": "noora.ir",
+      "server_port": 443,
+      "uuid": "f06ac303-e626-451d-bcfc-ee825ee69398",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "AzADnet-semEj.PAGes.dEv"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "AzADnet-semEj.PAGes.dEv"
+        }
+      }
+    },
+    {
+      "tag": "q_133",
+      "type": "vless",
+      "server": "bnnm.azurewebsites.net",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "bnnm.azurewebsites.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "bnnm.azurewebsites.net"
+        }
+      }
+    },
+    {
+      "tag": "q_134",
+      "type": "vless",
+      "server": "20.42.228.160",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "sdfee4.azurewebsites.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "sdfee4.azurewebsites.net"
+        }
+      }
+    },
+    {
+      "tag": "q_135",
+      "type": "vless",
+      "server": "104.17.148.22",
+      "server_port": 443,
+      "uuid": "e2f4d1fa-0a6d-48c3-a5bb-8b438e78af23",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "119f3a0b.chikiy123w.pages.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-MARAMBASHI/",
+        "headers": {
+          "Host": "119f3a0b.chikiy123w.pages.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_136",
+      "type": "vless",
+      "server": "bnnm.azurewebsites.net",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "bnnm.azurewebsites.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "bnnm.azurewebsites.net"
+        }
+      }
+    },
+    {
+      "tag": "q_137",
+      "type": "vless",
+      "server": "104.21.69.44",
+      "server_port": 8443,
+      "uuid": "17fafaf9-7402-40eb-87ae-a75944c84c52",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "ggho.pages.dev."
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-PROXY_MTM/",
+        "headers": {
+          "Host": "ggho.pages.dev."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_143",
+      "type": "vless",
+      "server": "172.66.47.200",
+      "server_port": 443,
+      "uuid": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "midsUMmER-Bpb.pAgES.DEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/StDNeNqkbQxrj6Xy",
+        "headers": {
+          "Host": "midsUMmER-Bpb.pAgES.DEV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_149",
+      "type": "vless",
+      "server": "104.21.101.130",
+      "server_port": 2053,
+      "uuid": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "midSummeR-bpb.PAGES.DEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/B3R6mN2HqlB10LJ8",
+        "headers": {
+          "Host": "midSummeR-bpb.PAGES.DEV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_151",
+      "type": "vless",
+      "server": "172.66.47.155",
+      "server_port": 443,
+      "uuid": "34a83286-ba4e-4f0a-ac08-77a95469eeaf",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "pardazesh18.pages.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Tel-@V2ray_Alpha/",
+        "headers": {
+          "Host": "pardazesh18.pages.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_152",
+      "type": "vless",
+      "server": "136.175.176.67",
+      "server_port": 443,
+      "uuid": "27b644d3-d9e8-45b2-96db-36ac1d00d50d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "tg.cmliussss.giize.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tg.cmliussss.giize.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_154",
+      "type": "vless",
+      "server": "172.66.47.45",
+      "server_port": 443,
+      "uuid": "690f16d0-6425-462b-86e0-a70a8169c5d9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "pardazeshvpn-tg97.pages.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN",
+        "headers": {
+          "Host": "pardazeshvpn-tg97.pages.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_161",
+      "type": "vless",
+      "server": "172.66.44.190",
+      "server_port": 443,
+      "uuid": "bb27a0c6-aa5e-4105-a943-b87239507057",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "pardazeshvpn-tg86.pages.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN-Telegram:@PARDAZESHVPN",
+        "headers": {
+          "Host": "pardazeshvpn-tg86.pages.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_163",
+      "type": "vless",
+      "server": "172.67.172.147",
+      "server_port": 443,
+      "uuid": "e1cf1cbc-a1b0-4db8-86b0-45dd2e8a68da",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "easynet23.gosomok252.workers.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "easynet23.gosomok252.workers.dev"
+        }
+      }
+    },
+    {
+      "tag": "q_166",
+      "type": "vless",
+      "server": "172.66.44.56",
+      "server_port": 443,
+      "uuid": "c6d299d4-db0b-4444-8b56-b23bbdcbcd67",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "midsUMmER-Bpb.pAgES.DEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/StDNeNqkbQxrj6Xy",
+        "headers": {
+          "Host": "midsUMmER-Bpb.pAgES.DEV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_168",
+      "type": "vless",
+      "server": "aksnmaioas.pages.dev",
+      "server_port": 443,
+      "uuid": "38720105-063f-40f5-a5eb-f3198b9b617d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "aksnmaioas.pages.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "aksnmaioas.pages.dev"
+        }
+      }
+    },
+    {
+      "tag": "q_171",
+      "type": "vless",
+      "server": "104.17.135.153",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_173",
+      "type": "vless",
+      "server": "zula.ir",
+      "server_port": 443,
+      "uuid": "7a18d85c-ecfa-4e83-9f9c-60df37e68970",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "kahnooj.kermankala.shop"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/d8480275",
+        "headers": {
+          "Host": "kahnooj.kermankala.shop"
+        }
+      }
+    },
+    {
+      "tag": "q_175",
+      "type": "vless",
+      "server": "147.78.140.5",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_176",
+      "type": "vless",
+      "server": "104.16.170.208",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_178",
+      "type": "vless",
+      "server": "198.41.221.12",
+      "server_port": 443,
+      "uuid": "f775978b-6e22-41a8-ae5e-5f9779e6745f",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "juzibaipiao.5112233.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzibaipiao.5112233.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "q_179",
+      "type": "vless",
+      "server": "speed.cloudflare.com",
+      "server_port": 443,
+      "uuid": "27b644d3-d9e8-45b2-96db-36ac1d00d50d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "tg.cmliussss.giize.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?proxyip=proxyip.us.fxxk.dedyn.io",
+        "headers": {
+          "Host": "tg.cmliussss.giize.com"
+        }
+      }
+    },
+    {
+      "tag": "q_181",
+      "type": "vless",
+      "server": "104.16.60.8",
+      "server_port": 443,
+      "uuid": "962a733d-2614-0b9b-7ffe-9ac92ffea8eb",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "ahmedquran19.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/current_time",
+        "headers": {
+          "Host": "ahmedquran19.xyz"
+        }
+      }
+    },
+    {
+      "tag": "q_185",
+      "type": "vless",
+      "server": "speed.cloudflare.com",
+      "server_port": 443,
+      "uuid": "27b644d3-d9e8-45b2-96db-36ac1d00d50d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "tg.cmliussss.giize.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tg.cmliussss.giize.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_190",
+      "type": "vless",
+      "server": "bpb-worker-panel1-e4p.pages.dev",
+      "server_port": 443,
+      "uuid": "4045e84e-5e3c-4f70-8ff5-c1097882a55a",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "bpb-wOrkeR-PANEl1-E4P.PaGeS.Dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/",
+        "headers": {
+          "Host": "bpb-wOrkeR-PANEl1-E4P.PaGeS.Dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "q_001",
+      "type": "hysteria2",
+      "server": "207.148.22.93",
+      "server_port": 443,
+      "password": "9bb452b106ffc217",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "207.148.22.93",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "cd29099d"
+      }
+    },
+    {
+      "tag": "q_002",
+      "type": "hysteria2",
+      "server": "66.135.11.68",
+      "server_port": 443,
+      "password": "4e9ee29b39a28277",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "13f7ba5f"
+      }
+    },
+    {
+      "tag": "q_003",
+      "type": "hysteria2",
+      "server": "45.76.0.86",
+      "server_port": 443,
+      "password": "1f17cdf0578a2860",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "4b817757"
+      }
+    },
+    {
+      "tag": "q_004",
+      "type": "hysteria2",
+      "server": "45.76.0.86",
+      "server_port": 443,
+      "password": "1f17cdf0578a2860",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "vkvd127.mycdn.me",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "4b817757"
+      }
+    },
+    {
+      "tag": "q_005",
+      "type": "hysteria2",
+      "server": "45.76.0.86",
+      "server_port": 443,
+      "password": "1f17cdf0578a2860",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "45.76.0.86",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "4b817757"
+      }
+    },
+    {
+      "tag": "q_006",
+      "type": "hysteria2",
+      "server": "207.148.22.93",
+      "server_port": 443,
+      "password": "9bb452b106ffc217",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "cd29099d"
+      }
+    },
+    {
+      "tag": "q_007",
+      "type": "hysteria2",
+      "server": "45.119.99.148",
+      "server_port": 30000,
+      "password": "70676b9f-faff-4684-80f0-340465b2307a",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "q_008",
+      "type": "hysteria2",
+      "server": "77.221.158.52",
+      "server_port": 7373,
+      "password": "81ea378b37931b23",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "vkvd127.mycdn.me",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "7d9dff369a11f6e0"
+      }
+    },
+    {
+      "tag": "q_009",
+      "type": "hysteria2",
+      "server": "207.148.22.93",
+      "server_port": 443,
+      "password": "9bb452b106ffc217",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "vkvd127.mycdn.me",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "cd29099d"
+      }
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "final": "QQOLI",
+    "rules": [
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [{"protocol": "dns"}, {"port": "53"}],
+        "outbound": "NNAQI"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [{"network": "udp"}, {"port": "443"}],
+        "outbound": "MMAQI"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ads-all",
+          "geosite-cryptominers",
+          "geoip-phishing",
+          "geosite-phishing",
+          "geoip-malware",
+          "geosite-malware"
+        ],
+        "outbound": "MMAQI"
+      },
+      {
+        "ip_cidr": [
+          "0.0.0.0/32",
+          "10.10.34.0/24",
+          "240.0.0.0/4"
+        ],
+        "outbound": "MMAQI"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "TTAQI"
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".time.android.com",
+          ".time.apple.com",
+          ".time.windows.com",
+          ".time.nist.gov",
+          ".pool.ntp.org",
+          ".clash.razord.top",
+          ".yacd.haishan.me",
+          ".yacd.metacubex.one",
+          ".clash.metacubex.one"
+        ],
+        "outbound": "TTAQI"
+      },
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir",
+          "geosite-private"
+        ],
+        "outbound": "TTAQI"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "TTAQI"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "QQOLI"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-ir",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-private.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geoip-ir",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geosite-cryptominers",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cryptominers.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geosite-malware",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-malware.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geosite-phishing",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-phishing.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geoip-malware",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-malware.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geoip-phishing",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-phishing.srs",
+        "download_detour": "TTAQI"
+      }
+    ]
+  }
+}
