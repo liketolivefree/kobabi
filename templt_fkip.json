@@ -24,21 +24,22 @@
 	}
   },
   "dns": {
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
-    },
     "servers": [
       {
         "tag": "remote-dns",
-        "address": "tcp://1.0.0.1",
-        "strategy": "ipv4_only"
+        "address": [
+          "https://1.0.0.1/dns-query",
+		  "https://8.8.8.8/dns-query",
+		  "tcp://1.0.0.1"
+        ]
       },
       {
         "tag": "direct-dns",
-        "address": "tcp://8.8.4.4",
-        "strategy": "ipv4_only",
+        "address": [
+          "local",
+		  "https://185.51.200.2/dns-query",
+		  "tcp://217.218.127.127"
+        ],
         "detour": "TTAQI"
       },
       {
@@ -53,17 +54,18 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "remote-dns"
+        "server": "direct-dns"
       },
       {
-        "domain_suffix": [
-          ".ir"
+        "rule_set": [
+          "geosite-phishing",
+          "geosite-malware",
+          "geosite-cryptominers",
+          "geosite-category-ads-all"
         ],
-        "server": "direct-dns"
-      },
-      {
-        "rule_set": "geosite-ir",
-        "server": "direct-dns"
+        "server": "block-dns",
+		"disable_cache": true,
+		"rewrite_ttl": 0
       },
       {
         "type": "logical",
@@ -80,9 +82,49 @@
             ]
           }
         ],
-        "server": "fakeip-dns"
+        "server": "fakeip-dns",
+        "rewrite_ttl": 1
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".time.android.com",
+          ".time.apple.com",
+          ".time.windows.com",
+          ".time.nist.gov",
+          ".pool.ntp.org",
+          ".clash.razord.top",
+          ".yacd.haishan.me",
+          ".yacd.metacubex.one",
+          ".clash.metacubex.one"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "rule_set": [
+        "geosite-private",
+        "geosite-ir"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "clash_mode": "direct",
+        "server": "direct-dns"
+      },
+      {
+        "clash_mode": "global",
+        "server": "remote-dns"
       }
     ],
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
     "final": "remote-dns",
     "strategy": "ipv4_only",
     "disable_cache": false,
@@ -99,15 +141,6 @@
   },
   "inbounds": [
     {
-	  "tag": "direct-in",
-	  "type": "direct",
-	  "domain_strategy": "ipv4_only",
-	  "listen": "0.0.0.0",
-	  "listen_port": 6450,
-	  "override_address": "8.8.4.4",
-	  "override_port": 53
-    },
-    {
 	  "tag": "tun-in",
 	  "type": "tun",
       "interface_name": "tun0",
@@ -117,7 +150,7 @@
 	  "sniff": true,
 	  "sniff_override_destination": false,
       "stack": "system",
-      "domain_strategy": "ipv4_only",
+      "domain_strategy": "",
       "endpoint_independent_nat": true,
       "address": [
         "172.19.0.1/30",
@@ -138,7 +171,7 @@
       ],
       "platform": {
         "http_proxy": {
-          "enabled": false,
+          "enabled": true,
           "server": "127.0.0.1",
           "server_port": 7890
         }
@@ -147,11 +180,10 @@
 	{
       "tag": "mixed-in",
 	  "type": "mixed",
-	  "domain_strategy": "ipv4_only",
+	  "domain_strategy": "",
 	  "listen": "0.0.0.0",
 	  "listen_port": 2080,
-      "sniff": true,
-      "sniff_override_destination": false
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -194,14 +226,30 @@
     "final": "QQOLI",
     "rules": [
       {
-        "protocol": "dns",
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": "53"
+          }
+        ],
         "outbound": "NNAQI"
       },
       {
-        "inbound": [
-          "direct-in"
+        "type": "logical",
+		"mode": "or",
+        "rules": [
+          {
+            "network": "udp"
+          },
+          {
+            "port": "443"
+          }
         ],
-        "outbound": "NNAQI"
+        "outbound": "MMAQI"
       },
       {
         "rule_set": [
@@ -234,19 +282,28 @@
           ".time.windows.com",
           ".time.nist.gov",
           ".pool.ntp.org",
-          "clash.razord.top",
-          "yacd.haishan.me",
-          "yacd.metacubex.one",
-          "clash.metacubex.one"
+          ".clash.razord.top",
+          ".yacd.haishan.me",
+          ".yacd.metacubex.one",
+          ".clash.metacubex.one"
         ],
         "outbound": "TTAQI"
       },
       {
         "rule_set": [
 		  "geoip-ir",
-		  "geosite-ir"
+		  "geosite-ir",
+		  "geosite-private"
 		],
         "outbound": "TTAQI"
+      },
+      {
+        "clash_mode": "direct",
+		"outbound": "TTAQI"
+      },
+      {
+        "clash_mode": "global",
+		"outbound": "QQOLI"
       }
     ],
     "rule_set": [
@@ -254,56 +311,63 @@
         "tag": "geosite-ir",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-ir.srs",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-private.srs",
         "download_detour": "TTAQI"
       },
       {
         "tag": "geoip-ir",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-ir.srs",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
         "download_detour": "TTAQI"
       },
       {
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-category-ads-all.srs",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
         "download_detour": "TTAQI"
       },
       {
         "tag": "geosite-cryptominers",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-cryptominers.srs",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cryptominers.srs",
         "download_detour": "TTAQI"
       },
       {
         "tag": "geosite-malware",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-malware.srs",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-malware.srs",
         "download_detour": "TTAQI"
       },
       {
         "tag": "geosite-phishing",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geosite-phishing.srs",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-phishing.srs",
         "download_detour": "TTAQI"
       },
       {
         "tag": "geoip-malware",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-malware.srs",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-malware.srs",
         "download_detour": "TTAQI"
       },
       {
         "tag": "geoip-phishing",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/Chocolate4u/Iran-sing-box-rules@rule-set/geoip-phishing.srs",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-phishing.srs",
         "download_detour": "TTAQI"
       }
     ]
