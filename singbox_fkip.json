@@ -27,15 +27,13 @@
     "servers": [
       {
         "tag": "remote-dns",
-        "address": "https://chrome.cloudflare-dns.com/dns-query",
-        "address_resolver": "1.0.0.1",
-        "strategy": "prefer_ipv4",
+        "address": "https://1.1.1.1/dns-query",
+		"strategy": "prefer_ipv4",
         "detour": "TTAQI"
       },
       {
         "tag": "direct-dns",
-        "address": "https://dns.google/dns-query",
-        "address_resolver": "8.8.4.4",
+        "address": "https://8.8.8.8/dns-query",
         "strategy": "prefer_ipv4",
         "detour": "TTAQI"
       },
