@@ -27,19 +27,11 @@
     "servers": [
       {
         "tag": "remote-dns",
-        "address": [
-          "https://1.0.0.1/dns-query",
-		  "https://8.8.8.8/dns-query",
-		  "tcp://1.0.0.1"
-        ]
+        "address": "https://1.0.0.1/dns-query"
       },
       {
         "tag": "direct-dns",
-        "address": [
-          "local",
-		  "https://185.51.200.2/dns-query",
-		  "tcp://217.218.127.127"
-        ],
+        "address": "local",
         "detour": "TTAQI"
       },
       {
@@ -199,30 +191,8 @@
     "final": "QQOLI",
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": "53"
-          }
-        ],
+        "protocol": "dns",
         "outbound": "NNAQI"
-      },
-      {
-        "type": "logical",
-		"mode": "or",
-        "rules": [
-          {
-            "network": "udp"
-          },
-          {
-            "port": "443"
-          }
-        ],
-        "outbound": "MMAQI"
       },
       {
         "rule_set": [
