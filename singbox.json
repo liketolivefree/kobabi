@@ -37,43 +37,9 @@
     ],
     "rules": [
       {
-        "rule_set": [
-          "geosite-category-ads-all"
-        ],
-        "server": "block-dns",
-        "disable_cache": true,
-        "rewrite_ttl": 0
-      },
-      {
-        "rule_set": [
-          "geosite-private"
-        ],
-        "server": "local-dns"
-      },
-      {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "rule_set": [
-          "geosite-ir"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "clash_mode": "direct",
+        "domain_suffix": ".ir",
         "server": "direct-dns"
       },
-      {
-        "clash_mode": "global",
-        "server": "remote-dns"
-      }
     ],
     "final": "remote-dns",
     "strategy": "ipv4_only",
@@ -1726,12 +1692,6 @@
         "outbound": "MMAQI"
       },
       {
-        "rule_set": [
-          "geosite-category-ads-all"
-        ],
-        "outbound": "MMAQI"
-      },
-      {
         "ip_cidr": [
           "0.0.0.0/32",
           "10.10.34.0/24",
@@ -1740,71 +1700,14 @@
         "outbound": "MMAQI"
       },
       {
-        "rule_set": [
-          "geosite-private"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
         "ip_is_private": true,
         "outbound": "TTAQI"
       },
       {
-        "domain_suffix": [
-          ".ir"
-        ],
+        "domain_suffix": ".ir",
         "outbound": "TTAQI"
-      },
-      {
-        "rule_set": [
-          "geosite-ir"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
-        "rule_set": [
-          "geoip-ir"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
-        "clash_mode": "direct",
-        "outbound": "TTAQI"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "QQOLI"
       }
     ],
-    "rule_set": [
-      {
-        "tag": "geosite-ir",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geosite-private",
-        "type": "remote",
-        "format": "source",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/private.json",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geoip-ir",
-        "type": "remote",
-        "format": "source",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/ir.json",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geosite-category-ads-all",
-        "type": "remote",
-        "format": "source",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.json",
-        "download_detour": "TTAQI"
-      }
-    ]
+    "rule_set": []
   }
 }
