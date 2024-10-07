@@ -8,19 +8,6 @@
       "enabled": true,
       "store_fakeip": true,
       "store_rdrc": true
-    },
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "QQOLI",
-      "secret": "qolqoli",
-      "access_control_allow_origin": [
-        "http://127.0.0.1",
-        "http://yacd.haishan.me"
-      ],
-      "access_control_allow_private_network": true,
-      "default_mode": "rule"
     }
   },
   "dns": {
@@ -54,40 +41,7 @@
     ],
     "rules": [
       {
-        "rule_set": [
-          "geosite-phishing",
-          "geosite-malware",
-          "geosite-cryptominers",
-          "geosite-category-ads-all"
-        ],
-        "server": "block-dns",
-        "disable_cache": true,
-        "rewrite_ttl": 0
-      },
-      {
-        "rule_set": [
-          "geosite-private"
-        ],
-        "server": "local-dns"
-      },
-      {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "rule_set": [
-          "geosite-ir"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "clash_mode": "direct",
+        "domain_suffix": ".ir",
         "server": "direct-dns"
       },
       {
@@ -107,10 +61,6 @@
         ],
         "server": "fakeip-dns",
         "rewrite_ttl": 1
-      },
-      {
-        "clash_mode": "global",
-        "server": "remote-dns"
       }
     ],
     "fakeip": {
@@ -1769,17 +1719,6 @@
         "outbound": "MMAQI"
       },
       {
-        "rule_set": [
-          "geosite-category-ads-all",
-          "geosite-cryptominers",
-          "geoip-phishing",
-          "geosite-phishing",
-          "geoip-malware",
-          "geosite-malware"
-        ],
-        "outbound": "MMAQI"
-      },
-      {
         "ip_cidr": [
           "0.0.0.0/32",
           "10.10.34.0/24",
@@ -1788,106 +1727,14 @@
         "outbound": "MMAQI"
       },
       {
-        "rule_set": [
-          "geosite-private"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
         "ip_is_private": true,
         "outbound": "TTAQI"
       },
       {
-        "domain_suffix": [
-          ".ir"
-        ],
+        "domain_suffix": ".ir",
         "outbound": "TTAQI"
-      },
-      {
-        "rule_set": [
-          "geosite-ir"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
-        "rule_set": [
-          "geoip-ir"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
-        "clash_mode": "direct",
-        "outbound": "TTAQI"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "QQOLI"
       }
     ],
-    "rule_set": [
-      {
-        "tag": "geosite-ir",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
-        "download_detour": "QQOLI"
-      },
-      {
-        "tag": "geosite-private",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-private.srs",
-        "download_detour": "QQOLI"
-      },
-      {
-        "tag": "geoip-ir",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
-        "download_detour": "QQOLI"
-      },
-      {
-        "tag": "geosite-category-ads-all",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
-        "download_detour": "QQOLI"
-      },
-      {
-        "tag": "geosite-cryptominers",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cryptominers.srs",
-        "download_detour": "QQOLI"
-      },
-      {
-        "tag": "geosite-malware",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-malware.srs",
-        "download_detour": "QQOLI"
-      },
-      {
-        "tag": "geosite-phishing",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-phishing.srs",
-        "download_detour": "QQOLI"
-      },
-      {
-        "tag": "geoip-malware",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-malware.srs",
-        "download_detour": "QQOLI"
-      },
-      {
-        "tag": "geoip-phishing",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-phishing.srs",
-        "download_detour": "QQOLI"
-      }
-    ]
+    "rule_set": []
   }
 }
