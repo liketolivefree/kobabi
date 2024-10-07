@@ -1,125 +1,19 @@
 {
-  "log": {
-    "level": "info",
-    "timestamp": true
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "store_fakeip": true,
-      "store_rdrc": true
-    },
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "TTAQI",
-      "secret": "qolqoli",
-      "access_control_allow_origin": [
-        "http://127.0.0.1",
-        "http://yacd.haishan.me"
-      ],
-      "access_control_allow_private_network": true,
-	  "default_mode": "rule"
-	}
-  },
+  "log": {"level": "info","timestamp": true},
+  "experimental": {"cache_file": {"enabled": true,"store_fakeip": true,"store_rdrc": true}},
   "dns": {
     "servers": [
-      {
-        "tag": "remote-dns",
-        "address": "https://chrome.cloudflare-dns.com/dns-query",
-		"address_resolver": "1.0.0.1",
-		"strategy": "prefer_ipv4",
-        "detour": "TTAQI"
-      },
-      {
-        "tag": "direct-dns",
-        "address": "https://dns.google/dns-query",
-        "address_resolver": "8.8.4.4",
-        "strategy": "prefer_ipv4",
-        "detour": "TTAQI"
-      },
-      {
-        "tag": "local-dns",
-        "address": "local",
-        "strategy": "ipv4_only",
-        "detour": "TTAQI"
-      },
-      {
-        "tag": "block-dns",
-        "address": "rcode://refused"
-      },
-      {
-        "tag": "fakeip-dns",
-        "address": "fakeip"
-      }
+      {"tag":"remote-dns","address":"https://1.1.1.1/dns-query","strategy":"ipv4_only","detour":"QQOLI"},
+      {"tag": "direct-dns","address": "https://8.8.8.8/dns-query","strategy": "ipv4_only","detour": "QQOLI"},
+      {"tag": "local-dns","address": "local","strategy": "ipv4_only","detour": "TTAQI"},
+      {"tag": "block-dns","address": "rcode://refused"},
+      {"tag": "fakeip-dns","address": "fakeip"}
     ],
     "rules": [
-      {
-        "rule_set": [
-          "geosite-phishing",
-          "geosite-malware",
-          "geosite-cryptominers",
-          "geosite-category-ads-all"
-        ],
-        "server": "block-dns",
-		"disable_cache": true,
-		"rewrite_ttl": 0
-      },
-      {
-        "rule_set": [
-        "geosite-private"
-        ],
-        "server": "local-dns"
-      },
-      {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "rule_set": [
-        "geosite-ir"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "clash_mode": "direct",
-        "server": "direct-dns"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-ir",
-            "invert": true
-          },
-          {
-            "query_type": [
-              "A",
-              "AAAA"
-            ]
-          }
-        ],
-        "server": "fakeip-dns",
-        "rewrite_ttl": 1
-      },
-      {
-        "clash_mode": "global",
-        "server": "remote-dns"
-      }
+      {"domain_suffix": ".ir","server": "direct-dns"},
+      {"type":"logical","mode":"and","rules":[{"rule_set":"geosite-ir","invert":true},{"query_type":["A","AAAA"]}],"server":"fakeip-dns"}
     ],
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
-    },
+    "fakeip": {"enabled": true,"inet4_range": "198.18.0.0/15","inet6_range": "fc00::/18"},
     "final": "remote-dns",
     "strategy": "ipv4_only",
     "disable_cache": false,
@@ -197,152 +91,12 @@
     "override_android_vpn": true,
     "final": "QQOLI",
     "rules": [
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": 53
-          }
-        ],
-        "outbound": "NNAQI"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "network": "udp"
-          },
-          {
-            "port": 443
-          }
-        ],
-        "outbound": "MMAQI"
-      },
-      {
-        "rule_set": [
-          "geosite-category-ads-all",
-          "geosite-cryptominers",
-          "geoip-phishing",
-          "geosite-phishing",
-          "geoip-malware",
-          "geosite-malware"
-        ],
-        "outbound": "MMAQI"
-      },
-      {
-        "ip_cidr": [
-          "0.0.0.0/32",
-          "10.10.34.0/24",
-          "240.0.0.0/4"
-        ],
-        "outbound": "MMAQI"
-      },
-      {
-        "rule_set": [
-          "geosite-private"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "TTAQI"
-      },
-      {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
-        "rule_set": [
-          "geosite-ir"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
-        "rule_set": [
-          "geoip-ir"
-        ],
-        "outbound": "TTAQI"
-      },
-      {
-        "clash_mode": "direct",
-        "outbound": "TTAQI"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "QQOLI"
-      }
+      {"type":"logical","mode":"or","rules":[{"protocol":"dns"},{"port":53}],"outbound":"NNAQI"},
+      {"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}],"outbound":"MMAQI"},
+      {"ip_cidr": ["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"],"outbound": "MMAQI"},
+      {"ip_is_private": true,"outbound": "TTAQI"},
+      {"domain_suffix": ".ir","outbound": "TTAQI"}
 	],
-    "rule_set": [
-      {
-        "tag": "geosite-ir",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geosite-private",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-private.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geoip-ir",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geosite-category-ads-all",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geosite-cryptominers",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cryptominers.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geosite-malware",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-malware.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geosite-phishing",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-phishing.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geoip-malware",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-malware.srs",
-        "download_detour": "TTAQI"
-      },
-      {
-        "tag": "geoip-phishing",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-phishing.srs",
-        "download_detour": "TTAQI"
-      }
-    ]
+    "rule_set": []
   }
 }
