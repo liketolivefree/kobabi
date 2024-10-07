@@ -45,22 +45,11 @@
         "server": "direct-dns"
       },
       {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-ir",
-            "invert": true
-          },
-          {
-            "query_type": [
+        "query_type": [
               "A",
               "AAAA"
-            ]
-          }
-        ],
-        "server": "fakeip-dns",
-        "rewrite_ttl": 1
+            ],
+        "server": "fakeip-dns"
       }
     ],
     "fakeip": {
