@@ -4,7 +4,7 @@ mode: rule
 log-level: error
 ipv6: true
 external-controller: 127.0.0.1:9090
-secret: ''
+secret: ""
 enable-process: true
 find-process-mode: always
 tcp-concurrent: true
@@ -21,14 +21,13 @@ geox-url:
   geoip: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
   geosite: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
   mmdb: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb
+  asn: https://github.com/PrxyHunter/GeoLite2/releases/latest/download/GeoLite2-ASN.mmdb
 geo-auto-update: false
 geo-update-interval: 24
 dns:
   enable: true
   listen: 0.0.0.0:53
   ipv6: true
-  prefer-h3: true
-  use-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -38,10 +37,10 @@ dns:
   - +.localdomain
   - +.ip6-localhost
   - +.ip6-loopback
-  - '*.example'
-  - '*.invalid'
-  - '*.test'
-  - '*.home.arpa'
+  - "*.example"
+  - "*.invalid"
+  - "*.test"
+  - "*.home.arpa"
   - time.nist.gov
   - time.windows.com
   - time.*.apple.com
@@ -92,10 +91,10 @@ dns:
     - +.facebook.com
   nameserver-policy:
     RULE-SET:xal:
-    - tls://cloudflare-dns.com
+    - tcp://1.1.1.1
     - https://8.8.8.8/dns-query
-    - https://dns.403.online/dns-query
-    - https://dns.shecan.ir/dns-query
+    - https://185.51.200.2/dns-query
+    - https://178.22.122.100/dns-query
 tun:
   enable: true
   stack: mixed
@@ -121,8 +120,8 @@ sniffer:
   - tls
   - http
   port-whitelist:
-  - '80'
-  - '443'
+  - "80"
+  - "443"
 
 proxy-providers:
   q:
