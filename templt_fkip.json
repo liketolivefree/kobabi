@@ -3,15 +3,15 @@
   "experimental": {"cache_file": {"enabled": true,"store_fakeip": true,"store_rdrc": true}},
   "dns": {
     "servers": [
-      {"tag":"remote-dns","address":["https://1.1.1.1/dns-query","https://8.8.8.8/dns-query","https://9.9.9.9/dns-query"],"strategy":"ipv4_only","detour":"QQOLI"},
-      {"tag": "direct-dns","address": ["https://8.8.8.8/dns-query","https://185.51.200.2/dns-query","https://178.22.122.100/dns-query"],"strategy": "ipv4_only","detour": "QQOLI"},
+      {"tag":"remote-dns","address":"https://1.1.1.1/dns-query","strategy":"ipv4_only","detour":"QQOLI"},
+      {"tag": "direct-dns","address": "https://185.51.200.2/dns-query","strategy": "ipv4_only","detour": "QQOLI"},
       {"tag": "local-dns","address": "local","strategy": "ipv4_only","detour": "TTAQI"},
       {"tag": "block-dns","address": "rcode://refused"},
       {"tag": "fakeip-dns","address": "fakeip"}
     ],
     "rules": [
       {"domain_suffix": ".ir","server": "direct-dns"},
-      {"type":"logical","mode":"and","rules":[{"rule_set":"geosite-ir","invert":true},{"query_type":["A","AAAA"]}],"server":"fakeip-dns"}
+      {"query_type": ["A","AAAA"],"server": "fakeip-dns"}
     ],
     "fakeip": {"enabled": true,"inet4_range": "198.18.0.0/15","inet6_range": "fc00::/18"},
     "final": "remote-dns",
