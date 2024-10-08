@@ -1,7 +1,7 @@
 mixed-port: 7890
 allow-lan: true
 mode: rule
-log-level: info
+log-level: error
 ipv6: true
 external-controller: 127.0.0.1:9090
 secret: ""
@@ -31,20 +31,20 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-  - +.lan
-  - +.local
-  - +.localhost
-  - +.localdomain
-  - +.ip6-localhost
-  - +.ip6-loopback
+  - "+.lan"
+  - "+.local"
+  - "+.localhost"
+  - "+.localdomain"
+  - "+.ip6-localhost"
+  - "+.ip6-loopback"
   - "*.example"
   - "*.invalid"
   - "*.test"
   - "*.home.arpa"
-  - time.nist.gov
-  - time.windows.com
-  - time.*.apple.com
-  - time.android.com
+  - "time.nist.gov"
+  - "time.windows.com"
+  - "time.*.apple.com"
+  - "time.android.com"
   default-nameserver:
   - 1.0.0.1
   - 8.8.4.4
@@ -66,6 +66,29 @@ dns:
     ipcidr:
     - 0.0.0.0/32
     - 240.0.0.0/4
+    domain:
+    - "+.cloudflare.com"
+    - "+.github.com"
+    - "+.githubusercontent.com"
+    - "+.githubassets.com"
+    - "+.googlevideo.com"
+    - "+.xn--ngstr-lra8j.com"
+    - "+.recaptcha.net"
+    - "+.google.com"
+    - "+.googleapis.com"
+    - "+.gstatic.com"
+    - "+.gvt1.com"
+    - "+.gvt2.com"
+    - "+.microsoft.com"
+    - "+.windows.com"
+    - "+.nist.gov"
+    - "+.apple.com"
+    - "+.amazon.com"
+    - "+.amazonaws.com"
+    - "+.youtube.com"
+    - "+.x.com"
+    - "+.bing.com"
+    - "+.facebook.com"
   nameserver-policy:
     RULE-SET:xal:
     - tcp://1.1.1.1
