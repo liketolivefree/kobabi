@@ -45,19 +45,9 @@
         "server": "direct-dns"
       },
       {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-ir",
-            "invert": true
-          },
-          {
-            "query_type": [
-              "A",
-              "AAAA"
-            ]
-          }
+        "query_type": [
+          "A",
+          "AAAA"
         ],
         "server": "fakeip-dns"
       }
