@@ -3,8 +3,8 @@
   "experimental": {"cache_file": {"enabled": true,"store_fakeip": true,"store_rdrc": true}},
   "dns": {
     "servers": [
-      {"tag":"remote-dns","address":"https://1.1.1.1/dns-query","strategy":"ipv4_only","detour":"QQOLI"},
-      {"tag": "direct-dns","address": "https://8.8.8.8/dns-query","strategy": "ipv4_only","detour": "QQOLI"},
+      {"tag":"remote-dns","address":["https://1.1.1.1/dns-query","https://8.8.8.8/dns-query","https://9.9.9.9/dns-query"],"strategy":"ipv4_only","detour":"QQOLI"},
+      {"tag": "direct-dns","address": ["https://8.8.8.8/dns-query","https://185.51.200.2/dns-query","https://178.22.122.100/dns-query"],"strategy": "ipv4_only","detour": "QQOLI"},
       {"tag": "local-dns","address": "local","strategy": "ipv4_only","detour": "TTAQI"},
       {"tag": "block-dns","address": "rcode://refused"},
       {"tag": "fakeip-dns","address": "fakeip"}
@@ -47,8 +47,8 @@
 	{
       "tag": "mixed-in",
 	  "type": "mixed",
-	  "listen": "0.0.0.0",
-	  "listen_port": 2080,
+	  "listen": "127.0.0.1",
+	  "listen_port": 7890,
       "sniff": true
     }
   ],
@@ -93,6 +93,7 @@
     "rules": [
       {"type":"logical","mode":"or","rules":[{"protocol":"dns"},{"port":53}],"outbound":"NNAQI"},
       {"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}],"outbound":"MMAQI"},
+      {"domain_suffix": [".xiaomi.com",".xiaomi.net",".miui.com",".mi.com",".mi-img.com"],"outbound": "MMAQI"},	  
       {"ip_cidr": ["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"],"outbound": "MMAQI"},
       {"ip_is_private": true,"outbound": "TTAQI"},
       {"domain_suffix": ".ir","outbound": "TTAQI"}
