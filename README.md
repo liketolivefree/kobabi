@@ -37,6 +37,14 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_sp
 -
 
 
+-
+
+===)) کانفیگهای سینگ باکس.
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox.json
+-
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox_fkip.json
+
+-
 ========= ================= ========================
 
 
