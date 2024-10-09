@@ -50,20 +50,32 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox_fkip.json
 ========= ================= ========================
 
 
-فهرست کلاینتهای کلش: اندروید:
+فهرست کلاینتهای اندروید:
 
 https://github.com/MetaCubeX/ClashMetaForAndroid
 
 https://github.com/hiddify/hiddify-next
+
+https://github.com/SagerNet/sing-box
+
+https://github.com/KaringX/karing
+
+https://github.com/chen08209/FlClash
 
 
 ویندوز:
 
 https://github.com/clash-verge-rev/clash-verge-rev
 
-https://github.com/LibNyanpasu/clash-nyanpasu
+https://github.com/GUI-for-Cores/GUI.for.SingBox
 
-https://github.com/hiddify/hiddify-next
+https://github.com/GUI-for-Cores/GUI.for.Clash
+
+https://github.com/KaringX/karing
+
+https://github.com/chen08209/FlClash
+
+https://github.com/mihomo-party-org/mihomo-party
 
 https://github.com/2dust/clashN
 
@@ -80,9 +92,9 @@ https://github.com/snakem982/Pandora-Box
 
 https://github.com/clash-verge-rev/clash-verge-rev
 
-https://github.com/LibNyanpasu/clash-nyanpasu
+https://github.com/chen08209/FlClash
 
-https://github.com/hiddify/hiddify-next
+https://github.com/mihomo-party-org/mihomo-party
 
 https://github.com/ClashrAuto/Clashr-Auto-Desktop
 
@@ -93,9 +105,11 @@ https://github.com/MetaCubeX/ClashX.Meta
 
 https://github.com/clash-verge-rev/clash-verge-rev
 
-https://github.com/LibNyanpasu/clash-nyanpasu
+https://github.com/JohanChane/clashtui
 
-https://github.com/hiddify/hiddify-next
+https://github.com/chen08209/FlClash
+
+https://github.com/mihomo-party-org/mihomo-party
 
 https://github.com/ClashrAuto/Clashr-Auto-Desktop
 
