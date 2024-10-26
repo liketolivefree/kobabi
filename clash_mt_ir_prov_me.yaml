@@ -125,47 +125,19 @@ sniffer:
   - "443"
 
 proxy-providers:
-  q:
+  qq:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
-    path: ./proxy-providers/q.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
+    interval: 15000
+    path: ./proxy-providers/qq.yaml
     health-check:
       enable: true
-      interval: 60
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
       skip-cert-verify: false
-  a:
-    type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 3600
-    path: ./proxy-providers/a.yaml
-    health-check:
-      enable: true
-      interval: 60
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    override:
-      udp: true
-      skip-cert-verify: false
-    exclude-type: ss|http|trojan
-  b:
-    type: http
-    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
-    interval: 3600
-    path: ./proxy-providers/b.yaml
-    health-check:
-      enable: true
-      interval: 60
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    override:
-      udp: true
-      skip-cert-verify: false
-    exclude-type: ss|http|trojan
 
 proxy-groups:
 - name: QQOLI
@@ -173,23 +145,21 @@ proxy-groups:
   proxies:
   - MMOBI
   - MMOQI
+  use:
+  - qq  
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
-  interval: 60
+  interval: 150
   tolerance: 30
   use:
-  - q
-  - b
-  - a
+  - qq
 - name: MMOQI
   type: fallback
   url: https://www.gstatic.com/generate_204
-  interval: 60
+  interval: 150
   use:
-  - q
-  - b
-  - a
+  - qq
 
 rule-providers:
   aff:
