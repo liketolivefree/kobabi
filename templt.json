@@ -1,22 +1,42 @@
 {
-  "log": {"level": "info","timestamp": true},
-  "experimental": {"cache_file": {"enabled": true,"store_fakeip": true,"store_rdrc": true}},
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true,
+      "store_rdrc": true
+    }
+  },
   "dns": {
     "servers": [
       {"tag":"remote-dns","address":"https://1.1.1.1/dns-query","strategy":"ipv4_only","detour":"QQOLI"},
-      {"tag": "direct-dns","address": "https://185.51.200.2/dns-query","strategy": "ipv4_only","detour": "QQOLI"},
-      {"tag": "local-dns","address": "local","strategy": "ipv4_only","detour": "TTAQI"},
-      {"tag": "block-dns","address": "rcode://refused"}
+      {"tag":"backup-dns","address":"https://9.9.9.9/dns-query","strategy":"ipv4_only","detour":"QQOLI"},
+      {"tag":"direct-dns","address":"8.8.8.8","strategy":"ipv4_only","detour":"TTAQI"},
+      {"tag":"local-dns","address":"local","strategy":"ipv4_only","detour":"TTAQI"},
+      {"tag":"block-dns","address":"rcode://refused"}
     ],
     "rules": [
-      {"domain_suffix": ".ir","server": "direct-dns"}
+      {"outbound":"any","server":"direct-dns"},
+      {"domain_suffix":[".githubusercontent.com",".githubassets.com",".github.com"],"server":"direct-dns","disable_cache":false,"rewrite_ttl":20},
+      {"clash_mode":"direct","server":"direct-dns"},
+      {"clash_mode":"global","server":"remote-dns"},
+      {"rule_set":"ads","server":"block-dns","disable_cache":true,"rewrite_ttl":0},
+      {"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"],"server":"block-dns","disable_cache":true,"rewrite_ttl":0},
+      {"rule_set":"geosite-private","server":"local-dns"},
+      {"domain_suffix":".ir","server":"direct-dns","disable_cache":false,"rewrite_ttl":20},
+      {"rule_set":"geosite-ir","server":"direct-dns","disable_cache":false,"rewrite_ttl":20}
     ],
-    "final": "remote-dns",
-    "strategy": "ipv4_only",
-    "disable_cache": false,
-    "disable_expire": false,
-    "reverse_mapping": true,
-    "independent_cache": true
+    "final": "backup-dns"
+  },
+  "ntp": {
+    "enabled": true,
+    "server": "pool.ntp.org",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "TTAQI"
   },
   "inbounds": [
     {
@@ -25,21 +45,10 @@
       "interface_name": "tun0",
       "mtu": 9000,
       "auto_route": true,
-      "strict_route": true,
 	  "sniff": true,
-	  "sniff_override_destination": false,
-      "stack": "system",
-      "address": [
-        "172.19.0.1/30",
-        "fdfe:dcba:9876::1/126"
-      ],
-      "platform": {
-        "http_proxy": {
-          "enabled": true,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-      }
+      "stack": "mixed",
+      "address": ["172.19.0.1/30","fdfe:dcba:9876::1/126"],
+      "platform": {"http_proxy":{"enabled":true,"server":"127.0.0.1","server_port":7890}}
     },
 	{
       "tag": "mixed-in",
@@ -54,10 +63,7 @@
       "tag":"QQOLI",
       "type":"selector",
 	  "interrupt_exist_connections": false,
-      "outbounds":[
-        "MMOBI",
-        "{all}"
-      ]
+      "outbounds":["MMOBI","{all}"]
     },
    {
       "tag":"MMOBI",
@@ -66,9 +72,7 @@
 	  "interrupt_exist_connections": false,
       "interval": "5m",
       "tolerance": 50,
-      "outbounds":[
-        "{all}"
-      ]
+      "outbounds":["{all}"]
     },
     {
       "tag": "TTAQI",
@@ -89,12 +93,48 @@
     "final": "QQOLI",
     "rules": [
       {"type":"logical","mode":"or","rules":[{"protocol":"dns"},{"port":53}],"outbound":"NNAQI"},
+      {"domain_suffix":[".githubusercontent.com",".githubassets.com",".github.com"],"outbound":"TTAQI"},
       {"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}],"outbound":"MMAQI"},
-      {"domain_suffix": [".xiaomi.com",".xiaomi.net",".miui.com",".mi.com",".mi-img.com"],"outbound": "MMAQI"},	  
-      {"ip_cidr": ["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"],"outbound": "MMAQI"},
-      {"ip_is_private": true,"outbound": "TTAQI"},
-      {"domain_suffix": ".ir","outbound": "TTAQI"}
+      {"protocol":"quic","outbound":"MMAQI"},
+      {"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"],"outbound":"MMAQI"},
+      {"ip_cidr":["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"],"outbound":"MMAQI"},
+      {"rule_set":"ads","outbound":"MMAQI"},
+      {"ip_is_private":true,"outbound":"TTAQI"},
+      {"rule_set":"geosite-private","outbound":"TTAQI"},
+      {"domain_suffix":".ir","outbound":"TTAQI"},
+      {"rule_set":["geosite-ir","geoip-ir"],"outbound":"TTAQI"},
+      {"clash_mode":"direct","outbound":"TTAQI"},
+      {"clash_mode":"global","outbound":"QQOLI"}
 	],
-    "rule_set": []
+    "rule_set": [
+      {
+        "tag": "geosite-ir",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-private.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "geoip-ir",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
+        "download_detour": "TTAQI"
+      },
+      {
+        "tag": "ads",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "TTAQI"
+      }
+    ]
   }
 }
