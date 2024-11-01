@@ -1,18 +1,16 @@
 mixed-port: 7890
-allow-lan: true
+allow-lan: false
 mode: rule
 log-level: error
-ipv6: true
-external-controller: 127.0.0.1:9090
-secret: ""
+ipv6: false
 enable-process: true
 find-process-mode: always
 tcp-concurrent: true
 unified-delay: true
-global-client-fingerprint: chrome
+global-client-fingerprint: random
 keep-alive-interval: 30
-hosts:
-  localhost: 127.0.0.1
+geodata-loader: memconservative
+geosite-matcher: succinct
 profile:
   store-selected: false
   store-fake-ip: true
@@ -23,7 +21,6 @@ geox-url:
   mmdb: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb
   asn: https://github.com/Chocolate4U/Iran-v2ray-rules/raw/geolite2/GeoLite2-ASN.mmdb
 geo-auto-update: false
-geo-update-interval: 24
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -46,21 +43,21 @@ dns:
   - "time.*.apple.com"
   - "time.android.com"
   default-nameserver:
-  - 1.0.0.1
-  - 8.8.4.4
+  - 1.1.1.1
+  - 8.8.8.8
   nameserver:
-  - https://1.0.0.1/dns-query
-  - https://8.8.4.4/dns-query
-  - https://149.112.112.112/dns-query
-  - https://94.140.15.15/dns-query
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - https://9.9.9.9/dns-query
+  - https://94.140.14.14/dns-query
   proxy-server-nameserver:
   - https://8.8.8.8/dns-query
   - https://94.140.14.14/dns-query
   fallback:
-  - https://1.0.0.1/dns-query
-  - https://8.8.4.4/dns-query
-  - https://149.112.112.112/dns-query
-  - https://94.140.15.15/dns-query
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  - https://9.9.9.9/dns-query
+  - https://94.140.14.14/dns-query
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -92,10 +89,10 @@ dns:
     - "+.facebook.com"
   nameserver-policy:
     RULE-SET:xal:
-    - https://1.0.0.1/dns-query
-    - https://8.8.4.4/dns-query
-    - https://149.112.112.112/dns-query
-    - https://94.140.15.15/dns-query
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+    - https://9.9.9.9/dns-query
+    - https://94.140.14.14/dns-query
 tun:
   enable: true
   stack: mixed
@@ -103,10 +100,11 @@ tun:
   - any:53
   auto-route: true
   auto-detect-interface: true
-  strict-route: true
+  strict-route: false
   mtu: 9000
 sniffer:
   enable: true
+  parse-pure-ip: true
   sniff:
     TLS:
       ports:
@@ -120,9 +118,6 @@ sniffer:
   sniffing:
   - tls
   - http
-  port-whitelist:
-  - "80"
-  - "443"
 
 proxy-providers:
   q:
@@ -352,19 +347,10 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
-- DOMAIN,clash.razord.top,DIRECT
-- DOMAIN,yacd.haishan.me,DIRECT
-- DOMAIN,yacd.metacubex.one,DIRECT
-- DOMAIN,clash.metacubex.one,DIRECT
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
-- DOMAIN-SUFFIX,time.android.com,QQOLI
-- DOMAIN-SUFFIX,time.apple.com,QQOLI
-- DOMAIN-SUFFIX,time.*.apple.com,QQOLI
-- DOMAIN-SUFFIX,time.windows.com,QQOLI
-- DOMAIN-SUFFIX,time.nist.gov,QQOLI
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
 - DOMAIN-SUFFIX,ir,DIRECT
