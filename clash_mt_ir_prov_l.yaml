@@ -127,12 +127,11 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 60
+      interval: 150
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
-      skip-cert-verify: false
   a:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -140,12 +139,11 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 60
+      interval: 150
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
-      skip-cert-verify: false
     exclude-type: ss|http|trojan
   b:
     type: http
@@ -154,12 +152,11 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 60
+      interval: 150
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
-      skip-cert-verify: false
     exclude-type: ss|http|trojan
 
 proxy-groups:
@@ -167,20 +164,11 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-  - MMOQI
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
-  interval: 60
+  interval: 150
   tolerance: 30
-  use:
-  - q
-  - b
-  - a
-- name: MMOQI
-  type: fallback
-  url: https://www.gstatic.com/generate_204
-  interval: 60
   use:
   - q
   - b
