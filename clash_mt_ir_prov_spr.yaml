@@ -268,28 +268,11 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
-  - MMOQI
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 10
-  use:
-  - q
-  - a
-  - b
-  - c
-  - d
-  - e
-  - f
-  - g
-  - h
-  - i
-  - j
-- name: MMOQI
-  type: fallback
-  url: https://www.gstatic.com/generate_204
-  interval: 300
   use:
   - q
   - a
