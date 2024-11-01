@@ -123,7 +123,7 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
+    interval: 9000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
@@ -132,42 +132,12 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-      skip-cert-verify: false
-  a:
-    type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 3600
-    path: ./proxy-providers/a.yaml
-    health-check:
-      enable: true
-      interval: 3600
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    override:
-      udp: true
-      skip-cert-verify: false
-    exclude-type: ss|http|trojan
-  b:
-    type: http
-    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
-    interval: 3600
-    path: ./proxy-providers/b.yaml
-    health-check:
-      enable: true
-      interval: 3600
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    override:
-      udp: true
-      skip-cert-verify: false
-    exclude-type: ss|http|trojan
 
 proxy-groups:
 - name: QQOLI
   type: select
   proxies:
   - MMOBI
-  - MMOQI
   use:
   - q
 - name: MMOBI
@@ -177,14 +147,6 @@ proxy-groups:
   tolerance: 500
   use:
   - q
-  - b
-- name: MMOQI
-  type: fallback
-  url: https://www.gstatic.com/generate_204
-  interval: 3600
-  use:
-  - q
-  - b
 
 rule-providers:
   aff:
