@@ -120,11 +120,11 @@ sniffer:
   - http
 
 proxy-providers:
-  qq:
+  q:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
-    interval: 9000
-    path: ./proxy-providers/qq.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 3600
+    path: ./proxy-providers/q.yaml
     health-check:
       enable: true
       interval: 150
@@ -132,6 +132,19 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
+  b:
+    type: http
+    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
+    interval: 3600
+    path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 150
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: ss|http|trojan
 proxy-groups:
 - name: QQOLI
   type: select
@@ -143,7 +156,8 @@ proxy-groups:
   interval: 150
   tolerance: 30
   use:
-  - qq
+  - q
+  - b
 
 rule-providers:
   aff:
