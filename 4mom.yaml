@@ -118,18 +118,17 @@ sniffer:
   sniffing:
   - tls
   - http
-
 proxy-providers:
-  q:
+  qq:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
-    path: ./proxy-providers/q.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
+    interval: 9000
+    path: ./proxy-providers/qq.yaml
     health-check:
       enable: true
       interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
   b:
@@ -141,7 +140,7 @@ proxy-providers:
       enable: true
       interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
@@ -156,9 +155,7 @@ proxy-groups:
   interval: 150
   tolerance: 30
   use:
-  - q
-  - b
-
+  - qq
 rule-providers:
   aff:
     type: http
