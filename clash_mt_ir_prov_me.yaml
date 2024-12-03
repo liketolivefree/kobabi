@@ -122,12 +122,11 @@ sniffer:
   sniffing:
   - tls
   - http
-
 proxy-providers:
   qq:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
-    interval: 15000
+    interval: 9000
     path: ./proxy-providers/qq.yaml
     health-check:
       enable: true
@@ -136,7 +135,19 @@ proxy-providers:
       timeout: 3000
     override:
       udp: true
-
+  b:
+    type: http
+    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
+    interval: 3600
+    path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 150
+      url: https://www.gstatic.com/generate_204
+      timeout: 3000
+    override:
+      udp: true
+    exclude-type: ss|http|trojan
 proxy-groups:
 - name: QQOLI
   type: select
@@ -149,7 +160,6 @@ proxy-groups:
   tolerance: 30
   use:
   - qq
-
 rule-providers:
   aff:
     type: http
@@ -237,6 +247,7 @@ rules:
 - DOMAIN,docs.microsoft.com,QQOLI
 - DOMAIN,download.microsoft.com,QQOLI
 - DOMAIN,blogs.technet.microsoft.com,QQOLI
+- DOMAIN,developer.microsoft.com,QQOLI
 - DOMAIN,go.microsoft.com,QQOLI
 - DOMAIN,learn.microsoft.com,QQOLI
 - DOMAIN,support.microsoft.com,QQOLI
