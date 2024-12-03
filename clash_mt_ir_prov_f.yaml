@@ -118,7 +118,6 @@ sniffer:
   sniffing:
   - tls
   - http
-
 proxy-providers:
   q:
     type: http
@@ -129,7 +128,7 @@ proxy-providers:
       enable: true
       interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
   a:
@@ -141,7 +140,7 @@ proxy-providers:
       enable: true
       interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
@@ -154,11 +153,10 @@ proxy-providers:
       enable: true
       interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
-
 proxy-groups:
 - name: QQOLI
   type: select
@@ -173,7 +171,6 @@ proxy-groups:
   - q
   - b
   - a
-
 rule-providers:
   aff:
     type: http
