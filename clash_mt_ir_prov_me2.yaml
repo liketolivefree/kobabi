@@ -118,7 +118,6 @@ sniffer:
   sniffing:
   - tls
   - http
-
 proxy-providers:
   qq:
     type: http
@@ -132,7 +131,6 @@ proxy-providers:
       timeout: 3000
     override:
       udp: true
-
 proxy-groups:
 - name: QQOLI
   type: select
@@ -147,7 +145,6 @@ proxy-groups:
   tolerance: 500
   use:
   - qq
-
 rule-providers:
   aff:
     type: http
@@ -236,6 +233,7 @@ rules:
 - DOMAIN,download.microsoft.com,QQOLI
 - DOMAIN,blogs.technet.microsoft.com,QQOLI
 - DOMAIN,go.microsoft.com,QQOLI
+- DOMAIN,developer.microsoft.com,QQOLI
 - DOMAIN,learn.microsoft.com,QQOLI
 - DOMAIN,support.microsoft.com,QQOLI
 - DOMAIN,techcommunity.microsoft.com,QQOLI
