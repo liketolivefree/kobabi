@@ -118,7 +118,6 @@ sniffer:
   sniffing:
   - tls
   - http
-
 proxy-providers:
   q:
     type: http
@@ -262,7 +261,6 @@ proxy-providers:
     override:
       udp: true
     exclude-type: ss|http|trojan
-
 proxy-groups:
 - name: QQOLI
   type: select
@@ -285,7 +283,6 @@ proxy-groups:
   - h
   - i
   - j
-
 rule-providers:
   aff:
     type: http
