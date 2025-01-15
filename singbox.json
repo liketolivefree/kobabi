@@ -1,430 +1,68 @@
 {
   "log": {
-    "level": "info",
+    "level": "warn",
     "timestamp": true
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "store_fakeip": true,
-      "store_rdrc": true
-    }
   },
   "dns": {
     "servers": [
       {
-        "tag": "remote-dns",
-        "address": "https://1.1.1.1/dns-query",
-        "strategy": "ipv4_only",
-        "detour": "QQOLI"
-      },
-      {
-        "tag": "backup-dns",
-        "address": "https://9.9.9.9/dns-query",
-        "strategy": "ipv4_only",
-        "detour": "QQOLI"
-      },
-      {
-        "tag": "direct-dns",
+        "tag": "remote",
         "address": "8.8.8.8",
-        "strategy": "ipv4_only",
-        "detour": "TTAQI"
+        "strategy": "prefer_ipv4",
+        "detour": "proxy"
       },
       {
-        "tag": "local-dns",
-        "address": "local",
-        "strategy": "ipv4_only",
-        "detour": "TTAQI"
+        "tag": "local",
+        "address": "223.5.5.5",
+        "strategy": "prefer_ipv4",
+        "detour": "direct"
       },
       {
-        "tag": "block-dns",
-        "address": "rcode://refused"
+        "tag": "block",
+        "address": "rcode://success"
+      },
+      {
+        "tag": "local_local",
+        "address": "223.5.5.5",
+        "detour": "direct"
       }
     ],
     "rules": [
       {
-        "outbound": "any",
-        "server": "direct-dns"
+        "server": "remote",
+        "clash_mode": "Global"
       },
       {
-        "domain_suffix": [
-          ".githubusercontent.com",
-          ".githubassets.com",
-          ".github.com"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
+        "server": "local_local",
+        "clash_mode": "Direct"
       },
       {
-        "clash_mode": "direct",
-        "server": "direct-dns"
+        "server": "local",
+        "rule_set": [
+          "geosite-cn"
+        ]
       },
       {
-        "clash_mode": "global",
-        "server": "remote-dns"
-      },
-      {
-        "domain_suffix": [
-          ".xiaomi.com",
-          ".xiaomi.net",
-          ".miui.com",
-          ".mi.com"
-        ],
-        "server": "block-dns",
-        "disable_cache": true,
-        "rewrite_ttl": 0
-      },
-      {
-        "domain_suffix": ".ir",
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
+        "server": "block",
+        "rule_set": [
+          "geosite-category-ads-all"
+        ]
       }
     ],
-    "final": "backup-dns"
-  },
-  "ntp": {
-    "enabled": true,
-    "server": "pool.ntp.org",
-    "server_port": 123,
-    "interval": "30m",
-    "detour": "TTAQI"
+    "final": "remote"
   },
   "inbounds": [
     {
-      "tag": "tun-in",
-      "type": "tun",
-      "interface_name": "tun0",
-      "mtu": 9000,
-      "auto_route": true,
-      "sniff": true,
-      "stack": "mixed",
-      "address": [
-        "172.19.0.1/30",
-        "fdfe:dcba:9876::1/126"
-      ],
-      "platform": {
-        "http_proxy": {
-          "enabled": true,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-      }
-    },
-    {
-      "tag": "mixed-in",
       "type": "mixed",
+      "tag": "socks",
       "listen": "127.0.0.1",
-      "listen_port": 7890,
-      "sniff": true
+      "listen_port": 10808,
+      "domain_strategy": "prefer_ipv4",
+      "sniff": true,
+      "sniff_override_destination": true
     }
   ],
   "outbounds": [
-    {
-      "tag": "QQOLI",
-      "type": "selector",
-      "interrupt_exist_connections": false,
-      "outbounds": [
-        "MMOBI",
-        "qoli_001",
-        "qoli_002",
-        "qoli_003",
-        "qoli_004",
-        "qoli_005",
-        "qoli_006",
-        "qoli_007",
-        "qoli_008",
-        "qoli_009",
-        "qoli_010",
-        "qoli_011",
-        "qoli_012",
-        "qoli_013",
-        "qoli_014",
-        "qoli_015",
-        "qoli_016",
-        "qoli_017",
-        "qoli_018",
-        "qoli_019",
-        "qoli_020",
-        "qoli_021",
-        "qoli_022",
-        "qoli_023",
-        "qoli_024",
-        "qoli_025",
-        "qoli_026",
-        "qoli_027",
-        "qoli_028",
-        "qoli_029",
-        "qoli_030",
-        "qoli_031",
-        "qoli_032",
-        "qoli_033",
-        "qoli_034",
-        "qoli_035",
-        "qoli_036",
-        "qoli_037",
-        "qoli_038",
-        "qoli_039",
-        "qoli_040",
-        "qoli_041",
-        "qoli_042",
-        "qoli_043",
-        "qoli_044",
-        "qoli_045",
-        "qoli_046",
-        "qoli_047",
-        "qoli_048",
-        "qoli_049",
-        "qoli_050",
-        "qoli_051",
-        "qoli_052",
-        "qoli_053",
-        "qoli_054",
-        "qoli_055",
-        "qoli_056",
-        "qoli_057",
-        "qoli_058",
-        "qoli_059",
-        "qoli_060",
-        "qoli_061",
-        "qoli_112",
-        "qoli_120",
-        "qoli_122",
-        "qoli_123",
-        "qoli_124",
-        "qoli_126",
-        "qoli_128",
-        "qoli_129",
-        "qoli_133",
-        "qoli_137",
-        "qoli_139",
-        "qoli_141",
-        "qoli_143",
-        "qoli_144",
-        "qoli_145",
-        "qoli_174",
-        "qoli_204",
-        "qoli_205",
-        "qoli_206",
-        "qoli_207",
-        "qoli_241",
-        "qoli_242",
-        "qoli_244",
-        "qoli_246",
-        "qoli_247",
-        "qoli_248",
-        "qoli_250",
-        "qoli_253",
-        "qoli_257",
-        "qoli_259",
-        "qoli_260",
-        "qoli_262",
-        "qoli_264",
-        "qoli_265",
-        "qoli_266",
-        "qoli_271",
-        "qoli_272",
-        "qoli_274",
-        "qoli_275",
-        "qoli_276",
-        "qoli_281",
-        "qoli_284",
-        "qoli_286",
-        "qoli_288",
-        "qoli_290",
-        "qoli_291",
-        "qoli_294",
-        "qoli_295",
-        "qoli_296",
-        "qoli_297",
-        "qoli_298",
-        "qoli_299",
-        "qoli_306",
-        "qoli_307",
-        "qoli_309",
-        "qoli_311",
-        "qoli_312",
-        "qoli_373",
-        "qoli_384",
-        "qoli_386",
-        "qoli_404",
-        "qoli_405",
-        "qoli_440",
-        "qoli_448",
-        "qoli_743",
-        "qoli_744",
-        "qoli_773",
-        "qoli_784",
-        "qoli_869",
-        "qoli_884",
-        "qoli_905",
-        "qoli_906",
-        "qoli_907",
-        "qoli_923",
-        "qoli_930",
-        "qoli_981"
-      ]
-    },
-    {
-      "tag": "MMOBI",
-      "type": "urltest",
-      "url": "https://www.gstatic.com/generate_204",
-      "interrupt_exist_connections": false,
-      "interval": "5m",
-      "tolerance": 50,
-      "outbounds": [
-        "qoli_001",
-        "qoli_002",
-        "qoli_003",
-        "qoli_004",
-        "qoli_005",
-        "qoli_006",
-        "qoli_007",
-        "qoli_008",
-        "qoli_009",
-        "qoli_010",
-        "qoli_011",
-        "qoli_012",
-        "qoli_013",
-        "qoli_014",
-        "qoli_015",
-        "qoli_016",
-        "qoli_017",
-        "qoli_018",
-        "qoli_019",
-        "qoli_020",
-        "qoli_021",
-        "qoli_022",
-        "qoli_023",
-        "qoli_024",
-        "qoli_025",
-        "qoli_026",
-        "qoli_027",
-        "qoli_028",
-        "qoli_029",
-        "qoli_030",
-        "qoli_031",
-        "qoli_032",
-        "qoli_033",
-        "qoli_034",
-        "qoli_035",
-        "qoli_036",
-        "qoli_037",
-        "qoli_038",
-        "qoli_039",
-        "qoli_040",
-        "qoli_041",
-        "qoli_042",
-        "qoli_043",
-        "qoli_044",
-        "qoli_045",
-        "qoli_046",
-        "qoli_047",
-        "qoli_048",
-        "qoli_049",
-        "qoli_050",
-        "qoli_051",
-        "qoli_052",
-        "qoli_053",
-        "qoli_054",
-        "qoli_055",
-        "qoli_056",
-        "qoli_057",
-        "qoli_058",
-        "qoli_059",
-        "qoli_060",
-        "qoli_061",
-        "qoli_112",
-        "qoli_120",
-        "qoli_122",
-        "qoli_123",
-        "qoli_124",
-        "qoli_126",
-        "qoli_128",
-        "qoli_129",
-        "qoli_133",
-        "qoli_137",
-        "qoli_139",
-        "qoli_141",
-        "qoli_143",
-        "qoli_144",
-        "qoli_145",
-        "qoli_174",
-        "qoli_204",
-        "qoli_205",
-        "qoli_206",
-        "qoli_207",
-        "qoli_241",
-        "qoli_242",
-        "qoli_244",
-        "qoli_246",
-        "qoli_247",
-        "qoli_248",
-        "qoli_250",
-        "qoli_253",
-        "qoli_257",
-        "qoli_259",
-        "qoli_260",
-        "qoli_262",
-        "qoli_264",
-        "qoli_265",
-        "qoli_266",
-        "qoli_271",
-        "qoli_272",
-        "qoli_274",
-        "qoli_275",
-        "qoli_276",
-        "qoli_281",
-        "qoli_284",
-        "qoli_286",
-        "qoli_288",
-        "qoli_290",
-        "qoli_291",
-        "qoli_294",
-        "qoli_295",
-        "qoli_296",
-        "qoli_297",
-        "qoli_298",
-        "qoli_299",
-        "qoli_306",
-        "qoli_307",
-        "qoli_309",
-        "qoli_311",
-        "qoli_312",
-        "qoli_373",
-        "qoli_384",
-        "qoli_386",
-        "qoli_404",
-        "qoli_405",
-        "qoli_440",
-        "qoli_448",
-        "qoli_743",
-        "qoli_744",
-        "qoli_773",
-        "qoli_784",
-        "qoli_869",
-        "qoli_884",
-        "qoli_905",
-        "qoli_906",
-        "qoli_907",
-        "qoli_923",
-        "qoli_930",
-        "qoli_981"
-      ]
-    },
-    {
-      "tag": "TTAQI",
-      "type": "direct"
-    },
-    {
-      "tag": "NNAQI",
-      "type": "dns"
-    },
-    {
-      "tag": "MMAQI",
-      "type": "block"
-    },
     {
       "tag": "qoli_001",
       "type": "vless",
@@ -2966,85 +2604,110 @@
       "security": "auto",
       "alter_id": 64,
       "packet_encoding": "xudp"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns_out"
     }
   ],
   "route": {
-    "auto_detect_interface": true,
-    "override_android_vpn": true,
-    "final": "QQOLI",
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": 53
-          }
-        ],
-        "outbound": "NNAQI"
+        "outbound": "proxy",
+        "clash_mode": "Global"
       },
       {
-        "domain_suffix": [
-          ".githubusercontent.com",
-          ".githubassets.com",
-          ".github.com"
-        ],
-        "outbound": "TTAQI"
+        "outbound": "direct",
+        "clash_mode": "Direct"
       },
       {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "network": "udp"
-          },
-          {
-            "port": 443
-          }
-        ],
-        "outbound": "MMAQI"
+        "outbound": "dns_out",
+        "protocol": [
+          "dns"
+        ]
       },
       {
-        "protocol": "quic",
-        "outbound": "MMAQI"
-      },
-      {
-        "domain_suffix": [
-          ".xiaomi.com",
-          ".xiaomi.net",
-          ".miui.com",
-          ".mi.com"
-        ],
-        "outbound": "MMAQI"
-      },
-      {
+        "outbound": "block",
         "ip_cidr": [
-          "0.0.0.0/32",
-          "10.10.34.0/24",
-          "240.0.0.0/4"
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
+        ]
+      },
+      {
+        "outbound": "block",
+        "rule_set": [
+          "geosite-category-ads-all"
+        ]
+      },
+      {
+        "outbound": "block",
+        "network": [
+          "udp"
         ],
-        "outbound": "MMAQI"
+        "port": [
+          443
+        ]
       },
       {
+        "outbound": "direct",
         "ip_is_private": true,
-        "outbound": "TTAQI"
+        "rule_set": [
+          "geoip-ir"
+        ]
       },
       {
-        "domain_suffix": ".ir",
-        "outbound": "TTAQI"
+        "outbound": "direct",
+        "rule_set": [
+          "geosite-ir",
+          "geosite-private"
+        ]
       },
       {
-        "clash_mode": "direct",
-        "outbound": "TTAQI"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "QQOLI"
+        "outbound": "proxy",
+        "port_range": [
+          "0:65535"
+        ]
       }
     ],
-    "rule_set": []
+    "rule_set": [
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "local",
+        "format": "binary",
+        "path": "D:\\bortable\\singg\\data\\rule-sets\\geosite-category-ads-all.srs"
+      },
+      {
+        "tag": "geosite-ir",
+        "type": "local",
+        "format": "binary",
+        "path": "D:\\bortable\\singg\\data\\rule-sets\\geosite-ir.srs"
+      },
+      {
+        "tag": "geosite-private",
+        "type": "local",
+        "format": "binary",
+        "path": "D:\\bortable\\singg\\data\\rule-sets\\geosite-private.srs"
+      },
+      {
+        "tag": "geoip-ir",
+        "type": "local",
+        "format": "binary",
+        "path": "D:\\bortable\\singg\\data\\rule-sets\\geoip-ir.srs"
+      }
+    ]
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:10813"
+    }
   }
 }
