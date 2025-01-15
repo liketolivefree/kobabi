@@ -57,11 +57,11 @@
         "rewrite_ttl": 20
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "server": "direct-dns"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "server": "remote-dns"
       },
       {
@@ -3039,11 +3039,11 @@
         "outbound": "TTAQI"
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "outbound": "TTAQI"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "outbound": "QQOLI"
       }
     ],
