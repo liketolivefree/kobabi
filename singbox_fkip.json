@@ -69,11 +69,11 @@
         "rewrite_ttl": 1
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "server": "direct-dns"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "server": "remote-dns"
       },
       {
@@ -133,8 +133,10 @@
       "tag": "mixed-in",
       "type": "mixed",
       "listen": "127.0.0.1",
-      "listen_port": 7890,
-      "sniff": true
+      "listen_port": 7891,
+      "domain_strategy": "prefer_ipv4",
+      "sniff": true,
+      "sniff_override_destination": true
     }
   ],
   "outbounds": [
@@ -3054,11 +3056,11 @@
         "outbound": "TTAQI"
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "outbound": "TTAQI"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "outbound": "QQOLI"
       }
     ],
