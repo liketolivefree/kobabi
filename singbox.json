@@ -2952,7 +2952,7 @@
         "protocol": "quic"
       },
       {
-        "outbound": "block"	  
+        "outbound": "block", 
         "domain_suffix": [
           ".xiaomi.com",
           ".xiaomi.net",
@@ -2988,28 +2988,28 @@
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.com/Chocolate4U/Iran-sing-box-rules/raw/refs/heads/rule-set/geosite-category-ads-all.srs"
+        "url": "https://github.com/Chocolate4U/Iran-sing-box-rules/raw/refs/heads/rule-set/geosite-category-ads-all.srs",
         "download_detour":  "direct" 		
       },
       {
         "tag": "geosite-ir",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.com/Chocolate4U/Iran-sing-box-rules/raw/refs/heads/rule-set/geosite-ir.srs"
+        "url": "https://github.com/Chocolate4U/Iran-sing-box-rules/raw/refs/heads/rule-set/geosite-ir.srs",
         "download_detour":  "direct" 		
       },
       {
         "tag": "geosite-private",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.com/Chocolate4U/Iran-sing-box-rules/raw/refs/heads/rule-set/geosite-private.srs"
+        "url": "https://github.com/Chocolate4U/Iran-sing-box-rules/raw/refs/heads/rule-set/geosite-private.srs",
         "download_detour":  "direct" 		
       },
       {
         "tag": "geoip-ir",
         "type": "remote",
         "format": "binary",
-        "url": "https://github.com/Chocolate4U/Iran-sing-box-rules/raw/refs/heads/rule-set/geoip-ir.srs"
+        "url": "https://github.com/Chocolate4U/Iran-sing-box-rules/raw/refs/heads/rule-set/geoip-ir.srs",
         "download_detour":  "direct" 		
       }
     ]
