@@ -116,8 +116,10 @@
       "tag": "mixed-in",
       "type": "mixed",
       "listen": "127.0.0.1",
-      "listen_port": 7890,
-      "sniff": true
+      "listen_port": 7891,
+      "domain_strategy": "prefer_ipv4",
+      "sniff": true,
+      "sniff_override_destination": true
     }
   ],
   "outbounds": [
