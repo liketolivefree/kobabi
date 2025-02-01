@@ -268,8 +268,6 @@ rules:
 - DOMAIN,f001.backblazeb2.com,QQOLI
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
-- PROCESS-NAME,qbittorrent.exe,DIRECT
-- PROCESS-NAME,python.exe,DIRECT
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
