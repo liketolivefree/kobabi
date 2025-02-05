@@ -160,7 +160,6 @@ proxy-groups:
   tolerance: 30
   use:
   - qq
-  - b
 rule-providers:
   aff:
     type: http
