@@ -12,16 +12,77 @@
   },
   "dns": {
     "servers": [
-      {"tag":"remote-dns","address":"https://1.1.1.1/dns-query","strategy":"prefer_ipv4","detour":"QQOLI"},
-      {"tag":"block-dns","address":"rcode://refused"}
+      {
+        "tag": "remote-dns",
+        "address": "https://1.1.1.1/dns-query",
+        "strategy": "ipv4_only",
+        "detour": "QQOLI"
+      },
+      {
+        "tag": "backup-dns",
+        "address": "https://9.9.9.9/dns-query",
+        "strategy": "ipv4_only",
+        "detour": "QQOLI"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "8.8.8.8",
+        "strategy": "ipv4_only",
+        "detour": "TTAQI"
+      },
+      {
+        "tag": "local-dns",
+        "address": "local",
+        "strategy": "ipv4_only",
+        "detour": "TTAQI"
+      },
+      {
+        "tag": "block-dns",
+        "address": "rcode://refused"
+      }
     ],
     "rules": [
-      {"outbound":"any","server":"remote-dns"},
-      {"clash_mode":"Direct","server":"remote-dns"},
-      {"clash_mode":"Global","server":"remote-dns"},
-      {"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"],"server":"block-dns","disable_cache":true,"rewrite_ttl":0}
+      {
+        "outbound": "any",
+        "server": "direct-dns"
+      },
+      {
+        "domain_suffix": [
+          ".githubusercontent.com",
+          ".githubassets.com",
+          ".github.com"
+        ],
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      },
+      {
+        "clash_mode": "Direct",
+        "server": "direct-dns"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "remote-dns"
+      },
+      {
+        "domain_suffix": [
+          ".xiaomi.com",
+          ".xiaomi.net",
+          ".miui.com",
+          ".mi.com"
+        ],
+        "server": "block-dns",
+        "disable_cache": true,
+        "rewrite_ttl": 0
+      },
+      {
+        "domain_suffix": ".ir",
+        "server": "direct-dns",
+        "disable_cache": false,
+        "rewrite_ttl": 20
+      }
     ],
-    "final": "remote-dns"
+    "final": "backup-dns"
   },
   "ntp": {
     "enabled": true,
