@@ -122,11 +122,11 @@ sniffer:
   - tls
   - http
 proxy-providers:
-  qq:
+  q:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
-    interval: 9000
-    path: ./proxy-providers/qq.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 1500
+    path: ./proxy-providers/q.yaml
     health-check:
       enable: true
       interval: 150
@@ -137,7 +137,7 @@ proxy-providers:
   b:
     type: http
     url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
-    interval: 3600
+    interval: 1500
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
@@ -158,21 +158,21 @@ proxy-groups:
   interval: 150
   tolerance: 30
   use:
-  - qq
+  - q
 rule-providers:
-  aff:
+  aff_me:
     type: http
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
-    path: ./rule-providers/aff.txt
+    path: ./rule-providers/aff_me.txt
     interval: 86400
-  yun:
+  yun_me:
     type: http
     behavior: ipcidr
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt
-    path: ./rule-providers/yun.txt
+    path: ./rule-providers/yun_me.txt
     interval: 86400
   oki:
     type: http
@@ -280,8 +280,8 @@ rules:
 - DOMAIN,sing-box-subscribe.vercel.app,QQOLI
 - DOMAIN,trk.free.fr,QQOLI
 - DOMAIN,f001.backblazeb2.com,QQOLI
-- RULE-SET,aff,REJECT
-- RULE-SET,yun,REJECT,no-resolve
+- RULE-SET,aff_me,REJECT
+- RULE-SET,yun_me,REJECT,no-resolve
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
