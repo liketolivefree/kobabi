@@ -121,11 +121,11 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 9000
+    interval: 1500
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 3600
+      interval: 150
       url: https://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -140,38 +140,38 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
-  interval: 3600
+  interval: 360
   tolerance: 500
   use:
   - q
 rule-providers:
-  aff:
+  aff_l:
     type: http
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.txt
-    path: ./rule-providers/aff.txt
+    path: ./rule-providers/aff_l.txt
     interval: 86400
-  yun:
+  yun_l:
     type: http
     behavior: ipcidr
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.txt
-    path: ./rule-providers/yun.txt
+    path: ./rule-providers/yun_l.txt
     interval: 86400
-  oki:
+  oki_l:
     type: http
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.txt
-    path: ./rule-providers/oki.txt
+    path: ./rule-providers/oki_l.txt
     interval: 86400
-  doki:
+  doki_l:
     type: http
     behavior: ipcidr
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.txt
-    path: ./rule-providers/doki.txt
+    path: ./rule-providers/doki_l.txt
     interval: 86400
   xal:
     type: http
@@ -188,18 +188,15 @@ rule-providers:
     path: ./rule-providers/loo.txt
     interval: 86400
 rules:
-- IP-CIDR,10.10.34.0/24,REJECT,no-resolve
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
-- RULE-SET,aff,REJECT
-- RULE-SET,yun,REJECT,no-resolve
-- PROCESS-NAME,qbittorrent.exe,DIRECT
-- PROCESS-NAME,python.exe,DIRECT
+- RULE-SET,aff_l,REJECT
+- RULE-SET,yun_l,REJECT,no-resolve
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
-- RULE-SET,oki,QQOLI
+- RULE-SET,oki_l,QQOLI
 - RULE-SET,loo,DIRECT,no-resolve
-- RULE-SET,doki,QQOLI,no-resolve
+- RULE-SET,doki_l,QQOLI,no-resolve
 - MATCH,QQOLI
