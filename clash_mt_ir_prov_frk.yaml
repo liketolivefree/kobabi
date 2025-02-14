@@ -121,7 +121,7 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
+    interval: 1500
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
@@ -134,7 +134,7 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 3600
+    interval: 1500
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
@@ -148,13 +148,13 @@ proxy-providers:
   b:
     type: http
     url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
-    interval: 3600
+    interval: 1500
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
       interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
       skip-cert-verify: false
@@ -172,20 +172,21 @@ proxy-groups:
   use:
   - q
   - b
+  - a
 rule-providers:
-  aff:
+  aff_me:
     type: http
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
-    path: ./rule-providers/aff.txt
+    path: ./rule-providers/aff_me.txt
     interval: 86400
-  yun:
+  yun_frk:
     type: http
     behavior: ipcidr
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_frk.txt
-    path: ./rule-providers/yun.txt
+    path: ./rule-providers/yun_frk.txt
     interval: 86400
   oki:
     type: http
@@ -293,8 +294,8 @@ rules:
 - DOMAIN,sing-box-subscribe.vercel.app,QQOLI
 - DOMAIN,trk.free.fr,QQOLI
 - DOMAIN,f001.backblazeb2.com,QQOLI
-- RULE-SET,aff,REJECT
-- RULE-SET,yun,REJECT,no-resolve
+- RULE-SET,aff_me,REJECT
+- RULE-SET,yun_frk,REJECT,no-resolve
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
