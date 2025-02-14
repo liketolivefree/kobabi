@@ -119,142 +119,142 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
   a:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   b:
     type: http
     url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   c:
     type: http
     url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix_clash.yaml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   d:
     type: http
     url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/backup_clash.yaml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   e:
     type: http
     url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/vmess_vless_clash.yaml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/e.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   f:
     type: http
     url: https://raw.githubusercontent.com/AzadNetCH/Clash/main/AzadNet_META_IRAN-Direct.yml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   g:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   h:
     type: http
     url: https://raw.githubusercontent.com/lagzian/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   i:
     type: http
     url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/spd/sub_merge_yaml.yml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/i.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
   j:
     type: http
     url: https://raw.githubusercontent.com/coldwater-10/V2RayAggregator/master/sub/sub_merge_yaml.yml
-    interval: 10000
+    interval: 1500
     path: ./proxy-providers/j.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 150
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 3000
     override:
       udp: true
     exclude-type: ss|http|trojan
@@ -267,7 +267,7 @@ proxy-groups:
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 10
+  tolerance: 30
   use:
   - q
   - a
@@ -281,33 +281,33 @@ proxy-groups:
   - i
   - j
 rule-providers:
-  aff:
+  aff_l:
     type: http
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.txt
-    path: ./rule-providers/aff.txt
+    path: ./rule-providers/aff_l.txt
     interval: 86400
-  yun:
+  yun_l:
     type: http
     behavior: ipcidr
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.txt
-    path: ./rule-providers/yun.txt
+    path: ./rule-providers/yun_l.txt
     interval: 86400
-  oki:
+  oki_l:
     type: http
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.txt
-    path: ./rule-providers/oki.txt
+    path: ./rule-providers/oki_l.txt
     interval: 86400
-  doki:
+  doki_l:
     type: http
     behavior: ipcidr
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.txt
-    path: ./rule-providers/doki.txt
+    path: ./rule-providers/doki_l.txt
     interval: 86400
   xal:
     type: http
@@ -328,11 +328,11 @@ rules:
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
-- RULE-SET,aff,REJECT
-- RULE-SET,yun,REJECT,no-resolve
+- RULE-SET,aff_l,REJECT
+- RULE-SET,yun_l,REJECT,no-resolve
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
-- RULE-SET,oki,QQOLI
+- RULE-SET,oki_l,QQOLI
 - RULE-SET,loo,DIRECT,no-resolve
-- RULE-SET,doki,QQOLI,no-resolve
+- RULE-SET,doki_l,QQOLI,no-resolve
 - MATCH,QQOLI
