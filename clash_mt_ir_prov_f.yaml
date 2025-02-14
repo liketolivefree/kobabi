@@ -121,7 +121,7 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
+    interval: 1500
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
@@ -133,7 +133,7 @@ proxy-providers:
   a:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 3600
+    interval: 1500
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
@@ -146,7 +146,7 @@ proxy-providers:
   b:
     type: http
     url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
-    interval: 3600
+    interval: 1500
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
