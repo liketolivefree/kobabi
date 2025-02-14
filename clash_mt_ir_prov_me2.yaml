@@ -118,14 +118,14 @@ sniffer:
   - tls
   - http
 proxy-providers:
-  qq:
+  q:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash_m.yaml
-    interval: 15000
-    path: ./proxy-providers/qq.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 1500
+    path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 3600
+      interval: 150
       url: https://www.gstatic.com/generate_204
       timeout: 3000
     override:
@@ -136,28 +136,28 @@ proxy-groups:
   proxies:
   - MMOBI
   use:
-  - qq
+  - q
 - name: MMOBI
   type: url-test
   url: https://www.gstatic.com/generate_204
-  interval: 3600
+  interval: 360
   tolerance: 500
   use:
-  - qq
+  - q
 rule-providers:
-  aff:
+  aff_me:
     type: http
     behavior: domain
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
-    path: ./rule-providers/aff.txt
+    path: ./rule-providers/aff_me.txt
     interval: 86400
-  yun:
+  yun_me:
     type: http
     behavior: ipcidr
     format: text
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt
-    path: ./rule-providers/yun.txt
+    path: ./rule-providers/yun_me.txt
     interval: 86400
   oki:
     type: http
@@ -231,8 +231,8 @@ rules:
 - DOMAIN,docs.microsoft.com,QQOLI
 - DOMAIN,download.microsoft.com,QQOLI
 - DOMAIN,blogs.technet.microsoft.com,QQOLI
-- DOMAIN,go.microsoft.com,QQOLI
 - DOMAIN,developer.microsoft.com,QQOLI
+- DOMAIN,go.microsoft.com,QQOLI
 - DOMAIN,learn.microsoft.com,QQOLI
 - DOMAIN,support.microsoft.com,QQOLI
 - DOMAIN,techcommunity.microsoft.com,QQOLI
@@ -265,10 +265,8 @@ rules:
 - DOMAIN,sing-box-subscribe.vercel.app,QQOLI
 - DOMAIN,trk.free.fr,QQOLI
 - DOMAIN,f001.backblazeb2.com,QQOLI
-- RULE-SET,aff,REJECT
-- RULE-SET,yun,REJECT,no-resolve
-- PROCESS-NAME,qbittorrent.exe,DIRECT
-- PROCESS-NAME,python.exe,DIRECT
+- RULE-SET,aff_me,REJECT
+- RULE-SET,yun_me,REJECT,no-resolve
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
