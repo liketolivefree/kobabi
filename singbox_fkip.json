@@ -6,76 +6,49 @@
   "experimental": {
     "cache_file": {
       "enabled": true,
-      "store_fakeip": true,
-      "store_rdrc": true
+      "store_fakeip": false,
+      "store_rdrc": false
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "default_mode": "rule",
+      "access_control_allow_origin": [
+        "http://127.0.0.1",
+        "https://yacd.metacubex.one"
+      ],
+      "access_control_allow_private_network": true
     }
   },
   "dns": {
     "servers": [
       {
-        "tag": "remote-dns",
-        "address": "https://1.1.1.1/dns-query",
-        "strategy": "ipv4_only",
-        "detour": "QQOLI"
-      },
-      {
-        "tag": "backup-dns",
-        "address": "https://9.9.9.9/dns-query",
-        "strategy": "ipv4_only",
-        "detour": "QQOLI"
+        "tag": "local-dns",
+        "type": "local"
       },
       {
         "tag": "direct-dns",
-        "address": "8.8.8.8",
-        "strategy": "ipv4_only",
-        "detour": "TTAQI"
+        "type": "tls",
+        "server": "8.8.8.8"
       },
       {
-        "tag": "local-dns",
-        "address": "local",
-        "strategy": "ipv4_only",
-        "detour": "TTAQI"
+        "tag": "remote-dns",
+        "type": "https",
+        "server": "1.1.1.1"
+      },
+      {
+        "tag": "backup-dns",
+        "type": "https",
+        "server": "94.140.14.14"
       },
       {
         "tag": "block-dns",
-        "address": "rcode://refused"
-      },
-      {
-        "tag": "fakeip-dns",
-        "address": "fakeip"
+        "type": "predefined",
+        "responses": {
+          "rcode": "REFUSED"
+        }
       }
     ],
     "rules": [
-      {
-        "outbound": "any",
-        "server": "direct-dns"
-      },
-      {
-        "domain_suffix": [
-          ".githubusercontent.com",
-          ".githubassets.com",
-          ".github.com"
-        ],
-        "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
-      },
-      {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "server": "fakeip-dns",
-        "rewrite_ttl": 1
-      },
-      {
-        "clash_mode": "Direct",
-        "server": "direct-dns"
-      },
-      {
-        "clash_mode": "Global",
-        "server": "remote-dns"
-      },
       {
         "domain_suffix": [
           ".xiaomi.com",
@@ -83,44 +56,86 @@
           ".miui.com",
           ".mi.com"
         ],
-        "server": "block-dns",
-        "disable_cache": true,
-        "rewrite_ttl": 0
+        "action": "reject",
+        "method": "drop"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "network": "udp"
+          },
+          {
+            "port": 443
+          }
+        ],
+        "action": "reject",
+        "method": "drop"
+      },
+      {
+        "domain_suffix": [
+          ".githubusercontent.com",
+          ".githubassets.com"
+        ],
+        "action": "route",
+        "server": "local-dns",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "clash_mode": "direct",
+        "action": "route",
+        "server": "backup-dns",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "outbound": "direct",
+        "action": "route",
+        "server": "direct-dns",
+        "strategy": "prefer_ipv4"
       },
       {
         "domain_suffix": ".ir",
+        "action": "route",
         "server": "direct-dns",
-        "disable_cache": false,
-        "rewrite_ttl": 20
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "clash_mode": "global",
+        "action": "route",
+        "server": "remote-dns",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "outbound": "qqoli",
+        "action": "route",
+        "server": "remote-dn",
+        "strategy": "prefer_ipv4"
       }
     ],
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
-    },
-    "final": "backup-dns"
+    "independent_cache": true,
+    "disable_cache": false,
+    "disable_expire": false,
+    "final": "remote-dns"
   },
   "ntp": {
     "enabled": true,
     "server": "pool.ntp.org",
     "server_port": 123,
     "interval": "30m",
-    "detour": "TTAQI"
+    "detour": "direct"
   },
   "inbounds": [
     {
       "tag": "tun-in",
       "type": "tun",
+      "address": "172.19.0.1/30",
       "interface_name": "tun0",
       "mtu": 9000,
       "auto_route": true,
-      "sniff": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
       "stack": "mixed",
-      "address": [
-        "172.19.0.1/30",
-        "fdfe:dcba:9876::1/126"
-      ],
       "platform": {
         "http_proxy": {
           "enabled": true,
@@ -133,19 +148,16 @@
       "tag": "mixed-in",
       "type": "mixed",
       "listen": "127.0.0.1",
-      "listen_port": 7891,
-      "domain_strategy": "prefer_ipv4",
-      "sniff": true,
-      "sniff_override_destination": true
+      "listen_port": 7891
     }
   ],
   "outbounds": [
     {
-      "tag": "QQOLI",
+      "tag": "qqoli",
       "type": "selector",
       "interrupt_exist_connections": false,
       "outbounds": [
-        "MMOBI",
+        "mmobi",
         "qo_008",
         "qo_012",
         "qo_017",
@@ -312,7 +324,7 @@
       ]
     },
     {
-      "tag": "MMOBI",
+      "tag": "mmobi",
       "type": "urltest",
       "url": "https://www.gstatic.com/generate_204",
       "interrupt_exist_connections": false,
@@ -485,16 +497,8 @@
       ]
     },
     {
-      "tag": "TTAQI",
+      "tag": "direct",
       "type": "direct"
-    },
-    {
-      "tag": "NNAQI",
-      "type": "dns"
-    },
-    {
-      "tag": "MMAQI",
-      "type": "block"
     },
     {
       "tag": "qo_008",
@@ -3666,28 +3670,33 @@
   "route": {
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "final": "QQOLI",
+    "default_domain_resolver": "remote-dns",
+    "final": "qqoli",
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": 53
-          }
-        ],
-        "outbound": "NNAQI"
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "action": "sniff"
+      },
+      {
+        "inbound": "mixed-in",
+        "action": "resolve"
+      },
+      {
+        "inbound": "mixed-in",
+        "action": "sniff"
       },
       {
         "domain_suffix": [
-          ".githubusercontent.com",
-          ".githubassets.com",
-          ".github.com"
+          ".xiaomi.com",
+          ".xiaomi.net",
+          ".miui.com",
+          ".mi.com"
         ],
-        "outbound": "TTAQI"
+        "action": "reject",
+        "method": "drop"
       },
       {
         "type": "logical",
@@ -3700,20 +3709,13 @@
             "port": 443
           }
         ],
-        "outbound": "MMAQI"
+        "action": "reject",
+        "method": "drop"
       },
       {
         "protocol": "quic",
-        "outbound": "MMAQI"
-      },
-      {
-        "domain_suffix": [
-          ".xiaomi.com",
-          ".xiaomi.net",
-          ".miui.com",
-          ".mi.com"
-        ],
-        "outbound": "MMAQI"
+        "action": "reject",
+        "method": "drop"
       },
       {
         "ip_cidr": [
@@ -3721,23 +3723,36 @@
           "10.10.34.0/24",
           "240.0.0.0/4"
         ],
-        "outbound": "MMAQI"
+        "action": "reject",
+        "method": "drop"
+      },
+      {
+        "domain_suffix": [
+          ".githubusercontent.com",
+          ".githubassets.com"
+        ],
+        "action": "route",
+        "outbound": "direct"
       },
       {
         "ip_is_private": true,
-        "outbound": "TTAQI"
+        "action": "route",
+        "outbound": "direct"
       },
       {
         "domain_suffix": ".ir",
-        "outbound": "TTAQI"
+        "action": "route",
+        "outbound": "direct"
       },
       {
-        "clash_mode": "Direct",
-        "outbound": "TTAQI"
+        "clash_mode": "direct",
+        "action": "route",
+        "outbound": "direct"
       },
       {
-        "clash_mode": "Global",
-        "outbound": "QQOLI"
+        "clash_mode": "global",
+        "action": "route",
+        "outbound": "qqoli"
       }
     ],
     "rule_set": []
