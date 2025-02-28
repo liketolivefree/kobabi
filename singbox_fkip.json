@@ -3662,11 +3662,11 @@
         "action": "sniff"
       },
       {
-        "inbound": "mixed-in",
+        "inbound": "tun-in",
         "action": "resolve"
       },
       {
-        "inbound": "mixed-in",
+        "inbound": "tun-in",
         "action": "sniff"
       },
       {
