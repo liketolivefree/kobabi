@@ -76,12 +76,6 @@
         "strategy": "prefer_ipv4"
       },
       {
-        "clash_mode": "direct",
-        "action": "route",
-        "server": "backup-dns",
-        "strategy": "prefer_ipv4"
-      },
-      {
         "outbound": "direct",
         "action": "route",
         "server": "direct-dns",
@@ -91,12 +85,6 @@
         "domain_suffix": ".ir",
         "action": "route",
         "server": "direct-dns",
-        "strategy": "prefer_ipv4"
-      },
-      {
-        "clash_mode": "global",
-        "action": "route",
-        "server": "backup-dns",
         "strategy": "prefer_ipv4"
       },
       {
@@ -3736,16 +3724,6 @@
         "domain_suffix": ".ir",
         "action": "route",
         "outbound": "direct"
-      },
-      {
-        "clash_mode": "direct",
-        "action": "route",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "global",
-        "action": "route",
-        "outbound": "qqoli"
       }
     ],
     "rule_set": []
