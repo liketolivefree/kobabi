@@ -18,10 +18,8 @@
       {"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"],"action":"reject","method":"drop"},
       {"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}],"action":"reject","method":"drop"},
       {"domain_suffix":[".githubusercontent.com",".githubassets.com"],"action":"route","server":"local-dns","strategy":"prefer_ipv4"},
-      {"clash_mode":"direct","action":"route","server":"backup-dns","strategy":"prefer_ipv4"},
       {"outbound":"direct","action":"route","server":"direct-dns","strategy":"prefer_ipv4"},
       {"domain_suffix":".ir","action":"route","server":"direct-dns","strategy":"prefer_ipv4"},
-      {"clash_mode":"global","action":"route","server":"backup-dns","strategy":"prefer_ipv4"},
       {"outbound":"qqoli","action":"route","server":"remote-dns","strategy":"prefer_ipv4"}
     ],
     "independent_cache": true,
@@ -93,9 +91,7 @@
       {"ip_cidr":["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"],"action":"reject","method":"drop"},
       {"domain_suffix":[".githubusercontent.com",".githubassets.com"],"action":"route","outbound":"direct"},
       {"ip_is_private":true,"action":"route","outbound":"direct"},
-      {"domain_suffix":".ir","action":"route","outbound":"direct"},
-      {"clash_mode":"direct","action":"route","outbound":"direct"},
-      {"clash_mode":"global","action":"route","outbound":"qqoli"}
+      {"domain_suffix":".ir","action":"route","outbound":"direct"}
     ],
     "rule_set": []
   }
