@@ -83,8 +83,8 @@
     "rules": [
       {"protocol":"dns","action":"hijack-dns"},
       {"action":"sniff"},
-      {"inbound":"mixed-in","action":"resolve"},
-      {"inbound":"mixed-in","action":"sniff"},
+      {"inbound":"tun-in","action":"resolve"},
+      {"inbound":"tun-in","action":"sniff"},
       {"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"],"action":"reject","method":"drop"},
       {"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}],"action":"reject","method":"drop"},
       {"protocol":"quic","action":"reject","method":"drop"},
