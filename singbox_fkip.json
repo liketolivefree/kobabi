@@ -39,13 +39,7 @@
         "tag": "backup-dns",
         "type": "https",
         "server": "94.140.14.14"
-      },
-      {
-        "tag": "block-dns",
-        "type": "predefined",
-        "responses": {
-          "rcode": "REFUSED"
-        }
+      }
       }
     ],
     "rules": [
