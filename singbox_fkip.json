@@ -76,21 +76,21 @@
         "strategy": "prefer_ipv4"
       },
       {
-        "outbound": "direct",
+        "inbound": "tun-in",
         "action": "route",
-        "server": "direct-dns",
+        "server": "remote-dns",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "inbound": "mixed-in",
+        "action": "route",
+        "server": "remote-dns",
         "strategy": "prefer_ipv4"
       },
       {
         "domain_suffix": ".ir",
         "action": "route",
         "server": "direct-dns",
-        "strategy": "prefer_ipv4"
-      },
-      {
-        "outbound": "qqoli",
-        "action": "route",
-        "server": "remote-dns",
         "strategy": "prefer_ipv4"
       }
     ],
@@ -3655,19 +3655,37 @@
     "final": "qqoli",
     "rules": [
       {
+        "action": "sniff",
+        "sniffer": [],
+        "timeout": "1s"
+      },
+      {
         "protocol": "dns",
         "action": "hijack-dns"
       },
       {
-        "action": "sniff"
+        "inbound": "tun-in",
+        "action": "resolve",
+        "server": "remote-dns",
+        "strategy": "prefer_ipv4"
       },
       {
         "inbound": "tun-in",
-        "action": "resolve"
+        "action": "sniff",
+        "sniffer": [],
+        "timeout": "1s"
       },
       {
-        "inbound": "tun-in",
-        "action": "sniff"
+        "inbound": "mixed-in",
+        "action": "resolve",
+        "server": "remote-dns",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "inbound": "mixed-in",
+        "action": "sniff",
+        "sniffer": [],
+        "timeout": "1s"
       },
       {
         "domain_suffix": [
