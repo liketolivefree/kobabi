@@ -40,7 +40,6 @@
         "type": "https",
         "server": "94.140.14.14"
       }
-      }
     ],
     "rules": [
       {
@@ -97,13 +96,13 @@
       {
         "clash_mode": "global",
         "action": "route",
-        "server": "remote-dns",
+        "server": "backup-dns",
         "strategy": "prefer_ipv4"
       },
       {
         "outbound": "qqoli",
         "action": "route",
-        "server": "remote-dn",
+        "server": "remote-dns",
         "strategy": "prefer_ipv4"
       }
     ],
