@@ -36,8 +36,7 @@
           ".miui.com",
           ".mi.com"
         ],
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "ip_cidr": [
@@ -45,58 +44,48 @@
           "10.10.34.0/24",
           "240.0.0.0/4"
         ],
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "rule_set": "aff",
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "rule_set": "yun",
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "domain_suffix": ".ir",
-        "action": "route",
         "server": "direct-dns"
       },
       {
         "rule_set": "xal",
-        "action": "route",
         "server": "direct-dns"
       },
       {
         "rule_set": "loo",
-        "action": "route",
         "server": "direct-dns"
       },
       {
         "clash_mode": "Direct",
-        "action": "route",
         "server": "backup-dns"
       },
       {
         "rule_set": "oki",
-        "action": "route",
         "server": "remote-dns"
       },
       {
         "rule_set": "doki",
-        "action": "route",
         "server": "remote-dns"
       },
       {
         "clash_mode": "Global",
-        "action": "route",
         "server": "backup-dns"
       }
     ],
-    "independent_cache": true,
+    "final": "remote-dns",
     "strategy": "prefer_ipv4",
-    "final": "remote-dns"
+    "independent_cache": true
   },
   "ntp": {
     "enabled": true,
@@ -3705,8 +3694,7 @@
       },
       {
         "protocol": "quic",
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "type": "logical",
@@ -3719,8 +3707,7 @@
             "port": 853
           }
         ],
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "type": "logical",
@@ -3733,8 +3720,7 @@
             "port": 443
           }
         ],
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "domain_suffix": [
@@ -3743,8 +3729,7 @@
           ".miui.com",
           ".mi.com"
         ],
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "ip_cidr": [
@@ -3752,57 +3737,46 @@
           "10.10.34.0/24",
           "240.0.0.0/4"
         ],
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "rule_set": "aff",
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "rule_set": "yun",
-        "action": "reject",
-        "method": "default"
+        "action": "reject"
       },
       {
         "ip_is_private": true,
-        "action": "route",
         "outbound": "direct"
       },
       {
         "domain_suffix": ".ir",
-        "action": "route",
         "outbound": "direct"
       },
       {
         "rule_set": "xal",
-        "action": "route",
         "outbound": "direct"
       },
       {
         "rule_set": "loo",
-        "action": "route",
         "outbound": "direct"
       },
       {
         "clash_mode": "Direct",
-        "action": "route",
         "outbound": "direct"
       },
       {
         "rule_set": "oki",
-        "action": "route",
         "outbound": "qqoli"
       },
       {
         "rule_set": "doki",
-        "action": "route",
         "outbound": "qqoli"
       },
       {
         "clash_mode": "Global",
-        "action": "route",
         "outbound": "qqoli"
       }
     ],
@@ -3853,9 +3827,7 @@
     "final": "qqoli",
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "default_domain_resolver": {
-      "server": "remote-dns"
-    }
+    "default_domain_resolver": "remote-dns"
   },
   "experimental": {
     "cache_file": {
