@@ -3,22 +3,6 @@
     "level": "info",
     "timestamp": true
   },
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "store_fakeip": false,
-      "store_rdrc": false
-    },
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "default_mode": "rule",
-      "access_control_allow_origin": [
-        "http://127.0.0.1",
-        "https://yacd.metacubex.one"
-      ],
-      "access_control_allow_private_network": true
-    }
-  },
   "dns": {
     "servers": [
       {
@@ -27,18 +11,21 @@
       },
       {
         "tag": "direct-dns",
-        "type": "tls",
-        "server": "8.8.8.8"
+        "type": "udp",
+        "server": "8.8.8.8",
+        "detour": "direct"
       },
       {
         "tag": "remote-dns",
         "type": "https",
-        "server": "1.1.1.1"
+        "server": "1.1.1.1",
+        "detour": "qqoli"
       },
       {
         "tag": "backup-dns",
         "type": "https",
-        "server": "94.140.14.14"
+        "server": "94.140.14.14",
+        "detour": "qqoli"
       }
     ],
     "rules": [
@@ -50,72 +37,83 @@
           ".mi.com"
         ],
         "action": "reject",
-        "method": "drop"
+        "method": "default"
       },
       {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "network": "udp"
-          },
-          {
-            "port": 443
-          }
+        "ip_cidr": [
+          "0.0.0.0/32",
+          "10.10.34.0/24",
+          "240.0.0.0/4"
         ],
         "action": "reject",
-        "method": "drop"
+        "method": "default"
       },
       {
-        "domain_suffix": [
-          ".githubusercontent.com",
-          ".githubassets.com"
-        ],
-        "action": "route",
-        "server": "local-dns",
-        "strategy": "prefer_ipv4"
+        "rule_set": "aff",
+        "action": "reject",
+        "method": "default"
       },
       {
-        "inbound": "tun-in",
-        "action": "route",
-        "server": "remote-dns",
-        "strategy": "prefer_ipv4"
-      },
-      {
-        "inbound": "mixed-in",
-        "action": "route",
-        "server": "remote-dns",
-        "strategy": "prefer_ipv4"
+        "rule_set": "yun",
+        "action": "reject",
+        "method": "default"
       },
       {
         "domain_suffix": ".ir",
         "action": "route",
-        "server": "direct-dns",
-        "strategy": "prefer_ipv4"
+        "server": "direct-dns"
+      },
+      {
+        "rule_set": "xal",
+        "action": "route",
+        "server": "direct-dns"
+      },
+      {
+        "rule_set": "loo",
+        "action": "route",
+        "server": "direct-dns"
+      },
+      {
+        "clash_mode": "Direct",
+        "action": "route",
+        "server": "backup-dns"
+      },
+      {
+        "rule_set": "oki",
+        "action": "route",
+        "server": "remote-dns"
+      },
+      {
+        "rule_set": "doki",
+        "action": "route",
+        "server": "remote-dns"
+      },
+      {
+        "clash_mode": "Global",
+        "action": "route",
+        "server": "backup-dns"
       }
     ],
     "independent_cache": true,
-    "disable_cache": false,
-    "disable_expire": false,
+    "strategy": "prefer_ipv4",
     "final": "remote-dns"
   },
   "ntp": {
     "enabled": true,
+    "interval": "30m0s",
     "server": "pool.ntp.org",
     "server_port": 123,
-    "interval": "30m",
     "detour": "direct"
   },
   "inbounds": [
     {
-      "tag": "tun-in",
       "type": "tun",
-      "address": "172.19.0.1/30",
+      "tag": "tun-in",
       "interface_name": "tun0",
       "mtu": 9000,
+      "address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "endpoint_independent_nat": true,
       "stack": "mixed",
       "platform": {
         "http_proxy": {
@@ -123,20 +121,20 @@
           "server": "127.0.0.1",
           "server_port": 7890
         }
-      }
+      },
+      "endpoint_independent_nat": true
     },
     {
-      "tag": "mixed-in",
       "type": "mixed",
+      "tag": "mixed-in",
       "listen": "127.0.0.1",
       "listen_port": 7891
     }
   ],
   "outbounds": [
     {
-      "tag": "qqoli",
       "type": "selector",
-      "interrupt_exist_connections": false,
+      "tag": "qqoli",
       "outbounds": [
         "mmobi",
         "qo_008",
@@ -305,12 +303,8 @@
       ]
     },
     {
-      "tag": "mmobi",
       "type": "urltest",
-      "url": "https://www.gstatic.com/generate_204",
-      "interrupt_exist_connections": false,
-      "interval": "5m",
-      "tolerance": 50,
+      "tag": "mmobi",
       "outbounds": [
         "qo_008",
         "qo_012",
@@ -475,7 +469,10 @@
         "qo_313",
         "qo_314",
         "qo_315"
-      ]
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "5m0s",
+      "tolerance": 50
     },
     {
       "tag": "direct",
@@ -3649,53 +3646,81 @@
     }
   ],
   "route": {
-    "auto_detect_interface": true,
-    "override_android_vpn": true,
-    "default_domain_resolver": "remote-dns",
-    "final": "qqoli",
     "rules": [
       {
         "action": "sniff",
-        "sniffer": [],
+        "sniffer": [
+          "http",
+          "tls",
+          "dns"
+        ],
         "timeout": "1s"
       },
       {
-        "protocol": "dns",
+        "action": "resolve",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "inbound": "tun-in",
+        "action": "sniff",
+        "sniffer": [
+          "http",
+          "tls",
+          "dns"
+        ],
+        "timeout": "1s"
+      },
+      {
+        "inbound": "mixed-in",
+        "action": "sniff",
+        "sniffer": [
+          "http",
+          "tls",
+          "dns"
+        ],
+        "timeout": "1s"
+      },
+      {
+        "inbound": "tun-in",
+        "action": "resolve",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "inbound": "mixed-in",
+        "action": "resolve",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
         "action": "hijack-dns"
       },
       {
-        "inbound": "tun-in",
-        "action": "resolve",
-        "server": "remote-dns",
-        "strategy": "prefer_ipv4"
+        "protocol": "quic",
+        "action": "reject",
+        "method": "default"
       },
       {
-        "inbound": "tun-in",
-        "action": "sniff",
-        "sniffer": [],
-        "timeout": "1s"
-      },
-      {
-        "inbound": "mixed-in",
-        "action": "resolve",
-        "server": "remote-dns",
-        "strategy": "prefer_ipv4"
-      },
-      {
-        "inbound": "mixed-in",
-        "action": "sniff",
-        "sniffer": [],
-        "timeout": "1s"
-      },
-      {
-        "domain_suffix": [
-          ".xiaomi.com",
-          ".xiaomi.net",
-          ".miui.com",
-          ".mi.com"
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "network": "tcp"
+          },
+          {
+            "port": 853
+          }
         ],
         "action": "reject",
-        "method": "drop"
+        "method": "default"
       },
       {
         "type": "logical",
@@ -3709,12 +3734,17 @@
           }
         ],
         "action": "reject",
-        "method": "drop"
+        "method": "default"
       },
       {
-        "protocol": "quic",
+        "domain_suffix": [
+          ".xiaomi.com",
+          ".xiaomi.net",
+          ".miui.com",
+          ".mi.com"
+        ],
         "action": "reject",
-        "method": "drop"
+        "method": "default"
       },
       {
         "ip_cidr": [
@@ -3723,15 +3753,17 @@
           "240.0.0.0/4"
         ],
         "action": "reject",
-        "method": "drop"
+        "method": "default"
       },
       {
-        "domain_suffix": [
-          ".githubusercontent.com",
-          ".githubassets.com"
-        ],
-        "action": "route",
-        "outbound": "direct"
+        "rule_set": "aff",
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "rule_set": "yun",
+        "action": "reject",
+        "method": "default"
       },
       {
         "ip_is_private": true,
@@ -3742,8 +3774,104 @@
         "domain_suffix": ".ir",
         "action": "route",
         "outbound": "direct"
+      },
+      {
+        "rule_set": "xal",
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "loo",
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Direct",
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "oki",
+        "action": "route",
+        "outbound": "qqoli"
+      },
+      {
+        "rule_set": "doki",
+        "action": "route",
+        "outbound": "qqoli"
+      },
+      {
+        "clash_mode": "Global",
+        "action": "route",
+        "outbound": "qqoli"
       }
     ],
-    "rule_set": []
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "aff",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "yun",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "oki",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "doki",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "xal",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "loo",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
+        "download_detour": "direct"
+      }
+    ],
+    "final": "qqoli",
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "default_domain_resolver": {
+      "server": "remote-dns"
+    }
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "dashboard",
+      "external_ui_download_url": "https://gh-proxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "direct",
+      "default_mode": "rule",
+      "access_control_allow_origin": [
+        "http://127.0.0.1",
+        "https://yacd.metacubex.one"
+      ],
+      "access_control_allow_private_network": true
+    }
   }
 }
