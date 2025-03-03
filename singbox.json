@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "info",
+    "level": "trace",
     "timestamp": true
   },
   "dns": {
@@ -858,26 +858,19 @@
     "rules": [
       {
         "action": "sniff",
-        "sniffer": [
-          "http",
-          "tls",
-          "dns",
-          "quic"
-        ],
-        "timeout": "500ms",
-        "inbound": [
-          "tun-in",
-          "mixed-in"
-        ]
+        "inbound": "tun-in"
+      },
+      {
+        "action": "sniff",
+        "inbound": "mixed-in"
       },
       {
         "action": "resolve",
-        "server": "remote-dns",
-        "strategy": "prefer_ipv4",
-        "inbound": [
-          "tun-in",
-          "mixed-in"
-        ]
+        "inbound": "tun-in"
+      },
+      {
+        "action": "resolve",
+        "inbound": "mixed-in"
       },
       {
         "action": "hijack-dns",
