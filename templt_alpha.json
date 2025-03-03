@@ -1,20 +1,23 @@
 {
-  "log":{"level":"info","timestamp":true},
+  "log":{
+    "level":"info",
+    "timestamp":true
+  },
   "dns":{
     "servers":[
       {"type":"local","tag":"local-dns"},
-      {"type":"udp","tag":"direct-dns","server":"8.8.8.8","server_port":53,"detour":"direct"},
-      {"type":"https","tag":"remote-dns","server":"1.1.1.1","server_port":443,"detour":"qqoli"},
-      {"type":"https","tag":"backup-dns","server":"94.140.14.14","server_port":443,"detour":"qqoli"}
+      {"type":"udp","tag":"direct-dns","server":"8.8.8.8","detour":"direct"},
+      {"type":"https","tag":"remote-dns","server":"1.1.1.1","detour":"qqoli"},
+      {"type":"https","tag":"backup-dns","server":"94.140.14.14","detour":"qqoli"}
     ],
     "rules":[
-      {"action":"reject","domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"]},
-      {"action":"reject","ip_cidr":["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"]},
-      {"action":"reject","rule_set":["aff","yun"]},
-      {"server":"remote-dns","source_ip_cidr":"172.19.0.0/30"},
-      {"server":"direct-dns","domain_suffix":".ir"},
-      {"server":"direct-dns","rule_set":["xal","loo"]},
-      {"server":"remote-dns","rule_set":["oki","doki"]}
+      {"action":"reject","method":"default","no_drop":false,"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"]},
+      {"action":"reject","method":"default","no_drop":false,"ip_cidr":["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"]},
+      {"action":"reject","method":"default","no_drop":false,"rule_set":["aff","yun"]},
+      {"action":"route","server":"local-dns","ip_is_private":true},
+      {"action":"route","server":"direct-dns","domain_suffix":".ir"},
+      {"action":"route","server":"direct-dns","rule_set":["xal","loo"]},
+      {"action":"route","server":"remote-dns","rule_set":["oki","doki"]}
     ],
     "final":"backup-dns",
     "strategy":"prefer_ipv4",
@@ -43,23 +46,21 @@
   ],
   "route":{
     "rules":[
-      {"action":"sniff","sniffer":["http","tls","dns"],"timeout": "1s"},
-      {"action":"resolve","strategy":"prefer_ipv4"},
-      {"action":"sniff","inbound":["tun-in","mixed-in"]},
-      {"action":"resolve","inbound":["tun-in","mixed-in"]},
+      {"action":"sniff","sniffer":["http","tls","dns","quic"],"timeout":"500ms","inbound":["tun-in","mixed-in"]},
+      {"action":"resolve","server":"remote-dns","strategy":"prefer_ipv4","disable_cache":false,"inbound":["tun-in","mixed-in"]},
       {"action":"hijack-dns","type":"logical","mode":"or","rules":[{"protocol":"dns"},{"port":53}]},
-      {"action":"reject","method":"default","protocol":"quic"},
-      {"action":"reject","method":"default","type":"logical","mode":"and","rules":[{"network":"tcp"},{"port":853}]},
-      {"action":"reject","method":"default","type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}]},
-      {"action":"reject","method":"default","domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"]},
-      {"action":"reject","method":"default","ip_cidr": ["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"]},
-      {"action":"reject","method":"default","rule_set":["aff","yun"]},
-      {"outbound":"direct","ip_is_private":true},
-      {"outbound":"direct","domain_suffix":".ir"},
-      {"outbound":"direct","rule_set":["xal","loo"]},
-      {"outbound":"qqoli","rule_set":["oki","doki"]}
+      {"action":"reject","method":"default","no_drop":false,"protocol":"quic"},
+      {"action":"reject","method":"default","no_drop":false,"type":"logical","mode":"and","rules":[{"network":"tcp"},{"port":853}]},
+      {"action":"reject","method":"default","no_drop":false,"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}]},
+      {"action":"reject","method":"default","no_drop":false,"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"]},
+      {"action":"reject","method":"default","no_drop":false,"ip_cidr": ["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"]},
+      {"action":"reject","method":"default","no_drop":false,"rule_set":["aff","yun"]},
+      {"action":"route","outbound":"direct","ip_is_private":true},
+      {"action":"route","outbound":"direct","domain_suffix":".ir"},
+      {"action":"route","outbound":"direct","rule_set":["xal","loo"]},
+      {"action":"route","outbound":"qqoli","rule_set":["oki","doki"]}
     ],
-   "rule_set":[
+    "rule_set":[
       {
         "type":"remote",
         "tag":"aff",
