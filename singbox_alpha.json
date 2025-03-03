@@ -877,7 +877,6 @@
         "action": "resolve",
         "server": "remote-dns",
         "strategy": "prefer_ipv4",
-        "disable_cache": false,
         "inbound": [
           "tun-in",
           "mixed-in"
