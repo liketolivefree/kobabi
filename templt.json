@@ -47,7 +47,7 @@
   "route":{
     "rules":[
       {"action":"sniff","sniffer":["http","tls","dns","quic"],"timeout":"500ms","inbound":["tun-in","mixed-in"]},
-      {"action":"resolve","server":"remote-dns","strategy":"prefer_ipv4","disable_cache":false,"inbound":["tun-in","mixed-in"]},
+      {"action":"resolve","server":"remote-dns","strategy":"prefer_ipv4","inbound":["tun-in","mixed-in"]},
       {"action":"hijack-dns","type":"logical","mode":"or","rules":[{"protocol":"dns"},{"port":53}]},
       {"action":"reject","method":"default","no_drop":false,"protocol":"quic"},
       {"action":"reject","method":"default","no_drop":false,"type":"logical","mode":"and","rules":[{"network":"tcp"},{"port":853}]},
