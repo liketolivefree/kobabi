@@ -6,84 +6,87 @@
   "dns": {
     "servers": [
       {
-        "tag": "local-dns",
-        "type": "local"
+        "type": "local",
+        "tag": "local-dns"
       },
       {
-        "tag": "direct-dns",
         "type": "udp",
+        "tag": "direct-dns",
         "server": "8.8.8.8",
         "detour": "direct"
       },
       {
-        "tag": "remote-dns",
         "type": "https",
+        "tag": "remote-dns",
         "server": "1.1.1.1",
         "detour": "qqoli"
       },
       {
-        "tag": "backup-dns",
         "type": "https",
+        "tag": "backup-dns",
         "server": "94.140.14.14",
         "detour": "qqoli"
       }
     ],
     "rules": [
       {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
         "domain_suffix": [
           ".xiaomi.com",
           ".xiaomi.net",
           ".miui.com",
           ".mi.com"
-        ],
-        "action": "reject"
+        ]
       },
       {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
         "ip_cidr": [
           "0.0.0.0/32",
           "10.10.34.0/24",
           "240.0.0.0/4"
-        ],
-        "action": "reject"
+        ]
       },
       {
-        "rule_set": "aff",
-        "action": "reject"
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "rule_set": [
+          "aff",
+          "yun"
+        ]
       },
       {
-        "rule_set": "yun",
-        "action": "reject"
+        "action": "route",
+        "server": "local-dns",
+        "ip_is_private": true
       },
       {
-        "domain_suffix": ".ir",
-        "server": "direct-dns"
+        "action": "route",
+        "server": "direct-dns",
+        "domain_suffix": ".ir"
       },
       {
-        "rule_set": "xal",
-        "server": "direct-dns"
+        "action": "route",
+        "server": "direct-dns",
+        "rule_set": [
+          "xal",
+          "loo"
+        ]
       },
       {
-        "rule_set": "loo",
-        "server": "direct-dns"
-      },
-      {
-        "clash_mode": "Direct",
-        "server": "backup-dns"
-      },
-      {
-        "rule_set": "oki",
-        "server": "remote-dns"
-      },
-      {
-        "rule_set": "doki",
-        "server": "remote-dns"
-      },
-      {
-        "clash_mode": "Global",
-        "server": "backup-dns"
+        "action": "route",
+        "server": "remote-dns",
+        "rule_set": [
+          "oki",
+          "doki"
+        ]
       }
     ],
-    "final": "remote-dns",
+    "final": "backup-dns",
     "strategy": "prefer_ipv4",
     "independent_cache": true
   },
@@ -100,7 +103,7 @@
       "tag": "tun-in",
       "interface_name": "tun0",
       "mtu": 9000,
-      "address": "172.19.0.1/30",
+      "address": "172.19.0.0/30",
       "auto_route": true,
       "strict_route": true,
       "stack": "mixed",
@@ -126,6 +129,7 @@
       "tag": "qqoli",
       "outbounds": [
         "mmobi",
+        "qo_028",
         "qo_008",
         "qo_012",
         "qo_017",
@@ -134,7 +138,6 @@
         "qo_022",
         "qo_023",
         "qo_027",
-        "qo_028",
         "qo_029",
         "qo_030",
         "qo_031",
@@ -195,21 +198,30 @@
         "qo_125",
         "qo_126",
         "qo_128",
+        "qo_132",
         "qo_134",
+        "qo_143",
+        "qo_146",
         "qo_147",
+        "qo_153",
+        "qo_154",
         "qo_155",
         "qo_156",
         "qo_157",
         "qo_158",
         "qo_159",
         "qo_160",
+        "qo_161",
         "qo_162",
         "qo_163",
         "qo_164",
         "qo_165",
         "qo_166",
         "qo_167",
+        "qo_168",
         "qo_169",
+        "qo_170",
+        "qo_171",
         "qo_172",
         "qo_173",
         "qo_174",
@@ -222,48 +234,112 @@
         "qo_181",
         "qo_182",
         "qo_183",
+        "qo_184",
+        "qo_185",
+        "qo_186",
         "qo_187",
+        "qo_188",
         "qo_189",
+        "qo_190",
+        "qo_191",
+        "qo_192",
+        "qo_193",
+        "qo_194",
+        "qo_195",
         "qo_196",
         "qo_197",
+        "qo_198",
         "qo_199",
+        "qo_200",
+        "qo_201",
         "qo_202",
+        "qo_203",
+        "qo_204",
         "qo_205",
+        "qo_206",
         "qo_207",
         "qo_208",
+        "qo_209",
+        "qo_210",
         "qo_211",
         "qo_212",
         "qo_213",
         "qo_214",
         "qo_215",
         "qo_216",
+        "qo_217",
         "qo_218",
+        "qo_219",
         "qo_220",
         "qo_221",
+        "qo_222",
         "qo_223",
         "qo_224",
         "qo_225",
+        "qo_226",
         "qo_227",
+        "qo_228",
         "qo_229",
         "qo_230",
+        "qo_231",
+        "qo_232",
         "qo_233",
+        "qo_234",
+        "qo_235",
+        "qo_236",
+        "qo_237",
+        "qo_238",
+        "qo_239",
         "qo_240",
+        "qo_241",
+        "qo_242",
         "qo_243",
+        "qo_244",
+        "qo_245",
+        "qo_246",
         "qo_247",
+        "qo_248",
+        "qo_249",
+        "qo_250",
+        "qo_251",
+        "qo_252",
+        "qo_253",
+        "qo_254",
+        "qo_255",
+        "qo_256",
         "qo_257",
+        "qo_258",
+        "qo_259",
         "qo_260",
         "qo_261",
+        "qo_262",
         "qo_263",
+        "qo_264",
         "qo_265",
+        "qo_266",
         "qo_267",
+        "qo_268",
         "qo_269",
+        "qo_270",
         "qo_271",
+        "qo_272",
         "qo_273",
         "qo_274",
+        "qo_275",
+        "qo_276",
+        "qo_277",
+        "qo_278",
         "qo_279",
+        "qo_280",
+        "qo_281",
         "qo_282",
         "qo_283",
+        "qo_284",
+        "qo_285",
+        "qo_286",
         "qo_287",
+        "qo_288",
+        "qo_289",
         "qo_290",
         "qo_291",
         "qo_292",
@@ -279,6 +355,7 @@
         "qo_302",
         "qo_303",
         "qo_304",
+        "qo_305",
         "qo_306",
         "qo_307",
         "qo_308",
@@ -295,6 +372,7 @@
       "type": "urltest",
       "tag": "mmobi",
       "outbounds": [
+        "qo_028",
         "qo_008",
         "qo_012",
         "qo_017",
@@ -303,7 +381,6 @@
         "qo_022",
         "qo_023",
         "qo_027",
-        "qo_028",
         "qo_029",
         "qo_030",
         "qo_031",
@@ -364,21 +441,30 @@
         "qo_125",
         "qo_126",
         "qo_128",
+        "qo_132",
         "qo_134",
+        "qo_143",
+        "qo_146",
         "qo_147",
+        "qo_153",
+        "qo_154",
         "qo_155",
         "qo_156",
         "qo_157",
         "qo_158",
         "qo_159",
         "qo_160",
+        "qo_161",
         "qo_162",
         "qo_163",
         "qo_164",
         "qo_165",
         "qo_166",
         "qo_167",
+        "qo_168",
         "qo_169",
+        "qo_170",
+        "qo_171",
         "qo_172",
         "qo_173",
         "qo_174",
@@ -391,48 +477,112 @@
         "qo_181",
         "qo_182",
         "qo_183",
+        "qo_184",
+        "qo_185",
+        "qo_186",
         "qo_187",
+        "qo_188",
         "qo_189",
+        "qo_190",
+        "qo_191",
+        "qo_192",
+        "qo_193",
+        "qo_194",
+        "qo_195",
         "qo_196",
         "qo_197",
+        "qo_198",
         "qo_199",
+        "qo_200",
+        "qo_201",
         "qo_202",
+        "qo_203",
+        "qo_204",
         "qo_205",
+        "qo_206",
         "qo_207",
         "qo_208",
+        "qo_209",
+        "qo_210",
         "qo_211",
         "qo_212",
         "qo_213",
         "qo_214",
         "qo_215",
         "qo_216",
+        "qo_217",
         "qo_218",
+        "qo_219",
         "qo_220",
         "qo_221",
+        "qo_222",
         "qo_223",
         "qo_224",
         "qo_225",
+        "qo_226",
         "qo_227",
+        "qo_228",
         "qo_229",
         "qo_230",
+        "qo_231",
+        "qo_232",
         "qo_233",
+        "qo_234",
+        "qo_235",
+        "qo_236",
+        "qo_237",
+        "qo_238",
+        "qo_239",
         "qo_240",
+        "qo_241",
+        "qo_242",
         "qo_243",
+        "qo_244",
+        "qo_245",
+        "qo_246",
         "qo_247",
+        "qo_248",
+        "qo_249",
+        "qo_250",
+        "qo_251",
+        "qo_252",
+        "qo_253",
+        "qo_254",
+        "qo_255",
+        "qo_256",
         "qo_257",
+        "qo_258",
+        "qo_259",
         "qo_260",
         "qo_261",
+        "qo_262",
         "qo_263",
+        "qo_264",
         "qo_265",
+        "qo_266",
         "qo_267",
+        "qo_268",
         "qo_269",
+        "qo_270",
         "qo_271",
+        "qo_272",
         "qo_273",
         "qo_274",
+        "qo_275",
+        "qo_276",
+        "qo_277",
+        "qo_278",
         "qo_279",
+        "qo_280",
+        "qo_281",
         "qo_282",
         "qo_283",
+        "qo_284",
+        "qo_285",
+        "qo_286",
         "qo_287",
+        "qo_288",
+        "qo_289",
         "qo_290",
         "qo_291",
         "qo_292",
@@ -448,6 +598,7 @@
         "qo_302",
         "qo_303",
         "qo_304",
+        "qo_305",
         "qo_306",
         "qo_307",
         "qo_308",
@@ -464,8 +615,21 @@
       "tolerance": 50
     },
     {
-      "tag": "direct",
-      "type": "direct"
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "tag": "qo_028",
+      "type": "vless",
+      "server": "147135001178.sec22org.com",
+      "server_port": 443,
+      "uuid": "e20ebe01-1815-4c09-8e77-fb2f168263ce",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "147135001178.sec22org.com"
+      }
     },
     {
       "tag": "qo_008",
@@ -571,19 +735,6 @@
         "enabled": true,
         "insecure": false,
         "server_name": "147135011033.sec21org.com"
-      }
-    },
-    {
-      "tag": "qo_028",
-      "type": "vless",
-      "server": "147135001178.sec22org.com",
-      "server_port": 443,
-      "uuid": "e20ebe01-1815-4c09-8e77-fb2f168263ce",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "147135001178.sec22org.com"
       }
     },
     {
@@ -1720,6 +1871,28 @@
       }
     },
     {
+      "tag": "qo_132",
+      "type": "vless",
+      "server": "visa.org",
+      "server_port": 443,
+      "uuid": "ac7bcf0a-ef69-4949-aff2-a93630021826",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "0C9CF137-telegRAM-CaSsIUsvpn-tElegrAm-cAsSIusvpn-teLEgrAm.eamOnN-120.workers.DEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/qmMTvZWWZJIvtX37/My43MC4yMTkuMTk2",
+        "headers": {
+          "Host": "0C9CF137-telegRAM-CaSsIUsvpn-tElegrAm-cAsSIusvpn-teLEgrAm.eamOnN-120.workers.DEV"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_134",
       "type": "vless",
       "server": "89.187.28.126",
@@ -1740,6 +1913,46 @@
       }
     },
     {
+      "tag": "qo_143",
+      "type": "vless",
+      "server": "108.162.198.103",
+      "server_port": 443,
+      "uuid": "98caf934-d51f-47d3-89ec-09ea781839c2",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "tunnel.amclubsss.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tunnel.amclubsss.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_146",
+      "type": "vless",
+      "server": "104.17.158.1",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
       "tag": "qo_147",
       "type": "vless",
       "server": "104.17.197.1",
@@ -1754,6 +1967,46 @@
       "transport": {
         "type": "ws",
         "path": "/?d=2560",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_153",
+      "type": "vless",
+      "server": "104.17.158.1",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_154",
+      "type": "vless",
+      "server": "104.26.1.108",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM",
         "headers": {
           "Host": "a.xn--i-sx6a60i.us.kg"
         }
@@ -1886,6 +2139,28 @@
       }
     },
     {
+      "tag": "qo_161",
+      "type": "vless",
+      "server": "104.17.158.1",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram-proxy_mtm/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_162",
       "type": "vless",
       "server": "104.21.32.1",
@@ -2008,6 +2283,26 @@
       }
     },
     {
+      "tag": "qo_168",
+      "type": "vless",
+      "server": "94.250.246.200",
+      "server_port": 8080,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.mifeng.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.mifeng.us.kg"
+        }
+      }
+    },
+    {
       "tag": "qo_169",
       "type": "vless",
       "server": "104.21.112.1",
@@ -2024,6 +2319,46 @@
         "path": "/",
         "headers": {
           "Host": "hAsTI.FreEAIRlaiNES.COM"
+        }
+      }
+    },
+    {
+      "tag": "qo_170",
+      "type": "vless",
+      "server": "104.18.33.45",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "fatwith.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fatwith.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_171",
+      "type": "vless",
+      "server": "172.67.199.19",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
         }
       }
     },
@@ -2268,6 +2603,66 @@
       }
     },
     {
+      "tag": "qo_184",
+      "type": "vless",
+      "server": "188.119.112.54",
+      "server_port": 2501,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_185",
+      "type": "vless",
+      "server": "ip.sb",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_186",
+      "type": "vless",
+      "server": "kinsta.com",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
       "tag": "qo_187",
       "type": "vless",
       "server": "104.21.32.1",
@@ -2290,9 +2685,155 @@
       }
     },
     {
+      "tag": "qo_188",
+      "type": "vless",
+      "server": "104.18.43.169",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
       "tag": "qo_189",
       "type": "vless",
       "server": "172.66.40.228",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_190",
+      "type": "vless",
+      "server": "104.17.232.29",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_191",
+      "type": "vless",
+      "server": "172.67.210.150",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_192",
+      "type": "vless",
+      "server": "104.21.95.253",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_193",
+      "type": "vless",
+      "server": "104.18.190.228",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_194",
+      "type": "vless",
+      "server": "104.26.13.31",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_195",
+      "type": "vless",
+      "server": "104.16.39.67",
       "server_port": 443,
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "packet_encoding": "xudp",
@@ -2354,6 +2895,28 @@
       }
     },
     {
+      "tag": "qo_198",
+      "type": "vless",
+      "server": "172.67.208.243",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_199",
       "type": "vless",
       "server": "172.67.75.172",
@@ -2376,9 +2939,95 @@
       }
     },
     {
+      "tag": "qo_200",
+      "type": "vless",
+      "server": "104.21.38.126",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_201",
+      "type": "vless",
+      "server": "104.26.12.31",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
       "tag": "qo_202",
       "type": "vless",
       "server": "104.26.1.67",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_203",
+      "type": "vless",
+      "server": "104.17.158.1",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_204",
+      "type": "vless",
+      "server": "104.21.38.13",
       "server_port": 443,
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "packet_encoding": "xudp",
@@ -2417,6 +3066,26 @@
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_206",
+      "type": "vless",
+      "server": "104.20.30.125",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
       }
     },
     {
@@ -2459,6 +3128,48 @@
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "qo_209",
+      "type": "vless",
+      "server": "104.17.158.1",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_210",
+      "type": "vless",
+      "server": "172.64.147.50",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
       }
     },
     {
@@ -2588,6 +3299,28 @@
       }
     },
     {
+      "tag": "qo_217",
+      "type": "vless",
+      "server": "kinsta.com",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_218",
       "type": "vless",
       "server": "www.speedtest.net",
@@ -2605,6 +3338,28 @@
         "headers": {
           "Host": "a.xn--i-sx6a60i.us.kg"
         }
+      }
+    },
+    {
+      "tag": "qo_219",
+      "type": "vless",
+      "server": "ip.sb",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
       }
     },
     {
@@ -2647,6 +3402,28 @@
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_222",
+      "type": "vless",
+      "server": "162.159.195.212",
+      "server_port": 443,
+      "uuid": "538ec70c-b386-51ad-8155-aeaed37a22b6",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "newus.sspeednetokala.uS.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vless-ws/",
+        "headers": {
+          "Host": "newus.sspeednetokala.uS.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
       }
     },
     {
@@ -2716,6 +3493,28 @@
       }
     },
     {
+      "tag": "qo_226",
+      "type": "vless",
+      "server": "94.250.246.200",
+      "server_port": 8080,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.mifeng.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.mifeng.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_227",
       "type": "vless",
       "server": "104.21.112.1",
@@ -2732,6 +3531,28 @@
         "path": "/aM6A6pLqSjHLOOQ5",
         "headers": {
           "Host": "hASTi.FReeAIRlaiNes.cOM"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_228",
+      "type": "vless",
+      "server": "104.26.1.108",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2560
@@ -2782,6 +3603,50 @@
       }
     },
     {
+      "tag": "qo_231",
+      "type": "vless",
+      "server": "104.21.51.114",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_232",
+      "type": "vless",
+      "server": "172.67.216.86",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_233",
       "type": "vless",
       "server": "104.21.8.135",
@@ -2798,6 +3663,134 @@
         "path": "/",
         "headers": {
           "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_234",
+      "type": "vless",
+      "server": "172.67.156.117",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_235",
+      "type": "vless",
+      "server": "104.18.43.169",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_236",
+      "type": "vless",
+      "server": "104.18.40.206",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_237",
+      "type": "vless",
+      "server": "104.21.49.114",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_238",
+      "type": "vless",
+      "server": "172.67.70.92",
+      "server_port": 2053,
+      "uuid": "59860b15-b2d9-47f9-9b92-81bd1639fcc5",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "5-55sfjslf.ifenxiang.cfd"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "5-55sfjslf.ifenxiang.cfd"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_239",
+      "type": "vless",
+      "server": "5.2.73.137",
+      "server_port": 7000,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.mifeng.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.mifeng.us.kg"
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2560
@@ -2824,6 +3817,50 @@
       }
     },
     {
+      "tag": "qo_241",
+      "type": "vless",
+      "server": "172.67.137.37",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_242",
+      "type": "vless",
+      "server": "172.67.194.31",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_243",
       "type": "vless",
       "server": "185.146.173.7",
@@ -2840,6 +3877,72 @@
         "path": "/@ln2ray",
         "headers": {
           "Host": "sinavm_sinavm.sinabigo.ir"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_244",
+      "type": "vless",
+      "server": "104.26.9.236",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_245",
+      "type": "vless",
+      "server": "104.26.3.165",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_246",
+      "type": "vless",
+      "server": "104.16.57.90",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2560
@@ -2868,6 +3971,200 @@
       }
     },
     {
+      "tag": "qo_248",
+      "type": "vless",
+      "server": "104.17.158.1",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM-TELEGRAM-PROXY_MTM",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_249",
+      "type": "vless",
+      "server": "104.17.247.119",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_250",
+      "type": "vless",
+      "server": "162.159.138.178",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_251",
+      "type": "vless",
+      "server": "104.17.157.1",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_252",
+      "type": "vless",
+      "server": "104.26.8.43",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_253",
+      "type": "vless",
+      "server": "104.26.12.140",
+      "server_port": 8443,
+      "uuid": "59860b15-b2d9-47f9-9b92-81bd1639fcc5",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "5-55sfjslf.ifenxiang.cfd"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "5-55sfjslf.ifenxiang.cfd"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_254",
+      "type": "vless",
+      "server": "172.67.70.99",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_255",
+      "type": "vless",
+      "server": "104.26.15.221",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_256",
+      "type": "vless",
+      "server": "199.34.228.171",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_257",
       "type": "vless",
       "server": "104.21.43.145",
@@ -2884,6 +4181,50 @@
         "path": "/@ln2ray",
         "headers": {
           "Host": "sinavm_sinavm.sinabigo.ir"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_258",
+      "type": "vless",
+      "server": "172.67.194.145",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_259",
+      "type": "vless",
+      "server": "104.20.30.125",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2560
@@ -2934,6 +4275,28 @@
       }
     },
     {
+      "tag": "qo_262",
+      "type": "vless",
+      "server": "172.66.40.228",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_263",
       "type": "vless",
       "server": "104.19.230.57",
@@ -2956,6 +4319,28 @@
       }
     },
     {
+      "tag": "qo_264",
+      "type": "vless",
+      "server": "172.64.154.211",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "fatwith.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "",
+        "headers": {
+          "Host": "fatwith.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_265",
       "type": "vless",
       "server": "104.19.240.29",
@@ -2970,6 +4355,28 @@
       "transport": {
         "type": "ws",
         "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_266",
+      "type": "vless",
+      "server": "172.64.147.50",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=MARAMBASHI_MARAMBASHI/",
         "headers": {
           "Host": "a.xn--i-sx6a60i.us.kg"
         },
@@ -3000,6 +4407,28 @@
       }
     },
     {
+      "tag": "qo_268",
+      "type": "vless",
+      "server": "104.16.227.101",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_269",
       "type": "vless",
       "server": "172.67.144.253",
@@ -3016,6 +4445,28 @@
         "path": "/",
         "headers": {
           "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_270",
+      "type": "vless",
+      "server": "104.18.33.45",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "fatwith.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "",
+        "headers": {
+          "Host": "fatwith.us.kg"
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2560
@@ -3041,6 +4492,28 @@
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "qo_272",
+      "type": "vless",
+      "server": "104.25.80.63",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
       }
     },
     {
@@ -3088,6 +4561,90 @@
       }
     },
     {
+      "tag": "qo_275",
+      "type": "vless",
+      "server": "104.21.95.253",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_276",
+      "type": "vless",
+      "server": "104.26.5.157",
+      "server_port": 2083,
+      "uuid": "59860b15-b2d9-47f9-9b92-81bd1639fcc5",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "5-55sfjslf.ifenxiang.cfd"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "5-55sfjslf.ifenxiang.cfd"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_277",
+      "type": "vless",
+      "server": "104.21.7.41",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_278",
+      "type": "vless",
+      "server": "172.66.40.151",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_279",
       "type": "vless",
       "server": "66.235.200.146",
@@ -3107,6 +4664,48 @@
         },
         "early_data_header_name": "Sec-WebSocket-Protocol",
         "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_280",
+      "type": "vless",
+      "server": "172.67.199.19",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_281",
+      "type": "vless",
+      "server": "104.21.21.181",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
       }
     },
     {
@@ -3154,9 +4753,115 @@
       }
     },
     {
+      "tag": "qo_284",
+      "type": "vless",
+      "server": "188.119.112.54",
+      "server_port": 2501,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_285",
+      "type": "vless",
+      "server": "159.69.22.135",
+      "server_port": 1001,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.mifeng.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.mifeng.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_286",
+      "type": "vless",
+      "server": "172.67.194.21",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@icv2ray,@icv2ray,@icv2ray,@icv2ray,@icv2ray,@icv2ray,@icv2ray,@icv2ray,@icv2ray,@icv2ray,@icv2ray,@icv2ray",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
       "tag": "qo_287",
       "type": "vless",
       "server": "104.26.7.40",
+      "server_port": 443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "qo_288",
+      "type": "vless",
+      "server": "192.210.160.163",
+      "server_port": 1001,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "a.xn--i-sx6a60i.us.kg"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "a.xn--i-sx6a60i.us.kg"
+        }
+      }
+    },
+    {
+      "tag": "qo_289",
+      "type": "vless",
+      "server": "172.64.152.69",
       "server_port": 443,
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "packet_encoding": "xudp",
@@ -3497,6 +5202,23 @@
       }
     },
     {
+      "tag": "qo_305",
+      "type": "vmess",
+      "server": "104.17.221.248",
+      "server_port": 80,
+      "uuid": "e6543319-0574-42ac-b778-1c4325d626f5",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "chunchuan.kejixiaoqi666.store"
+        },
+        "path": "/"
+      }
+    },
+    {
       "tag": "qo_306",
       "type": "vmess",
       "server": "198.41.209.70",
@@ -3641,45 +5363,27 @@
         "sniffer": [
           "http",
           "tls",
-          "dns"
+          "dns",
+          "quic"
         ],
-        "timeout": "1s"
+        "timeout": "500ms",
+        "inbound": [
+          "tun-in",
+          "mixed-in"
+        ]
       },
       {
         "action": "resolve",
-        "strategy": "prefer_ipv4"
+        "server": "remote-dns",
+        "strategy": "prefer_ipv4",
+        "disable_cache": false,
+        "inbound": [
+          "tun-in",
+          "mixed-in"
+        ]
       },
       {
-        "inbound": "tun-in",
-        "action": "sniff",
-        "sniffer": [
-          "http",
-          "tls",
-          "dns"
-        ],
-        "timeout": "1s"
-      },
-      {
-        "inbound": "mixed-in",
-        "action": "sniff",
-        "sniffer": [
-          "http",
-          "tls",
-          "dns"
-        ],
-        "timeout": "1s"
-      },
-      {
-        "inbound": "tun-in",
-        "action": "resolve",
-        "strategy": "prefer_ipv4"
-      },
-      {
-        "inbound": "mixed-in",
-        "action": "resolve",
-        "strategy": "prefer_ipv4"
-      },
-      {
+        "action": "hijack-dns",
         "type": "logical",
         "mode": "or",
         "rules": [
@@ -3689,14 +5393,18 @@
           {
             "port": 53
           }
-        ],
-        "action": "hijack-dns"
+        ]
       },
       {
-        "protocol": "quic",
-        "action": "reject"
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "protocol": "quic"
       },
       {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
         "type": "logical",
         "mode": "and",
         "rules": [
@@ -3706,10 +5414,12 @@
           {
             "port": 853
           }
-        ],
-        "action": "reject"
+        ]
       },
       {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
         "type": "logical",
         "mode": "and",
         "rules": [
@@ -3719,65 +5429,63 @@
           {
             "port": 443
           }
-        ],
-        "action": "reject"
+        ]
       },
       {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
         "domain_suffix": [
           ".xiaomi.com",
           ".xiaomi.net",
           ".miui.com",
           ".mi.com"
-        ],
-        "action": "reject"
+        ]
       },
       {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
         "ip_cidr": [
           "0.0.0.0/32",
           "10.10.34.0/24",
           "240.0.0.0/4"
-        ],
-        "action": "reject"
+        ]
       },
       {
-        "rule_set": "aff",
-        "action": "reject"
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "rule_set": [
+          "aff",
+          "yun"
+        ]
       },
       {
-        "rule_set": "yun",
-        "action": "reject"
+        "action": "route",
+        "outbound": "direct",
+        "ip_is_private": true
       },
       {
-        "ip_is_private": true,
-        "outbound": "direct"
+        "action": "route",
+        "outbound": "direct",
+        "domain_suffix": ".ir"
       },
       {
-        "domain_suffix": ".ir",
-        "outbound": "direct"
+        "action": "route",
+        "outbound": "direct",
+        "rule_set": [
+          "xal",
+          "loo"
+        ]
       },
       {
-        "rule_set": "xal",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "loo",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "Direct",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "oki",
-        "outbound": "qqoli"
-      },
-      {
-        "rule_set": "doki",
-        "outbound": "qqoli"
-      },
-      {
-        "clash_mode": "Global",
-        "outbound": "qqoli"
+        "action": "route",
+        "outbound": "qqoli",
+        "rule_set": [
+          "oki",
+          "doki"
+        ]
       }
     ],
     "rule_set": [
