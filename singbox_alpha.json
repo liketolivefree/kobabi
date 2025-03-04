@@ -44,16 +44,6 @@
         "action": "reject",
         "method": "default",
         "no_drop": false,
-        "ip_cidr": [
-          "0.0.0.0/32",
-          "10.10.34.0/24",
-          "240.0.0.0/4"
-        ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
         "rule_set": [
           "aff",
           "yun"
@@ -934,17 +924,7 @@
           ".miui.com",
           ".mi.com"
         ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "ip_cidr": [
-          "0.0.0.0/32",
-          "10.10.34.0/24",
-          "240.0.0.0/4"
-        ]
-      },
+      }
       {
         "action": "reject",
         "method": "default",
