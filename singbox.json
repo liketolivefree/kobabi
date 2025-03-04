@@ -47,11 +47,6 @@
       },
       {
         "action": "route",
-        "server": "local-dns",
-        "ip_is_private": true
-      },
-      {
-        "action": "route",
         "server": "direct-dns",
         "domain_suffix": ".ir"
       },
@@ -928,11 +923,6 @@
         "rule_set": [
           "aff"
         ]
-      },
-      {
-        "action": "route",
-        "outbound": "direct",
-        "ip_is_private": true
       },
       {
         "action": "route",
