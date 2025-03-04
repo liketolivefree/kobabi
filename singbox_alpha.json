@@ -93,7 +93,7 @@
       "tag": "tun-in",
       "interface_name": "tun0",
       "mtu": 9000,
-      "address": "172.19.0.0/30",
+      "address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
       "stack": "mixed",
@@ -877,12 +877,6 @@
             "port": 53
           }
         ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "protocol": "quic"
       },
       {
         "action": "reject",
