@@ -1,6 +1,6 @@
 {
   "log":{
-    "level":"trace",
+    "level":"info",
     "timestamp":true
   },
   "dns":{
@@ -11,26 +11,27 @@
       {"address":"https://94.140.14.14/dns-query","tag":"backup-dns","detour":"qqoli"}
     ],
     "rules":[
-      {"action":"reject","method":"default","no_drop":false,"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"]},
-      {"action":"reject","method":"default","no_drop":false,"ip_cidr":["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"]},
-      {"action":"reject","method":"default","no_drop":false,"rule_set":["aff","yun"]},
+      {"action":"route","server": "direct-dns","outbound":"any","disable_cache":false},
+      {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"},
       {"action":"route","server":"local-dns","ip_is_private":true},
       {"action":"route","server":"direct-dns","domain_suffix":".ir"},
-      {"action":"route","server":"direct-dns","rule_set":["xal","loo"]},
-      {"action":"route","server":"remote-dns","rule_set":["oki","doki"]}
+      {"action":"route","server":"direct-dns","rule_set":"xal"},
+      {"action":"route","server":"remote-dns","rule_set":"oki"}
     ],
-    "final":"backup-dns",
-    "strategy":"prefer_ipv4",
-    "independent_cache":true
+    "independent_cache": true,
+    "disable_cache": false,
+    "disable_expire": false,
+    "strategy": "prefer_ipv4",
+    "final": "backup-dns"
   },
-  "ntp":{"enabled":true,"interval":"30m0s","server":"pool.ntp.org","server_port":123,"detour":"direct"},
+  "ntp":{"enabled":true,"interval":"30m","server":"pool.ntp.org","server_port":123,"detour":"direct"},
   "inbounds":[
     {
       "type":"tun",
       "tag":"tun-in",
       "interface_name":"tun0",
       "mtu":9000,
-      "address":"172.19.0.0/30",
+      "address":"172.19.0.1/30",
       "auto_route":true,
       "strict_route":true,
       "stack":"mixed",
@@ -41,23 +42,20 @@
   ],
   "outbounds":[
     {"type":"selector","tag":"qqoli","outbounds":["mmobi","{all}"]},
-    {"type":"urltest","tag":"mmobi","outbounds":["{all}"],"url":"https://www.gstatic.com/generate_204","interval":"5m0s","tolerance":50},
+    {"type":"urltest","tag":"mmobi","outbounds":["{all}"],"url":"https://www.gstatic.com/generate_204","interval":"5m","tolerance":50},
     {"type":"direct","tag":"direct"}
   ],
   "route":{
     "rules":[
-      {"action":"sniff","inbound":"tun-in"},
-      {"action":"sniff","inbound":"mixed-in"},
-      {"action":"resolve","inbound":"tun-in"},
-      {"action":"resolve","inbound":"mixed-in"},
+      {"action":"sniff","sniffer":["http","tls","dns"],"timeout":"500ms","inbound":"tun-in"},
+      {"action":"sniff","sniffer":["http","tls","dns"],"timeout":"500ms","inbound":"mixed-in"},
+      {"action":"resolve","strategy":"prefer_ipv4","inbound":"tun-in"},
+      {"action":"resolve","strategy":"prefer_ipv4","inbound":"mixed-in"},
       {"action":"hijack-dns","type":"logical","mode":"or","rules":[{"protocol":"dns"},{"port":53}]},
       {"action":"reject","method":"default","no_drop":false,"protocol":"quic"},
       {"action":"reject","method":"default","no_drop":false,"type":"logical","mode":"and","rules":[{"network":"tcp"},{"port":853}]},
       {"action":"reject","method":"default","no_drop":false,"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}]},
-      {"action":"reject","method":"default","no_drop":false,"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com"]},
-      {"action":"reject","method":"default","no_drop":false,"ip_cidr": ["0.0.0.0/32","10.10.34.0/24","240.0.0.0/4"]},
       {"action":"reject","method":"default","no_drop":false,"rule_set":["aff","yun"]},
-      {"action":"route","outbound":"direct","ip_is_private":true},
       {"action":"route","outbound":"direct","domain_suffix":".ir"},
       {"action":"route","outbound":"direct","rule_set":["xal","loo"]},
       {"action":"route","outbound":"qqoli","rule_set":["oki","doki"]}
