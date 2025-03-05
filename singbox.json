@@ -28,7 +28,7 @@
     "rules": [
       {
         "action": "route",
-        "server": "direct-dns",
+        "server": "local-dns",
         "outbound": "any",
         "disable_cache": false
       }
