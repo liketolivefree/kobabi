@@ -31,32 +31,6 @@
         "server": "direct-dns",
         "outbound": "any",
         "disable_cache": false
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "rule_set": "aff"
-      },
-      {
-        "action": "route",
-        "server": "local-dns",
-        "ip_is_private": true
-      },
-      {
-        "action": "route",
-        "server": "direct-dns",
-        "domain_suffix": ".ir"
-      },
-      {
-        "action": "route",
-        "server": "direct-dns",
-        "rule_set": "xal"
-      },
-      {
-        "action": "route",
-        "server": "remote-dns",
-        "rule_set": "oki"
       }
     ],
     "independent_cache": true,
