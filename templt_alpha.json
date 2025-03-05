@@ -10,13 +10,7 @@
       {"type":"https","tag":"remote-dns","server":"1.1.1.1","detour":"qqoli"},
       {"type":"https","tag":"backup-dns","server":"94.140.14.14","detour":"qqoli"}
     ],
-    "rules":[
-      {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"},
-      {"action":"route","server":"local-dns","ip_is_private":true},
-      {"action":"route","server":"direct-dns","domain_suffix":".ir"},
-      {"action":"route","server":"direct-dns","rule_set":"xal"},
-      {"action":"route","server":"remote-dns","rule_set":"oki"}
-    ],
+    "rules":[],
     "final":"backup-dns",
     "strategy":"prefer_ipv4",
     "independent_cache":true
