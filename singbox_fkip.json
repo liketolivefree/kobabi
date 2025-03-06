@@ -6,32 +6,44 @@
   "dns": {
     "servers": [
       {
-        "type": "local",
-        "tag": "local-dns"
-      },
-      {
-        "type": "udp",
+        "type": "https",
         "tag": "direct-dns",
         "server": "8.8.8.8",
-        "detour": "direct"
+        "detour": "qqoli"
       },
       {
         "type": "https",
         "tag": "remote-dns",
         "server": "1.1.1.1",
         "detour": "qqoli"
-      },
-      {
-        "type": "https",
-        "tag": "backup-dns",
-        "server": "94.140.14.14",
-        "detour": "qqoli"
       }
     ],
-    "rules": [],
-    "final": "backup-dns",
+    "rules": [
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "rule_set": "aff"
+      },
+      {
+        "action": "route",
+        "server": "direct-dns",
+        "domain_suffix": ".ir"
+      },
+      {
+        "action": "route",
+        "server": "direct-dns",
+        "rule_set": "xal"
+      },
+      {
+        "action": "route",
+        "server": "remote-dns",
+        "rule_set": "oki"
+      }
+    ],
+    "final": "remote-dns",
     "strategy": "prefer_ipv4",
-    "independent_cache": true
+    "disable_cache": false
   },
   "ntp": {
     "enabled": true,
