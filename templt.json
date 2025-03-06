@@ -5,24 +5,20 @@
   },
   "dns":{
     "servers":[
-      {"address":"local","tag":"local-dns"},
-      {"address":"8.8.8.8","tag":"direct-dns","detour":"direct"},
-      {"address":"https://1.1.1.1/dns-query","tag":"remote-dns","detour":"qqoli"},
-      {"address":"https://94.140.14.14/dns-query","tag":"backup-dns","detour":"qqoli"}
+      {"address":"local","tag":"local-dns","detour":"direct"},
+      {"address":"https://8.8.8.8/dns-query","tag":"direct-dns","detour":"qqoli"},
+      {"address":"https://1.1.1.1/dns-query","tag":"remote-dns","detour":"qqoli"}
     ],
     "rules":[
-      {"action":"route","server": "direct-dns","outbound":"any","disable_cache":false},
+      {"server": "local-dns","outbound":"any","disable_cache":false},
       {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"},
-      {"action":"route","server":"local-dns","ip_is_private":true},
       {"action":"route","server":"direct-dns","domain_suffix":".ir"},
       {"action":"route","server":"direct-dns","rule_set":"xal"},
       {"action":"route","server":"remote-dns","rule_set":"oki"}
     ],
-    "independent_cache": true,
-    "disable_cache": false,
-    "disable_expire": false,
-    "strategy": "prefer_ipv4",
-    "final": "backup-dns"
+    "final":"remote-dns",
+    "strategy":"prefer_ipv4",
+    "disable_cache": false
   },
   "ntp":{"enabled":true,"interval":"30m","server":"pool.ntp.org","server_port":123,"detour":"direct"},
   "inbounds":[
