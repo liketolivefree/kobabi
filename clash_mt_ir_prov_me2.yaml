@@ -14,13 +14,6 @@ geosite-matcher: succinct
 profile:
   store-selected: false
   store-fake-ip: true
-geodata-mode: true
-geox-url:
-  geoip: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
-  geosite: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
-  mmdb: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb
-  asn: https://github.com/Chocolate4U/Iran-v2ray-rules/raw/geolite2/GeoLite2-ASN.mmdb
-geo-auto-update: false
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -48,7 +41,6 @@ dns:
   nameserver:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
-  - https://9.9.9.9/dns-query
   - https://94.140.14.14/dns-query
   proxy-server-nameserver:
   - https://8.8.8.8/dns-query
@@ -56,7 +48,6 @@ dns:
   fallback:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
-  - https://9.9.9.9/dns-query
   - https://94.140.14.14/dns-query
   fallback-filter:
     geoip: true
@@ -88,8 +79,7 @@ dns:
     - "+.bing.com"
     - "+.facebook.com"
   nameserver-policy:
-    RULE-SET:xal:
-    - https://1.1.1.1/dns-query
+    rule-set:xal:
     - https://8.8.8.8/dns-query
     - https://94.140.14.14/dns-query
 tun:
@@ -149,43 +139,43 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_me.txt
-    path: ./rule-providers/aff_me.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.mrs
+    path: ./rule-providers/aff_me.mrs
     interval: 86400
   yun_me:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_me.txt
-    path: ./rule-providers/yun_me.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.mrs
+    path: ./rule-providers/yun_me.mrs
     interval: 86400
   oki:
     type: http
     behavior: domain
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt
-    path: ./rule-providers/oki.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.mrs
+    path: ./rule-providers/oki.mrs
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt
-    path: ./rule-providers/doki.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.mrs
+    path: ./rule-providers/doki.mrs
     interval: 86400
   xal:
     type: http
     behavior: domain
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
-    path: ./rule-providers/xal.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.mrs
+    path: ./rule-providers/xal.mrs
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
     format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
-    path: ./rule-providers/loo.txt
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.mrs
+    path: ./rule-providers/loo.mrs
     interval: 86400
 rules:
 - IP-CIDR,10.0.0.0/8,REJECT,no-resolve
@@ -230,6 +220,8 @@ rules:
 - DOMAIN,answers.microsoft.com,QQOLI
 - DOMAIN,docs.microsoft.com,QQOLI
 - DOMAIN,download.microsoft.com,QQOLI
+- DOMAIN-SUFFIX,dotnet.microsoft.com,QQOLI
+- DOMAIN-SUFFIX,download.visualstudio.microsoft.com,QQOLI
 - DOMAIN,blogs.technet.microsoft.com,QQOLI
 - DOMAIN,developer.microsoft.com,QQOLI
 - DOMAIN,go.microsoft.com,QQOLI
