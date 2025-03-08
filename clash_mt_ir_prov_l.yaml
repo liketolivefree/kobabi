@@ -19,26 +19,27 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-  - "+.lan"
-  - "+.local"
-  - "+.localhost"
-  - "+.localdomain"
-  - "+.ip6-localhost"
-  - "+.ip6-loopback"
-  - "*.example"
-  - "*.invalid"
-  - "*.test"
-  - "*.home.arpa"
-  - "time.nist.gov"
-  - "time.windows.com"
-  - "time.android.com"
-  - "pool.ntp.org"
+  - +.lan
+  - +.local
+  - +.localhost
+  - +.localdomain
+  - +.ip6-localhost
+  - +.ip6-loopback
+  - *.example
+  - *.invalid
+  - *.test
+  - *.home.arpa
+  - time.nist.gov
+  - time.windows.com
+  - time.android.com
+  - pool.ntp.org
   default-nameserver:
   - 1.1.1.1
   - 8.8.8.8
   nameserver:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
+  - tls://9.9.9.9
   - https://94.140.14.14/dns-query
   proxy-server-nameserver:
   - https://8.8.8.8/dns-query
@@ -47,6 +48,7 @@ dns:
   fallback:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
+  - tls://9.9.9.9
   - https://94.140.14.14/dns-query
   fallback-filter:
     geoip: true
@@ -55,31 +57,31 @@ dns:
     - 0.0.0.0/32
     - 240.0.0.0/4
     domain:
-    - "+.cloudflare.com"
-    - "+.github.com"
-    - "+.githubusercontent.com"
-    - "+.githubassets.com"
-    - "+.googlevideo.com"
-    - "+.xn--ngstr-lra8j.com"
-    - "+.recaptcha.net"
-    - "+.google.com"
-    - "+.googleapis.com"
-    - "+.gstatic.com"
-    - "+.gvt1.com"
-    - "+.gvt2.com"
-    - "+.microsoft.com"
-    - "+.windows.com"
-    - "+.nist.gov"
-    - "+.apple.com"
-    - "+.amazon.com"
-    - "+.amazonaws.com"
-    - "+.youtube.com"
-    - "+.x.com"
-    - "+.bing.com"
-    - "+.facebook.com"
+    - +.cloudflare.com
+    - +.github.com
+    - +.githubusercontent.com
+    - +.githubassets.com
+    - +.googlevideo.com
+    - +.xn--ngstr-lra8j.com
+    - +.recaptcha.net
+    - +.google.com
+    - +.googleapis.com
+    - +.gstatic.com
+    - +.gvt1.com
+    - +.gvt2.com
+    - +.microsoft.com
+    - +.windows.com
+    - +.nist.gov
+    - +.apple.com
+    - +.amazon.com
+    - +.amazonaws.com
+    - +.youtube.com
+    - +.x.com
+    - +.bing.com
+    - +.facebook.com
   nameserver-policy:
-    rule-set:xal:
-    - https://8.8.8.8/dns-query
+    RULE-SET:xal:
+    - https://1.1.1.1/dns-query
     - tls://8.8.8.8
     - https://94.140.14.14/dns-query
 tun:
@@ -110,55 +112,55 @@ sniffer:
 proxy-providers:
   q:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml"
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
     interval: 3600
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
   a:
     type: http
-    url: "https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix"
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
   b:
     type: http
-    url: "https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix"
+    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
   c:
     type: http
-    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
-    exclude-type: "ss|http|trojan"
+    exclude-type: ss|http|trojan
 proxy-groups:
 - name: QQOLI
   type: select
@@ -166,7 +168,7 @@ proxy-groups:
   - MMOBI
 - name: MMOBI
   type: url-test
-  url: "https://www.gstatic.com/generate_204"
+  url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 30
   use:
@@ -178,44 +180,44 @@ rule-providers:
   aff_l:
     type: http
     behavior: domain
-    format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_l.mrs"
-    path: ./rule-providers/aff_l.mrs
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom_l.txt
+    path: ./rule-providers/aff_l.txt
     interval: 86400
   yun_l:
     type: http
     behavior: ipcidr
-    format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_l.mrs"
-    path: ./rule-providers/yun_l.mrs
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip_l.txt
+    path: ./rule-providers/yun_l.txt
     interval: 86400
   oki_l:
     type: http
     behavior: domain
-    format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki_l.mrs"
-    path: ./rule-providers/oki_l.mrs
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom_l.txt
+    path: ./rule-providers/oki_l.txt
     interval: 86400
   doki_l:
     type: http
     behavior: ipcidr
-    format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki_l.mrs"
-    path: ./rule-providers/doki_l.mrs
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip_l.txt
+    path: ./rule-providers/doki_l.txt
     interval: 86400
   xal:
     type: http
     behavior: domain
-    format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.mrs"
-    path: ./rule-providers/xal.mrs
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
+    path: ./rule-providers/xal.txt
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
-    format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.mrs"
-    path: ./rule-providers/loo.mrs
+    format: text
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
+    path: ./rule-providers/loo.txt
     interval: 86400
 rules:
 - DOMAIN-SUFFIX,lan,DIRECT
