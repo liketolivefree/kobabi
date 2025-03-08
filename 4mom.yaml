@@ -89,9 +89,8 @@ dns:
     - "+.facebook.com"
   nameserver-policy:
     RULE-SET:xal:
-    - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
-    - https://94.140.14.14/dns-query
+    - 1.1.1.1
+    - 8.8.8.8
 tun:
   enable: true
   stack: mixed
