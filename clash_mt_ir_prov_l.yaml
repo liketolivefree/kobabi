@@ -41,8 +41,8 @@ dns:
   - https://8.8.8.8/dns-query
   - https://94.140.14.14/dns-query
   proxy-server-nameserver:
+  - 1.1.1.1
   - 8.8.8.8
-  - 9.9.9.9
   fallback:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
@@ -120,7 +120,7 @@ proxy-providers:
       udp: true
   a:
     type: http
-    url: "https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix"
+    url: "https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix"
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
@@ -133,22 +133,9 @@ proxy-providers:
     exclude-type: "ss|http|trojan"
   b:
     type: http
-    url: "https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix"
-    interval: 3600
-    path: ./proxy-providers/b.yaml
-    health-check:
-      enable: true
-      interval: 300
-      url: "https://www.gstatic.com/generate_204"
-      timeout: 5000
-    override:
-      udp: true
-    exclude-type: "ss|http|trojan"
-  c:
-    type: http
     url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
     interval: 3600
-    path: ./proxy-providers/c.yaml
+    path: ./proxy-providers/b.yaml
     health-check:
       enable: true
       interval: 300
@@ -171,7 +158,6 @@ proxy-groups:
   - q
   - a
   - b
-  - c
 rule-providers:
   aff_l:
     type: http
