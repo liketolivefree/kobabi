@@ -1,7 +1,7 @@
 mixed-port: 7890
 allow-lan: false
 mode: rule
-log-level: info
+log-level: debug
 ipv6: false
 enable-process: true
 find-process-mode: strict
@@ -41,8 +41,9 @@ dns:
   - https://8.8.8.8/dns-query
   - https://94.140.14.14/dns-query
   proxy-server-nameserver:
-  - 1.1.1.1
-  - 8.8.8.8
+  - https://1.1.1.1/dns-query
+  - https://9.9.9.9/dns-query
+  - https://8.8.8.8/dns-query
   fallback:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
@@ -76,10 +77,6 @@ dns:
     - "+.x.com"
     - "+.bing.com"
     - "+.facebook.com"
-  nameserver-policy:
-    rule-set:xal:
-    - 1.1.1.1
-    - 8.8.8.8
 tun:
   enable: true
   stack: mixed
