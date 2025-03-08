@@ -41,8 +41,8 @@ dns:
   - https://8.8.8.8/dns-query
   - https://94.140.14.14/dns-query
   proxy-server-nameserver:
+  - 1.1.1.1
   - 8.8.8.8
-  - 9.9.9.9
   fallback:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
@@ -120,22 +120,9 @@ proxy-providers:
       udp: true
   a:
     type: http
-    url: "https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix"
-    interval: 3600
-    path: ./proxy-providers/a.yaml
-    health-check:
-      enable: true
-      interval: 300
-      url: "https://www.gstatic.com/generate_204"
-      timeout: 5000
-    override:
-      udp: true
-    exclude-type: "ss|http|trojan"
-  b:
-    type: http
     url: "https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix"
     interval: 3600
-    path: ./proxy-providers/b.yaml
+    path: ./proxy-providers/a.yaml
     health-check:
       enable: true
       interval: 300
@@ -235,7 +222,6 @@ proxy-groups:
   use:
   - q
   - a
-  - b
   - c
   - d
   - e
