@@ -1,30 +1,21 @@
 mixed-port: 7890
 allow-lan: false
 mode: rule
-log-level: error
+log-level: info
 ipv6: false
 enable-process: true
-find-process-mode: always
+find-process-mode: strict
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
-keep-alive-interval: 30
-geodata-loader: memconservative
-geosite-matcher: succinct
+keep-alive-interval: 15
 profile:
   store-selected: false
   store-fake-ip: true
-geodata-mode: true
-geox-url:
-  geoip: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
-  geosite: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
-  mmdb: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/Country.mmdb
-  asn: https://github.com/Chocolate4U/Iran-v2ray-rules/raw/geolite2/GeoLite2-ASN.mmdb
-geo-auto-update: false
 dns:
   enable: true
   listen: 0.0.0.0:53
-  ipv6: true
+  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -40,23 +31,22 @@ dns:
   - "*.home.arpa"
   - "time.nist.gov"
   - "time.windows.com"
-  - "time.*.apple.com"
   - "time.android.com"
+  - "pool.ntp.org"
   default-nameserver:
   - 1.1.1.1
   - 8.8.8.8
   nameserver:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
-  - https://9.9.9.9/dns-query
   - https://94.140.14.14/dns-query
   proxy-server-nameserver:
   - https://8.8.8.8/dns-query
+  - tls://8.8.8.8
   - https://94.140.14.14/dns-query
   fallback:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
-  - https://9.9.9.9/dns-query
   - https://94.140.14.14/dns-query
   fallback-filter:
     geoip: true
@@ -88,9 +78,9 @@ dns:
     - "+.bing.com"
     - "+.facebook.com"
   nameserver-policy:
-    RULE-SET:xal:
-    - https://1.1.1.1/dns-query
+    rule-set:xal:
     - https://8.8.8.8/dns-query
+    - tls://8.8.8.8
     - https://94.140.14.14/dns-query
 tun:
   enable: true
@@ -120,42 +110,55 @@ sniffer:
 proxy-providers:
   q:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 1500
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml"
+    interval: 3600
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 150
-      url: https://www.gstatic.com/generate_204
-      timeout: 3000
+      interval: 300
+      url: "https://www.gstatic.com/generate_204"
+      timeout: 5000
     override:
       udp: true
   a:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 1500
+    url: "https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix"
+    interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 150
-      url: https://www.gstatic.com/generate_204
-      timeout: 3000
+      interval: 300
+      url: "https://www.gstatic.com/generate_204"
+      timeout: 5000
     override:
       udp: true
-    exclude-type: ss|http|trojan
+    exclude-type: "ss|http|trojan"
   b:
     type: http
-    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
-    interval: 1500
+    url: "https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix"
+    interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 150
-      url: https://www.gstatic.com/generate_204
-      timeout: 3000
+      interval: 300
+      url: "https://www.gstatic.com/generate_204"
+      timeout: 5000
     override:
       udp: true
-    exclude-type: ss|http|trojan
+    exclude-type: "ss|http|trojan"
+  c:
+    type: http
+    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
+    interval: 3600
+    path: ./proxy-providers/c.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: "https://www.gstatic.com/generate_204"
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
 proxy-groups:
 - name: QQOLI
   type: select
@@ -163,64 +166,65 @@ proxy-groups:
   - MMOBI
 - name: MMOBI
   type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 150
+  url: "https://www.gstatic.com/generate_204"
+  interval: 300
   tolerance: 30
   use:
   - q
-  - b
   - a
+  - b
+  - c
 rule-providers:
   aff:
     type: http
     behavior: domain
-    format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_dom.txt
-    path: ./rule-providers/aff.txt
+    format: mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff.mrs"
+    path: ./rule-providers/aff.mrs
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
-    format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/rjct_ip.txt
-    path: ./rule-providers/yun.txt
+    format: mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.mrs"
+    path: ./rule-providers/yun.mrs
     interval: 86400
   oki:
     type: http
     behavior: domain
-    format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_dom.txt
-    path: ./rule-providers/oki.txt
+    format: mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.mrs"
+    path: ./rule-providers/oki.mrs
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
-    format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prx_ip.txt
-    path: ./rule-providers/doki.txt
+    format: mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.mrs"
+    path: ./rule-providers/doki.mrs
     interval: 86400
   xal:
     type: http
     behavior: domain
-    format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_dom.txt
-    path: ./rule-providers/xal.txt
+    format: mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.mrs"
+    path: ./rule-providers/xal.mrs
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
-    format: text
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/dir_ip.txt
-    path: ./rule-providers/loo.txt
+    format: mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.mrs"
+    path: ./rule-providers/loo.mrs
     interval: 86400
 rules:
-- IP-CIDR,10.10.34.0/24,REJECT,no-resolve
 - DOMAIN-SUFFIX,lan,DIRECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
 - RULE-SET,aff,REJECT
 - RULE-SET,yun,REJECT,no-resolve
+- PROCESS-NAME,qbittorrent.exe,DIRECT
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
 - RULE-SET,oki,QQOLI
