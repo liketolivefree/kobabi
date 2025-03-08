@@ -3,18 +3,12 @@ allow-lan: false
 mode: rule
 log-level: info
 ipv6: false
-external-controller: 127.0.0.1:9090
-secret: ""
 enable-process: true
-find-process-mode: always
+find-process-mode: strict
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
-keep-alive-interval: 30
-geodata-loader: memconservative
-geosite-matcher: succinct
-hosts:
-  localhost: 127.0.0.1
+keep-alive-interval: 15
 profile:
   store-selected: false
   store-fake-ip: true
@@ -37,8 +31,8 @@ dns:
   - "*.home.arpa"
   - "time.nist.gov"
   - "time.windows.com"
-  - "time.*.apple.com"
   - "time.android.com"
+  - "pool.ntp.org"
   default-nameserver:
   - 1.1.1.1
   - 8.8.8.8
@@ -48,6 +42,7 @@ dns:
   - https://94.140.14.14/dns-query
   proxy-server-nameserver:
   - https://8.8.8.8/dns-query
+  - tls://8.8.8.8
   - https://94.140.14.14/dns-query
   fallback:
   - https://1.1.1.1/dns-query
@@ -84,8 +79,8 @@ dns:
     - "+.facebook.com"
   nameserver-policy:
     rule-set:xal:
-    - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
+    - tls://8.8.8.8
     - https://94.140.14.14/dns-query
 tun:
   enable: true
@@ -115,29 +110,55 @@ sniffer:
 proxy-providers:
   q:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 1500
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml"
+    interval: 3600
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 150
-      url: https://www.gstatic.com/generate_204
-      timeout: 3000
+      interval: 300
+      url: "https://www.gstatic.com/generate_204"
+      timeout: 5000
     override:
       udp: true
+  a:
+    type: http
+    url: "https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix"
+    interval: 3600
+    path: ./proxy-providers/a.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: "https://www.gstatic.com/generate_204"
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
   b:
     type: http
-    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
-    interval: 1500
+    url: "https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix"
+    interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 150
-      url: https://www.gstatic.com/generate_204
-      timeout: 3000
+      interval: 300
+      url: "https://www.gstatic.com/generate_204"
+      timeout: 5000
     override:
       udp: true
-    exclude-type: ss|http|trojan
+    exclude-type: "ss|http|trojan"
+  c:
+    type: http
+    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
+    interval: 3600
+    path: ./proxy-providers/c.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: "https://www.gstatic.com/generate_204"
+      timeout: 5000
+    override:
+      udp: true
+    exclude-type: "ss|http|trojan"
 proxy-groups:
 - name: QQOLI
   type: select
@@ -150,47 +171,48 @@ proxy-groups:
   tolerance: 30
   use:
   - q
+  - a
 rule-providers:
   aff_me:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.mrs"
     path: ./rule-providers/aff_me.mrs
     interval: 86400
   yun_me:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.mrs"
     path: ./rule-providers/yun_me.mrs
     interval: 86400
   oki:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.mrs"
     path: ./rule-providers/oki.mrs
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.mrs"
     path: ./rule-providers/doki.mrs
     interval: 86400
   xal:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.mrs"
     path: ./rule-providers/xal.mrs
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.mrs"
     path: ./rule-providers/loo.mrs
     interval: 86400
 rules:
@@ -200,9 +222,26 @@ rules:
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
 - DOMAIN-SUFFIX,time.android.com,QQOLI
-- DOMAIN-SUFFIX,time.apple.com,QQOLI
 - DOMAIN-SUFFIX,time.windows.com,QQOLI
 - DOMAIN-SUFFIX,time.nist.gov,QQOLI
+- DOMAIN-SUFFIX,pool.ntp.org,QQOLI
+- DOMAIN-SUFFIX,dotnet.microsoft.com,QQOLI
+- DOMAIN-SUFFIX,download.visualstudio.microsoft.com,QQOLI
+- DOMAIN,answers.microsoft.com,QQOLI
+- DOMAIN,docs.microsoft.com,QQOLI
+- DOMAIN,download.microsoft.com,QQOLI
+- DOMAIN,technet.microsoft.com,QQOLI
+- DOMAIN,blogs.technet.microsoft.com,QQOLI
+- DOMAIN,developer.microsoft.com,QQOLI
+- DOMAIN,go.microsoft.com,QQOLI
+- DOMAIN,learn.microsoft.com,QQOLI
+- DOMAIN,support.microsoft.com,QQOLI
+- DOMAIN,techcommunity.microsoft.com,QQOLI
+- DOMAIN,www.microsoft.com,QQOLI
+- DOMAIN,bing.com,QQOLI
+- DOMAIN,www.bing.com,QQOLI
+- DOMAIN,onegetcdn.azureedge.net,QQOLI
+- DOMAIN,powershellgallery.azureedge.net,QQOLI
 - DOMAIN,accounts.google.com,QQOLI
 - DOMAIN,books.google.com,QQOLI
 - DOMAIN,chrome.google.com,QQOLI
@@ -233,20 +272,6 @@ rules:
 - DOMAIN,chrome-devtools-frontend.appspot.com,QQOLI
 - DOMAIN,hostsaway.appspot.com,QQOLI
 - DOMAIN,shaka-player-demo.appspot.com,QQOLI
-- DOMAIN,answers.microsoft.com,QQOLI
-- DOMAIN,docs.microsoft.com,QQOLI
-- DOMAIN,download.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,dotnet.microsoft.com,QQOLI
-- DOMAIN-SUFFIX,download.visualstudio.microsoft.com,QQOLI
-- DOMAIN,blogs.technet.microsoft.com,QQOLI
-- DOMAIN,developer.microsoft.com,QQOLI
-- DOMAIN,go.microsoft.com,QQOLI
-- DOMAIN,learn.microsoft.com,QQOLI
-- DOMAIN,support.microsoft.com,QQOLI
-- DOMAIN,techcommunity.microsoft.com,QQOLI
-- DOMAIN,www.microsoft.com,QQOLI
-- DOMAIN,onegetcdn.azureedge.net,QQOLI
-- DOMAIN,powershellgallery.azureedge.net,QQOLI
 - DOMAIN,support.apple.com,QQOLI
 - DOMAIN,api.amazon.com,QQOLI
 - DOMAIN,doc.aws.amazon.com,QQOLI
