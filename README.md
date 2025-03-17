@@ -26,9 +26,7 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_f.
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_f2.yaml
 -
 
-===)) کانفیگ کلش فیریک (مناسب کاربران خوره یا کاربرانی که امنیت و حریم خصوصی اولویت اول آنهاست):
--
-https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_frk.yaml
+
 -
 
 ===)) سوپرکانفیگ کلش (حاوی تعداد بسیار زیادی پروکسی. مناسب فیلترینگ شدید.
