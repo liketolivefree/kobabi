@@ -9,8 +9,7 @@
       {"type":"https","tag":"remote-dns","server":"8.8.8.8"}
     ],
     "rules":[
-      {"action":"reject","method":"default","no_drop":false,"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com","windowsupdate.com","windows.net","windows.com","footprintdns.com","office.com","msedge.net","a-msedge.net","skype.com","xbox.com","xboxlive.com","msftauth.net","msauth.net"]},
-      {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"}
+     {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"}
     ],
     "final":"remote-dns",
     "strategy": "prefer_ipv4",
