@@ -9,7 +9,6 @@
       {"address":"https://8.8.8.8/dns-query","tag":"remote-dns"}
     ],
     "rules":[
-      {"action":"reject","method":"default","no_drop":false,"domain_suffix":[".xiaomi.com",".xiaomi.net",".miui.com",".mi.com","windowsupdate.com","windows.net","windows.com","footprintdns.com","office.com","msedge.net","a-msedge.net","skype.com","xbox.com","xboxlive.com","msftauth.net","msauth.net"]},
       {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"},
       {"outbound":"qqoli","server": "remote-dns"},
       {"outbound":"direct","server": "direct-dns"}
