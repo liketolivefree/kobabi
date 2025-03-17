@@ -1,43 +1,22 @@
 {
   "log": {
+    "disabled": false,
     "level": "info",
-    "timestamp": true
+    "output": "box.log",
+    "timestamp": false
   },
   "dns": {
     "servers": [
       {
-        "address": "local",
-        "tag": "local-dns",
-        "detour": "direct"
+        "address": "https://8.8.8.8/dns-query",
+        "tag": "direct-dns"
       },
       {
-        "address": "8.8.8.8",
-        "tag": "direct-dns",
-        "detour": "direct"
-      },
-      {
-        "address": "https://1.1.1.1/dns-query",
-        "tag": "remote-dns",
-        "detour": "qqoli"
+        "address": "https://8.8.8.8/dns-query",
+        "tag": "remote-dns"
       }
     ],
     "rules": [
-      {
-        "server": "local-dns",
-        "outbound": "any"
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "query_type": [
-          "A",
-          "AAAA",
-          "CNAME"
-        ],
-        "invert": true,
-        "disable_cache": true
-      },
       {
         "action": "reject",
         "method": "default",
@@ -68,29 +47,20 @@
         "rule_set": "aff"
       },
       {
-        "action": "route",
-        "server": "direct-dns",
-        "domain_suffix": ".ir"
+        "outbound": "qqoli",
+        "server": "remote-dns"
       },
       {
-        "action": "route",
-        "server": "direct-dns",
-        "rule_set": [
-          "xal",
-          "loo"
-        ]
+        "outbound": "direct",
+        "server": "direct-dns"
       }
     ],
     "final": "remote-dns",
-    "strategy": "ipv4_only",
-    "disable_cache": false
-  },
-  "ntp": {
-    "enabled": true,
-    "interval": "30m",
-    "server": "pool.ntp.org",
-    "server_port": 123,
-    "detour": "direct"
+    "strategy": "prefer_ipv4",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "reverse_mapping": false
   },
   "inbounds": [
     {
@@ -223,7 +193,9 @@
         "qoli_0863",
         "qoli_0974",
         "qoli_0991"
-      ]
+      ],
+      "default": "mmobi",
+      "interrupt_exist_connections": false
     },
     {
       "type": "urltest",
@@ -332,7 +304,8 @@
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m",
-      "tolerance": 15
+      "tolerance": 15,
+      "interrupt_exist_connections": false
     },
     {
       "type": "direct",
@@ -2254,11 +2227,24 @@
     "override_android_vpn": true,
     "rules": [
       {
-        "action": "sniff"
+        "action": "sniff",
+        "inbound": "tun-in",
+        "timeout": "1s"
+      },
+      {
+        "action": "sniff",
+        "inbound": "mixed-in",
+        "timeout": "1s"
       },
       {
         "action": "resolve",
-        "strategy": "ipv4_only"
+        "inbound": "tun-in",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "action": "resolve",
+        "inbound": "mixed-in",
+        "strategy": "prefer_ipv4"
       },
       {
         "action": "hijack-dns",
