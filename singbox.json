@@ -11,9 +11,9 @@
         "detour": "direct"
       },
       {
-        "address": "https://8.8.8.8/dns-query",
+        "address": "8.8.8.8",
         "tag": "direct-dns",
-        "detour": "qqoli"
+        "detour": "direct"
       },
       {
         "address": "https://1.1.1.1/dns-query",
@@ -24,8 +24,42 @@
     "rules": [
       {
         "server": "local-dns",
-        "outbound": "any",
-        "disable_cache": false
+        "outbound": "any"
+      },
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "query_type": [
+          "A",
+          "AAAA",
+          "CNAME"
+        ],
+        "invert": true,
+        "disable_cache": true
+      },
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "domain_suffix": [
+          ".xiaomi.com",
+          ".xiaomi.net",
+          ".miui.com",
+          ".mi.com",
+          "windowsupdate.com",
+          "windows.net",
+          "windows.com",
+          "footprintdns.com",
+          "office.com",
+          "msedge.net",
+          "a-msedge.net",
+          "skype.com",
+          "xbox.com",
+          "xboxlive.com",
+          "msftauth.net",
+          "msauth.net"
+        ]
       },
       {
         "action": "reject",
@@ -41,16 +75,14 @@
       {
         "action": "route",
         "server": "direct-dns",
-        "rule_set": "xal"
-      },
-      {
-        "action": "route",
-        "server": "remote-dns",
-        "rule_set": "oki"
+        "rule_set": [
+          "xal",
+          "loo"
+        ]
       }
     ],
     "final": "remote-dns",
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "disable_cache": false
   },
   "ntp": {
@@ -69,15 +101,14 @@
       "address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "mixed",
+      "stack": "system",
       "platform": {
         "http_proxy": {
           "enabled": true,
           "server": "127.0.0.1",
           "server_port": 7890
         }
-      },
-      "endpoint_independent_nat": true
+      }
     },
     {
       "type": "mixed",
@@ -301,7 +332,7 @@
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m",
-      "tolerance": 50
+      "tolerance": 15
     },
     {
       "type": "direct",
@@ -2218,55 +2249,77 @@
     }
   ],
   "route": {
+    "final": "qqoli",
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
     "rules": [
       {
-        "action": "sniff",
-        "sniffer": [
-          "http",
-          "tls",
-          "dns"
-        ],
-        "timeout": "500ms",
-        "inbound": "tun-in"
-      },
-      {
-        "action": "sniff",
-        "sniffer": [
-          "http",
-          "tls",
-          "dns"
-        ],
-        "timeout": "500ms",
-        "inbound": "mixed-in"
+        "action": "sniff"
       },
       {
         "action": "resolve",
-        "strategy": "prefer_ipv4",
-        "inbound": "tun-in"
-      },
-      {
-        "action": "resolve",
-        "strategy": "prefer_ipv4",
-        "inbound": "mixed-in"
+        "strategy": "ipv4_only"
       },
       {
         "action": "hijack-dns",
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": 53
-          }
-        ]
+        "protocol": "dns"
+      },
+      {
+        "action": "hijack-dns",
+        "port": 53
       },
       {
         "action": "reject",
         "method": "default",
         "no_drop": false,
         "protocol": "quic"
+      },
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "protocol": "stun"
+      },
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "10.10.34.0/24"
+        ]
+      },
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "10.10.34.0/24"
+        ]
+      },
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "domain_suffix": [
+          ".xiaomi.com",
+          ".xiaomi.net",
+          ".miui.com",
+          ".mi.com",
+          "windowsupdate.com",
+          "windows.net",
+          "windows.com",
+          "footprintdns.com",
+          "office.com",
+          "msedge.net",
+          "a-msedge.net",
+          "skype.com",
+          "xbox.com",
+          "xboxlive.com",
+          "msftauth.net",
+          "msauth.net"
+        ]
       },
       {
         "action": "reject",
@@ -2306,6 +2359,11 @@
           "aff",
           "yun"
         ]
+      },
+      {
+        "action": "route",
+        "outbound": "direct",
+        "ip_is_private": true
       },
       {
         "action": "route",
@@ -2372,10 +2430,7 @@
         "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
         "download_detour": "direct"
       }
-    ],
-    "final": "qqoli",
-    "auto_detect_interface": true,
-    "override_android_vpn": true
+    ]
   },
   "experimental": {
     "cache_file": {
