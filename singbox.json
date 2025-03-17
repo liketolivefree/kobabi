@@ -2263,29 +2263,6 @@
         "action": "reject",
         "method": "default",
         "no_drop": false,
-        "domain_suffix": [
-          ".xiaomi.com",
-          ".xiaomi.net",
-          ".miui.com",
-          ".mi.com",
-          "windowsupdate.com",
-          "windows.net",
-          "windows.com",
-          "footprintdns.com",
-          "office.com",
-          "msedge.net",
-          "a-msedge.net",
-          "skype.com",
-          "xbox.com",
-          "xboxlive.com",
-          "msftauth.net",
-          "msauth.net"
-        ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
         "type": "logical",
         "mode": "and",
         "rules": [
