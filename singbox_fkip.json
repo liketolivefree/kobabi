@@ -16,13 +16,11 @@
         "server": "8.8.8.8"
       }
     ],
-    "rules": [
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "rule_set": "aff"
-      }
+    "rules":[
+      {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"},
+      {"action":"route","server":"direct-dns","domain_suffix":".ir"},
+      {"action":"route","server":"direct-dns","rule_set":["xal","loo"]},
+      {"action":"route","server":"remote-dns","rule_set":["oki","doki"]}
     ],
     "final": "remote-dns",
     "strategy": "prefer_ipv4",
@@ -164,8 +162,7 @@
         "qoli_0991"
       ],
       "default": "mmobi",
-      "interrupt_exist_connections": false,
-      "domain_resolver": "remote-dns"
+      "interrupt_exist_connections": false
     },
     {
       "type": "urltest",
@@ -279,8 +276,7 @@
     },
     {
       "type": "direct",
-      "tag": "direct",
-      "domain_resolver": "direct-dns"
+      "tag": "direct"
     },
     {
       "tag": "qoli_0010",
@@ -2192,205 +2188,85 @@
       }
     }
   ],
-  "route": {
+  "route":{
     "final": "qqoli",
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "action": "resolve",
-        "strategy": "prefer_ipv4"
-      },
-      {
-        "action": "hijack-dns",
-        "protocol": "dns"
-      },
-      {
-        "action": "hijack-dns",
-        "port": 53
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "protocol": "quic"
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "protocol": "stun"
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "ip_cidr": [
-          "224.0.0.0/3",
-          "10.10.34.0/24"
-        ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "source_ip_cidr": [
-          "224.0.0.0/3",
-          "10.10.34.0/24"
-        ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "domain_suffix": [
-          ".xiaomi.com",
-          ".xiaomi.net",
-          ".miui.com",
-          ".mi.com",
-          "windowsupdate.com",
-          "windows.net",
-          "windows.com",
-          "footprintdns.com",
-          "office.com",
-          "msedge.net",
-          "a-msedge.net",
-          "skype.com",
-          "xbox.com",
-          "xboxlive.com",
-          "msftauth.net",
-          "msauth.net"
-        ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "network": "tcp"
-          },
-          {
-            "port": 853
-          }
-        ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "network": "udp"
-          },
-          {
-            "port": 443
-          }
-        ]
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "rule_set": [
-          "aff",
-          "yun"
-        ]
-      },
-      {
-        "action": "route",
-        "outbound": "direct",
-        "ip_is_private": true
-      },
-      {
-        "action": "route",
-        "outbound": "direct",
-        "domain_suffix": ".ir"
-      },
-      {
-        "action": "route",
-        "outbound": "direct",
-        "rule_set": [
-          "xal",
-          "loo"
-        ]
-      },
-      {
-        "action": "route",
-        "outbound": "qqoli",
-        "rule_set": [
-          "oki",
-          "doki"
-        ]
-      }
+    "default_domain_resolver": "remote-dns",
+    "rules":[
+      {"action":"sniff","timeout":"1s","inbound":"tun-in"},
+      {"action":"sniff","timeout":"1s","inbound":"mixed-in"},
+      {"action":"resolve","strategy":"prefer_ipv4","inbound":"tun-in"},
+      {"action":"resolve","strategy":"prefer_ipv4","inbound":"mixed-in"},
+      {"action":"hijack-dns","protocol":"dns"},
+      {"action":"hijack-dns","port":53},      
+      {"action":"reject","method":"default","no_drop":false,"protocol":"quic"},
+      {"action":"reject","method":"default","no_drop":false,"protocol":"stun"},
+      {"action":"reject","method":"default","no_drop":false,"ip_cidr":["224.0.0.0/3","10.10.34.0/24"]},
+      {"action":"reject","method":"default","no_drop":false,"source_ip_cidr":["224.0.0.0/3","10.10.34.0/24"]},
+      {"action":"reject","method":"default","no_drop":false,"type":"logical","mode":"and","rules":[{"network":"tcp"},{"port":853}]},
+      {"action":"reject","method":"default","no_drop":false,"type":"logical","mode":"and","rules":[{"network":"udp"},{"port":443}]},
+      {"action":"reject","method":"default","no_drop":false,"rule_set":["aff","yun"]},
+      {"action":"route","outbound":"direct","ip_is_private":true},
+      {"action":"route","outbound":"direct","domain_suffix":".ir"},
+      {"action":"route","outbound":"direct","rule_set":["xal","loo"]},
+      {"action":"route","outbound":"qqoli","rule_set":["oki","doki"]}
     ],
-    "rule_set": [
+    "rule_set":[
       {
-        "type": "remote",
-        "tag": "aff",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff.srs",
-        "download_detour": "direct"
+        "type":"remote",
+        "tag":"aff",
+        "format":"binary",
+        "url":"https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff.srs",
+        "download_detour":"direct"
       },
       {
-        "type": "remote",
-        "tag": "yun",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.srs",
-        "download_detour": "direct"
+        "type":"remote",
+        "tag":"yun",
+        "format":"binary",
+        "url":"https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.srs",
+        "download_detour":"direct"
       },
       {
-        "type": "remote",
-        "tag": "oki",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
-        "download_detour": "direct"
+        "type":"remote",
+        "tag":"oki",
+        "format":"binary",
+        "url":"https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
+        "download_detour":"direct"
       },
       {
-        "type": "remote",
-        "tag": "doki",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
-        "download_detour": "direct"
+        "type":"remote",
+        "tag":"doki",
+        "format":"binary",
+        "url":"https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
+        "download_detour":"direct"
       },
       {
-        "type": "remote",
-        "tag": "xal",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
-        "download_detour": "direct"
+        "type":"remote",
+        "tag":"xal",
+        "format":"binary",
+        "url":"https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
+        "download_detour":"direct"
       },
       {
-        "type": "remote",
-        "tag": "loo",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
-        "download_detour": "direct"
+        "type":"remote",
+        "tag":"loo",
+        "format":"binary",
+        "url":"https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
+        "download_detour":"direct"
       }
     ]
   },
-  "experimental": {
-    "cache_file": {
-      "enabled": true
-    },
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "dashboard",
-      "external_ui_download_url": "https://gh-proxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "default_mode": "rule",
-      "access_control_allow_origin": [
-        "http://127.0.0.1",
-        "https://yacd.metacubex.one"
-      ],
-      "access_control_allow_private_network": true
+  "experimental":{
+    "cache_file":{"enabled":true},
+    "clash_api":{
+      "external_controller":"127.0.0.1:9090",
+      "external_ui":"dashboard",
+      "external_ui_download_url":"https://gh-proxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour":"direct",
+      "default_mode":"rule",
+      "access_control_allow_origin":["http://127.0.0.1","https://yacd.metacubex.one"],
+      "access_control_allow_private_network":true
     }
   }
 }
