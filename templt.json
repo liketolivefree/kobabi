@@ -10,9 +10,8 @@
     ],
     "rules":[
       {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"},
-      {"server":"direct-dns","domain_suffix":".ir"},
-      {"server":"direct-dns","rule_set":["xal","loo"]},
-      {"server":"remote-dns","rule_set":["oki","doki"]}
+      {"outbound":"qqoli","server":"remote-dns"},
+      {"outbound":"direct","server":"direct-dns"}
     ],
     "final":"remote-dns",
     "strategy": "prefer_ipv4",
