@@ -139,26 +139,26 @@ rule-providers:
     url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_l.mrs"
     path: ./rule-providers/aff_l.mrs
     interval: 86400
-  yun_l:
+  yun:
     type: http
     behavior: ipcidr
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_l.mrs"
-    path: ./rule-providers/yun_l.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.mrs"
+    path: ./rule-providers/yun.mrs
     interval: 86400
-  oki_l:
+  oki:
     type: http
     behavior: domain
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki_l.mrs"
-    path: ./rule-providers/oki_l.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.mrs"
+    path: ./rule-providers/oki.mrs
     interval: 86400
-  doki_l:
+  doki:
     type: http
     behavior: ipcidr
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki_l.mrs"
-    path: ./rule-providers/doki_l.mrs
+    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.mrs"
+    path: ./rule-providers/doki.mrs
     interval: 86400
   xal:
     type: http
@@ -180,10 +180,10 @@ rules:
 - DOMAIN-SUFFIX,localdomain,DIRECT
 - DOMAIN-SUFFIX,localhost,DIRECT
 - RULE-SET,aff_l,REJECT
-- RULE-SET,yun_l,REJECT,no-resolve
+- RULE-SET,yun,REJECT,no-resolve
 - DOMAIN-SUFFIX,ir,DIRECT
 - RULE-SET,xal,DIRECT
-- RULE-SET,oki_l,QQOLI
+- RULE-SET,oki,QQOLI
 - RULE-SET,loo,DIRECT,no-resolve
-- RULE-SET,doki_l,QQOLI,no-resolve
+- RULE-SET,doki,QQOLI,no-resolve
 - MATCH,QQOLI  
