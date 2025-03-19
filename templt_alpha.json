@@ -6,7 +6,7 @@
   "dns":{
     "servers":[
       {"type":"https","tag":"direct-dns","server":"8.8.8.8"},
-      {"type":"https","tag":"remote-dns","server":"9.9.9.9"}
+      {"type":"https","tag":"remote-dns","server":"8.8.8.8"}
     ],
     "rules":[
       {"action":"reject","method":"default","no_drop":false,"rule_set":"aff"},
