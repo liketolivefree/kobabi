@@ -23,6 +23,7 @@
         "no_drop": false,
         "rule_set": "aff_me"
       },
+      {"action":"reject","method":"default","no_drop":false,"query_type":["AAAA","A","CNAME"],"invert":true},
       {
         "outbound": "qqoli",
         "server": "remote-dns"
