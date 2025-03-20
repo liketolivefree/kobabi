@@ -12,6 +12,7 @@
     ],
     "rules":[
       {"action":"reject","method":"default","no_drop":false,"rule_set":"aff_me"},
+      {"action":"reject","method":"default","no_drop":false,"query_type":["AAAA","A","CNAME"],"invert":true},
       {"outbound":"qqoli","server":"remote-dns"},
       {"outbound":"direct","server":"direct-dns"}
     ],
@@ -62,7 +63,8 @@
       {"action":"route","outbound":"direct","ip_is_private":true},
       {"action":"route","outbound":"direct","domain_suffix":".ir"},
       {"action":"route","outbound":"direct","rule_set":["xal","loo"]},
-      {"action":"route","outbound":"qqoli","rule_set":["oki","doki"]}
+      {"action":"route","outbound":"qqoli","rule_set":["oki","doki"]},
+      {"action":"route","outbound":"qqoli","domain":"translate.googleapis.com"}    
     ],
     "rule_set":[
       {
