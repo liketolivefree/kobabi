@@ -14,7 +14,8 @@
       {"action":"reject","method":"default","no_drop":false,"rule_set":"aff_me"},
       {"action":"reject","method":"default","no_drop":false,"query_type":["AAAA","A","CNAME"],"invert":true},
       {"outbound":"qqoli","server":"remote-dns"},
-      {"outbound":"direct","server":"direct-dns"}
+      {"outbound":"direct","server":"direct-dns"},
+      {"domain":"translate.googleapis.com","server":"direct-dns"}
     ],
     "final":"remote-dns",
     "strategy": "prefer_ipv4",
