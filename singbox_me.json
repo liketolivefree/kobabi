@@ -1,26 +1,49 @@
 {
   "log": {
-    "level": "error",
+    "disabled": false,
+    "level": "info",
+    "output": "box.log",
     "timestamp": false
   },
   "dns": {
     "servers": [
       {
-        "address": "https://8.8.8.8/dns-query",
+        "address": "https://94.140.14.14/dns-query",
         "tag": "direct-dns"
       },
       {
-        "address": "https://8.8.8.8/dns-query",
+        "address": "https://9.9.9.9/dns-query",
         "tag": "remote-dns"
       }
     ],
     "rules": [
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "rule_set": "aff_me"
+      },
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "query_type": [
+          "AAAA",
+          "A",
+          "CNAME"
+        ],
+        "invert": true
+      },
       {
         "outbound": "qqoli",
         "server": "remote-dns"
       },
       {
         "outbound": "direct",
+        "server": "direct-dns"
+      },
+      {
+        "domain": "translate.googleapis.com",
         "server": "direct-dns"
       }
     ],
@@ -311,7 +334,7 @@
         "q_604",
         "q_291"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "5m",
       "tolerance": 15,
       "interrupt_exist_connections": false
@@ -2710,23 +2733,23 @@
     "rules": [
       {
         "action": "sniff",
-        "timeout": "1s",
-        "inbound": "tun-in"
+        "inbound": "tun-in",
+        "timeout": "1s"
       },
       {
         "action": "sniff",
-        "timeout": "1s",
-        "inbound": "mixed-in"
+        "inbound": "mixed-in",
+        "timeout": "1s"
       },
       {
         "action": "resolve",
-        "strategy": "prefer_ipv4",
-        "inbound": "tun-in"
+        "inbound": "tun-in",
+        "strategy": "prefer_ipv4"
       },
       {
         "action": "resolve",
-        "strategy": "prefer_ipv4",
-        "inbound": "mixed-in"
+        "inbound": "mixed-in",
+        "strategy": "prefer_ipv4"
       },
       {
         "action": "hijack-dns",
@@ -2797,6 +2820,15 @@
         ]
       },
       {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "rule_set": [
+          "aff_me",
+          "yun_me"
+        ]
+      },
+      {
         "action": "route",
         "outbound": "direct",
         "ip_is_private": true
@@ -2805,8 +2837,89 @@
         "action": "route",
         "outbound": "direct",
         "domain_suffix": ".ir"
+      },
+      {
+        "action": "route",
+        "outbound": "direct",
+        "rule_set": [
+          "xal",
+          "loo"
+        ]
+      },
+      {
+        "action": "route",
+        "outbound": "qqoli",
+        "rule_set": [
+          "oki",
+          "doki"
+        ]
+      },
+      {
+        "action": "route",
+        "outbound": "qqoli",
+        "domain": "translate.googleapis.com"
       }
     ],
-    "rule_set": []
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "aff_me",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "yun_me",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "oki",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "doki",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "xal",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "loo",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
+        "download_detour": "direct"
+      }
+    ]
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "dashboard",
+      "external_ui_download_url": "https://gh-proxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "direct",
+      "default_mode": "rule",
+      "access_control_allow_origin": [
+        "http://127.0.0.1",
+        "https://yacd.metacubex.one"
+      ],
+      "access_control_allow_private_network": true
+    }
   }
 }
