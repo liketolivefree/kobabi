@@ -148,6 +148,7 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
+  - q
 - name: MMOBI
   type: url-test
   url: "https://www.gstatic.com/generate_204"
@@ -283,6 +284,8 @@ rules:
 - DOMAIN,sing-box-subscribe.vercel.app,QQOLI
 - DOMAIN,trk.free.fr,QQOLI
 - DOMAIN,f001.backblazeb2.com,QQOLI
+- DOMAIN,music.163.com,QQOLI
+- DOMAIN,c.y.qq.com,QQOLI
 - RULE-SET,aff_me,REJECT
 - RULE-SET,yun_me,REJECT,no-resolve
 - DOMAIN-SUFFIX,ir,DIRECT
