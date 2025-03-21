@@ -148,6 +148,7 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
+  use:
   - q
 - name: MMOBI
   type: url-test
