@@ -148,6 +148,7 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
+  - q
 - name: MMOBI
   type: url-test
   url: "https://www.gstatic.com/generate_204"
