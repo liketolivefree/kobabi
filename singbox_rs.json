@@ -1,5 +1,6 @@
 {
   "log": {
+    "disabled": false,
     "level": "error",
     "timestamp": false
   },
@@ -311,9 +312,9 @@
         "q_604",
         "q_291"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 15,
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 5,
       "interrupt_exist_connections": false
     },
     {
@@ -2710,23 +2711,23 @@
     "rules": [
       {
         "action": "sniff",
-        "timeout": "1s",
-        "inbound": "tun-in"
+        "inbound": "tun-in",
+        "timeout": "1s"
       },
       {
         "action": "sniff",
-        "timeout": "1s",
-        "inbound": "mixed-in"
+        "inbound": "mixed-in",
+        "timeout": "1s"
       },
       {
         "action": "resolve",
-        "strategy": "prefer_ipv4",
-        "inbound": "tun-in"
+        "inbound": "tun-in",
+        "strategy": "prefer_ipv4"
       },
       {
         "action": "resolve",
-        "strategy": "prefer_ipv4",
-        "inbound": "mixed-in"
+        "inbound": "mixed-in",
+        "strategy": "prefer_ipv4"
       },
       {
         "action": "hijack-dns",
