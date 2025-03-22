@@ -2809,5 +2809,10 @@
       }
     ],
     "rule_set": []
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
   }
 }
