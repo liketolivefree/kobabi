@@ -8,15 +8,23 @@
   "dns": {
     "servers": [
       {
-        "address": "https://94.140.14.14/dns-query",
+        "address": "https://8.8.8.8/dns-query",
         "tag": "direct-dns"
       },
       {
-        "address": "https://9.9.9.9/dns-query",
+        "address": "https://1.1.1.1/dns-query",
         "tag": "remote-dns"
       }
     ],
     "rules": [
+      {
+        "domain": "translate-pa.googleapis.com",
+        "server": "remote-dns"
+      },
+      {
+        "domain": "translate.googleapis.com",
+        "server": "remote-dns"
+      },
       {
         "action": "reject",
         "method": "default",
@@ -29,10 +37,6 @@
       },
       {
         "outbound": "direct",
-        "server": "direct-dns"
-      },
-      {
-        "domain": "translate.googleapis.com",
         "server": "direct-dns"
       }
     ],
@@ -324,8 +328,8 @@
         "q_291"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 15,
+      "interval": "3m",
+      "tolerance": 5,
       "interrupt_exist_connections": false
     },
     {
@@ -2809,13 +2813,26 @@
         ]
       },
       {
+        "action": "route",
+        "outbound": "qqoli",
+        "domain": "translate-pa.googleapis.com"
+      },
+      {
+        "action": "route",
+        "outbound": "qqoli",
+        "domain": "translate.googleapis.com"
+      },
+      {
         "action": "reject",
         "method": "default",
         "no_drop": false,
-        "rule_set": [
-          "aff_me",
-          "yun_me"
-        ]
+        "rule_set": "aff_me"
+      },
+      {
+        "action": "reject",
+        "method": "default",
+        "no_drop": false,
+        "rule_set": "yun_me"
       },
       {
         "action": "route",
@@ -2830,23 +2847,22 @@
       {
         "action": "route",
         "outbound": "direct",
-        "rule_set": [
-          "xal",
-          "loo"
-        ]
+        "rule_set": "xal"
+      },
+      {
+        "action": "route",
+        "outbound": "direct",
+        "rule_set": "loo"
       },
       {
         "action": "route",
         "outbound": "qqoli",
-        "rule_set": [
-          "oki",
-          "doki"
-        ]
+        "rule_set": "oki"
       },
       {
         "action": "route",
         "outbound": "qqoli",
-        "domain": "translate.googleapis.com"
+        "rule_set": "doki"
       }
     ],
     "rule_set": [
