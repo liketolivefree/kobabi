@@ -8,7 +8,8 @@
     "servers": [
       {
         "address": "https://8.8.8.8/dns-query",
-        "tag": "direct-dns"
+        "tag": "direct-dns",
+        "detour": "direct"
       },
       {
         "address": "https://8.8.8.8/dns-query",
@@ -17,11 +18,7 @@
     ],
     "rules": [
       {
-        "outbound": "qqoli",
-        "server": "remote-dns"
-      },
-      {
-        "outbound": "direct",
+        "outbound": "any",
         "server": "direct-dns"
       }
     ],
