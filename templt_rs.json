@@ -60,5 +60,6 @@
       {"action": "route", "outbound": "direct", "domain_suffix": ".ir"}
     ],
     "rule_set": []
-  }
+  },
+  "experimental": {"cache_file": {"enabled": true}} 
 }
