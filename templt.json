@@ -56,59 +56,10 @@
       {"action": "reject", "method": "default", "no_drop":false, "source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"]},
       {"action": "reject", "method": "default", "no_drop":false, "type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port":853}]},
       {"action": "reject", "method": "default", "no_drop":false, "type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port":443}]},
-      {"action": "reject", "method": "default", "no_drop":false, "rule_set": "aff"},
-      {"action": "reject", "method": "default", "no_drop":false, "rule_set": "yun"},
       {"action": "route", "outbound": "direct", "ip_is_private":true},
-      {"action": "route", "outbound": "direct", "domain_suffix": ".ir"},
-      {"action": "route", "outbound": "direct", "rule_set": "xal"},
-      {"action": "route", "outbound": "direct", "rule_set": "loo"},
-      {"action": "route", "outbound": "qqoli", "rule_set": "oki"},
-      {"action": "route", "outbound": "qqoli", "rule_set": "doki"}
+      {"action": "route", "outbound": "direct", "domain_suffix": ".ir"}
     ],
-    "rule_set": [
-      {
-        "type": "remote",
-        "tag": "aff",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "yun",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "oki",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "doki",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "xal",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
-        "download_detour": "direct"
-      },
-      {
-        "type": "remote",
-        "tag": "loo",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
-        "download_detour": "direct"
-      }
-    ]
+    "rule_set": []
   },
-  "experimental": {"cache_file": {"enabled": true}}
+  "experimental": {"cache_file": {"enabled": true}} 
 }
