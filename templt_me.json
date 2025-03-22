@@ -115,5 +115,6 @@
         "download_detour": "direct"
       }
     ]
-  }
+  },
+  "experimental": {"cache_file": {"enabled": true}} 
 }
