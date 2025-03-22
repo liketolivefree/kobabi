@@ -6,12 +6,11 @@
   },
   "dns": {
     "servers": [
-      {"address": "https://8.8.8.8/dns-query", "tag": "direct-dns"},
+      {"address": "tls://8.8.8.8", "tag": "direct-dns","detour": "direct"},
       {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"}
     ],
     "rules": [
-      {"outbound": "qqoli", "server": "remote-dns"},
-      {"outbound": "direct", "server": "direct-dns"}
+      {"outbound": "any", "server": "direct-dns"}
     ],
     "final": "remote-dns",
     "strategy": "prefer_ipv4",
