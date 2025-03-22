@@ -11,9 +11,6 @@
       {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"}
     ],
     "rules": [
-      {"domain": "translate-pa.googleapis.com", "server": "remote-dns"},
-      {"domain": "translate.googleapis.com", "server": "remote-dns"},
-      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff_me"},
       {"outbound": "qqoli", "server": "remote-dns"},
       {"outbound": "direct", "server": "direct-dns"}
     ],
