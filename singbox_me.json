@@ -18,20 +18,6 @@
     ],
     "rules": [
       {
-        "domain": "translate-pa.googleapis.com",
-        "server": "remote-dns"
-      },
-      {
-        "domain": "translate.googleapis.com",
-        "server": "remote-dns"
-      },
-      {
-        "action": "reject",
-        "method": "default",
-        "no_drop": false,
-        "rule_set": "aff_me"
-      },
-      {
         "outbound": "qqoli",
         "server": "remote-dns"
       },
@@ -2910,5 +2896,9 @@
       }
     ]
   },
-  "experimental": {"cache_file": {"enabled": true}} 
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
+  }
 }
