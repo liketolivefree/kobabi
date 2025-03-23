@@ -7,8 +7,9 @@
   },
   "dns": {
     "servers": [
-      {"address": "tls://8.8.8.8", "tag": "direct-dns","detour": "direct"},
-      {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"}
+      {"address": "https://sky.rethinkdns.com/dns-query", "tag": "direct-dns", "detour": "direct", "address_resolver": "local-dns"},
+      {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"},
+      {"address": "local", "tag": "local-dns"}
     ],
     "rules": [
       {"outbound": "any", "server": "direct-dns"}
@@ -49,7 +50,7 @@
       {"action": "resolve", "inbound": "tun-in", "strategy": "prefer_ipv4"},
       {"action": "resolve", "inbound": "mixed-in", "strategy": "prefer_ipv4"},
       {"action": "hijack-dns", "protocol": "dns"},
-      {"action": "hijack-dns", "port": 53},      
+      {"action": "hijack-dns", "port": 53},
       {"action": "reject", "method": "default", "no_drop":false, "protocol": "quic"},
       {"action": "reject", "method": "default", "no_drop":false, "protocol": "stun"},
       {"action": "reject", "method": "default", "no_drop":false, "ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"]},
@@ -112,5 +113,5 @@
       }
     ]
   },
-  "experimental": {"cache_file": {"enabled": true}} 
+  "experimental": {"cache_file": {"enabled": true}}
 }
