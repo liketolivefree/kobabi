@@ -6,8 +6,9 @@
   },
   "dns": {
     "servers": [
-      {"address": "tls://8.8.8.8", "tag": "direct-dns","detour": "direct"},
-      {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"}
+      {"address": "https://sky.rethinkdns.com/dns-query", "tag": "direct-dns", "detour": "direct", "address_resolver": "local-dns"},
+      {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"},
+      {"address": "local", "tag": "local-dns"}
     ],
     "rules": [
       {"outbound": "any", "server": "direct-dns"}
