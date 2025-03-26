@@ -324,7 +324,6 @@ proxies:
   - {name: q_839, server: 163.5.159.231, port: 443, client-fingerprint: chrome, type: vmess, uuid: e537f2f5-2a0c-4f59-92c9-832ca6433bf3, alterId: 0, cipher: auto, tls: true, tfo: false, servername: irvideo.cfd, network: ws, ws-opts: {path: /linkws}, udp: true}
   - {name: q_841, server: 23.158.56.184, port: 22324, client-fingerprint: chrome, type: vmess, uuid: 04621bae-ab36-11ec-b909-0242ac120002, alterId: 0, cipher: auto, tls: false, tfo: false, udp: true}
   - {name: q_861, server: ul-uae2.09vpn.com, port: 8443, client-fingerprint: chrome, type: vmess, uuid: 7f52b81e-bc96-4772-8359-b7dacb216ca3, alterId: 0, cipher: auto, tls: true, tfo: false, network: ws, ws-opts: {path: /vmess/, headers: {Host: ul-uae2.09vpn.com}}, udp: true}
-  - {name: q_862, server: 46.29.166.237, port: 47555, client-fingerprint: chrome, type: vmess, uuid: 0c49cd19-2758-4d38-e6a8-11f2d6635860, alterId: 0, cipher: auto, tls: false, tfo: false, udp: true}
   - {name: q_866, server: 142.4.104.33, port: 52143, client-fingerprint: chrome, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false, tfo: false, udp: true}
   - {name: q_867, server: 103.149.183.178, port: 54675, client-fingerprint: chrome, type: vmess, uuid: 3a907956-f668-4e6b-ea03-0949f0c9c0a5, alterId: 0, cipher: auto, tls: false, tfo: false, udp: true}
   - {name: q_868, server: 103.149.183.178, port: 27512, client-fingerprint: chrome, type: vmess, uuid: 96d38683-0817-4d91-bffa-6f03df18d9dc, alterId: 0, cipher: auto, tls: false, tfo: false, udp: true}
