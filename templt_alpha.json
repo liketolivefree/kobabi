@@ -6,10 +6,12 @@
   },
   "dns": {
     "servers": [
+      {"type": "hosts", "tag": "host-dns", "predefined": {"raw.githubusercontent.com": ["185.199.108.133", "185.199.109.133","2606:50c0:8001::154","2606:50c0:8002::154"], "localhost": ["127.0.0.1","::1"]}},
       {"type": "https", "tag": "direct-dns", "server": "8.8.8.8"},
       {"type":"https", "tag":"remote-dns", "server":"8.8.8.8"}
     ],
     "rules": [
+      {"server": "host-dns", "domain_suffix": "raw.githubusercontent.com"},
       {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff"},
       {"server": "direct-dns", "domain_suffix":".ir"},
       {"server": "direct-dns", "rule_set": "xal"},
