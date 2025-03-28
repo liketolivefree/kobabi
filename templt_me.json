@@ -15,7 +15,7 @@
     "rules": [
       {"server": "start-dns", "domain_suffix": "githubusercontent.com"},
       {"server": "remote-dns", "rule_set": "wht"},
-      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff"},
+      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff_me"},
       {"server": "direct-dns", "domain_suffix":".ir"},
       {"server": "direct-dns", "rule_set": "xal"},
       {"server": "remote-dns", "rule_set": "oki"}
