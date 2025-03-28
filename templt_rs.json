@@ -44,8 +44,8 @@
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "rules": [
-      {"action": "sniff", "inbound": "tun-in", "timeout": "1s"},
-      {"action": "sniff", "inbound": "mixed-in", "timeout": "1s"},
+      {"action": "sniff", "inbound": "tun-in", "timeout": "500ms"},
+      {"action": "sniff", "inbound": "mixed-in", "timeout": "500ms"},
       {"action": "resolve", "inbound": "tun-in", "strategy": "prefer_ipv4"},
       {"action": "resolve", "inbound": "mixed-in", "strategy": "prefer_ipv4"},
       {"action": "hijack-dns", "protocol": "dns"},
