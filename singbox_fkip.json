@@ -8,17 +8,13 @@
     "servers": [
       {
         "type": "hosts",
-        "tag": "host-dns",
+        "tag": "start-dns",
         "predefined": {
           "raw.githubusercontent.com": [
             "185.199.108.133",
             "185.199.109.133",
             "2606:50c0:8001::154",
             "2606:50c0:8002::154"
-          ],
-          "localhost": [
-            "127.0.0.1",
-            "::1"
           ]
         }
       },
@@ -35,8 +31,8 @@
     ],
     "rules": [
       {
-        "server": "host-dns",
-        "domain_suffix": "raw.githubusercontent.com"
+        "server": "start-dns",
+        "domain_suffix": "githubusercontent.com"
       },
       {
         "action": "reject",
@@ -2733,12 +2729,12 @@
       {
         "action": "sniff",
         "inbound": "tun-in",
-        "timeout": "1s"
+        "timeout": "500ms"
       },
       {
         "action": "sniff",
         "inbound": "mixed-in",
-        "timeout": "1s"
+        "timeout": "500ms"
       },
       {
         "action": "resolve",
