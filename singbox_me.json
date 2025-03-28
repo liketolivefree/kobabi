@@ -40,7 +40,7 @@
         "action": "reject",
         "method": "default",
         "no_drop": false,
-        "rule_set": "aff"
+        "rule_set": "aff_me"
       },
       {
         "server": "direct-dns",
