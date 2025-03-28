@@ -6,14 +6,12 @@
   },
   "dns": {
     "servers": [
-      {"address": "https://sky.rethinkdns.com/dns-query", "tag": "direct-dns", "detour": "direct", "address_resolver": "local-dns"},
-      {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"},
-      {"address": "local", "tag": "local-dns"}
+      {"address": "https://8.8.8.8/dns-query", "tag": "dns"}
     ],
     "rules": [
-      {"outbound": "any", "server": "direct-dns"}
+      {"outbound": "any", "server": "dns"}
     ],
-    "final": "remote-dns",
+    "final": "dns",
     "strategy": "prefer_ipv4",
     "disable_cache": false,
     "disable_expire": false,
