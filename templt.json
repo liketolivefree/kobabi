@@ -6,12 +6,17 @@
   },
   "dns": {
     "servers": [
-      {"address": "https://sky.rethinkdns.com/dns-query", "tag": "direct-dns", "detour": "direct", "address_resolver": "local-dns"},
+      {"address": "https://sky.rethinkdns.com/dns-query", "tag": "start-dns", "detour": "direct", "address_resolver": "local-dns"},
+      {"address": "https://8.8.8.8/dns-query", "tag": "direct-dns", "detour": "direct"},
       {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"},
       {"address": "local", "tag": "local-dns"}
     ],
     "rules": [
-      {"outbound": "any", "server": "direct-dns"}
+      {"server": "start-dns", "domain_suffix": "githubusercontent.com"},
+      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff"},
+      {"server": "direct-dns", "domain_suffix":".ir"},
+      {"server": "direct-dns", "rule_set": "xal"},
+      {"server": "remote-dns", "rule_set": "oki"}
     ],
     "final": "remote-dns",
     "strategy": "prefer_ipv4",
@@ -44,8 +49,8 @@
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "rules": [
-      {"action": "sniff", "inbound": "tun-in", "timeout": "1s"},
-      {"action": "sniff", "inbound": "mixed-in", "timeout": "1s"},
+      {"action": "sniff", "inbound": "tun-in", "timeout": "500ms"},
+      {"action": "sniff", "inbound": "mixed-in", "timeout": "500ms"},
       {"action": "resolve", "inbound": "tun-in", "strategy": "prefer_ipv4"},
       {"action": "resolve", "inbound": "mixed-in", "strategy": "prefer_ipv4"},
       {"action": "hijack-dns", "protocol": "dns"},
