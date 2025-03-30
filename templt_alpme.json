@@ -1,0 +1,129 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "output": "box.log",
+    "timestamp": false
+  },
+  "dns": {
+    "servers": [
+      {"type": "hosts", "tag": "start-dns", "predefined": {"raw.githubusercontent.com": ["185.199.108.133", "185.199.109.133","2606:50c0:8001::154","2606:50c0:8002::154"]}},
+      {"type": "https", "tag": "direct-dns", "server": "8.8.8.8"},
+      {"type":"https", "tag":"remote-dns", "server":"8.8.8.8"}
+    ],
+    "rules": [
+      {"server": "start-dns", "domain_suffix": "githubusercontent.com"},
+      {"server": "remote-dns", "rule_set": "wht", "rewrite_ttl": 7200},
+      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff_me", "disable_cache": true},
+      {"server": "direct-dns", "domain_suffix":".ir", "rewrite_ttl": 7200},
+      {"server": "direct-dns", "rule_set": "xal", "rewrite_ttl": 7200},
+      {"server": "remote-dns", "rule_set": "oki", "rewrite_ttl": 7200}
+    ],
+    "final": "remote-dns",
+    "strategy": "prefer_ipv4",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "reverse_mapping": false
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "mtu": 9000,
+      "address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system",
+      "platform": {"http_proxy": {"enabled": true, "server": "127.0.0.1", "server_port": 7890}}
+    },
+    {"type": "mixed", "tag": "mixed-in", "listen": "127.0.0.1", "listen_port": 7891}
+  ],
+  "outbounds": [
+    {"type": "selector", "tag": "qqoli", "outbounds": ["mmobi", "{all}"], "default": "mmobi", "interrupt_exist_connections": false},
+    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "3m", "tolerance": 5 , "interrupt_exist_connections": false},
+    {"type": "direct", "tag": "direct"}
+  ],
+  "route": {
+    "final": "qqoli",
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "default_domain_resolver": "remote-dns",
+    "rules": [
+      {"action": "sniff", "inbound": "tun-in", "timeout": "500ms"},
+      {"action": "sniff", "inbound": "mixed-in", "timeout": "500ms"},
+      {"action": "resolve", "inbound": "tun-in", "strategy": "prefer_ipv4"},
+      {"action": "resolve", "inbound": "mixed-in", "strategy": "prefer_ipv4"},
+      {"action": "hijack-dns", "protocol": "dns"},
+      {"action": "hijack-dns", "port": 53},      
+      {"action": "reject", "method": "default", "no_drop":false, "protocol": "quic"},
+      {"action": "reject", "method": "default", "no_drop":false, "protocol": "stun"},
+      {"action": "reject", "method": "default", "no_drop":false, "ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"]},
+      {"action": "reject", "method": "default", "no_drop":false, "source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"]},
+      {"action": "reject", "method": "default", "no_drop":false, "type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port":853}]},
+      {"action": "reject", "method": "default", "no_drop":false, "type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port":443}]},
+      {"action": "route", "outbound": "qqoli", "rule_set": "wht"},
+      {"action": "reject", "method": "default", "no_drop":false, "rule_set": "aff_me"},
+      {"action": "reject", "method": "default", "no_drop":false, "rule_set": "yun_me"},
+      {"action": "route", "outbound": "direct", "ip_is_private":true},
+      {"action": "route", "outbound": "direct", "domain_suffix": ".ir"},
+      {"action": "route", "outbound": "direct", "rule_set": "xal"},
+      {"action": "route", "outbound": "direct", "rule_set": "loo"},
+      {"action": "route", "outbound": "qqoli", "rule_set": "oki"},
+      {"action": "route", "outbound": "qqoli", "rule_set": "doki"}
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "wht",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/wht.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "aff_me",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "yun_me",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "oki",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "doki",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "xal",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "loo",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
+        "download_detour": "direct"
+      }
+    ]
+  },
+  "experimental": {"cache_file": {"enabled": true}}
+}
