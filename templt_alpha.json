@@ -12,10 +12,10 @@
     ],
     "rules": [
       {"server": "start-dns", "domain_suffix": "githubusercontent.com"},
-      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff"},
-      {"server": "direct-dns", "domain_suffix":".ir"},
-      {"server": "direct-dns", "rule_set": "xal"},
-      {"server": "remote-dns", "rule_set": "oki"}
+      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff", "disable_cache": true},
+      {"server": "direct-dns", "domain_suffix":".ir", "rewrite_ttl": 7200},
+      {"server": "direct-dns", "rule_set": "xal", "rewrite_ttl": 7200},
+      {"server": "remote-dns", "rule_set": "oki", "rewrite_ttl": 7200}
     ],
     "final": "remote-dns",
     "strategy": "prefer_ipv4",
@@ -48,7 +48,7 @@
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "default_domain_resolver": "remote-dns",
-    "rules":[
+    "rules": [
       {"action": "sniff", "inbound": "tun-in", "timeout": "500ms"},
       {"action": "sniff", "inbound": "mixed-in", "timeout": "500ms"},
       {"action": "resolve", "inbound": "tun-in", "strategy": "prefer_ipv4"},
