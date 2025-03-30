@@ -13,12 +13,12 @@
       {"address": "local", "tag": "local-dns"}
     ],
     "rules": [
-      {"server": "start-dns", "domain_suffix": "githubusercontent.com"},
-      {"server": "remote-dns", "rule_set": "wht"},
-      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff_me"},
-      {"server": "direct-dns", "domain_suffix":".ir"},
-      {"server": "direct-dns", "rule_set": "xal"},
-      {"server": "remote-dns", "rule_set": "oki"}
+      {"server": "start-dns", "domain_suffix": "githubusercontent.com", "rewrite_ttl": 10000},
+      {"server": "remote-dns", "rule_set": "wht", "rewrite_ttl": 7200},
+      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff_me", "disable_cache": true},
+      {"server": "direct-dns", "domain_suffix":".ir", "rewrite_ttl": 7200},
+      {"server": "direct-dns", "rule_set": "xal", "rewrite_ttl": 7200},
+      {"server": "remote-dns", "rule_set": "oki", "rewrite_ttl": 7200}
     ],
     "final": "remote-dns",
     "strategy": "prefer_ipv4",
@@ -57,6 +57,7 @@
       {"action": "resolve", "inbound": "mixed-in", "strategy": "prefer_ipv4"},
       {"action": "hijack-dns", "protocol": "dns"},
       {"action": "hijack-dns", "port": 53},
+      {"action": "reject", "method": "default", "no_drop":false, "protocol": "quic"},
       {"action": "reject", "method": "default", "no_drop":false, "protocol": "stun"},
       {"action": "reject", "method": "default", "no_drop":false, "ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"]},
       {"action": "reject", "method": "default", "no_drop":false, "source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"]},
