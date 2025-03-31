@@ -30,13 +30,11 @@
     "rules": [
       {
         "server": "start-dns",
-        "domain_suffix": "githubusercontent.com",
-        "rewrite_ttl": 10000
+        "domain_suffix": "githubusercontent.com"
       },
       {
         "server": "remote-dns",
-        "rule_set": "wht",
-        "rewrite_ttl": 7200
+        "rule_set": "wht"
       },
       {
         "action": "reject",
@@ -47,18 +45,15 @@
       },
       {
         "server": "direct-dns",
-        "domain_suffix": ".ir",
-        "rewrite_ttl": 7200
+        "domain_suffix": ".ir"
       },
       {
         "server": "direct-dns",
-        "rule_set": "xal",
-        "rewrite_ttl": 7200
+        "rule_set": "xal"
       },
       {
         "server": "remote-dns",
-        "rule_set": "oki",
-        "rewrite_ttl": 7200
+        "rule_set": "oki"
       }
     ],
     "final": "remote-dns",
