@@ -43,18 +43,15 @@
       },
       {
         "server": "direct-dns",
-        "domain_suffix": ".ir",
-        "rewrite_ttl": 7200
+        "domain_suffix": ".ir"
       },
       {
         "server": "direct-dns",
-        "rule_set": "xal",
-        "rewrite_ttl": 7200
+        "rule_set": "xal"
       },
       {
         "server": "remote-dns",
-        "rule_set": "oki",
-        "rewrite_ttl": 7200
+        "rule_set": "oki"
       }
     ],
     "final": "remote-dns",
