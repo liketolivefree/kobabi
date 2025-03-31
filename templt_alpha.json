@@ -14,9 +14,9 @@
     "rules": [
       {"server": "start-dns", "domain_suffix": "githubusercontent.com"},
       {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff", "disable_cache": true},
-      {"server": "direct-dns", "domain_suffix":".ir", "rewrite_ttl": 7200},
-      {"server": "direct-dns", "rule_set": "xal", "rewrite_ttl": 7200},
-      {"server": "remote-dns", "rule_set": "oki", "rewrite_ttl": 7200}
+      {"server": "direct-dns", "domain_suffix":".ir"},
+      {"server": "direct-dns", "rule_set": "xal"},
+      {"server": "remote-dns", "rule_set": "oki"}
     ],
     "final": "remote-dns",
     "strategy": "prefer_ipv4",
