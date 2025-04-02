@@ -143,8 +143,8 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: "https://www.gstatic.com/generate_204"
-  interval: 300
-  tolerance: 30
+  interval: 200
+  tolerance: 5
   use:
   - q
   - a
