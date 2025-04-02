@@ -9,7 +9,8 @@
       {
         "address": "https://sky.rethinkdns.com/dns-query",
         "tag": "start-dns",
-        "address_resolver": "local"
+        "address_resolver": "local",
+        "detour": "direct"
       },
       {
         "address": "https://8.8.8.8/dns-query",
