@@ -7,7 +7,7 @@
   },
   "dns": {
     "servers": [
-      {"address": "https://sky.rethinkdns.com/dns-query", "tag": "start-dns", "address_resolver": "local"},
+      {"address": "https://sky.rethinkdns.com/dns-query", "tag": "start-dns", "address_resolver": "local", "detour": "direct"},
       {"address": "https://8.8.8.8/dns-query", "tag": "direct-dns"},
       {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"},
       {"address": "local", "tag": "local"}
