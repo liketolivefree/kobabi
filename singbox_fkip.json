@@ -10,14 +10,12 @@
         "type": "https",
         "tag": "start-dns",
         "server": "sky.rethinkdns.com",
-        "domain_resolver": "local-dns",
-        "detour": "direct"
+        "domain_resolver": "local"
       },
       {
         "type": "https",
         "tag": "direct-dns",
-        "server": "8.8.8.8",
-        "detour": "direct"
+        "server": "8.8.8.8"
       },
       {
         "type": "https",
@@ -26,7 +24,7 @@
       },
       {
         "type": "local",
-        "tag": "local-dns"
+        "tag": "local"
       }
     ],
     "rules": [
