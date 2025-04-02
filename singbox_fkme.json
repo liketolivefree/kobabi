@@ -8,16 +8,10 @@
   "dns": {
     "servers": [
       {
-        "type": "hosts",
+        "type": "https",
         "tag": "start-dns",
-        "predefined": {
-          "raw.githubusercontent.com": [
-            "185.199.108.133",
-            "185.199.109.133",
-            "2606:50c0:8001::154",
-            "2606:50c0:8002::154"
-          ]
-        }
+        "server": "sky.rethinkdns.com",
+        "domain_resolver": "local"
       },
       {
         "type": "https",
@@ -28,6 +22,10 @@
         "type": "https",
         "tag": "remote-dns",
         "server": "8.8.8.8"
+      },
+      {
+        "type": "local",
+        "tag": "local"
       }
     ],
     "rules": [
@@ -205,7 +203,6 @@
         "qoli_180",
         "qoli_181"
       ],
-      "default": "mmobi",
       "interrupt_exist_connections": false
     },
     {
