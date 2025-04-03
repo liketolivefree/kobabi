@@ -1,29 +1,23 @@
 {
   "log": {
-    "disabled": false,
-    "level": "error",
-    "timestamp": false
+    "level": "error"
   },
   "dns": {
     "servers": [
-      {"address": "https://sky.rethinkdns.com/dns-query", "tag": "start-dns", "address_resolver": "local", "detour": "direct"},
-      {"address": "https://8.8.8.8/dns-query", "tag": "direct-dns"},
-      {"address": "https://8.8.8.8/dns-query", "tag": "remote-dns"},
-      {"address": "local", "tag": "local"}
+      {"tag": "start-dns", "address": "https://sky.rethinkdns.com/dns-query", "address_resolver": "local", "detour": "direct"},
+      {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
+      {"tag": "remote-dns", "address": "https://8.8.8.8/dns-query"},
+      {"tag": "local", "address": "local"}
     ],
     "rules": [
-      {"server": "start-dns", "domain_suffix": "githubusercontent.com"},
-      {"action": "reject", "method": "default", "no_drop": false, "rule_set": "aff", "disable_cache": true},
-      {"server": "direct-dns", "domain_suffix":".ir"},
-      {"server": "direct-dns", "rule_set": "xal"},
-      {"server": "remote-dns", "rule_set": "oki"}
+      {"domain_suffix": "githubusercontent.com", "server": "start-dns"},
+      {"rule_set": "aff", "action": "reject", "method": "default"},
+      {"domain_suffix": ".ir", "server": "direct-dns"},
+      {"rule_set": "xal", "server": "direct-dns"},
+      {"rule_set": "oki", "server": "remote-dns"}
     ],
     "final": "remote-dns",
-    "strategy": "prefer_ipv4",
-    "disable_cache": false,
-    "disable_expire": false,
-    "independent_cache": false,
-    "reverse_mapping": false
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
@@ -40,8 +34,8 @@
     {"type": "mixed", "tag": "mixed-in", "listen": "127.0.0.1", "listen_port": 7891}
   ],
   "outbounds": [
-    {"type": "selector", "tag": "qqoli", "outbounds": ["mmobi", "{all}"], "default": "mmobi", "interrupt_exist_connections": false},
-    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "3m", "tolerance": 5 , "interrupt_exist_connections": false},
+    {"type": "selector", "tag": "qqoli", "outbounds": ["mmobi", "{all}"], "default": "mmobi"},
+    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "3m0s", "tolerance": 5},
     {"type": "direct", "tag": "direct"}
   ],
   "route": {
@@ -49,26 +43,26 @@
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "rules": [
-      {"action": "sniff", "inbound": "tun-in", "timeout": "500ms"},
-      {"action": "sniff", "inbound": "mixed-in", "timeout": "500ms"},
-      {"action": "resolve", "inbound": "tun-in", "strategy": "prefer_ipv4"},
-      {"action": "resolve", "inbound": "mixed-in", "strategy": "prefer_ipv4"},
-      {"action": "hijack-dns", "protocol": "dns"},
-      {"action": "hijack-dns", "port": 53},      
-      {"action": "reject", "method": "default", "no_drop":false, "protocol": "quic"},
-      {"action": "reject", "method": "default", "no_drop":false, "protocol": "stun"},
-      {"action": "reject", "method": "default", "no_drop":false, "ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"]},
-      {"action": "reject", "method": "default", "no_drop":false, "source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"]},
-      {"action": "reject", "method": "default", "no_drop":false, "type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port":853}]},
-      {"action": "reject", "method": "default", "no_drop":false, "type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port":443}]},
-      {"action": "reject", "method": "default", "no_drop":false, "rule_set": "aff"},
-      {"action": "reject", "method": "default", "no_drop":false, "rule_set": "yun"},
-      {"action": "route", "outbound": "direct", "ip_is_private":true},
-      {"action": "route", "outbound": "direct", "domain_suffix": ".ir"},
-      {"action": "route", "outbound": "direct", "rule_set": "xal"},
-      {"action": "route", "outbound": "direct", "rule_set": "loo"},
-      {"action": "route", "outbound": "qqoli", "rule_set": "oki"},
-      {"action": "route", "outbound": "qqoli", "rule_set": "doki"}
+      {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
+      {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
+      {"inbound": "tun-in", "action": "resolve", "strategy": "prefer_ipv4"},
+      {"inbound": "mixed-in", "action": "resolve", "strategy": "prefer_ipv4"},
+      {"protocol": "dns","action": "hijack-dns"},
+      {"port": 53, "action": "hijack-dns"},
+      {"protocol": "quic", "action": "reject", "method": "default"},
+      {"protocol": "stun", "action": "reject", "method": "default"},
+      {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject", "method": "default"},
+      {"source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject", "method": "default"},
+      {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject", "method": "default"},
+      {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject", "method": "default"},
+      {"rule_set": "aff", "action": "reject", "method": "default"},
+      {"rule_set": "yun", "action": "reject", "method": "default"},
+      {"ip_is_private": true, "outbound": "direct"},
+      {"domain_suffix": ".ir", "outbound": "direct"},
+      {"rule_set": "xal", "outbound": "direct"},
+      {"rule_set": "loo", "outbound": "direct"},
+      {"rule_set": "oki", "outbound": "qqoli"},
+      {"rule_set": "doki", "outbound": "qqoli"}
     ],
     "rule_set": [
       {
