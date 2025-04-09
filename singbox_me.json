@@ -6,12 +6,6 @@
   "dns": {
     "servers": [
       {
-        "tag": "start-dns",
-        "address": "https://sky.rethinkdns.com/dns-query",
-        "address_resolver": "local",
-        "detour": "direct"
-      },
-      {
         "tag": "direct-dns",
         "address": "https://8.8.8.8/dns-query"
       },
@@ -26,7 +20,10 @@
     ],
     "rules": [
       {
-        "domain_suffix": "jsdelivr.net",
+        "domain_suffix": [
+          "jsdelivr.net",
+          "githubusercontent.com"
+        ],
         "server": "local"
       },
       {
