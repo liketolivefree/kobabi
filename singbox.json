@@ -14,14 +14,14 @@
       },
       {
         "tag": "local",
-        "address": "local"
+        "address": "local",
+        "detour": "direct"
       }
     ],
     "rules": [
       {
         "domain_suffix": [
-          "jsdelivr.net",
-          "githubusercontent.com"
+          "jsdelivr.net"
         ],
         "server": "local"
       },
