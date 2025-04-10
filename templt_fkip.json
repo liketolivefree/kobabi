@@ -9,7 +9,7 @@
       {"type": "local", "tag": "local"}
     ],
     "rules": [
-      {"domain_suffix": ["jsdelivr.net", "githubusercontent.com"], "server": "local"},
+      {"domain_suffix": "jsdelivr.net", "server": "local"},
       {"rule_set": "aff", "action": "reject"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
       {"rule_set": "xal", "server": "direct-dns"},
