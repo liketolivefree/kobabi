@@ -6,10 +6,10 @@
     "servers": [
       {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
       {"tag": "remote-dns", "address": "https://8.8.8.8/dns-query"},
-      {"tag": "local", "address": "local"}
+      {"tag": "local", "address": "local", "detour": "direct"}
     ],
     "rules": [
-      {"domain_suffix": ["jsdelivr.net", "githubusercontent.com"], "server": "local"},
+      {"domain_suffix": "jsdelivr.net", "server": "local"},
       {"rule_set": "aff", "action": "reject", "method": "default"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
       {"rule_set": "xal", "server": "direct-dns"},
