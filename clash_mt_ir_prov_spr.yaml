@@ -40,16 +40,13 @@ dns:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
   - https://9.9.9.9/dns-query
-  - https://94.140.14.14/dns-query
   proxy-server-nameserver:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
-  - https://94.140.14.14/dns-query
   fallback:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
   - https://9.9.9.9/dns-query
-  - https://94.140.14.14/dns-query
   fallback-filter:
     geoip: false
     geoip-code: IR
