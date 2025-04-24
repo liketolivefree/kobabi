@@ -6,11 +6,12 @@
   "dns": {
     "servers": [
       {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
-      {"tag": "remote-dns", "address": "https://8.8.8.8/dns-query"},
+      {"tag": "remote-dns", "address": "https://9.9.9.9/dns-query"},
       {"tag": "local", "address": "local", "detour": "direct"}
     ],
     "rules": [
-      {"domain_suffix": "jsdelivr.net", "server": "local"},
+      {"domain_suffix": "githubusercontent.com", "server": "local"},
+      {"domain_suffix": ["windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net"], "action": "reject", "method": "default"},
       {"rule_set": "wht", "server": "remote-dns"},
       {"rule_set": "aff_me", "action": "reject", "method": "default"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
@@ -56,6 +57,7 @@
       {"source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject", "method": "default"},
       {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject", "method": "default"},
       {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject", "method": "default"},
+      {"domain_suffix": ["windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net"], "action": "reject", "method": "default"},
       {"rule_set": "wht", "outbound": "qqoli"},
       {"rule_set": "aff_me", "action": "reject", "method": "default"},
       {"rule_set": "yun_me", "action": "reject", "method": "default"},
@@ -71,49 +73,49 @@
         "type": "remote",
         "tag": "wht",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/wht.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/wht.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "aff_me",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/aff_me.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "yun_me",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/yun_me.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "oki",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/oki.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "doki",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/doki.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "xal",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/xal.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "loo",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/loo.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
         "download_detour": "direct"
       }
     ]
