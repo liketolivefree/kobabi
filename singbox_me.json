@@ -11,7 +11,7 @@
       },
       {
         "tag": "remote-dns",
-        "address": "https://8.8.8.8/dns-query"
+        "address": "https://9.9.9.9/dns-query"
       },
       {
         "tag": "local",
@@ -21,8 +21,20 @@
     ],
     "rules": [
       {
-        "domain_suffix": "jsdelivr.net",
+        "domain_suffix": "githubusercontent.com",
         "server": "local"
+      },
+      {
+        "domain_suffix": [
+          "windowsupdate.com",
+          "mi.com",
+          "miui.com",
+          "miui.net",
+          "xiaomi.com",
+          "xiaomi.net"
+        ],
+        "action": "reject",
+        "method": "default"
       },
       {
         "rule_set": "wht",
@@ -2038,6 +2050,18 @@
         "method": "default"
       },
       {
+        "domain_suffix": [
+          "windowsupdate.com",
+          "mi.com",
+          "miui.com",
+          "miui.net",
+          "xiaomi.com",
+          "xiaomi.net"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
         "rule_set": "wht",
         "outbound": "qqoli"
       },
@@ -2081,49 +2105,49 @@
         "type": "remote",
         "tag": "wht",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/wht.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/wht.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "aff_me",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/aff_me.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "yun_me",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/yun_me.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "oki",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/oki.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "doki",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/doki.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "xal",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/xal.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "loo",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/loo.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
         "download_detour": "direct"
       }
     ],
