@@ -29,22 +29,19 @@ dns:
   - "*.invalid"
   - "*.test"
   - "*.home.arpa"
-  - "time.nist.gov"
-  - "time.windows.com"
-  - "time.android.com"
-  - "pool.ntp.org"
+  - time.nist.gov
+  - time.windows.com
+  - time.android.com
+  - pool.ntp.org
   default-nameserver:
-  - 1.1.1.1
   - 8.8.8.8
   nameserver:
-  - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
   - https://9.9.9.9/dns-query
   proxy-server-nameserver:
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
   fallback:
-  - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
   - https://9.9.9.9/dns-query
   fallback-filter:
@@ -94,103 +91,103 @@ sniffer:
 proxy-providers:
   q:
     type: http
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml"
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
     interval: 3600
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
   a:
     type: http
-    url: "https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix"
+    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
     exclude-type: "ss|http|trojan"
   c:
     type: http
-    url: "https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml"
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
     exclude-type: "ss|http|trojan"
   d:
     type: http
-    url: "https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix_clash.yaml"
+    url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix_clash.yaml
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
     exclude-type: "ss|http|trojan"
   e:
     type: http
-    url: "https://raw.githubusercontent.com/lagzian/SS-Collector/main/backup_clash.yaml"
+    url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/backup_clash.yaml
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
     exclude-type: "ss|http|trojan"
   f:
     type: http
-    url: "https://raw.githubusercontent.com/AzadNetCH/Clash/main/AzadNet_META_IRAN-Direct.yml"
+    url: https://raw.githubusercontent.com/AzadNetCH/Clash/main/AzadNet_META_IRAN-Direct.yml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
     exclude-type: "ss|http|trojan"
   g:
     type: http
-    url: "https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml"
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
     interval: 3600
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
     exclude-type: "ss|http|trojan"
   h:
     type: http
-    url: "https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/spd/sub_merge_yaml.yml"
+    url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/spd/sub_merge_yaml.yml
     interval: 3600
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
       interval: 300
-      url: "https://www.gstatic.com/generate_204"
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
@@ -200,9 +197,11 @@ proxy-groups:
   type: select
   proxies:
   - MMOBI
+  use:
+  - q
 - name: MMOBI
   type: url-test
-  url: "https://www.gstatic.com/generate_204"
+  url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 30
   use:
@@ -219,42 +218,42 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_l.mrs"
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/aff_l.mrs
     path: ./rule-providers/aff_l.mrs
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.mrs"
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/yun.mrs
     path: ./rule-providers/yun.mrs
     interval: 86400
   oki:
     type: http
     behavior: domain
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.mrs"
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/oki.mrs
     path: ./rule-providers/oki.mrs
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.mrs"
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/doki.mrs
     path: ./rule-providers/doki.mrs
     interval: 86400
   xal:
     type: http
     behavior: domain
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.mrs"
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/xal.mrs
     path: ./rule-providers/xal.mrs
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
     format: mrs
-    url: "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.mrs"
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/loo.mrs
     path: ./rule-providers/loo.mrs
     interval: 86400
 rules:
