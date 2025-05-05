@@ -41,6 +41,12 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/clash_mt_ir_prov_sp
 -
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox.json
 -
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox_l.json
+-
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox_prx.json
+-
+https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox_rs.json
+-
 https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox_fkip.json
 -
 
