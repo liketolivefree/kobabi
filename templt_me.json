@@ -55,7 +55,7 @@
       {"source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject"},
-      {"domain_suffix": ["windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net"], "action": "reject"},
+      {"domain_suffix": ["windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"rule_set": "wht", "outbound": "qqoli"},
       {"rule_set": "aff_me", "action": "reject"},
       {"rule_set": "yun_me", "action": "reject"},
