@@ -11,7 +11,7 @@
     ],
     "rules": [
       {"domain_suffix": "jsdelivr.net", "server": "local"},
-      {"domain_suffix": ["windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net"], "action": "reject"},
+      {"domain_suffix": ["windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
       {"rule_set": "xal", "server": "direct-dns"},
       {"rule_set": "oki", "server": "remote-dns"}
