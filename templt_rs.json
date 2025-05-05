@@ -28,7 +28,7 @@
   ],
   "outbounds": [
     {"type": "selector", "tag": "qqoli", "outbounds": ["mmobi", "{all}"], "default": "mmobi"},
-    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "3m0s", "tolerance": 5},
+    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "6m0s", "tolerance": 5},
     {"type": "direct", "tag": "direct"}
   ],
   "route": {
@@ -42,12 +42,12 @@
       {"inbound": "mixed-in", "action": "resolve", "strategy": "prefer_ipv4"},
       {"protocol": "dns","action": "hijack-dns"},
       {"port": 53, "action": "hijack-dns"},
-      {"protocol": "quic", "action": "reject", "method": "default"},
-      {"protocol": "stun", "action": "reject", "method": "default"},
-      {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject", "method": "default"},
-      {"source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject", "method": "default"},
-      {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject", "method": "default"},
-      {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject", "method": "default"},
+      {"protocol": "quic", "action": "reject"},
+      {"protocol": "stun", "action": "reject"},
+      {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
+      {"source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
+      {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject"},
+      {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject"},
       {"ip_is_private": true, "outbound": "direct"},
       {"domain_suffix": ".ir", "outbound": "direct"}
     ],
