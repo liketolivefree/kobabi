@@ -5,7 +5,7 @@
   "dns": {
     "servers": [
       {"type": "https", "tag": "direct-dns", "server": "8.8.8.8"},
-      {"type": "https", "tag": "remote-dns", "server": "8.8.8.8"},
+      {"type": "https", "tag": "remote-dns", "server": "9.9.9.9"},
       {"type": "local", "tag": "local"}
     ],
     "rules": [
