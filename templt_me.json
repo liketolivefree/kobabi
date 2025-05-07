@@ -6,7 +6,7 @@
   "dns": {
     "servers": [
       {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
-      {"tag": "remote-dns", "address": "https://8.8.8.8/dns-query"},
+      {"tag": "remote-dns", "address": "https://9.9.9.9/dns-query"},
       {"tag": "local", "address": "local", "detour": "direct"}
     ],
     "rules": [
