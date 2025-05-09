@@ -1,0 +1,203 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+enable-process: true
+find-process-mode: strict
+tcp-concurrent: true
+unified-delay: true
+global-client-fingerprint: random
+keep-alive-interval: 15
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - "+.lan"
+  - "+.local"
+  - "+.localhost"
+  - "+.localdomain"
+  - "+.ip6-localhost"
+  - "+.ip6-loopback"
+  - "*.example"
+  - "*.invalid"
+  - "*.test"
+  - "*.home.arpa"
+  - time.nist.gov
+  - time.windows.com
+  - time.android.com
+  - pool.ntp.org
+  default-nameserver:
+  - 8.8.8.8
+  nameserver:
+  - https://8.8.8.8/dns-query
+  - https://9.9.9.9/dns-query
+  proxy-server-nameserver:
+  - https://8.8.8.8/dns-query
+  fallback:
+  - https://8.8.8.8/dns-query
+  - https://9.9.9.9/dns-query
+  fallback-filter:
+    geoip: false
+    geoip-code: IR
+    ipcidr:
+    - 0.0.0.0/32
+    - 240.0.0.0/4
+    domain:
+    - "+.cloudflare.com"
+    - "+.recaptcha.net"
+    - "+.google.com"
+    - "+.microsoft.com"
+    - "+.youtube.com"
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+  - any:53
+  - tcp://any:53
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+  mtu: 9000
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    TLS:
+      ports:
+      - 443
+      - 8443
+    QUIC:
+      ports:
+      - 443
+      - 8443
+    HTTP:
+      ports:
+      - 80
+      - 8080-8880
+      override-destination: true
+  sniffing:
+  - tls
+  - http
+  - quic
+proxy-providers:
+  q:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 3600
+    path: ./proxy-providers/q.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: https://cp.cloudflare.com/generate_204
+      timeout: 5000
+  a:
+    type: http
+    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
+    interval: 3600
+    path: ./proxy-providers/a.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: https://cp.cloudflare.com/generate_204
+      timeout: 5000
+    exclude-type: "ss|http|trojan"
+  b:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 3600
+    path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: https://cp.cloudflare.com/generate_204
+      timeout: 5000
+    exclude-type: "ss|http|trojan"
+proxy-groups:
+- name: QQOLI
+  type: select
+  proxies:
+  - MMOBI
+  use:
+  - q
+- name: MMOBI
+  type: url-test
+  url: https://cp.cloudflare.com/generate_204
+  interval: 200
+  tolerance: 5
+  use:
+  - q
+  - a
+  - b
+rule-providers:
+  aff_me:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/aff_me.mrs
+    path: ./rule-providers/aff_me.mrs
+    interval: 86400
+  yun_me:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/yun_me.mrs
+    path: ./rule-providers/yun_me.mrs
+    interval: 86400
+  oki:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/oki.mrs
+    path: ./rule-providers/oki.mrs
+    interval: 86400
+  doki:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/doki.mrs
+    path: ./rule-providers/doki.mrs
+    interval: 86400
+  xal:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/xal.mrs
+    path: ./rule-providers/xal.mrs
+    interval: 86400
+  loo:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/loo.mrs
+    path: ./rule-providers/loo.mrs
+    interval: 86400
+  wht:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/wht.mrs
+    path: ./rule-providers/wht.mrs
+    interval: 86400    
+rules:
+- IP-CIDR,10.0.0.0/8,REJECT,no-resolve
+- DOMAIN-SUFFIX,lan,DIRECT
+- DOMAIN-SUFFIX,local,DIRECT
+- DOMAIN-SUFFIX,localdomain,DIRECT
+- DOMAIN-SUFFIX,localhost,DIRECT
+- RULE-SET,wht,QQOLI
+- RULE-SET,aff_me,REJECT
+- RULE-SET,yun_me,REJECT,no-resolve
+- DOMAIN-SUFFIX,ir,DIRECT
+- RULE-SET,xal,DIRECT
+- RULE-SET,oki,QQOLI
+- RULE-SET,loo,DIRECT,no-resolve
+- RULE-SET,doki,QQOLI,no-resolve
+- MATCH,QQOLI
