@@ -12,7 +12,7 @@
       {
         "type": "https",
         "tag": "remote-dns",
-        "server": "8.8.8.8"
+        "server": "9.9.9.9"
       },
       {
         "type": "local",
@@ -365,7 +365,7 @@
         "qol_145",
         "qol_059"
       ],
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "https://cp.cloudflare.com/generate_204",
       "interval": "6m0s",
       "tolerance": 5
     },
