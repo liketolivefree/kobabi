@@ -34,7 +34,7 @@
   ],
   "outbounds": [
     {"type": "selector", "tag": "qqoli", "outbounds": ["mmobi", "{all}"], "default": "mmobi"},
-    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "6m0s", "tolerance": 5},
+    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://cp.cloudflare.com/generate_204", "interval": "6m0s", "tolerance": 5},
     {"type": "direct", "tag": "direct"}
   ],
   "route": {
