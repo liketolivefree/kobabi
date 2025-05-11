@@ -25,10 +25,6 @@
         "server": "local"
       },
       {
-        "rule_set": "aff",
-        "action": "reject"
-      },
-      {
         "domain_suffix": ".ir",
         "server": "direct-dns"
       },
