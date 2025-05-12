@@ -96,7 +96,7 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: http://cp.cloudflare.com/generate_204
       timeout: 5000
     override:
@@ -108,7 +108,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: http://cp.cloudflare.com/generate_204
       timeout: 5000
     override:
@@ -121,7 +121,7 @@ proxy-providers:
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: http://cp.cloudflare.com/generate_204
       timeout: 5000
     override:
@@ -134,7 +134,7 @@ proxy-providers:
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: http://cp.cloudflare.com/generate_204
       timeout: 5000
     override:
@@ -147,7 +147,7 @@ proxy-providers:
     path: ./proxy-providers/e.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: http://cp.cloudflare.com/generate_204
       timeout: 5000
     override:
@@ -160,7 +160,7 @@ proxy-providers:
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: http://cp.cloudflare.com/generate_204
       timeout: 5000
     override:
@@ -173,7 +173,7 @@ proxy-providers:
     path: ./proxy-providers/g.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: http://cp.cloudflare.com/generate_204
       timeout: 5000
     override:
@@ -186,7 +186,7 @@ proxy-providers:
     path: ./proxy-providers/h.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: http://cp.cloudflare.com/generate_204
       timeout: 5000
     override:
@@ -202,8 +202,8 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: http://cp.cloudflare.com/generate_204
-  interval: 300
-  tolerance: 30
+  interval: 600
+  tolerance: 5
   use:
   - q
   - a
