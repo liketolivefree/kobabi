@@ -95,7 +95,7 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: https://cp.cloudflare.com/generate_204
       timeout: 5000
   a:
@@ -105,7 +105,7 @@ proxy-providers:
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: https://cp.cloudflare.com/generate_204
       timeout: 5000
     exclude-type: "ss|http|trojan"
@@ -116,7 +116,7 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 300
+      interval: 900
       url: https://cp.cloudflare.com/generate_204
       timeout: 5000
     exclude-type: "ss|http|trojan"
@@ -130,7 +130,7 @@ proxy-groups:
 - name: MMOBI
   type: url-test
   url: https://cp.cloudflare.com/generate_204
-  interval: 200
+  interval: 400
   tolerance: 5
   use:
   - q
