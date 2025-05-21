@@ -4,7 +4,7 @@
   },
   "dns": {
     "servers": [
-      {"tag": "dns", "address": "https://8.8.8.8/dns-query"}
+      {"tag": "dns", "address": "tls://8.8.8.8"}
     ],
     "rules": [
       {"outbound": "any", "server": "dns"}
