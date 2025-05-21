@@ -10,7 +10,7 @@
       },
       {
         "tag": "remote-dns",
-        "address": "https://9.9.9.9/dns-query"
+        "address": "tls://9.9.9.9"
       },
       {
         "tag": "local",
