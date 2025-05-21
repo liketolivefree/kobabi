@@ -6,7 +6,7 @@
     "servers": [
       {
         "tag": "dns",
-        "address": "https://8.8.8.8/dns-query"
+        "address": "tls://8.8.8.8"
       }
     ],
     "rules": [
