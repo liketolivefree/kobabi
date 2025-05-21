@@ -38,12 +38,12 @@ dns:
     - 8.8.8.8
   nameserver:
     - https://8.8.8.8/dns-query
-    - https://9.9.9.9/dns-query
+    - tls://9.9.9.9
   proxy-server-nameserver:
-    - https://8.8.8.8/dns-query
+    - tls://8.8.8.8
   fallback:
     - https://8.8.8.8/dns-query
-    - https://9.9.9.9/dns-query
+    - tls://9.9.9.9
   fallback-filter:
     geoip: false
     geoip-code: IR
