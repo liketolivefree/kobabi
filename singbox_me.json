@@ -14,6 +14,10 @@
         "address": "tls://9.9.9.9"
       },
       {
+        "tag": "final-dns",
+        "address": "tls://1.1.1.1"
+      },
+      {
         "tag": "local",
         "address": "local",
         "detour": "direct"
@@ -51,7 +55,7 @@
         "server": "remote-dns"
       }
     ],
-    "final": "remote-dns",
+    "final": "final-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
