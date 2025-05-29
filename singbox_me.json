@@ -11,11 +11,7 @@
       },
       {
         "tag": "remote-dns",
-        "address": "tls://9.9.9.9"
-      },
-      {
-        "tag": "final-dns",
-        "address": "tls://8.8.8.8"
+        "address": "https://8.8.8.8/dns-query"
       },
       {
         "tag": "local",
@@ -54,7 +50,7 @@
         "server": "remote-dns"
       }
     ],
-    "final": "final-dns",
+    "final": "remote-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
@@ -2423,9 +2419,6 @@
     }
   ],
   "route": {
-    "final": "qqoli",
-    "auto_detect_interface": true,
-    "override_android_vpn": true,
     "rules": [
       {
         "inbound": "tun-in",
@@ -2465,13 +2458,6 @@
       },
       {
         "ip_cidr": [
-          "224.0.0.0/3",
-          "10.10.34.0/24"
-        ],
-        "action": "reject"
-      },
-      {
-        "source_ip_cidr": [
           "224.0.0.0/3",
           "10.10.34.0/24"
         ],
@@ -2557,53 +2543,49 @@
       {
         "type": "remote",
         "tag": "wht",
-        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/wht.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "aff_me",
-        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/aff_me.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "yun_me",
-        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/yun_me.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "oki",
-        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/oki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "doki",
-        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/doki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "xal",
-        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/xal.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "loo",
-        "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/loo.srs",
         "download_detour": "direct"
       }
-    ]
+    ],
+    "final": "qqoli",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
   },
   "experimental": {
     "cache_file": {
