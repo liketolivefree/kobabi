@@ -4,7 +4,7 @@
   },
   "dns": {
     "servers": [
-      {"tag": "dns", "address": "tls://8.8.8.8"}
+      {"tag": "dns", "address": "https://8.8.8.8/dns-query"}
     ],
     "rules": [
       {"outbound": "any", "server": "dns"}
@@ -45,7 +45,6 @@
       {"protocol": "quic", "action": "reject"},
       {"protocol": "stun", "action": "reject"},
       {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
-      {"source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject"},
       {"ip_is_private": true, "outbound": "direct"},
