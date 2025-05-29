@@ -5,7 +5,7 @@
   "dns": {
     "servers": [
       {"type": "https", "tag": "direct-dns", "server": "8.8.8.8"},
-      {"type": "tls", "tag": "remote-dns", "server": "9.9.9.9"},
+      {"type": "https", "tag": "remote-dns", "server": "8.8.8.8"},
       {"type": "local", "tag": "local"}
     ],
     "rules": [
@@ -51,7 +51,6 @@
       {"protocol": "quic", "action": "reject"},
       {"protocol": "stun", "action": "reject"},
       {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
-      {"source_ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject"},
       {"rule_set": "aff", "action": "reject"},
