@@ -36,14 +36,22 @@ dns:
     - pool.ntp.org
   default-nameserver:
     - 8.8.8.8
+    - 1.0.0.2
   nameserver:
     - https://8.8.8.8/dns-query
-    - tls://9.9.9.9
+    - https://208.67.222.222/dns-query
+    - https://9.9.9.11/dns-query
+    - https://94.140.14.140/dns-query
   proxy-server-nameserver:
-    - tls://8.8.8.8
+    - https://8.8.8.8/dns-query
+    - https://208.67.222.222/dns-query
+    - https://9.9.9.11/dns-query
+    - https://94.140.14.140/dns-query
   fallback:
     - https://8.8.8.8/dns-query
-    - tls://9.9.9.9
+    - https://208.67.222.222/dns-query
+    - https://9.9.9.11/dns-query
+    - https://94.140.14.140/dns-query
   fallback-filter:
     geoip: false
     geoip-code: IR
@@ -97,7 +105,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
   a:
     type: http
@@ -107,7 +115,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
   b:
@@ -118,7 +126,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
 proxy-groups:
@@ -130,7 +138,7 @@ proxy-groups:
       - q
   - name: MMOBI
     type: url-test
-    url: https://cp.cloudflare.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 400
     tolerance: 5
     use:
