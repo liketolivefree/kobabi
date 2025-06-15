@@ -192,7 +192,24 @@
         "qol_138",
         "qol_139",
         "qol_140",
-        "qol_141"
+        "qol_141",
+        "qol_145",
+        "qol_147",
+        "qol_148",
+        "p_1",
+        "p_1_6",
+        "p_2",
+        "p_2_6",
+        "p_3",
+        "p_3_6",
+        "p_4",
+        "p_4_6",
+        "p_5",
+        "p_5_6",
+        "p_6",
+        "p_6_6",
+        "p_7",
+        "p_7_6"
       ],
       "default": "mmobi"
     },
@@ -339,7 +356,24 @@
         "qol_138",
         "qol_139",
         "qol_140",
-        "qol_141"
+        "qol_141",
+        "qol_145",
+        "qol_147",
+        "qol_148",
+        "p_1",
+        "p_1_6",
+        "p_2",
+        "p_2_6",
+        "p_3",
+        "p_3_6",
+        "p_4",
+        "p_4_6",
+        "p_5",
+        "p_5_6",
+        "p_6",
+        "p_6_6",
+        "p_7",
+        "p_7_6"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "6m0s",
@@ -3261,6 +3295,475 @@
                 "Host": "tms.dingtalk.com"
             }
         }
+    },
+    {
+        "type": "hysteria2",
+        "tag": "qol_145",
+        "server": "sinavm.sinavm.ir",
+        "server_port": 80,
+        "obfs": {
+            "type": "salamander",
+            "password": "Bia-Telegram__SiNAVM-SiNAVM__Telegram__SiNAVM-SiNAVM"
+        },
+        "password": "Bia-SiNAVM-Telegram-SiNAVM-Bia-SiNAVM",
+        "tls": {
+            "enabled": true,
+            "server_name": "sinavm.sinavm.ir"
+        }
+    },
+    {
+        "type": "vless",
+        "tag": "qol_147",
+        "server": "37.202.233.183",
+        "server_port": 443,
+        "uuid": "e6350cf2-ace8-4018-ad6a-dac34304a17e",
+        "flow": "xtls-rprx-vision",
+        "tls": {
+            "enabled": true,
+            "server_name": "khanacademy.org",
+            "utls": {
+                "enabled": true,
+                "fingerprint": "chrome"
+            },
+            "reality": {
+                "enabled": true,
+                "public_key": "3vUR24mjjFpGWH1SXOye4ByKlKzQOEDjCHEH5gSoZFw",
+                "short_id": "0afdc08e9f7d"
+            }
+        }
+    },
+    {
+        "type": "hysteria2",
+        "tag": "qol_148",
+        "server": "sinavm.soft10.ir",
+        "server_port": 443,
+        "obfs": {
+            "type": "salamander",
+            "password": "Bia-Telegram__SiNAVM-SiNAVM__Telegram__SiNAVM-SiNAVM"
+        },
+        "password": "Bia-SiNAVM-Telegram-SiNAVM-Bia-SiNAVM",
+        "tls": {
+            "enabled": true,
+            "server_name": "sinavm.sinavm.ir"
+        }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_1",
+      "domain_strategy": "ipv4_only",
+      "server": "YAPC-1.adamhayward.co.uk",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "Yet-Another-Public-Config-1"
+      },
+      "password": "Yet-Another-Public-Config-1",
+      "tls": {
+        "enabled": true,
+        "server_name": "YAPC-1.afshin.ir",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACAFoxGSyE0q9rP5MpxnApUbq9Oc4a35tfrjQ9wXEKboKwAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_1_6",
+      "domain_strategy": "ipv6_only",
+      "server": "YAPC-1.adamhayward.co.uk",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "Yet-Another-Public-Config-1"
+      },
+      "password": "Yet-Another-Public-Config-1",
+      "tls": {
+        "enabled": true,
+        "server_name": "YAPC-1.afshin.ir",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACAFoxGSyE0q9rP5MpxnApUbq9Oc4a35tfrjQ9wXEKboKwAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_2",
+      "domain_strategy": "ipv4_only",
+      "server": "YAPC-2.adamhayward.co.uk",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "Yet-Another-Public-Config-1"
+      },
+      "password": "Yet-Another-Public-Config-1",
+      "tls": {
+        "enabled": true,
+        "server_name": "YAPC-1.afshin.ir",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACAFoxGSyE0q9rP5MpxnApUbq9Oc4a35tfrjQ9wXEKboKwAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_2_6",
+      "domain_strategy": "ipv6_only",
+      "server": "YAPC-2.adamhayward.co.uk",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "Yet-Another-Public-Config-1"
+      },
+      "password": "Yet-Another-Public-Config-1",
+      "tls": {
+        "enabled": true,
+        "server_name": "YAPC-1.afshin.ir",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACAFoxGSyE0q9rP5MpxnApUbq9Oc4a35tfrjQ9wXEKboKwAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_3",
+      "domain_strategy": "ipv4_only",
+      "server": "gavazn.88981401.xyz",
+      "server_port": 0,
+      "server_ports": "45000:50000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "Telegram--\u003e@Ln2Ray"
+      },
+      "password": "Telegram--\u003e@Ln2Ray",
+      "tls": {
+        "enabled": true,
+        "server_name": "gavazn.55994421.xyz",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCHum87zr0DkKT8MYy8ForJLe0rEB5IOHMY5KlV60TeRQAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_3_6",
+      "domain_strategy": "ipv6_only",
+      "server": "gavazn.88981401.xyz",
+      "server_port": 0,
+      "server_ports": "45000:50000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "Telegram--\u003e@Ln2Ray"
+      },
+      "password": "Telegram--\u003e@Ln2Ray",
+      "tls": {
+        "enabled": true,
+        "server_name": "gavazn.55994421.xyz",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCHum87zr0DkKT8MYy8ForJLe0rEB5IOHMY5KlV60TeRQAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_4",
+      "domain_strategy": "ipv4_only",
+      "server": "JNIR-1.pichondan.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+      },
+      "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi",
+      "tls": {
+        "enabled": true,
+        "server_name": "pichondan.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACBdESPqW7Qg/mDy4xXQg7m3zPFrxI5Ba5zro2ZMqOjQFQAIAAEA",
+            "AQABAAMAFGpuaXItMS5waWNob25kYW4uY29tAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_4_6",
+      "domain_strategy": "ipv6_only",
+      "server": "JNIR-1.pichondan.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+      },
+      "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi",
+      "tls": {
+        "enabled": true,
+        "server_name": "pichondan.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACBdESPqW7Qg/mDy4xXQg7m3zPFrxI5Ba5zro2ZMqOjQFQAIAAEA",
+            "AQABAAMAFGpuaXItMS5waWNob25kYW4uY29tAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_5",
+      "domain_strategy": "ipv4_only",
+      "server": "JNIR-2.pichondan.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+      },
+      "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi",
+      "tls": {
+        "enabled": true,
+        "server_name": "pichondan.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACBdESPqW7Qg/mDy4xXQg7m3zPFrxI5Ba5zro2ZMqOjQFQAIAAEA",
+            "AQABAAMAFGpuaXItMS5waWNob25kYW4uY29tAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_5_6",
+      "domain_strategy": "ipv6_only",
+      "server": "JNIR-2.pichondan.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+      },
+      "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi",
+      "tls": {
+        "enabled": true,
+        "server_name": "pichondan.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACBdESPqW7Qg/mDy4xXQg7m3zPFrxI5Ba5zro2ZMqOjQFQAIAAEA",
+            "AQABAAMAFGpuaXItMS5waWNob25kYW4uY29tAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_6",
+      "domain_strategy": "ipv4_only",
+      "server": "JNIR-3.pichondan.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+      },
+      "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi",
+      "tls": {
+        "enabled": true,
+        "server_name": "pichondan.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACBdESPqW7Qg/mDy4xXQg7m3zPFrxI5Ba5zro2ZMqOjQFQAIAAEA",
+            "AQABAAMAFGpuaXItMS5waWNob25kYW4uY29tAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_6_6",
+      "domain_strategy": "ipv6_only",
+      "server": "JNIR-3.pichondan.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+      },
+      "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi",
+      "tls": {
+        "enabled": true,
+        "server_name": "pichondan.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACBdESPqW7Qg/mDy4xXQg7m3zPFrxI5Ba5zro2ZMqOjQFQAIAAEA",
+            "AQABAAMAFGpuaXItMS5waWNob25kYW4uY29tAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_7",
+      "domain_strategy": "ipv4_only",
+      "server": "JNIR-5.pichondan.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+      },
+      "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi",
+      "tls": {
+        "enabled": true,
+        "server_name": "pichondan.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACBdESPqW7Qg/mDy4xXQg7m3zPFrxI5Ba5zro2ZMqOjQFQAIAAEA",
+            "AQABAAMAFGpuaXItMS5waWNob25kYW4uY29tAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "p_7_6",
+      "domain_strategy": "ipv6_only",
+      "server": "JNIR-5.pichondan.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "3m30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+      },
+      "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi",
+      "tls": {
+        "enabled": true,
+        "server_name": "pichondan.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACBdESPqW7Qg/mDy4xXQg7m3zPFrxI5Ba5zro2ZMqOjQFQAIAAEA",
+            "AQABAAMAFGpuaXItMS5waWNob25kYW4uY29tAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
     }
   ],
   "route": {
