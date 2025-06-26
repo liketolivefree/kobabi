@@ -4,9 +4,9 @@
   },
   "dns": {
     "servers": [
-      {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
-      {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
-      {"tag": "local", "address": "local", "detour": "direct"}
+      {"tag": "direct-dns", "address": "https://146.112.41.2/dns-query"},
+      {"tag": "remote-dns", "address": "https://208.67.220.220/dns-query"},
+      {"tag": "local", "address": "https://208.67.222.222/dns-query", "detour": "direct"}
     ],
     "rules": [
       {"domain_suffix": "jsdelivr.net", "server": "local"},
