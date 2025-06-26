@@ -4,9 +4,9 @@
   },
   "dns": {
     "servers": [
-      {"type": "https", "tag": "direct-dns", "server": "8.8.8.8"},
-      {"type": "https", "tag": "remote-dns", "server": "8.8.8.8"},
-      {"type": "local", "tag": "local"}
+      {"type": "https", "tag": "direct-dns", "server": "146.112.41.2"},
+      {"type": "https", "tag": "remote-dns", "server": "208.67.220.220"},
+      {"type": "https", "tag": "local", "server": "208.67.222.222"}
     ],
     "rules": [
       {"domain_suffix": "jsdelivr.net", "server": "local"},
