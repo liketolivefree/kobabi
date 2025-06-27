@@ -4,10 +4,11 @@
   },
   "dns": {
     "servers": [
-      {"tag": "dns", "address": "https://146.112.41.2/dns-query"}
+      {"tag": "dns", "address": "https://146.112.41.2/dns-query"},
+      {"tag": "local", "address": "local", "detour": "direct"}
     ],
     "rules": [
-      {"outbound": "any", "server": "dns"}
+      {"outbound": "any", "server": "local"}
     ],
     "final": "dns",
     "strategy": "prefer_ipv4"
