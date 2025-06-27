@@ -4,7 +4,7 @@
   },
   "dns": {
     "servers": [
-      {"type": "https", "tag": "direct-dns", "server": "146.112.41.2"},
+      {"type": "https", "tag": "direct-dns", "server": "8.8.8.8"},
       {"type": "https", "tag": "remote-dns", "server": "208.67.220.220"},
       {"type": "local", "tag": "local"}
     ],
