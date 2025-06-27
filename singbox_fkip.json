@@ -15,12 +15,15 @@
         "server": "208.67.220.220"
       },
       {
-        "type": "https",
-        "tag": "local",
-        "server": "208.67.222.222"
-      },
+        "type": "local",
+        "tag": "local"
+      }
     ],
     "rules": [
+      {
+        "outbound": "any",
+        "server": "local"
+      },
       {
         "domain_suffix": "jsdelivr.net",
         "server": "local"
