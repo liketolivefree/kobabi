@@ -7,12 +7,17 @@
       {
         "tag": "dns",
         "address": "https://146.112.41.2/dns-query"
+      },
+      {
+        "tag": "local",
+        "address": "local",
+        "detour": "direct"
       }
     ],
     "rules": [
       {
         "outbound": "any",
-        "server": "dns"
+        "server": "local"
       }
     ],
     "final": "dns",
