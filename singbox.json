@@ -14,11 +14,15 @@
       },
       {
         "tag": "local",
-        "address": "https://208.67.222.222/dns-query",
+        "address": "local",
         "detour": "direct"
       }
     ],
     "rules": [
+      {
+        "outbound": "any",
+        "server": "local"
+      },
       {
         "domain_suffix": "jsdelivr.net",
         "server": "local"
