@@ -7,9 +7,10 @@
     "servers": [
       {"tag": "direct-dns", "address": "https://146.112.41.2/dns-query"},
       {"tag": "remote-dns", "address": "https://208.67.220.220/dns-query"},
-      {"tag": "local", "address": "https://208.67.222.222/dns-query", "detour": "direct"}
+      {"tag": "local", "address": "local", "detour": "direct"}
     ],
     "rules": [
+      {"outbound": "any", "server": "local"},
       {"domain_suffix": "jsdelivr.net", "server": "local"},
       {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
@@ -54,7 +55,7 @@
       {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject"},
-      {"domain_suffix": ["windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
+      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"rule_set": "wht", "outbound": "qqoli"},
       {"rule_set": "aff_me", "action": "reject"},
       {"rule_set": "yun_me", "action": "reject"},
