@@ -12,7 +12,7 @@
       {
         "type": "https",
         "tag": "remote-dns",
-        "server": "208.67.220.220"
+        "server": "208.67.222.222"
       },
       {
         "type": "local",
@@ -41,7 +41,7 @@
         "server": "remote-dns"
       }
     ],
-    "final": "remote-dns",
+    "final": "direct-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
