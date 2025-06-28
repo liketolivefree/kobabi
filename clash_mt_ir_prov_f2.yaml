@@ -36,22 +36,18 @@ dns:
     - pool.ntp.org
   default-nameserver:
     - 8.8.8.8
-    - 1.0.0.2
   nameserver:
     - https://8.8.8.8/dns-query
     - https://208.67.222.222/dns-query
-    - https://9.9.9.11/dns-query
-    - https://94.140.14.140/dns-query
+    - https://9.9.9.10/dns-query
   proxy-server-nameserver:
     - https://8.8.8.8/dns-query
     - https://208.67.222.222/dns-query
-    - https://9.9.9.11/dns-query
-    - https://94.140.14.140/dns-query
+    - https://9.9.9.10/dns-query
   fallback:
     - https://8.8.8.8/dns-query
     - https://208.67.222.222/dns-query
-    - https://9.9.9.11/dns-query
-    - https://94.140.14.140/dns-query
+    - https://9.9.9.10/dns-query
   fallback-filter:
     geoip: false
     geoip-code: IR
@@ -105,7 +101,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
 proxy-groups:
   - name: QQOLI
@@ -116,7 +112,7 @@ proxy-groups:
       - q
   - name: MMOBI
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 900
     tolerance: 500
     use:
