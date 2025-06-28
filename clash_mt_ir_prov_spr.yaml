@@ -39,18 +39,15 @@ dns:
   nameserver:
     - https://8.8.8.8/dns-query
     - https://208.67.222.222/dns-query
-    - https://9.9.9.11/dns-query
-    - https://94.140.14.140/dns-query
+    - https://9.9.9.10/dns-query
   proxy-server-nameserver:
     - https://8.8.8.8/dns-query
     - https://208.67.222.222/dns-query
-    - https://9.9.9.11/dns-query
-    - https://94.140.14.140/dns-query
+    - https://9.9.9.10/dns-query
   fallback:
     - https://8.8.8.8/dns-query
     - https://208.67.222.222/dns-query
-    - https://9.9.9.11/dns-query
-    - https://94.140.14.140/dns-query
+    - https://9.9.9.10/dns-query
   fallback-filter:
     geoip: false
     geoip-code: IR
@@ -104,7 +101,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
   a:
     type: http
@@ -114,7 +111,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
   b:
@@ -125,7 +122,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
   c:
@@ -136,7 +133,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
   d:
@@ -147,7 +144,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
   e:
@@ -158,7 +155,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
   f:
@@ -169,7 +166,29 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: https://www.gstatic.com/generate_204
+      url: http://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+  g:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    interval: 3600
+    path: ./proxy-providers/g.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: http://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+  h:
+    type: http
+    url: https://raw.githubusercontent.com/miladtahanian/V2RayAggregator/main/sub/sub_merge_yaml.yml
+    interval: 3600
+    path: ./proxy-providers/h.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
 proxy-groups:
@@ -181,7 +200,7 @@ proxy-groups:
       - q
   - name: MMOBI
     type: url-test
-    url: https://www.gstatic.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: 400
     tolerance: 5
     use:
@@ -192,6 +211,8 @@ proxy-groups:
       - d
       - e
       - f
+      - g
+      - h
 rule-providers:
   aff_l:
     type: http
