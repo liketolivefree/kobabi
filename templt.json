@@ -5,8 +5,7 @@
   "dns": {
     "servers": [
       {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
-      {"tag": "remote-dns", "address": "https://146.112.41.2/dns-query"},
-      {"tag": "final-dns", "address": "https://8.8.4.4/dns-query"},
+      {"tag": "remote-dns", "address": "https://8.8.4.4/dns-query"},
       {"tag": "local-dns", "address": "local", "detour": "direct"}
     ],
     "rules": [
@@ -16,7 +15,7 @@
       {"rule_set": "xal", "server": "direct-dns"},
       {"rule_set": "oki", "server": "remote-dns"}
     ],
-    "final": "final-dns",
+    "final": "direct-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
