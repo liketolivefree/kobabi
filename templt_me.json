@@ -7,17 +7,17 @@
     "servers": [
       {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
       {"tag": "remote-dns", "address": "https://208.67.222.222/dns-query"},
-      {"tag": "local", "address": "local", "detour": "direct"}
+      {"tag": "final-dns", "address": "https://146.112.41.2/dns-query"},
+      {"tag": "local-dns", "address": "local", "detour": "direct"}
     ],
     "rules": [
-      {"outbound": "any", "server": "local"},
-      {"domain_suffix": "jsdelivr.net", "server": "local"},
-      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
+      {"outbound": "any", "server": "final-dns"},
+      {"domain_suffix": "jsdelivr.net", "server": "local-dns"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
       {"rule_set": "xal", "server": "direct-dns"},
       {"rule_set": "oki", "server": "remote-dns"}
     ],
-    "final": "direct-dns",
+    "final": "final-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
