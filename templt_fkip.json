@@ -7,7 +7,7 @@
       {"type": "https", "tag": "direct-dns", "server": "8.8.8.8"},
       {"type": "https", "tag": "remote-dns", "server": "208.67.222.222"},
       {"type": "https", "tag": "final-dns", "server": "146.112.41.2"},
-      {"type": "local-dns", "tag": "local"}
+      {"type": "local", "tag": "local-dns"}
     ],
     "rules": [
       {"outbound": "any", "server": "final-dns"},
