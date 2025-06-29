@@ -5,12 +5,12 @@
   "dns": {
     "servers": [
       {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
-      {"tag": "remote-dns", "address": "https://208.67.222.222/dns-query"},
-      {"tag": "final-dns", "address": "https://146.112.41.2/dns-query"},
+      {"tag": "remote-dns", "address": "https://146.112.41.2/dns-query"},
+      {"tag": "final-dns", "address": "https://8.8.4.4/dns-query"},
       {"tag": "local-dns", "address": "local", "detour": "direct"}
     ],
     "rules": [
-      {"outbound": "any", "server": "final-dns"},
+      {"outbound": "any", "server": "local-dns"},
       {"domain_suffix": "jsdelivr.net", "server": "local-dns"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
       {"rule_set": "xal", "server": "direct-dns"},
