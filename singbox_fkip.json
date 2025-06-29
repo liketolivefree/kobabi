@@ -12,21 +12,21 @@
       {
         "type": "https",
         "tag": "remote-dns",
-        "server": "208.67.222.222"
+        "server": "8.8.4.4"
       },
       {
         "type": "local",
-        "tag": "local"
+        "tag": "local-dns"
       }
     ],
     "rules": [
       {
         "outbound": "any",
-        "server": "local"
+        "server": "local-dns"
       },
       {
         "domain_suffix": "jsdelivr.net",
-        "server": "local"
+        "server": "local-dns"
       },
       {
         "domain_suffix": ".ir",
@@ -146,7 +146,19 @@
         "qoli_69",
         "qoli_70",
         "qoli_71",
-        "qoli_72"
+        "qoli_72",
+        "qoli_73",
+        "qoli_74",
+        "qoli_75",
+        "qoli_76",
+        "qoli_77",
+        "qoli_78",
+        "qoli_79",
+        "qoli_80",
+        "qoli_81",
+        "qoli_82",
+        "qoli_83",
+        "qoli_84"
       ],
       "default": "mmobi"
     },
@@ -225,7 +237,19 @@
         "qoli_69",
         "qoli_70",
         "qoli_71",
-        "qoli_72"
+        "qoli_72",
+        "qoli_73",
+        "qoli_74",
+        "qoli_75",
+        "qoli_76",
+        "qoli_77",
+        "qoli_78",
+        "qoli_79",
+        "qoli_80",
+        "qoli_81",
+        "qoli_82",
+        "qoli_83",
+        "qoli_84"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "6m0s",
@@ -238,18 +262,18 @@
     {
       "type": "vless",
       "tag": "qoli_01",
-      "server": "104.18.224.5",
-      "server_port": 443,
-      "uuid": "329d8863-42ce-4015-b9b9-8417499cc174",
+      "server": "104.16.161.143",
+      "server_port": 2096,
+      "uuid": "f690c2da-bdc3-4538-999e-d2bb8a541188",
       "tls": {
         "enabled": true,
-        "server_name": "m1.freesdns.info."
+        "server_name": "baomei.pages.dev"
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/?ed",
         "headers": {
-          "Host": "m1.freesdns.info."
+          "Host": "baomei.pages.dev"
         }
       },
       "packet_encoding": "xudp"
@@ -257,94 +281,18 @@
     {
       "type": "vless",
       "tag": "qoli_02",
-      "server": "104.18.26.90",
+      "server": "104.18.13.122",
       "server_port": 443,
-      "uuid": "3824fba1-352a-44f6-89c3-66bacce658eb",
+      "uuid": "f78ce1bb-0fa6-4ef4-b4c9-b91014a7055d",
       "tls": {
         "enabled": true,
-        "server_name": "s4.main-2.workers.dev"
+        "server_name": "delam.ahaysiahzangi.dpdns.org"
       },
       "transport": {
         "type": "ws",
-        "path": "/kBoXBiT5qlTK5H01?ed",
+        "path": "/",
         "headers": {
-          "Host": "s4.main-2.workers.dev"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_03",
-      "server": "104.18.26.90",
-      "server_port": 443,
-      "uuid": "3824fba1-352a-44f6-89c3-66bacce658eb",
-      "tls": {
-        "enabled": true,
-        "server_name": "S4.MaiN-2.WORkErS.Dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/kBoXBiT5qlTK5H01?ed",
-        "headers": {
-          "Host": "S4.MaiN-2.WORkErS.Dev"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_04",
-      "server": "104.18.26.90",
-      "server_port": 443,
-      "uuid": "42795c1c-acab-46f5-8c10-a86de801411b",
-      "tls": {
-        "enabled": true,
-        "server_name": "s3.mAIN-2.WorKeRs.Dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/iTCBmrOFrKpdwUWZ?ed",
-        "headers": {
-          "Host": "s3.mAIN-2.WorKeRs.Dev"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_05",
-      "server": "104.18.26.90",
-      "server_port": 443,
-      "uuid": "42795c1c-acab-46f5-8c10-a86de801411b",
-      "tls": {
-        "enabled": true,
-        "server_name": "s3.mAIN-2.WorKeRs.Dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/iTCBmrOFrKpdwUWZ?ed",
-        "headers": {
-          "Host": "s3.mAIN-2.WorKeRs.Dev"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_06",
-      "server": "104.18.26.90",
-      "server_port": 443,
-      "uuid": "42795c1c-acab-46f5-8c10-a86de801411b",
-      "tls": {
-        "enabled": true,
-        "server_name": "S3.MAin-2.wORKErS.deV"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/WPIXJbcKyAx6uhMj",
-        "headers": {
-          "Host": "S3.MAin-2.wORKErS.deV"
+          "Host": "delam.ahaysiahzangi.dpdns.org"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -353,86 +301,91 @@
     },
     {
       "type": "vless",
-      "tag": "qoli_07",
-      "server": "104.18.26.90",
+      "tag": "qoli_03",
+      "server": "104.21.24.0",
       "server_port": 443,
-      "uuid": "42795c1c-acab-46f5-8c10-a86de801411b",
+      "uuid": "260cc7e4-1e11-44e8-81fd-b162fbb1c83e",
       "tls": {
         "enabled": true,
-        "server_name": "s3.mAIN-2.WorKeRs.Dev"
+        "server_name": "lgoin.persianmizban.com"
       },
-      "transport": {
-        "type": "ws",
-        "path": "/iTCBmrOFrKpdwUWZ?ed",
-        "headers": {
-          "Host": "s3.mAIN-2.WorKeRs.Dev"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_08",
-      "server": "104.18.26.90",
-      "server_port": 443,
-      "uuid": "42795c1c-acab-46f5-8c10-a86de801411b",
-      "tls": {
-        "enabled": true,
-        "server_name": "s3.mAIN-2.WorKeRs.Dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/iTCBmrOFrKpdwUWZ?ed",
-        "headers": {
-          "Host": "s3.mAIN-2.WorKeRs.Dev"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_09",
-      "server": "104.18.26.90",
-      "server_port": 443,
-      "uuid": "3824fba1-352a-44f6-89c3-66bacce658eb",
-      "tls": {
-        "enabled": true,
-        "server_name": "S4.MaiN-2.WORkErS.Dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/kBoXBiT5qlTK5H01?ed",
-        "headers": {
-          "Host": "S4.MaiN-2.WORkErS.Dev"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vmess",
-      "tag": "qoli_10",
-      "server": "104.26.13.9",
-      "server_port": 80,
-      "uuid": "e95e35ba-f874-4eb3-9600-4dbd6d099f4e",
-      "security": "auto",
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "h4.grAsSoRy.shop"
+          "Host": "lgoin.persianmizban.com"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
-      "tag": "qoli_11",
+      "tag": "qoli_04",
+      "server": "104.21.3.219",
+      "server_port": 8443,
+      "uuid": "57ba2ab1-a283-42eb-82ee-dc3561a805b8",
+      "tls": {
+        "enabled": true,
+        "server_name": "ovhwuxian.pai50288.uk",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/57ba2ab1",
+        "headers": {
+          "Host": "ovhwuxian.pai50288.uk"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_05",
+      "server": "104.25.81.220",
+      "server_port": 443,
+      "uuid": "4e4768df-0fbb-4cc1-8fd3-7c6fea95742a",
+      "tls": {
+        "enabled": true,
+        "server_name": "rayan-08.parastoo.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@Rayan_Config",
+        "headers": {
+          "Host": "rayan-08.parastoo.dpdns.org"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_06",
+      "server": "104.26.9.63",
+      "server_port": 2083,
+      "uuid": "1ccc1dd8-d8ed-4b69-b0c2-27f6282f9755",
+      "tls": {
+        "enabled": true,
+        "server_name": "test.bujidao.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "test.bujidao.org"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_07",
       "server": "138.124.15.83",
       "server_port": 443,
       "uuid": "d7fe8020-c70e-5c5c-9869-e591b36ab7eb",
       "tls": {
         "enabled": true,
-        "server_name": "138.124.15.83"
+        "server_name": "138.124.15.83",
+        "insecure": true
       },
       "transport": {
         "type": "ws",
@@ -444,14 +397,27 @@
       "packet_encoding": "xudp"
     },
     {
+      "type": "vmess",
+      "tag": "qoli_08",
+      "server": "15.204.249.0",
+      "server_port": 48160,
+      "uuid": "5b113c12-4dd4-4bb5-9c01-cff092b559e3",
+      "security": "auto",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "http"
+      }
+    },
+    {
       "type": "vless",
-      "tag": "qoli_12",
+      "tag": "qoli_09",
       "server": "157.173.127.227",
       "server_port": 443,
       "uuid": "7bda027c-cbc8-488f-864f-cfb415cd8d77",
       "tls": {
         "enabled": true,
         "server_name": "analytics.google.com",
+        "insecure": true,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -466,7 +432,7 @@
     },
     {
       "type": "vless",
-      "tag": "qoli_13",
+      "tag": "qoli_10",
       "server": "157.173.127.233",
       "server_port": 443,
       "uuid": "17a6e953-8fac-428c-b86c-8585722b0b52",
@@ -487,20 +453,84 @@
     },
     {
       "type": "vless",
-      "tag": "qoli_14",
-      "server": "161.35.82.3",
-      "server_port": 7022,
-      "uuid": "651de6cb-df22-45cd-8842-438fdbef87fb",
+      "tag": "qoli_11",
+      "server": "162.159.129.67",
+      "server_port": 8443,
+      "uuid": "d6b8011a-c725-435a-9fec-bf6d3530392c",
       "tls": {
         "enabled": true,
-        "server_name": "refersion.com",
+        "server_name": "vle.amclubsdns.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "vle.amclubsdns.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_12",
+      "server": "twilight-dust-88e8.ptarasuk2025.workers.dev",
+      "server_port": 443,
+      "uuid": "d2b5db28-cab2-4066-b77b-cbb38d8a6325",
+      "tls": {
+        "enabled": true,
+        "server_name": "twilight-dust-88e8.ptarasuk2025.workers.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/81.31.245.170-8443",
+        "headers": {
+          "Host": "twilight-dust-88e8.ptarasuk2025.workers.dev"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_13",
+      "server": "94.156.116.5",
+      "server_port": 443,
+      "uuid": "7f97131b-0d9d-4be9-b7b4-3fa21403cffa",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "yahoo.com",
+        "insecure": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "vj5pvcr-2G1kK7hKp937WrwAPtVg4p94HpqeCAuauD4"
+          "public_key": "b2wRFAmT2Mm6a_EXPfWBu4BYw-wNGlXHWoO3lPqGoXw",
+          "short_id": "86"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_14",
+      "server": "mar13t.rasmar1400.com",
+      "server_port": 2080,
+      "uuid": "bea34b73-3244-475b-b914-7bb80e1cda91",
+      "tls": {
+        "enabled": true,
+        "server_name": "dash.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L3lJWdU7mHijSkNaNt-m29OYnKnHvHYRxg2Y8XXFdng",
+          "short_id": "bf517367267685"
         }
       },
       "packet_encoding": "xudp"
@@ -551,95 +581,71 @@
     {
       "type": "vless",
       "tag": "qoli_17",
-      "server": "172.67.171.131",
-      "server_port": 2087,
-      "uuid": "376734bc-4db8-4317-b451-af0262cb01c7",
+      "server": "37.27.220.157",
+      "server_port": 443,
+      "uuid": "378df8e8-add6-4416-9eba-e30042fc19c8",
       "tls": {
         "enabled": true,
-        "server_name": "invINCIBLE.FAfa20.SHOp"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/FnxOCItzWpgMrgmD/NzguNDYuNTYuNDI=",
-        "headers": {
-          "Host": "invINCIBLE.FAfa20.SHOp"
+        "server_name": "www.speedtest.net",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
         },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
+        "reality": {
+          "enabled": true,
+          "public_key": "98o3NKmGSULn2eRsvgrWQk9blOwPAQ4Lt4YWu_R-GBk",
+          "short_id": "cbfe"
+        }
       },
       "packet_encoding": "xudp"
     },
     {
       "type": "vless",
       "tag": "qoli_18",
-      "server": "172.67.171.131",
-      "server_port": 2096,
-      "uuid": "376734bc-4db8-4317-b451-af0262cb01c7",
+      "server": "65.109.145.54",
+      "server_port": 443,
+      "uuid": "8f82acbe-f328-471a-8000-fbea349e6ce0",
       "tls": {
         "enabled": true,
-        "server_name": "InVINciBLE.FaFa20.ShOP"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/mckhnxk6ubbqe5om/mzquodgunjmumtyw",
-        "headers": {
-          "Host": "InVINciBLE.FaFa20.ShOP"
-        }
+        "server_name": "dedic.app-browser.org",
+        "insecure": true
       },
       "packet_encoding": "xudp"
     },
     {
       "type": "vless",
       "tag": "qoli_19",
-      "server": "172.67.171.131",
-      "server_port": 2053,
-      "uuid": "376734bc-4db8-4317-b451-af0262cb01c7",
+      "server": "65.108.148.239",
+      "server_port": 2096,
+      "uuid": "af68ac75-7c83-4f78-bf02-555993b4f66f",
       "tls": {
         "enabled": true,
-        "server_name": "inVINCIble.fAFA20.Shop"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/yRVRnY2jDtjg67UV/c2hpcmVuLnlhZW1pa28uZ2dmZi5uZXQ=",
-        "headers": {
-          "Host": "inVINCIble.fAFA20.Shop"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
+        "server_name": "free.best-antiaging-reviews.com",
+        "insecure": true
       },
       "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_20",
-      "server": "185.201.49.68",
-      "server_port": 48086,
-      "uuid": "ffece2a9-0296-46a9-8db8-742d29d240ff",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/static/css/jquery/JFxPamJMNCYmZVxzIktGYC5rQT0uWS92XCs7Kl1jZikxTThQRColFntsJDJ4EzQoMjEFGFgVb1s0bBtOE1F2ZQoW",
-        "headers": {
-          "Host": "fanap-infra.com"
-        }
-      }
+      "server": "95.217.206.161",
+      "server_port": 443,
+      "uuid": "01d68a9b-be48-4c7b-b4f9-71b29c4cfaca",
+      "tls": {
+        "enabled": true,
+        "server_name": "api.chandplus.com",
+        "insecure": true
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_21",
-      "server": "185.201.49.68",
-      "server_port": 48086,
-      "uuid": "ffece2a9-0296-46a9-8db8-742d29d240ff",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/static/css/jquery/JFxPamJMNCYmZVxzIktGYC5rQT0uWS92XCs7Kl1jZikxTThQRColFntsJDJ4EzQoMjEFGFgVb1s0bBtOE1F2ZQoW",
-        "headers": {
-          "Host": "fanap-infra.com"
-        }
-      }
+      "server": "speedserver.panelsultraserver.com",
+      "server_port": 32990,
+      "uuid": "a804bb53-7504-4f06-96d8-ff56fb71539d",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -665,71 +671,42 @@
     {
       "type": "vless",
       "tag": "qoli_23",
-      "server": "194.147.34.72",
-      "server_port": 443,
-      "uuid": "37b8e7c0-5009-5836-bcb2-bfbda27a43cc",
-      "tls": {
-        "enabled": true,
-        "server_name": "194.147.34.72"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vless",
-        "headers": {
-          "Host": "194.147.34.72"
-        }
-      },
+      "server": "test.yoyohihi.com",
+      "server_port": 57107,
+      "uuid": "600eae54-5014-40a2-99f3-215ff340c26d",
       "packet_encoding": "xudp"
     },
     {
       "type": "vless",
       "tag": "qoli_24",
-      "server": "212.183.88.91",
-      "server_port": 443,
-      "uuid": "b0e6a2c9-e667-4e42-9cb3-77d7db3e736b",
-      "tls": {
-        "enabled": true,
-        "server_name": "bypass-filter.vikzrcqt.workers.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "@bypass_filter/",
-        "headers": {
-          "Host": "bypass-filter.vikzrcqt.workers.dev"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_25",
-      "server": "212.183.88.91",
-      "server_port": 443,
-      "uuid": "b0e6a2c9-e667-4e42-9cb3-77d7db3e736b",
-      "tls": {
-        "enabled": true,
-        "server_name": "bypass-filter.vikzrcqt.workers.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "@bypass_filter/",
-        "headers": {
-          "Host": "bypass-filter.vikzrcqt.workers.dev"
-        }
-      },
+      "server": "85.133.194.83",
+      "server_port": 3333,
+      "uuid": "7d283c1a-3a5b-4b2a-a924-0bd256e89726",
       "packet_encoding": "xudp"
     },
     {
       "type": "vmess",
-      "tag": "qoli_26",
-      "server": "212.86.94.190",
-      "server_port": 8081,
-      "uuid": "a265aa15-9474-4fb7-beed-e795126f56f4",
+      "tag": "qoli_25",
+      "server": "185.201.49.68",
+      "server_port": 48086,
+      "uuid": "ffece2a9-0296-46a9-8db8-742d29d240ff",
       "security": "auto",
       "packet_encoding": "xudp",
       "transport": {
-        "type": "http"
+        "type": "ws",
+        "path": "/static/css/jquery/JFxPamJMNCYmZVxzIktGYC5rQT0uWS92XCs7Kl1jZikxTThQRColFntsJDJ4EzQoMjEFGFgVb1s0bBtOE1F2ZQoW",
+        "headers": {
+          "Host": "fanap-infra.com"
+        }
       }
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_26",
+      "server": "85.9.123.170",
+      "server_port": 2086,
+      "uuid": "7acf3d74-052a-416c-a0ff-eaeaa642847c",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -755,167 +732,249 @@
     {
       "type": "vless",
       "tag": "qoli_28",
-      "server": "5.181.171.10",
+      "server": "ashton.ns.cloudflare.com",
       "server_port": 443,
-      "uuid": "49ed01ad-3bb4-204f-b0ff-a58f658fd618",
-      "flow": "xtls-rprx-vision",
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
       "tls": {
         "enabled": true,
-        "server_name": "speed.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
+        "server_name": "tx.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tx.vs2024.dpdns.org"
         },
-        "reality": {
-          "enabled": true,
-          "public_key": "YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y"
-        }
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
     },
     {
       "type": "vless",
       "tag": "qoli_29",
-      "server": "65.108.1.249",
+      "server": "comicabc.com",
       "server_port": 443,
-      "uuid": "14e4cf26-44e1-4888-ba87-e5e6ba3a6b0f",
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
       "tls": {
         "enabled": true,
-        "server_name": "cdn.chandplus.com"
+        "server_name": "tx.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tx.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
     },
     {
       "type": "vless",
       "tag": "qoli_30",
-      "server": "65.108.231.185",
-      "server_port": 443,
-      "uuid": "440766d1-858f-4719-84f5-c2de6f6227ba",
-      "tls": {
-        "enabled": true,
-        "server_name": "local.rogsoftwaregroup.com"
-      },
+      "server": "84.47.233.110",
+      "server_port": 59761,
+      "uuid": "ae9539b5-70dd-41b5-9666-11a29559a840",
       "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_31",
-      "server": "85.198.23.63",
-      "server_port": 52262,
-      "uuid": "af5a0d0c-c898-4a51-ba6a-47179d483e41",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "81.12.30.51",
+      "server_port": 58045,
+      "uuid": "9deda4f9-a9b9-4614-b840-ece9998ec6db",
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": ""
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
       "tag": "qoli_32",
-      "server": "95.217.206.161",
-      "server_port": 443,
-      "uuid": "01d68a9b-be48-4c7b-b4f9-71b29c4cfaca",
-      "tls": {
-        "enabled": true,
-        "server_name": "api.chandplus.com"
+      "server": "185.208.77.113",
+      "server_port": 14040,
+      "uuid": "a2691bdd-7989-4e7e-9c44-302e360c021f",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": ""
+        }
       },
       "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_33",
-      "server": "99.199.73.53",
-      "server_port": 33480,
-      "uuid": "62f2d17e-a607-4f8f-d25d-92a0958ca1a9",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http"
-      }
+      "server": "62.60.233.250",
+      "server_port": 443,
+      "uuid": "fd0cdd44-2361-11f0-9970-45e1d80c4039",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "images.apple.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "MFsbnsNQsSpZwP-_Ohzako6aHpfK4-rbssxhr3eywWw",
+          "short_id": "4476a3"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_34",
-      "server": "99.199.73.53",
-      "server_port": 33230,
-      "uuid": "780ab182-b50d-462d-c027-38d9d69c1721",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http"
-      }
+      "server": "172.245.232.117",
+      "server_port": 443,
+      "uuid": "02d3ce27-70f5-4d26-ae35-6e5840d5c1a0",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "dl8h7j1NKxBL_p2leIy9SWKznB0VG5h8ftsb0hlLICk",
+          "short_id": "2404"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_35",
-      "server": "99.199.73.53",
-      "server_port": 37333,
-      "uuid": "8e32b5ce-ff24-405a-9932-48df5a59183d",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "ovhwuxian.pai50288.uk",
+      "server_port": 8443,
+      "uuid": "57ba2ab1-a283-42eb-82ee-dc3561a805b8",
+      "tls": {
+        "enabled": true,
+        "server_name": "ovhwuxian.pai50288.uk"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/57ba2ab1",
+        "headers": {
+          "Host": "ovhwuxian.pai50288.uk"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_36",
-      "server": "99.199.73.53",
-      "server_port": 37333,
-      "uuid": "929bd06b-6a0e-445a-9da1-710ae222dad0",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http"
-      }
+      "server": "kz.accesspoints.cloakify.app",
+      "server_port": 38339,
+      "uuid": "481c5606-b586-44d7-bc2e-d8ef30d67f62",
+      "tls": {
+        "enabled": true,
+        "server_name": "dl.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "o0MFuznHh_Wztg0FTAMhFXm3hjAqOJAJIIVNn-_A9WA",
+          "short_id": "e16883e511"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_37",
-      "server": "99.199.73.53",
-      "server_port": 33641,
-      "uuid": "f27a25c2-d4e4-4d0a-b75b-22e58c7784a8",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "whatismyipaddress.com",
+      "server_port": 2096,
+      "uuid": "7585f059-2c89-4a02-9dff-394bb7913ef5",
+      "tls": {
+        "enabled": true,
+        "server_name": "wwwspeedtestnetwhiteberinsistomd6625996s09.gatesriver.ir"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wwwspeedtestnetwhiteberinsistomd6625996s09.gatesriver.ir"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_38",
-      "server": "99.199.73.53",
-      "server_port": 33641,
-      "uuid": "1aa40adf-b4b0-41b8-bd98-fafaadf423eb",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "213.176.65.187",
+      "server_port": 443,
+      "uuid": "329d8863-42ce-4015-b9b9-8417499cc174",
+      "tls": {
+        "enabled": true,
+        "server_name": "m1.freesdns.info."
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "m1.freesdns.info."
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_39",
-      "server": "99.199.83.48",
-      "server_port": 33678,
-      "uuid": "df3a0454-0a2c-4cae-ba0f-c56426cb0870",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "91.99.140.98",
+      "server_port": 2090,
+      "uuid": "52ddd2b7-d2da-4169-b11d-b51679c01eb0",
+      "tls": {
+        "enabled": true,
+        "server_name": "refersion.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "OTv4I7eaaqHgYAlL5EIrDlotApPujvk9OoJU58FRGz4",
+          "short_id": "e17185329455b179"
+        }
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "grpc",
+        "service_name": "mgrpcm"
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_40",
-      "server": "99.199.83.48",
-      "server_port": 33678,
-      "uuid": "fd83d63c-e97e-4a94-87db-27107dcbe293",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "190.93.244.103",
+      "server_port": 443,
+      "uuid": "d4661d12-d6f7-4ff2-bd1e-fc9cdc2c9cc1",
+      "tls": {
+        "enabled": true,
+        "server_name": "mylearn-8zx.pages.dev"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "mylearn-8zx.pages.dev"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -939,69 +998,88 @@
     {
       "type": "vless",
       "tag": "qoli_42",
-      "server": "dnschecker.org",
-      "server_port": 443,
-      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "server": "node.vauth.workers.dev",
+      "server_port": 8443,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "tls": {
         "enabled": true,
-        "server_name": "tx.vs2024.dpdns.org"
+        "server_name": "node.vauth.workers.dev"
       },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "tx.vs2024.dpdns.org"
+          "Host": "node.vauth.workers.dev"
         },
-        "max_early_data": 2560,
+        "max_early_data": 2048,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_43",
-      "server": "ee1.daallygold.com",
-      "server_port": 52262,
-      "uuid": "af5a0d0c-c898-4a51-ba6a-47179d483e41",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "node.vauth.workers.dev",
+      "server_port": 2096,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "tls": {
+        "enabled": true,
+        "server_name": "node.vauth.workers.dev"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "node.vauth.workers.dev"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
       "tag": "qoli_44",
-      "server": "fi.cosmonet.online",
+      "server": "172.67.142.142",
       "server_port": 443,
-      "uuid": "7f97131b-0d9d-4be9-b7b4-3fa21403cffa",
+      "uuid": "c8e6e9d4-4339-4ee2-830b-8ece0f78f46b",
+      "tls": {
+        "enabled": true,
+        "server_name": "selincselincselincselincselincselincselincselinc.selincselinc.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "selincselincselincselincselincselincselincselinc.selincselinc.workers.dev"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_45",
+      "server": "62.60.233.250",
+      "server_port": 443,
+      "uuid": "809c908f-2219-11f0-9970-45e1d80c4039",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "yahoo.com",
+        "server_name": "images.apple.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "b2wRFAmT2Mm6a_EXPfWBu4BYw-wNGlXHWoO3lPqGoXw",
-          "short_id": "86"
+          "public_key": "MFsbnsNQsSpZwP-_Ohzako6aHpfK4-rbssxhr3eywWw",
+          "short_id": "4476a3"
         }
       },
       "packet_encoding": "xudp"
-    },
-    {
-      "type": "vmess",
-      "tag": "qoli_45",
-      "server": "game.shokolatroshd.xyz",
-      "server_port": 58819,
-      "uuid": "b0bf81e1-0b18-4253-a278-d516f580240a",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http"
-      }
     },
     {
       "type": "vmess",
@@ -1025,223 +1103,303 @@
       }
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_47",
-      "server": "hk-cn-01.yumeifang.cn",
-      "server_port": 1081,
-      "uuid": "df9b788f-929a-4349-970a-8cbbe12d6ae8",
-      "security": "auto",
-      "tls": {
-        "enabled": true,
-        "server_name": "wamxoa.com",
-        "insecure": true
-      },
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/asdd",
-        "headers": {
-          "Host": "wamxoa.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_48",
-      "server": "ir9.boilersforpellets.com",
+      "server": "us.cosmonet.online",
       "server_port": 443,
-      "uuid": "2f11e0ef-7e0d-45d1-8785-53d55daf193e",
+      "uuid": "7f97131b-0d9d-4be9-b7b4-3fa21403cffa",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "ir9.boilersforpellets.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "ir9.boilersforpellets.com"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vmess",
-      "tag": "qoli_49",
-      "server": "m.ge3.dailydoseofmeme.uno",
-      "server_port": 17564,
-      "uuid": "aa7dd96b0a7d81db2e71553abe192620",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "qoli_50",
-      "server": "mz.mobile7seven.ir",
-      "server_port": 8443,
-      "uuid": "3055df14-c714-4a00-a86b-b15c4c099ea5",
-      "tls": {
-        "enabled": true,
-        "server_name": "lovelive-anime.jp",
+        "server_name": "yahoo.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "Z84J2IelR9ch3k8VtlVhhs5ycBUlXA7wHBWcBrjqnAw",
-          "short_id": "6ba85179e30d4fc2"
+          "public_key": "hw3MbOnPen0fjaAWytYHFCEQIGMcPGf7leBLcFK_E2U",
+          "short_id": "4fb4"
         }
       },
-      "transport": {
-        "type": "grpc",
-        "service_name": "lovelive"
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_48",
+      "server": "fr.cosmonet.online",
+      "server_port": 443,
+      "uuid": "7f97131b-0d9d-4be9-b7b4-3fa21403cffa",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "yahoo.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "XThpnyytziagvWMwmxGuSQ0nqfUw2sosq49F2fUEzmk",
+          "short_id": "0ca18da2c8f9"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_49",
+      "server": "2.56.126.76",
+      "server_port": 443,
+      "uuid": "7f97131b-0d9d-4be9-b7b4-3fa21403cffa",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "yahoo.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "XThpnyytziagvWMwmxGuSQ0nqfUw2sosq49F2fUEzmk",
+          "short_id": "0ca18da2c8f9"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_50",
+      "server": "fi.cosmonet.online",
+      "server_port": 443,
+      "uuid": "7f97131b-0d9d-4be9-b7b4-3fa21403cffa",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "yahoo.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "b2wRFAmT2Mm6a_EXPfWBu4BYw-wNGlXHWoO3lPqGoXw",
+          "short_id": "86"
+        }
       },
       "packet_encoding": "xudp"
     },
     {
       "type": "vless",
       "tag": "qoli_51",
-      "server": "positive.pingless.eu",
-      "server_port": 44418,
-      "uuid": "333e48cc-9bc6-4d02-ad7f-10fbccba7d35",
-      "flow": "xtls-rprx-vision",
+      "server": "whatismyipaddress.com",
+      "server_port": 2096,
+      "uuid": "7585f059-2c89-4a02-9dff-394bb7913ef5",
       "tls": {
         "enabled": true,
-        "server_name": "www.speedtest.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "dTAN0pLL3IRlV2s6kPYB5d5e0MQH6MB6SdM8yg871Qw",
-          "short_id": "ffdb3abc"
+        "server_name": "wwwspeedtestnetwhiteberinsistomd6625996s07.gatesriver.ir"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wwwspeedtestnetwhiteberinsistomd6625996s07.gatesriver.ir"
         }
       },
       "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_52",
-      "server": "prod02-lb02-cloud01.cyberscaler.com",
-      "server_port": 33678,
-      "uuid": "0be9f568-4ef5-4288-8818-2034593ad6bd",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "whatismyipaddress.com",
+      "server_port": 2096,
+      "uuid": "7585f059-2c89-4a02-9dff-394bb7913ef5",
+      "tls": {
+        "enabled": true,
+        "server_name": "wwwspeedtestnetwhiteberinsistomd6625996s07.gatesriver.ir"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wwwspeedtestnetwhiteberinsistomd6625996s07.gatesriver.ir"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_53",
-      "server": "prod02-lb02-cloud01.cyberscaler.com",
-      "server_port": 33678,
-      "uuid": "57f93957-064c-4486-ad2e-f406e6c7fbe3",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "whatismyipaddress.com",
+      "server_port": 2096,
+      "uuid": "7585f059-2c89-4a02-9dff-394bb7913ef5",
+      "tls": {
+        "enabled": true,
+        "server_name": "wwwspeedtestnetwhiteberinsistomd6625996s04.gatesriver.ir"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wwwspeedtestnetwhiteberinsistomd6625996s04.gatesriver.ir"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_54",
-      "server": "prod02-lb02-cloud01.cyberscaler.com",
-      "server_port": 33678,
-      "uuid": "df3a0454-0a2c-4cae-ba0f-c56426cb0870",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "whatismyipaddress.com",
+      "server_port": 2096,
+      "uuid": "7585f059-2c89-4a02-9dff-394bb7913ef5",
+      "tls": {
+        "enabled": true,
+        "server_name": "wwwspeedtestnetwhiteberinsistomd6625996s03.gatesriver.ir"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wwwspeedtestnetwhiteberinsistomd6625996s03.gatesriver.ir"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_55",
-      "server": "prod02-lb02-cloud01.cyberscaler.com",
-      "server_port": 33678,
-      "uuid": "fd83d63c-e97e-4a94-87db-27107dcbe293",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "whatismyipaddress.com",
+      "server_port": 2096,
+      "uuid": "7585f059-2c89-4a02-9dff-394bb7913ef5",
+      "tls": {
+        "enabled": true,
+        "server_name": "wwwspeedtestnetwhiteberinsistomd6625996s02.gatesriver.ir"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wwwspeedtestnetwhiteberinsistomd6625996s02.gatesriver.ir"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_56",
-      "server": "prod02-lb02-cloud01.cyberscaler.com",
-      "server_port": 33678,
-      "uuid": "931fc4c9-aab4-4100-8de5-1dd21943eac1",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "whatismyipaddress.com",
+      "server_port": 2096,
+      "uuid": "7585f059-2c89-4a02-9dff-394bb7913ef5",
+      "tls": {
+        "enabled": true,
+        "server_name": "wwwspeedtestnetwhiteberinsistomd6625996s01.gatesriver.ir"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wwwspeedtestnetwhiteberinsistomd6625996s01.gatesriver.ir"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_57",
-      "server": "prod2-cloud-hybrid03-ge-vmtc02.cyberscaler.com",
-      "server_port": 33641,
-      "uuid": "f27a25c2-d4e4-4d0a-b75b-22e58c7784a8",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "52.231.38.95",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "tls": {
+        "enabled": true,
+        "server_name": "bnnm.azurewebsites.net",
+        "insecure": true
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "bnnm.azurewebsites.net"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_58",
-      "server": "prod2-fh-cloud-hybrid01-vmt01.cyberscaler.com",
-      "server_port": 37333,
-      "uuid": "2f165ac3-573f-4361-b7f2-6c2d4dc36048",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "52.231.38.95",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "tls": {
+        "enabled": true,
+        "server_name": "bnnm.azurewebsites.net",
+        "insecure": true
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "bnnm.azurewebsites.net"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_59",
-      "server": "prod2-fh-cloud-hybrid01-vmt01.cyberscaler.com",
-      "server_port": 37333,
-      "uuid": "929bd06b-6a0e-445a-9da1-710ae222dad0",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "52.231.38.95",
+      "server_port": 443,
+      "uuid": "6f995056-7802-4a1d-bff7-61678e626c3f",
+      "tls": {
+        "enabled": true,
+        "server_name": "bnnm.azurewebsites.net"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "bnnm.azurewebsites.net"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_60",
-      "server": "prod2-ge-cloud-hybrid02-vmt01.cyberscaler.com",
-      "server_port": 33230,
-      "uuid": "29f86640-0359-456c-d6e6-75155b3d781e",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "iiiiiiiiiiio.huangshang.dpdns.org",
+      "server_port": 443,
+      "uuid": "4b33b482-25bc-49e4-b866-878c914d945a",
+      "tls": {
+        "enabled": true,
+        "server_name": "iIiiIiiIiIIO.HuanGsHaNg.dpDns.ORG"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/CpMgWdnDWahQyyQCjn8kmnN0ehd",
+        "headers": {
+          "Host": "iiiiiiiiiiio.huangshang.dpdns.org"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_61",
-      "server": "prod2-hge-cloud03-hybrid-vmeet01.cyberscaler.com",
-      "server_port": 33423,
-      "uuid": "ced3a0f7-e5b4-411b-fe29-a004aea2324e",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "iiiiiiiiiiio.huangshang.dpdns.org",
+      "server_port": 443,
+      "uuid": "4b33b482-25bc-49e4-b866-878c914d945a",
+      "tls": {
+        "enabled": true,
+        "server_name": "iIiiIiiIiIIO.HuanGsHaNg.dpDns.ORG"
+      },
       "transport": {
-        "type": "http"
-      }
+        "type": "ws",
+        "path": "/CpMgWdnDWahQyyQCjn8kmnN0ehd",
+        "headers": {
+          "Host": "iiiiiiiiiiio.huangshang.dpdns.org"
+        }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -1263,32 +1421,46 @@
       "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_63",
-      "server": "s1.connect.labex.pro",
-      "server_port": 2535,
-      "uuid": "04d7c089-bbc5-4ef2-80ef-a0982cf33708",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "qoli_64",
-      "server": "shamo.shnovps.click",
-      "server_port": 44185,
-      "uuid": "6e0bdb9d-058a-4c36-aa58-44a782caec4f",
-      "security": "auto",
-      "packet_encoding": "xudp",
+      "server": "node.vauth.workers.dev",
+      "server_port": 2087,
+      "uuid": "1b6c1745-992e-4aac-8685-266c090e50ea",
+      "tls": {
+        "enabled": true,
+        "server_name": "node.vauth.workers.dev"
+      },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "shamo.shnovps.click"
+          "Host": "node.vauth.workers.dev"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_64",
+      "server": "5.181.171.10",
+      "server_port": 443,
+      "uuid": "49ed01ad-3bb4-204f-b0ff-a58f658fd618",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "speed.cloudflare.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vmess",
@@ -1340,70 +1512,63 @@
       }
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_68",
-      "server": "vc.fly.dev",
-      "server_port": 443,
-      "uuid": "35379219-6535-4f2e-a4fe-3e44f61e0eee",
-      "security": "auto",
-      "alter_id": 32,
+      "server": "176.120.72.63",
+      "server_port": 38339,
+      "uuid": "481c5606-b586-44d7-bc2e-d8ef30d67f62",
       "tls": {
         "enabled": true,
-        "server_name": "vc.fly.dev",
-        "insecure": true
-      },
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/vc",
-        "headers": {
-          "Host": "vc.fly.dev"
+        "server_name": "dl.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "o0MFuznHh_Wztg0FTAMhFXm3hjAqOJAJIIVNn-_A9WA",
+          "short_id": "e16883e511"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_69",
-      "server": "vc.fly.dev",
+      "server": "194.147.34.72",
       "server_port": 443,
-      "uuid": "35379219-6535-4f2e-a4fe-3e44f61e0eee",
-      "security": "auto",
-      "alter_id": 32,
+      "uuid": "37b8e7c0-5009-5836-bcb2-bfbda27a43cc",
       "tls": {
         "enabled": true,
-        "server_name": "vc.fly.dev",
-        "insecure": true
+        "server_name": "194.147.34.72"
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
-        "path": "/vc",
+        "path": "/vless",
         "headers": {
-          "Host": "vc.fly.dev"
+          "Host": "194.147.34.72"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
-      "type": "vmess",
+      "type": "vless",
       "tag": "qoli_70",
-      "server": "vc.fly.dev",
+      "server": "privasi.turah.my.id",
       "server_port": 443,
-      "uuid": "35379219-6535-4f2e-a4fe-3e44f61e0eee",
-      "security": "auto",
-      "alter_id": 32,
+      "uuid": "0fbf4f81-2598-4b6a-a623-0ead4cb9efa8",
       "tls": {
         "enabled": true,
-        "server_name": "vc.fly.dev",
-        "insecure": true
+        "server_name": "privasi.turah.my.id"
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
-        "path": "/vc",
+        "path": "/Free-CF-Proxy-AD192.3.113.4-19318",
         "headers": {
-          "Host": "vc.fly.dev"
+          "Host": "privasi.turah.my.id"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vmess",
@@ -1418,22 +1583,277 @@
       }
     },
     {
-      "type": "hysteria2",
+      "type": "vless",
       "tag": "qoli_72",
-      "server": "yapc-1.adamhayward.co.uk",
-      "server_port": 35200,
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "obfs": {
-        "type": "salamander",
-        "password": "Yet-Another-Public-Config-1"
-      },
-      "password": "Yet-Another-Public-Config-1",
+      "server": "www.wto.org",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
       "tls": {
         "enabled": true,
-        "server_name": "YAPC-1.afshin.ir",
-        "alpn": "h3"
-      }
+        "server_name": "dt.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "dt.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_73",
+      "server": "www.udemy.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "tx.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tx.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_74",
+      "server": "www.ipchicken.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "dt.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "dt.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_75",
+      "server": "wilson.ns.cloudflare.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "kc1.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "kc1.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_76",
+      "server": "time.is",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "kc1.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "kc1.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_77",
+      "server": "kyree.ns.cloudflare.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "tx.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tx.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_78",
+      "server": "kyree.ns.cloudflare.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "dt.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "dt.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_79",
+      "server": "ipv4.ip.sb",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "tx.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tx.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_80",
+      "server": "huxley.ns.cloudflare.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "tx.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tx.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_81",
+      "server": "dylan.ns.cloudflare.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "kc1.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "kc1.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_82",
+      "server": "dnschecker.org",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "tx.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tx.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_83",
+      "server": "decker.ns.cloudflare.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "kc1.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "kc1.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "qoli_84",
+      "server": "craig.ns.cloudflare.com",
+      "server_port": 443,
+      "uuid": "06e4425e-a8cb-4b63-929f-2105604ab0a9",
+      "tls": {
+        "enabled": true,
+        "server_name": "tx.vs2024.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tx.vs2024.dpdns.org"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
     }
   ],
   "route": {
