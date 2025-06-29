@@ -10,7 +10,7 @@
       },
       {
         "tag": "remote-dns",
-        "address": "https://208.67.222.222/dns-query"
+        "address": "https://146.112.41.2/dns-query"
       },
       {
         "tag": "local",
@@ -40,7 +40,7 @@
         "server": "remote-dns"
       }
     ],
-    "final": "direct-dns",
+    "final": "remote-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
