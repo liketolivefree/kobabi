@@ -4,18 +4,20 @@
   },
   "dns": {
     "servers": [
-      {"type": "https", "tag": "direct-dns", "server": "8.8.8.8"},
-      {"type": "https", "tag": "remote-dns", "server": "8.8.4.4"},
-      {"type": "local", "tag": "local-dns"}
+      {"tag": "local-dns", "type": "udp", "address": "217.218.155.155", "detour": "direct"},
+      {"tag": "test-dns", "type": "https", "address": "146.112.41.2", "detour": "direct"},
+      {"tag": "direct-dns", "type": "https", "address": "8.8.8.8"},
+      {"tag": "remote-dns", "type": "https", "address": "1.0.0.1"},
+      {"tag": "final-dns", "type": "https", "address": "9.9.9.10"}
     ],
     "rules": [
-      {"outbound": "any", "server": "local-dns"},
       {"domain_suffix": "jsdelivr.net", "server": "local-dns"},
+      {"outbound": "any", "server": "test-dns"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
       {"rule_set": "xal", "server": "direct-dns"},
       {"rule_set": "oki", "server": "remote-dns"}
     ],
-    "final": "direct-dns",
+    "final": "final-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
