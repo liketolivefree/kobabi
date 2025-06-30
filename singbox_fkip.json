@@ -5,6 +5,18 @@
   "dns": {
     "servers": [
       {
+        "type": "udp",
+        "tag": "local-dns",
+        "detour": "direct",
+        "server": "217.218.155.155"
+      },
+      {
+        "type": "https",
+        "tag": "test-dns",
+        "detour": "direct",
+        "server": "146.112.41.2"
+      },
+      {
         "type": "https",
         "tag": "direct-dns",
         "server": "8.8.8.8"
@@ -12,21 +24,22 @@
       {
         "type": "https",
         "tag": "remote-dns",
-        "server": "8.8.4.4"
+        "server": "1.0.0.1"
       },
       {
-        "type": "local",
-        "tag": "local-dns"
+        "type": "https",
+        "tag": "final-dns",
+        "server": "9.9.9.10"
       }
     ],
     "rules": [
       {
-        "outbound": "any",
+        "domain_suffix": "jsdelivr.net",
         "server": "local-dns"
       },
       {
-        "domain_suffix": "jsdelivr.net",
-        "server": "local-dns"
+        "outbound": "any",
+        "server": "test-dns"
       },
       {
         "domain_suffix": ".ir",
@@ -41,7 +54,7 @@
         "server": "remote-dns"
       }
     ],
-    "final": "direct-dns",
+    "final": "final-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
