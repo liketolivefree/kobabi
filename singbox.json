@@ -5,27 +5,36 @@
   "dns": {
     "servers": [
       {
+        "tag": "local-dns",
+        "address": "217.218.155.155",
+        "detour": "direct"
+      },
+      {
+        "tag": "test-dns",
+        "address": "https://146.112.41.2/dns-query",
+        "detour": "direct"
+      },
+      {
         "tag": "direct-dns",
         "address": "https://8.8.8.8/dns-query"
       },
       {
         "tag": "remote-dns",
-        "address": "https://8.8.4.4/dns-query"
+        "address": "https://1.0.0.1/dns-query"
       },
       {
-        "tag": "local-dns",
-        "address": "local",
-        "detour": "direct"
+        "tag": "final-dns",
+        "address": "https://9.9.9.10/dns-query"
       }
     ],
     "rules": [
       {
-        "outbound": "any",
+        "domain_suffix": "jsdelivr.net",
         "server": "local-dns"
       },
       {
-        "domain_suffix": "jsdelivr.net",
-        "server": "local-dns"
+        "outbound": "any",
+        "server": "test-dns"
       },
       {
         "domain_suffix": ".ir",
@@ -40,7 +49,7 @@
         "server": "remote-dns"
       }
     ],
-    "final": "direct-dns",
+    "final": "final-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
