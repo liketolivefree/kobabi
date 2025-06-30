@@ -5,7 +5,7 @@
   },
   "dns": {
     "servers": [
-      {"tag": "local-dns", "address": "217.218.155.155", "detour": "direct"},
+      {"tag": "local-dns", "address": "local", "detour": "direct"},
       {"tag": "test-dns", "address": "https://146.112.41.2/dns-query", "detour": "direct"},
       {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
       {"tag": "remote-dns", "address": "https://1.0.0.1/dns-query"},
