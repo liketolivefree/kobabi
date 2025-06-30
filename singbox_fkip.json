@@ -5,10 +5,9 @@
   "dns": {
     "servers": [
       {
-        "type": "udp",
+        "type": "local",
         "tag": "local-dns",
-        "detour": "direct",
-        "server": "178.22.122.100"
+        "detour": "direct"
       },
       {
         "type": "https",
