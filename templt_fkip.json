@@ -4,7 +4,7 @@
   },
   "dns": {
     "servers": [
-      {"tag": "local-dns", "type": "udp", "server": "217.218.155.155", "detour": "direct"},
+      {"tag": "local-dns", "type": "local", "detour": "direct"},
       {"tag": "test-dns", "type": "https", "server": "146.112.41.2", "detour": "direct"},
       {"tag": "direct-dns", "type": "https", "server": "8.8.8.8"},
       {"tag": "remote-dns", "type": "https", "server": "1.0.0.1"},
