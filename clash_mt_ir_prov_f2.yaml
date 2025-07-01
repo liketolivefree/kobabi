@@ -38,15 +38,15 @@ dns:
     - 8.8.8.8
   nameserver:
     - https://8.8.8.8/dns-query
-    - https://208.67.222.222/dns-query
+    - https://146.112.41.2/dns-query
     - https://9.9.9.10/dns-query
   proxy-server-nameserver:
     - https://8.8.8.8/dns-query
-    - https://208.67.222.222/dns-query
+    - https://146.112.41.2/dns-query
     - https://9.9.9.10/dns-query
   fallback:
     - https://8.8.8.8/dns-query
-    - https://208.67.222.222/dns-query
+    - https://146.112.41.2/dns-query
     - https://9.9.9.10/dns-query
   fallback-filter:
     geoip: false
@@ -103,6 +103,8 @@ proxy-providers:
       interval: 900
       url: http://www.gstatic.com/generate_204
       timeout: 5000
+    override:
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
