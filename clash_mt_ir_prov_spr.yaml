@@ -38,15 +38,15 @@ dns:
     - 8.8.8.8
   nameserver:
     - https://8.8.8.8/dns-query
-    - https://208.67.222.222/dns-query
+    - https://146.112.41.2/dns-query
     - https://9.9.9.10/dns-query
   proxy-server-nameserver:
     - https://8.8.8.8/dns-query
-    - https://208.67.222.222/dns-query
+    - https://146.112.41.2/dns-query
     - https://9.9.9.10/dns-query
   fallback:
     - https://8.8.8.8/dns-query
-    - https://208.67.222.222/dns-query
+    - https://146.112.41.2/dns-query
     - https://9.9.9.10/dns-query
   fallback-filter:
     geoip: false
@@ -103,6 +103,8 @@ proxy-providers:
       interval: 900
       url: http://www.gstatic.com/generate_204
       timeout: 5000
+    override:
+      udp: true
   a:
     type: http
     url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
@@ -114,6 +116,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    override:
+      udp: true
   b:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -125,6 +129,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    override:
+      udp: true
   c:
     type: http
     url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/mix_clash.yaml
@@ -136,6 +142,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    override:
+      udp: true
   d:
     type: http
     url: https://raw.githubusercontent.com/lagzian/SS-Collector/main/backup_clash.yaml
@@ -147,6 +155,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    override:
+      udp: true
   e:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -158,6 +168,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    override:
+      udp: true
   f:
     type: http
     url: https://raw.githubusercontent.com/Surfboardv2ray/v2ray-worker-sub/master/spd/sub_merge_yaml.yml
@@ -169,6 +181,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    override:
+      udp: true
   g:
     type: http
     url: https://raw.githubusercontent.com/10ium/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -180,6 +194,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    override:
+      udp: true
   h:
     type: http
     url: https://raw.githubusercontent.com/miladtahanian/V2RayAggregator/main/sub/sub_merge_yaml.yml
@@ -191,6 +207,8 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    override:
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
