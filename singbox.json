@@ -20,11 +20,11 @@
       },
       {
         "tag": "remote-dns",
-        "address": "https://1.0.0.1/dns-query"
+        "address": "https://8.8.8.8/dns-query"
       },
       {
         "tag": "final-dns",
-        "address": "https://9.9.9.10/dns-query"
+        "address": "https://1.1.1.1/dns-query"
       }
     ],
     "rules": [
