@@ -43,7 +43,6 @@ dns:
   proxy-server-nameserver:
     - https://8.8.8.8/dns-query
     - https://146.112.41.2/dns-query
-    - https://9.9.9.10/dns-query
   fallback:
     - https://8.8.8.8/dns-query
     - https://146.112.41.2/dns-query
@@ -101,7 +100,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
       udp: true
@@ -126,7 +125,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 900
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
@@ -140,7 +139,7 @@ proxy-groups:
       - q
   - name: MMOBI
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 400
     tolerance: 5
     use:
