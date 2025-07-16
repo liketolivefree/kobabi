@@ -214,7 +214,6 @@ proxy-groups:
     proxies:
       - MMOBI
     use:
-      - q
       - a
       - b
       - c
@@ -224,7 +223,6 @@ proxy-groups:
     interval: 400
     tolerance: 5
     use:
-      - q
       - a
       - b
       - c
