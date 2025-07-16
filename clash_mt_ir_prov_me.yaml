@@ -106,7 +106,7 @@ proxy-providers:
       udp: true
   a:
     type: http
-    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
@@ -119,9 +119,87 @@ proxy-providers:
       udp: true
   b:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
     interval: 3600
     path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  c:
+    type: http
+    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
+    interval: 3600
+    path: ./proxy-providers/c.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  d:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    interval: 3600
+    path: ./proxy-providers/d.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  e:
+    type: http
+    url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
+    interval: 3600
+    path: ./proxy-providers/e.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  f:
+    type: http
+    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
+    interval: 3600
+    path: ./proxy-providers/f.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  g:
+    type: http
+    url: https://raw.githubusercontent.com/go4sharing/sub/main/worker.yaml
+    interval: 3600
+    path: ./proxy-providers/g.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  h:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    interval: 3600
+    path: ./proxy-providers/h.yaml
     health-check:
       enable: true
       interval: 900
@@ -137,6 +215,9 @@ proxy-groups:
       - MMOBI
     use:
       - q
+      - a
+      - b
+      - c
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -146,6 +227,12 @@ proxy-groups:
       - q
       - a
       - b
+      - c
+      - d
+      - e
+      - f
+      - g
+      - h
 rule-providers:
   aff_me:
     type: http
