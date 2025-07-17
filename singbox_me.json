@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "debug",
+    "level": "info",
     "output": "box.log"
   },
   "dns": {
@@ -13,8 +13,8 @@
       {
         "tag": "base-dns",
         "address": "https://sky.rethinkdns.com",
-        "detour": "direct",
-        "address_resolver": "local-dns"
+        "address_resolver": "local-dns",
+        "detour": "direct"
       },
       {
         "tag": "test-dns",
