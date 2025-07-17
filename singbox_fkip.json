@@ -33,7 +33,7 @@
     ],
     "rules": [
       {
-        "domain_suffix": "jsdelivr.net",
+        "domain_suffix": "raw.githubusercontent.com",
         "server": "local-dns"
       },
       {
@@ -2167,37 +2167,37 @@
       {
         "type": "remote",
         "tag": "aff",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/aff.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "yun",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/yun.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "oki",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/oki.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "doki",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/doki.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "xal",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/xal.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "loo",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/loo.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
         "download_detour": "direct"
       }
     ],
