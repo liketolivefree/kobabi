@@ -7,8 +7,14 @@
     "servers": [
       {
         "tag": "local-dns",
-        "address": "217.218.155.155",
+        "address": "local",
         "detour": "direct"
+      },
+      {
+        "tag": "base-dns",
+        "address": "https://sky.rethinkdns.com/1:-HoRBAhBABAACACFCEAACMSwggAAYA==",
+        "detour": "direct",
+        "address_resolver": "local-dns"
       },
       {
         "tag": "test-dns",
@@ -32,7 +38,7 @@
     "rules": [
       {
         "domain_suffix": "jsdelivr.net",
-        "server": "local-dns"
+        "server": "base-dns"
       },
       {
         "outbound": "any",
