@@ -12,7 +12,7 @@
       },
       {
         "tag": "base-dns",
-        "address": "https://sky.rethinkdns.com/1:-HoRBAhBABAACACFCEAACMSwggAAYA==",
+        "address": "https://sky.rethinkdns.com",
         "detour": "direct",
         "address_resolver": "local-dns"
       },
@@ -37,7 +37,7 @@
     ],
     "rules": [
       {
-        "domain_suffix": "jsdelivr.net",
+        "domain_suffix": "raw.githubusercontent.com",
         "server": "base-dns"
       },
       {
@@ -2203,43 +2203,43 @@
       {
         "type": "remote",
         "tag": "wht",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/wht.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/wht.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "aff_me",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/aff_me.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "yun_me",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/yun_me.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "oki",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/oki.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "doki",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/doki.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "xal",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/xal.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "loo",
-        "url": "https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/loo.srs",
+        "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
         "download_detour": "direct"
       }
     ],
