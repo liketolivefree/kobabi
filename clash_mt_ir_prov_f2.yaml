@@ -123,42 +123,42 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/aff.mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff.mrs
     path: ./rule-providers/aff.mrs
     interval: 86400
   yun:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/yun.mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.mrs
     path: ./rule-providers/yun.mrs
     interval: 86400
   oki:
     type: http
     behavior: domain
     format: mrs
-    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/oki.mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.mrs
     path: ./rule-providers/oki.mrs
     interval: 86400
   doki:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/doki.mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.mrs
     path: ./rule-providers/doki.mrs
     interval: 86400
   xal:
     type: http
     behavior: domain
     format: mrs
-    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/xal.mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.mrs
     path: ./rule-providers/xal.mrs
     interval: 86400
   loo:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://cdn.jsdelivr.net/gh/liketolivefree/kobabi@main/loo.mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.mrs
     path: ./rule-providers/loo.mrs
     interval: 86400
 rules:
