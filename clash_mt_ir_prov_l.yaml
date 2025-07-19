@@ -117,9 +117,22 @@ proxy-providers:
     exclude-type: ss|http|trojan
     override:
       udp: true
- c:
+  b:
     type: http
     url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
+    interval: 3600
+    path: ./proxy-providers/b.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  c:
+    type: http
+    url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
@@ -132,22 +145,9 @@ proxy-providers:
       udp: true
   d:
     type: http
-    url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
-    interval: 3600
-    path: ./proxy-providers/d.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    override:
-      udp: true
-  e:
-    type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
     interval: 3600
-    path: ./proxy-providers/e.yaml
+    path: ./proxy-providers/d.yaml
     health-check:
       enable: true
       interval: 900
@@ -171,9 +171,9 @@ proxy-groups:
     use:
       - q
       - a
+      - b
       - c
       - d
-      - e
 rule-providers:
   aff_l:
     type: http
