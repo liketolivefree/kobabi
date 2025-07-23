@@ -8,7 +8,7 @@ find-process-mode: strict
 tcp-concurrent: true
 unified-delay: true
 global-client-fingerprint: random
-keep-alive-interval: 15
+keep-alive-interval: 25
 profile:
   store-selected: true
   store-fake-ip: true
@@ -18,7 +18,6 @@ dns:
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  use-system-hosts: true
   fake-ip-filter:
     - +.lan
     - +.local
@@ -34,31 +33,21 @@ dns:
     - time.windows.com
     - time.android.com
     - pool.ntp.org
+    - time.*.com
+    - ntp.*.com
   default-nameserver:
-    - 8.8.8.8
+    - system
+  direct-nameserver:
+    - system
   nameserver:
     - https://8.8.8.8/dns-query
-    - https://146.112.41.2/dns-query
-    - https://9.9.9.10/dns-query
   proxy-server-nameserver:
-    - https://8.8.8.8/dns-query
     - https://146.112.41.2/dns-query
-  fallback:
-    - https://8.8.8.8/dns-query
-    - https://146.112.41.2/dns-query
-    - https://9.9.9.10/dns-query
-  fallback-filter:
-    geoip: false
-    geoip-code: IR
-    ipcidr:
-      - 0.0.0.0/32
-      - 240.0.0.0/4
-    domain:
-      - +.cloudflare.com
-      - +.recaptcha.net
-      - +.google.com
-      - +.microsoft.com
-      - +.youtube.com
+  direct-nameserver-follow-policy: false
+  prefer-h3: false
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: true
 tun:
   enable: true
   stack: system
@@ -225,7 +214,7 @@ rule-providers:
     path: ./rule-providers/wht.mrs
     interval: 86400    
 rules:
-  - IP-CIDR,10.0.0.0/8,REJECT,no-resolve
+  - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,localdomain,DIRECT
