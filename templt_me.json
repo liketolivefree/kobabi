@@ -6,14 +6,13 @@
   "dns": {
     "servers": [
       {"tag": "local-dns", "address": "local", "detour": "direct"},
-      {"tag": "base-dns", "address": "https://sky.rethinkdns.com", "detour": "direct", "address_resolver": "local-dns"},
       {"tag": "test-dns", "address": "https://146.112.41.2/dns-query", "detour": "direct"},
       {"tag": "direct-dns", "address": "https://8.8.8.8/dns-query"},
       {"tag": "remote-dns", "address": "https://8.8.8.8/dns-query"},
       {"tag": "final-dns", "address": "https://freedns.controld.com/p0", "address_resolver": "direct-dns"}
     ],
     "rules": [
-      {"domain_suffix": "raw.githubusercontent.com", "server": "base-dns"},
+      {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
       {"outbound": "any", "server": "test-dns"},
       {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"domain_suffix": ".ir", "server": "direct-dns"},
