@@ -81,6 +81,8 @@ https://github.com/GUI-for-Cores/GUI.for.SingBox
 
 https://github.com/GUI-for-Cores/GUI.for.Clash
 
+https://github.com/JohanChane/clashtui
+
 https://github.com/KaringX/karing
 
 https://github.com/chen08209/FlClash
