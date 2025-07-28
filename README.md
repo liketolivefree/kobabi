@@ -58,9 +58,9 @@ https://raw.githubusercontent.com/liketolivefree/kobabi/main/singbox_fkip.json
 
 https://github.com/MetaCubeX/ClashMetaForAndroid
 
-https://github.com/hiddify/hiddify-next
-
 https://github.com/SagerNet/sing-box
+
+https://github.com/xchacha20-poly1305/husi
 
 https://github.com/KaringX/karing
 
@@ -69,7 +69,11 @@ https://github.com/chen08209/FlClash
 
 ویندوز:
 
+https://github.com/mihomo-party-org/mihomo-party
+
 https://github.com/clash-verge-rev/clash-verge-rev
+
+https://github.com/throneproj/Throne
 
 https://github.com/GUI-for-Cores/GUI.for.SingBox
 
@@ -79,7 +83,6 @@ https://github.com/KaringX/karing
 
 https://github.com/chen08209/FlClash
 
-https://github.com/mihomo-party-org/mihomo-party
 
 https://github.com/2dust/clashN
 
@@ -89,31 +92,33 @@ https://github.com/ClashrAuto/Clashr-Auto-Desktop
 
 https://github.com/dream7180/ClashWarden
 
-https://github.com/snakem982/Pandora-Box
-
 
 مک:
 
-https://github.com/clash-verge-rev/clash-verge-rev
-
-https://github.com/chen08209/FlClash
-
 https://github.com/mihomo-party-org/mihomo-party
 
-https://github.com/ClashrAuto/Clashr-Auto-Desktop
+https://github.com/clash-verge-rev/clash-verge-rev
 
 https://github.com/MetaCubeX/ClashX.Meta
 
+https://github.com/throneproj/Throne
+
+https://github.com/chen08209/FlClash
+
+https://github.com/ClashrAuto/Clashr-Auto-Desktop
+
+
+
 
 لینوکس:
+
+https://github.com/mihomo-party-org/mihomo-party
 
 https://github.com/clash-verge-rev/clash-verge-rev
 
 https://github.com/JohanChane/clashtui
 
 https://github.com/chen08209/FlClash
-
-https://github.com/mihomo-party-org/mihomo-party
 
 https://github.com/ClashrAuto/Clashr-Auto-Desktop
 
