@@ -1,57 +1,21 @@
 {
   "log": {
-    "level": "error"
+    "level": "info",
+    "output": "box.log"
   },
   "dns": {
     "servers": [
-      {
-        "type": "local",
-        "tag": "local-dns",
-        "detour": "direct"
-      },
-      {
-        "type": "https",
-        "tag": "test-dns",
-        "detour": "direct",
-        "server": "146.112.41.2"
-      },
-      {
-        "type": "https",
-        "tag": "direct-dns",
-        "server": "8.8.8.8"
-      },
-      {
-        "type": "https",
-        "tag": "remote-dns",
-        "server": "8.8.8.8"
-      },
-      {
-        "type": "https",
-        "tag": "final-dns",
-        "server": "1.1.1.1"
-      }
+      {"tag": "local-dns", "type": "local", "detour": "direct"},
+      {"tag": "test-dns", "type": "https", "server": "146.112.41.2", "detour": "direct"},
+      {"tag": "direct-dns", "type": "https", "server": "8.8.8.8"},
+      {"tag": "remote-dns", "type": "https", "server": "8.8.8.8"},
+      {"tag": "final-dns", "type": "https", "server": "freedns.controld.com", "path": "p0", "domain_resolver": "direct-dns"}
     ],
     "rules": [
-      {
-        "domain_suffix": "raw.githubusercontent.com",
-        "server": "local-dns"
-      },
-      {
-        "outbound": "any",
-        "server": "test-dns"
-      },
-      {
-        "domain_suffix": ".ir",
-        "server": "direct-dns"
-      },
-      {
-        "rule_set": "xal",
-        "server": "direct-dns"
-      },
-      {
-        "rule_set": "oki",
-        "server": "remote-dns"
-      }
+      {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
+      {"domain_suffix": ".ir", "server": "direct-dns"},
+      {"rule_set": "xal", "server": "direct-dns"},
+      {"rule_set": "oki", "server": "remote-dns"}
     ],
     "final": "final-dns",
     "strategy": "prefer_ipv4"
@@ -66,686 +30,84 @@
       "auto_route": true,
       "strict_route": true,
       "stack": "system",
-      "platform": {
-        "http_proxy": {
-          "enabled": true,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-      }
+      "platform": {"http_proxy": {"enabled": true, "server": "127.0.0.1", "server_port": 7890}}
     },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 7891
-    }
+    {"type": "mixed", "tag": "mixed-in", "listen": "127.0.0.1", "listen_port": 7891}
   ],
   "outbounds": [
-    {
-      "type": "selector",
-      "tag": "qqoli",
-      "outbounds": [
-        "mmobi",
-        "q_014",
-        "q_005",
-        "qn_1653",
-        "qn_0086",
-        "qn_0216",
-        "qn_1666",
-        "qn_0482",
-        "qn_0463",
-        "qn_0493",
-        "qn_0454",
-        "qn_0124",
-        "qn_0424",
-        "q_049",
-        "qn_0485",
-        "q_043",
-        "qn_1702",
-        "q_023",
-        "q_129",
-        "q_001",
-        "qn_1591",
-        "qn_0170"
-      ],
-      "default": "mmobi"
-    },
-    {
-      "type": "urltest",
-      "tag": "mmobi",
-      "outbounds": [
-        "q_014",
-        "q_005",
-        "qn_1653",
-        "qn_0086",
-        "qn_0216",
-        "qn_1666",
-        "qn_0482",
-        "qn_0463",
-        "qn_0493",
-        "qn_0454",
-        "qn_0124",
-        "qn_0424",
-        "q_049",
-        "qn_0485",
-        "q_043",
-        "qn_1702",
-        "q_023",
-        "q_129",
-        "q_001",
-        "qn_1591",
-        "qn_0170"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "6m0s",
-      "tolerance": 5
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "vless",
-      "tag": "q_014",
-      "server": "109.73.206.90",
-      "server_port": 443,
-      "uuid": "4eff2388-2092-4b0a-aa74-0e464889ffaf",
-      "tls": {
-        "enabled": true,
-        "server_name": "google.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "cTm0TIKL9qK550XICK2YroOSr1u-f12h5UmBw2EAr2c"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "q_005",
-      "server": "138.68.80.111",
-      "server_port": 443,
-      "uuid": "16f7d18c-03b2-4cfa-8e2e-52d6f12c822c",
-      "tls": {
-        "enabled": true,
-        "server_name": "tgju.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "GikS1jaIrS5BR7D3EObm-o-AMdUaMtmPlkLdUzXH8mM",
-          "short_id": "19c8906f"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@DARK_VPNir-@DARK_VPNir-@DARK_VPNir-@DARK_VPNir-@DARK_VPNir-@DARK_VPNir-@DARK_VPNir-@DARK_VPNir-"
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_1653",
-      "server": "160.153.0.11",
-      "server_port": 2083,
-      "uuid": "5e802e1a-3c82-41ec-aaca-f6371b8b86a5",
-      "tls": {
-        "enabled": true,
-        "server_name": "fraG2.MAhSAAmINI.cC"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/CPI",
-        "headers": {
-          "Host": "fraG2.MAhSAAmINI.cC"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0086",
-      "server": "178.236.254.41",
-      "server_port": 443,
-      "uuid": "e134f4a5-346e-493f-b74a-988ef7a4ff27",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdnjs.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "9F7JxyyP-TNLt0dY2xOB0_34I8W0xXIpFY7rZ7-L0Gg",
-          "short_id": "19aa22f681923dc8"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0216",
-      "server": "188.68.53.100",
-      "server_port": 6666,
-      "uuid": "0abf9050-c7be-464d-80af-24094c2b97de",
-      "tls": {
-        "enabled": true,
-        "server_name": "Tgju.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "S_2bepGaT7EHeH5DdyEgio421RTgrAvvOOQiaq8zV0g",
-          "short_id": "b525ecd2fc"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_1666",
-      "server": "194.182.79.142",
-      "server_port": 11746,
-      "uuid": "f278037e-ce36-4634-9b4d-fca93e345a35",
-      "tls": {
-        "enabled": true,
-        "server_name": "sourceforge.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "PY9ZPXQhuNSjQAaiSl5GL9-TiXHnILEcNeYEAejv7jw",
-          "short_id": "c0f6f8b4"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "Join-ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON"
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0482",
-      "server": "195.26.226.173",
-      "server_port": 443,
-      "uuid": "d0f6fad0-54b8-4470-b21f-8b1a0b08577a",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "google.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Lb1Gi0VcVuytLf_gb846u7iKkHVywpG8IC9wdZslwUA",
-          "short_id": "102707ab31571a93"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0463",
-      "server": "213.232.120.2",
-      "server_port": 443,
-      "uuid": "8e6acce9-8b56-7190-d491-7d84f8189e26",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "speed.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "6h7z2IG6_BopO2tGTRAytfMOWbcXxRWghb2c9IILJkA"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0493",
-      "server": "45.12.143.191",
-      "server_port": 20329,
-      "uuid": "e105e56a-5f81-41a2-ab44-bfffc9b00674",
-      "tls": {
-        "enabled": true,
-        "server_name": "yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Lj3MXlg16CTFHtU88acSS-ACfGnwJ_xkU6dC6k8OeDo",
-          "short_id": "4602ee9f9f36"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0454",
-      "server": "5.231.29.29",
-      "server_port": 443,
-      "uuid": "19029831-477f-498e-a280-bd5291e955fb",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.tgju.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "E1oJ5W7lA10Eum9t5cSlnq_GEirJat2lf2PWRfJDyVg",
-          "short_id": "f7f1058c"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0124",
-      "server": "51.89.119.238",
-      "server_port": 443,
-      "uuid": "a92a792e-13a7-4014-8081-7427f373505c",
-      "tls": {
-        "enabled": true,
-        "server_name": "tgju.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "BaL04f39n8Z6n0710gsnjDvVS9t4zc3lthaGQlrvHzU",
-          "short_id": "152c03919af53cad"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0424",
-      "server": "62.60.233.250",
-      "server_port": 443,
-      "uuid": "809c908f-2219-11f0-9970-45e1d80c4039",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "images.apple.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "MFsbnsNQsSpZwP-_Ohzako6aHpfK4-rbssxhr3eywWw",
-          "short_id": "4476a3"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "q_049",
-      "server": "77.91.68.70",
-      "server_port": 55983,
-      "uuid": "f667a096-5231-4cfb-8759-92bb32473139",
-      "tls": {
-        "enabled": true,
-        "server_name": "yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "nWQ7b9l9X6N3PrXLgIzOvMM8iSYrqjVHEb9ikWxqYSg",
-          "short_id": "0e"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0485",
-      "server": "92.53.107.193",
-      "server_port": 27129,
-      "uuid": "1dc60f16-1593-485e-949d-8459edba6430",
-      "tls": {
-        "enabled": true,
-        "server_name": "yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "pqVSxW8Vukd7XiPZUQTd9ADNT2XBrCGJ4q2-7n6kQXQ",
-          "short_id": "d70393f0ad1c7552"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "q_043",
-      "server": "est01-vlr01.tcp-reset-club.net",
-      "server_port": 443,
-      "uuid": "2a02cb25-0f58-4b19-a7a6-8c205fdb9042",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "hls-svod.itunes.apple.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
-          "short_id": "86e999a2cdc2"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "hysteria2",
-      "tag": "qn_1702",
-      "server": "nexiateq.688997.xyz",
-      "server_port": 20957,
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "obfs": {
-        "type": "salamander",
-        "password": "ZDQxZDhjZDk4ZjAwYjIwNA=="
-      },
-      "password": "b7cdbd83-5325-4e3d-bf30-bc01179e5db5",
-      "tls": {
-        "enabled": true,
-        "server_name": "nexiateq.688997.xyz",
-        "insecure": true,
-        "alpn": "h3"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "q_023",
-      "server": "ru.sfasti.ru",
-      "server_port": 443,
-      "uuid": "5475990d-e0ce-46ea-95e5-50f9e4879af9",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "ru.sfasti.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "J_jQq9-SWQZjiMhuPaFV7V2MaJ4pkKgVRaz7x6tmvy8",
-          "short_id": "16895459a2c7768d"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "hysteria2",
-      "tag": "q_129",
-      "server": "yapc-1.adamhayward.co.uk",
-      "server_port": 36300,
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "obfs": {
-        "type": "salamander",
-        "password": "Yet-Another-Public-Config-1"
-      },
-      "password": "Yet-Another-Public-Config-1",
-      "tls": {
-        "enabled": true,
-        "server_name": "YAPC-1.afshin.ir",
-        "alpn": "h3"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "q_001",
-      "server": "zzyd6dhd5.pet0er23mh21qq.com",
-      "server_port": 2053,
-      "uuid": "598a6cea-dfd2-4e97-9415-4571f742bf18",
-      "tls": {
-        "enabled": true,
-        "server_name": "upper365.ir",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
-          "short_id": "6ba85179e30d4fc2"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "xyz"
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_1591",
-      "server": "apple.rinet.ai",
-      "server_port": 55100,
-      "uuid": "d196897a-006e-4454-9478-67b6fd8ce021",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "refersion.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "jH08UU9id-Q8i17ltvHPO3sfGL6YTJIFveAJGgNjNl8",
-          "short_id": "190d32b118caf07f"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "qn_0170",
-      "server": "ipw.gfdv54cvghhgfhgj-njhgj64.info",
-      "server_port": 443,
-      "uuid": "9e769ce1-34be-4e3f-b0a6-823f30eb8f69",
-      "tls": {
-        "enabled": true,
-        "server_name": "IaErIbZlCb.WaSaBi1.OrG"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "IaErIbZlCb.WaSaBi1.OrG"
-        }
-      },
-      "packet_encoding": "xudp"
-    }
+    {"type": "selector", "tag": "qqoli", "outbounds": ["mmobi", "{all}"], "default": "mmobi"},
+    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "6m0s", "tolerance": 5},
+    {"type": "direct", "tag": "direct"}
   ],
   "route": {
+    "final": "qqoli",
+    "auto_detect_interface": true,
+    "default_domain_resolver": "test-dns",
     "rules": [
-      {
-        "inbound": "tun-in",
-        "action": "sniff",
-        "timeout": "500ms"
-      },
-      {
-        "inbound": "mixed-in",
-        "action": "sniff",
-        "timeout": "500ms"
-      },
-      {
-        "inbound": "tun-in",
-        "action": "resolve",
-        "strategy": "prefer_ipv4"
-      },
-      {
-        "inbound": "mixed-in",
-        "action": "resolve",
-        "strategy": "prefer_ipv4"
-      },
-      {
-        "protocol": "dns",
-        "action": "hijack-dns"
-      },
-      {
-        "port": 53,
-        "action": "hijack-dns"
-      },
-      {
-        "protocol": "quic",
-        "action": "reject"
-      },
-      {
-        "protocol": "stun",
-        "action": "reject"
-      },
-      {
-        "ip_cidr": [
-          "224.0.0.0/3",
-          "10.10.34.0/24"
-        ],
-        "action": "reject"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "network": "tcp"
-          },
-          {
-            "port": 853
-          }
-        ],
-        "action": "reject"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "network": "udp"
-          },
-          {
-            "port": 443
-          }
-        ],
-        "action": "reject"
-      },
-      {
-        "rule_set": "aff",
-        "action": "reject"
-      },
-      {
-        "rule_set": "yun",
-        "action": "reject"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "domain_suffix": ".ir",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "xal",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "loo",
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "oki",
-        "outbound": "qqoli"
-      },
-      {
-        "rule_set": "doki",
-        "outbound": "qqoli"
-      }
+      {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
+      {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
+      {"inbound": "tun-in", "action": "resolve", "strategy": "prefer_ipv4"},
+      {"inbound": "mixed-in", "action": "resolve", "strategy": "prefer_ipv4"},
+      {"protocol": "dns","action": "hijack-dns"},
+      {"port": 53, "action": "hijack-dns"},
+      {"protocol": "quic", "action": "reject"},
+      {"protocol": "stun", "action": "reject"},
+      {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
+      {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject"},
+      {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject"},
+      {"rule_set": "aff", "action": "reject"},
+      {"rule_set": "yun", "action": "reject"},
+      {"ip_is_private": true, "outbound": "direct"},
+      {"domain_suffix": ".ir", "outbound": "direct"},
+      {"rule_set": "xal", "outbound": "direct"},
+      {"rule_set": "loo", "outbound": "direct"},
+      {"rule_set": "oki", "outbound": "qqoli"},
+      {"rule_set": "doki", "outbound": "qqoli"}
     ],
     "rule_set": [
       {
         "type": "remote",
         "tag": "aff",
+        "format": "binary",
         "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "yun",
+        "format": "binary",
         "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "oki",
+        "format": "binary",
         "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "doki",
+        "format": "binary",
         "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "xal",
+        "format": "binary",
         "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.srs",
         "download_detour": "direct"
       },
       {
         "type": "remote",
         "tag": "loo",
+        "format": "binary",
         "url": "https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.srs",
         "download_detour": "direct"
       }
-    ],
-    "final": "qqoli",
-    "auto_detect_interface": true,
-    "override_android_vpn": true,
-    "default_domain_resolver": "remote-dns"
+    ]
   },
-  "experimental": {
-    "cache_file": {
-      "enabled": true
-    }
-  }
+  "experimental": {"cache_file": {"enabled": true}} 
 }
