@@ -12,12 +12,6 @@
       },
       {
         "type": "https",
-        "tag": "test-dns",
-        "detour": "direct",
-        "server": "146.112.41.2"
-      },
-      {
-        "type": "https",
         "tag": "direct-dns",
         "server": "8.8.8.8"
       },
@@ -29,9 +23,7 @@
       {
         "type": "https",
         "tag": "final-dns",
-        "domain_resolver": "direct-dns",
-        "server": "freedns.controld.com",
-        "path": "p0"
+        "server": "8.8.8.8"
       }
     ],
     "rules": [
@@ -1261,7 +1253,7 @@
     ],
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "test-dns"
+    "default_domain_resolver": "remote-dns"
   },
   "experimental": {
     "cache_file": {
