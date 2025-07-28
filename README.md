@@ -75,6 +75,8 @@ https://github.com/clash-verge-rev/clash-verge-rev
 
 https://github.com/throneproj/Throne
 
+https://github.com/LibNyanpasu/clash-nyanpasu
+
 https://github.com/GUI-for-Cores/GUI.for.SingBox
 
 https://github.com/GUI-for-Cores/GUI.for.Clash
@@ -103,6 +105,8 @@ https://github.com/MetaCubeX/ClashX.Meta
 
 https://github.com/throneproj/Throne
 
+https://github.com/LibNyanpasu/clash-nyanpasu
+
 https://github.com/chen08209/FlClash
 
 https://github.com/ClashrAuto/Clashr-Auto-Desktop
@@ -115,6 +119,8 @@ https://github.com/ClashrAuto/Clashr-Auto-Desktop
 https://github.com/mihomo-party-org/mihomo-party
 
 https://github.com/clash-verge-rev/clash-verge-rev
+
+https://github.com/LibNyanpasu/clash-nyanpasu
 
 https://github.com/JohanChane/clashtui
 
