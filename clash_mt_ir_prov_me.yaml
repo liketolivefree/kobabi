@@ -121,7 +121,7 @@ proxy-providers:
       udp: true
   c:
     type: http
-    url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
+    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash.yaml
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
@@ -134,9 +134,35 @@ proxy-providers:
       udp: true
   d:
     type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash_config.yaml
     interval: 3600
     path: ./proxy-providers/d.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  e:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    interval: 3600
+    path: ./proxy-providers/e.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
+  f:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
+    interval: 3600
+    path: ./proxy-providers/f.yaml
     health-check:
       enable: true
       interval: 900
@@ -163,6 +189,8 @@ proxy-groups:
       - b
       - c
       - d
+      - e
+      - f
 rule-providers:
   aff_me:
     type: http
@@ -212,7 +240,7 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/wht.mrs
     path: ./rule-providers/wht.mrs
-    interval: 86400    
+    interval: 86400
 rules:
   - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
   - DOMAIN-SUFFIX,lan,DIRECT
