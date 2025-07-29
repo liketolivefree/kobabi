@@ -134,7 +134,7 @@ proxy-providers:
       udp: true
   d:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash_config.yaml
+    url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -171,6 +171,19 @@ proxy-providers:
     exclude-type: ss|http|trojan
     override:
       udp: true
+  g:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    interval: 3600
+    path: ./proxy-providers/g.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+    override:
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
@@ -191,6 +204,7 @@ proxy-groups:
       - d
       - e
       - f
+      - g
 rule-providers:
   aff_me:
     type: http
