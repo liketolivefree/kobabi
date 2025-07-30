@@ -201,10 +201,7 @@ proxy-groups:
       - a
       - b
       - c
-      - d
-      - e
       - f
-      - g
 rule-providers:
   aff_me:
     type: http
