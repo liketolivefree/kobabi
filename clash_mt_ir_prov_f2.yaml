@@ -81,14 +81,14 @@ sniffer:
     - http
     - quic
 proxy-providers:
-  q2:
+  q:
     type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash2.yaml
-    interval: 3600
-    path: ./proxy-providers/q2.yaml
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
+    interval: 9000
+    path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 900
+      interval: 1200
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -99,14 +99,14 @@ proxy-groups:
     proxies:
       - MMOBI
     use:
-      - q2
+      - q
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 900
     tolerance: 500
     use:
-      - q2
+      - q
 rule-providers:
   aff:
     type: http
