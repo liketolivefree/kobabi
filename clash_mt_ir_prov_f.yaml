@@ -92,7 +92,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
-      udp: true
+      udp: false
   a:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -105,7 +105,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: true
+      udp: false
   b:
     type: http
     url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
@@ -118,10 +118,10 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: true
+      udp: false
   c:
     type: http
-    url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
+    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash.yaml
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
@@ -131,10 +131,10 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: true
+      udp: false
   d:
     type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash_config.yaml
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -144,7 +144,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: true
+      udp: false
 proxy-groups:
   - name: QQOLI
     type: select
@@ -161,8 +161,6 @@ proxy-groups:
       - q
       - a
       - b
-      - c
-      - d
 rule-providers:
   aff:
     type: http
