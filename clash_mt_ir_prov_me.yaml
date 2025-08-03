@@ -145,32 +145,6 @@ proxy-providers:
     exclude-type: ss|http|trojan
     override:
       udp: false
-  e:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
-    interval: 3600
-    path: ./proxy-providers/e.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    override:
-      udp: false
-  f:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
-    interval: 3600
-    path: ./proxy-providers/f.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    override:
-      udp: false
 proxy-groups:
   - name: QQOLI
     type: select
@@ -187,10 +161,6 @@ proxy-groups:
       - q
       - a
       - b
-      - c
-      - d
-      - e
-      - f
 rule-providers:
   aff_me:
     type: http
