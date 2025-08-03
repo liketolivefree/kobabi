@@ -103,7 +103,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     override:
       udp: false
   b:
@@ -121,7 +121,7 @@ proxy-providers:
       udp: false
   c:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash.yaml
+    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash_config.yaml
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
@@ -129,12 +129,12 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     override:
       udp: false
   d:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash_config.yaml
+    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash.yaml
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -142,7 +142,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     override:
       udp: false
 proxy-groups:
@@ -161,6 +161,7 @@ proxy-groups:
       - q
       - a
       - b
+      - c
 rule-providers:
   aff_me:
     type: http
