@@ -62,7 +62,6 @@
       "tag": "qqoli",
       "outbounds": [
         "mmobi",
-        "q_0075",
         "q_0078",
         "q_0079",
         "q_0144",
@@ -123,7 +122,6 @@
       "type": "urltest",
       "tag": "mmobi",
       "outbounds": [
-        "q_0075",
         "q_0078",
         "q_0079",
         "q_0144",
@@ -185,19 +183,6 @@
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "vmess",
-      "tag": "q_0075",
-      "server": "2.188.219.43",
-      "server_port": 8443,
-      "uuid": "b2e38621-035b-43f8-84a5-e92160762fc3",
-      "security": "auto",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/"
-      }
     },
     {
       "type": "vmess",
