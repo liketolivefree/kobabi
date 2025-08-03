@@ -92,7 +92,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
-      udp: true
+      udp: false
 proxy-groups:
   - name: QQOLI
     type: select
