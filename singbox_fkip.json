@@ -1,7 +1,6 @@
 {
   "log": {
-    "level": "info",
-    "output": "box.log"
+    "level": "info"
   },
   "dns": {
     "servers": [
@@ -12,17 +11,7 @@
       },
       {
         "type": "https",
-        "tag": "direct-dns",
-        "server": "8.8.8.8"
-      },
-      {
-        "type": "https",
-        "tag": "remote-dns",
-        "server": "8.8.8.8"
-      },
-      {
-        "type": "https",
-        "tag": "final-dns",
+        "tag": "all-dns",
         "server": "8.8.8.8"
       }
     ],
@@ -30,21 +19,9 @@
       {
         "domain_suffix": "raw.githubusercontent.com",
         "server": "local-dns"
-      },
-      {
-        "domain_suffix": ".ir",
-        "server": "direct-dns"
-      },
-      {
-        "rule_set": "xal",
-        "server": "direct-dns"
-      },
-      {
-        "rule_set": "oki",
-        "server": "remote-dns"
       }
     ],
-    "final": "final-dns",
+    "final": "all-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
@@ -1424,7 +1401,7 @@
     ],
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "remote-dns"
+    "default_domain_resolver": "all-dns"
   },
   "experimental": {
     "cache_file": {
