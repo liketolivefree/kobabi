@@ -5,30 +5,17 @@
   "dns": {
     "servers": [
       {
-        "tag": "test-dns",
-        "address": "https://146.112.41.2/dns-query",
-        "detour": "direct"
-      },
-      {
-        "tag": "direct-dns",
+        "tag": "all-dns",
         "address": "https://8.8.8.8/dns-query"
-      },
-      {
-        "tag": "final-dns",
-        "address": "https://8.8.4.4/dns-query"
       }
     ],
     "rules": [
       {
         "outbound": "any",
-        "server": "test-dns"
-      },
-      {
-        "domain_suffix": ".ir",
-        "server": "direct-dns"
+        "server": "all-dns"
       }
     ],
-    "final": "final-dns",
+    "final": "all-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
@@ -1345,8 +1332,7 @@
       }
     ],
     "final": "qqoli",
-    "auto_detect_interface": true,
-    "override_android_vpn": true
+    "auto_detect_interface": true
   },
   "experimental": {
     "cache_file": {
