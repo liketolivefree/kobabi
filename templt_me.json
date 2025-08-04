@@ -10,8 +10,7 @@
     ],
     "rules": [
       {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
-      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
-      {"rule_set": "aff_me", "action": "reject"}
+      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"}
     ],
     "final": "all-dns",
     "strategy": "prefer_ipv4"
