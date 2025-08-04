@@ -34,7 +34,6 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "override_android_vpn": true,
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
