@@ -1,22 +1,16 @@
 {
   "log": {
-    "level": "info",
-    "output": "box.log"
+    "level": "info"
   },
   "dns": {
     "servers": [
       {"tag": "local-dns", "type": "local", "detour": "direct"},
-      {"tag": "direct-dns", "type": "https", "server": "8.8.8.8"},
-      {"tag": "remote-dns", "type": "https", "server": "8.8.8.8"},
-      {"tag": "final-dns", "type": "https", "server": "8.8.8.8"}
+      {"tag": "all-dns", "type": "https", "server": "8.8.8.8"}
     ],
     "rules": [
-      {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
-      {"domain_suffix": ".ir", "server": "direct-dns"},
-      {"rule_set": "xal", "server": "direct-dns"},
-      {"rule_set": "oki", "server": "remote-dns"}
+      {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"}
     ],
-    "final": "final-dns",
+    "final": "all-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
@@ -41,7 +35,8 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "remote-dns",
+    "override_android_vpn": true,
+    "default_domain_resolver": "all-dns",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
