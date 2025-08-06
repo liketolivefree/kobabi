@@ -4,12 +4,11 @@
   },
   "dns": {
     "servers": [
-      {"tag": "local-dns", "address": "local", "detour": "direct"},
-      {"tag": "all-dns", "address": "https://8.8.8.8/dns-query"}
+      {"tag": "local-dns", "type": "local", "detour": "direct"},
+      {"tag": "all-dns", "type": "https", "server": "8.8.8.8"}
     ],
     "rules": [
-      {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
-      {"outbound": "any", "server": "all-dns"}
+      {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"}
     ],
     "final": "all-dns",
     "strategy": "prefer_ipv4"
@@ -25,6 +24,7 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
+    "default_domain_resolver": "all-dns",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
