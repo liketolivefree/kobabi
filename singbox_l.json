@@ -22,18 +22,6 @@
       {
         "outbound": "any",
         "server": "all-dns"
-      },
-      {
-        "domain_suffix": ".ir",
-        "server": "all-dns"
-      },
-      {
-        "rule_set": "xal",
-        "server": "all-dns"
-      },
-      {
-        "rule_set": "oki",
-        "server": "all-dns"
       }
     ],
     "final": "all-dns",
