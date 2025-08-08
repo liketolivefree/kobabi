@@ -14,8 +14,7 @@ profile:
   store-fake-ip: true
 dns:
   enable: true
-  listen: 0.0.0.0:53
-  ipv6: false
+  listen: :53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -94,7 +93,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
-      udp: false
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
