@@ -14,8 +14,7 @@ profile:
   store-fake-ip: true
 dns:
   enable: true
-  listen: 0.0.0.0:53
-  ipv6: false
+  listen: :53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -94,7 +93,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
-      udp: false
+      udp: true
   a:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -107,7 +106,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: false
+      udp: true
   b:
     type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
@@ -120,7 +119,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: false
+      udp: true
   c:
     type: http
     url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
@@ -133,7 +132,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: false
+      udp: true
   d:
     type: http
     url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
@@ -146,7 +145,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: false
+      udp: true
   e:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
@@ -159,7 +158,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: false
+      udp: true
   f:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
@@ -172,7 +171,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: false
+      udp: true
   g:
     type: http
     url: https://raw.githubusercontent.com/qjlxg/vt/main/clash.yaml
@@ -185,7 +184,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: false
+      udp: true
   h:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
@@ -198,7 +197,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan|socks|tuic
     override:
-      udp: false
+      udp: true
   i:
     type: http
     url: https://raw.githubusercontent.com/qjlxg/vt/main/clash_config.yaml
@@ -211,7 +210,7 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan
     override:
-      udp: false
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
