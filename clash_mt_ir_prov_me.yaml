@@ -14,8 +14,7 @@ profile:
   store-fake-ip: true
 dns:
   enable: true
-  listen: 0.0.0.0:53
-  ipv6: false
+  listen: :53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
