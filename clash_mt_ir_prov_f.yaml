@@ -48,7 +48,6 @@ dns:
   prefer-h3: false
   respect-rules: false
   use-hosts: false
-  use-system-hosts: true
 tun:
   enable: true
   stack: system
@@ -135,7 +134,7 @@ proxy-providers:
       udp: true
   d:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash.yaml
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -163,6 +162,7 @@ proxy-groups:
       - a
       - b
       - c
+      - d
 rule-providers:
   aff:
     type: http
