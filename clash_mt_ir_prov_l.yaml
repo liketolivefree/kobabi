@@ -159,7 +159,7 @@ proxy-groups:
     tolerance: 5
     use:
       - q
-      - a
+      - d
       - b
       - c
 rule-providers:
