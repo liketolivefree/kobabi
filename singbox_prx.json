@@ -5,23 +5,20 @@
   "dns": {
     "servers": [
       {
+        "type": "local",
         "tag": "local-dns",
-        "address": "local",
         "detour": "direct"
       },
       {
+        "type": "https",
         "tag": "all-dns",
-        "address": "https://8.8.8.8/dns-query"
+        "server": "8.8.8.8"
       }
     ],
     "rules": [
       {
         "domain_suffix": "raw.githubusercontent.com",
         "server": "local-dns"
-      },
-      {
-        "outbound": "any",
-        "server": "all-dns"
       }
     ],
     "final": "all-dns",
@@ -2348,7 +2345,8 @@
       }
     ],
     "final": "qqoli",
-    "auto_detect_interface": true
+    "auto_detect_interface": true,
+    "default_domain_resolver": "all-dns"
   },
   "experimental": {
     "cache_file": {
