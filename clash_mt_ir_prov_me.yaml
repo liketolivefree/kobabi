@@ -160,7 +160,7 @@ proxy-groups:
     tolerance: 5
     use:
       - q
-      - b
+      - c
       - d
 rule-providers:
   aff_me:
