@@ -159,9 +159,8 @@ proxy-groups:
     tolerance: 5
     use:
       - q
-      - d
       - b
-      - c
+      - d
 rule-providers:
   aff_l:
     type: http
