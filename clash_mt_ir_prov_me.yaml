@@ -105,6 +105,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
+    exclude-filter: IR|TR|RU
     override:
       udp: true
   b:
@@ -118,6 +119,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+    exclude-filter: IR|TR|RU
     override:
       udp: true
   c:
@@ -164,8 +166,6 @@ proxy-groups:
       - q
       - d
       - c
-      - a
-      - b
 rule-providers:
   aff_me:
     type: http
