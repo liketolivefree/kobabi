@@ -93,6 +93,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
+      skip-cert-verify: false
   a:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -107,6 +108,7 @@ proxy-providers:
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
+      skip-cert-verify: false
   b:
     type: http
     url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
@@ -121,6 +123,7 @@ proxy-providers:
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
+      skip-cert-verify: false
   c:
     type: http
     url: https://raw.githubusercontent.com/qjlxg/vt/main/clash_config.yaml
@@ -135,6 +138,7 @@ proxy-providers:
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
+      skip-cert-verify: false
   d:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
@@ -149,10 +153,10 @@ proxy-providers:
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
+      skip-cert-verify: false
 proxy-groups:
   - name: QQOLI
     type: select
-    exclude-type: direct
     proxies:
       - MMOBI
     use:
