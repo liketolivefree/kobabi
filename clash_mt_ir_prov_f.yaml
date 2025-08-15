@@ -160,7 +160,6 @@ proxy-groups:
     use:
       - q
       - b
-      - c
       - d
 rule-providers:
   aff:
