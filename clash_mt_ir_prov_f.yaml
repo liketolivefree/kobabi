@@ -103,8 +103,8 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|TR|RU
+    exclude-type: ss|http|trojan|vmess|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   b:
@@ -117,8 +117,8 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-type: ss|http|trojan|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   c:
@@ -131,8 +131,8 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-type: ss|http|trojan|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   d:
@@ -145,13 +145,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-type: ss|http|trojan|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
 proxy-groups:
   - name: QQOLI
     type: select
+    exclude-type: direct
     proxies:
       - MMOBI
     use:
