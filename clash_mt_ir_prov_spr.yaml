@@ -104,7 +104,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   b:
@@ -118,7 +118,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   c:
@@ -132,7 +132,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   d:
@@ -146,7 +146,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   e:
@@ -160,7 +160,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   f:
@@ -174,7 +174,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   g:
@@ -188,7 +188,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   h:
@@ -202,7 +202,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan|socks|tuic
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
   i:
@@ -216,12 +216,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
 proxy-groups:
   - name: QQOLI
     type: select
+    exclude-type: direct
     proxies:
       - MMOBI
     use:
