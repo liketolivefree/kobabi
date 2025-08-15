@@ -39,10 +39,10 @@ dns:
   direct-nameserver:
     - system
   nameserver:
-    - https://8.8.8.8/dns-query
+    - https://8.8.4.4/dns-query
     - https://9.9.9.10/dns-query
   proxy-server-nameserver:
-    - https://146.112.41.2/dns-query
+    - https://146.112.41.5/dns-query
     - https://8.8.8.8/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
@@ -97,6 +97,7 @@ proxy-providers:
 proxy-groups:
   - name: QQOLI
     type: select
+    exclude-type: direct
     proxies:
       - MMOBI
     use:
@@ -177,7 +178,7 @@ external-controller: ""
 socks-port: 7891
 port: 7892
 geo-auto-update: false
-geo-update-interval: 24
+geo-update-interval: 90
 geodata-mode: false
 geox-url:
   geoip: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
