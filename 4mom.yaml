@@ -161,7 +161,6 @@ proxy-groups:
       - q
       - d
       - b
-      - c
 rule-providers:
   aff_l:
     type: http
