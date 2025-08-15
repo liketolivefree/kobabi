@@ -105,7 +105,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: Shadowsocks|ShadowsocksR|Socks5|Http|Trojan|Hysteria|WireGuard|Tuic|Ssh|Hysteria2|Vmess
+    exclude-type: ss|http|trojan|vmess|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
@@ -120,7 +120,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: Shadowsocks|ShadowsocksR|Socks5|Http|Trojan|Hysteria|WireGuard|Tuic|Ssh|Hysteria2
+    exclude-type: ss|http|trojan|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
@@ -135,7 +135,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: Shadowsocks|ShadowsocksR|Socks5|Http|Trojan|Hysteria|WireGuard|Tuic|Ssh|Hysteria2
+    exclude-type: ss|http|trojan|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
@@ -150,7 +150,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: Shadowsocks|ShadowsocksR|Socks5|Http|Trojan|Hysteria|WireGuard|Tuic|Ssh|Hysteria2
+    exclude-type: ss|http|trojan|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
