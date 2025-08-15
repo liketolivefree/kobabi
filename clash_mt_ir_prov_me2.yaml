@@ -94,10 +94,10 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
+      skip-cert-verify: false
 proxy-groups:
   - name: QQOLI
     type: select
-    exclude-type: direct
     proxies:
       - MMOBI
     use:
