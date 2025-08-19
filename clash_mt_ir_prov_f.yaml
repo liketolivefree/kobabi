@@ -154,6 +154,21 @@ proxy-providers:
     override:
       udp: true
       skip-cert-verify: false
+  e:
+    type: http
+    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/vless
+    interval: 3600
+    path: ./proxy-providers/e.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan|vmess|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    override:
+      udp: true
+      skip-cert-verify: false
 proxy-groups:
   - name: QQOLI
     type: select
@@ -169,6 +184,7 @@ proxy-groups:
     use:
       - q
       - d
+      - e
       - c
 rule-providers:
   aff:
