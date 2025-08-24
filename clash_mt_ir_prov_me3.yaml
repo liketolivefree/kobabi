@@ -1,0 +1,187 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+enable-process: true
+find-process-mode: strict
+tcp-concurrent: false
+unified-delay: true
+global-client-fingerprint: random
+keep-alive-interval: 25
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  listen: :53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - +.lan
+    - +.local
+    - +.localhost
+    - +.localdomain
+    - +.ip6-localhost
+    - +.ip6-loopback
+    - "*.example"
+    - "*.invalid"
+    - "*.test"
+    - "*.home.arpa"
+    - time.nist.gov
+    - time.windows.com
+    - time.android.com
+    - pool.ntp.org
+    - time.*.com
+    - ntp.*.com
+  default-nameserver:
+    - system
+  direct-nameserver:
+    - system
+  nameserver:
+    - https://8.8.4.4/dns-query
+    - https://9.9.9.10/dns-query
+  proxy-server-nameserver:
+    - https://208.67.222.222/dns-query
+    - https://8.8.8.8/dns-query
+  direct-nameserver-follow-policy: false
+  prefer-h3: false
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: true
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+  mtu: 9000
+  device: Mihomo
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    TLS:
+      ports:
+        - 443
+        - 8443
+    QUIC:
+      ports:
+        - 443
+        - 8443
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+      override-destination: true
+  sniffing:
+    - tls
+    - http
+    - quic
+proxy-providers:
+  q3:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash3.yaml
+    interval: 9000
+    path: ./proxy-providers/q3.yaml
+    health-check:
+      enable: true
+      interval: 1200
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+      skip-cert-verify: false
+proxy-groups:
+  - name: QQOLI
+    type: select
+    proxies:
+      - MMOBI
+    use:
+      - q3
+  - name: MMOBI
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 900
+    tolerance: 500
+    use:
+      - q3
+rule-providers:
+  aff_me:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/aff_me.mrs
+    path: ./rule-providers/aff_me.mrs
+    interval: 86400
+  yun_me:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/yun_me.mrs
+    path: ./rule-providers/yun_me.mrs
+    interval: 86400
+  oki:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/oki.mrs
+    path: ./rule-providers/oki.mrs
+    interval: 86400
+  doki:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/doki.mrs
+    path: ./rule-providers/doki.mrs
+    interval: 86400
+  xal:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/xal.mrs
+    path: ./rule-providers/xal.mrs
+    interval: 86400
+  loo:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/loo.mrs
+    path: ./rule-providers/loo.mrs
+    interval: 86400
+  wht:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/wht.mrs
+    path: ./rule-providers/wht.mrs
+    interval: 86400    
+rules:
+  - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
+  - DOMAIN-SUFFIX,lan,DIRECT
+  - DOMAIN-SUFFIX,local,DIRECT
+  - DOMAIN-SUFFIX,localdomain,DIRECT
+  - DOMAIN-SUFFIX,localhost,DIRECT
+  - RULE-SET,wht,QQOLI
+  - RULE-SET,aff_me,REJECT
+  - RULE-SET,yun_me,REJECT,no-resolve
+  - DOMAIN-SUFFIX,ir,DIRECT
+  - RULE-SET,xal,DIRECT
+  - RULE-SET,oki,QQOLI
+  - RULE-SET,loo,DIRECT,no-resolve
+  - RULE-SET,doki,QQOLI,no-resolve
+  - MATCH,QQOLI
+external-controller: ""
+socks-port: 7891
+port: 7892
+geo-auto-update: false
+geo-update-interval: 90
+geodata-mode: false
+geox-url:
+  geoip: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
+  geosite: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
+  mmdb: https://github.com/Chocolate4u/Iran-clash-rules/releases/latest/download/geoip.metadb
+  asn: https://github.com/Chocolate4U/Iran-v2ray-rules/raw/geolite2/GeoLite2-ASN.mmdb
