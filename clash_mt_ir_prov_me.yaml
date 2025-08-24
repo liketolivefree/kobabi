@@ -4,7 +4,7 @@ mode: rule
 log-level: info
 ipv6: false
 enable-process: true
-find-process-mode: always
+find-process-mode: strict
 tcp-concurrent: false
 unified-delay: true
 global-client-fingerprint: random
