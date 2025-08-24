@@ -173,8 +173,8 @@ rules:
   - RULE-SET,oki,QQOLI
   - RULE-SET,loo,DIRECT,no-resolve
   - RULE-SET,doki,QQOLI,no-resolve
-  - PROCESS-NAME,qbittorrent.exe,QQOLI
-  - PROCESS-NAME,python.exe,QQOLI
+  - PROCESS-NAME,qbittorrent.exe,DIRECT
+  - PROCESS-NAME,python.exe,DIRECT
   - MATCH,QQOLI
 external-controller: ""
 socks-port: 7891
