@@ -41,9 +41,13 @@ dns:
   nameserver:
     - https://8.8.4.4/dns-query
     - https://9.9.9.10/dns-query
+    - https://146.112.41.2/dns-query
+    - https://1.0.0.2/dns-query
   proxy-server-nameserver:
-    - https://146.112.41.5/dns-query
-    - https://8.8.8.8/dns-query
+    - https://8.8.4.4/dns-query
+    - https://9.9.9.10/dns-query
+    - https://146.112.41.2/dns-query
+    - https://1.0.0.2/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
@@ -96,7 +100,7 @@ proxy-providers:
       skip-cert-verify: false
   a:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
@@ -111,7 +115,7 @@ proxy-providers:
       skip-cert-verify: false
   b:
     type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
     interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
@@ -126,7 +130,7 @@ proxy-providers:
       skip-cert-verify: false
   c:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
+    url: https://raw.githubusercontent.com/qjlxg/aggregator/main/data/clash.yaml
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
@@ -134,14 +138,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|hysteria2
+    exclude-type: ss|http|trojan|vmess|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
       skip-cert-verify: false
   d:
     type: http
-    url: https://raw.githubusercontent.com/go4sharing/sub/main/sub.yaml
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -149,14 +153,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|hysteria2
+    exclude-type: ss|http|trojan|vmess|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
       skip-cert-verify: false
   e:
     type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Vmess
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
@@ -164,14 +168,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|hysteria2
+    exclude-type: ss|http|trojan|vmess|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
       skip-cert-verify: false
   f:
     type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/refs/heads/master/snippets/nodes.meta.yml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
@@ -179,14 +183,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|hysteria2
+    exclude-type: ss|http|trojan|vmess|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
       skip-cert-verify: false
   g:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash.yaml
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/vless
     interval: 3600
     path: ./proxy-providers/g.yaml
     health-check:
@@ -194,16 +198,46 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|hysteria2
+    exclude-type: ss|http|trojan|vmess|hysteria2
     exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
     override:
       udp: true
       skip-cert-verify: false
   h:
     type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
     interval: 3600
     path: ./proxy-providers/h.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan|vmess|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    override:
+      udp: true
+      skip-cert-verify: false
+  i:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 3600
+    path: ./proxy-providers/i.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan|vmess|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    override:
+      udp: true
+      skip-cert-verify: false
+  j:
+    type: http
+    url: https://raw.githubusercontent.com/mahdibland/get_v2/main/pub/combine.yaml
+    interval: 3600
+    path: ./proxy-providers/j.yaml
     health-check:
       enable: true
       interval: 900
@@ -214,11 +248,41 @@ proxy-providers:
     override:
       udp: true
       skip-cert-verify: false
-  i:
+  k:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/vt/main/clash_config.yaml
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
     interval: 3600
-    path: ./proxy-providers/i.yaml
+    path: ./proxy-providers/k.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    override:
+      udp: true
+      skip-cert-verify: false
+  l:
+    type: http
+    url: https://raw.githubusercontent.com/lagzian/V2RayAggregator/master/Eternity.yml
+    interval: 3600
+    path: ./proxy-providers/l.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan|hysteria2
+    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    override:
+      udp: true
+      skip-cert-verify: false
+  m:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/V2RayAggregator/master/Eternity.yml
+    interval: 3600
+    path: ./proxy-providers/m.yaml
     health-check:
       enable: true
       interval: 900
@@ -252,6 +316,10 @@ proxy-groups:
       - g
       - h
       - i
+      - j
+      - k
+      - l
+      - m
 rule-providers:
   aff_l:
     type: http
