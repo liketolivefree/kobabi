@@ -39,13 +39,13 @@ dns:
   direct-nameserver:
     - system
   nameserver:
-    - https://8.8.4.4/dns-query
-    - https://9.9.9.10/dns-query
+    - https://119.29.29.29/dns-query
+    - https://9.9.9.9/dns-query
     - https://146.112.41.2/dns-query
     - https://1.0.0.2/dns-query
   proxy-server-nameserver:
-    - https://8.8.4.4/dns-query
-    - https://9.9.9.10/dns-query
+    - https://119.29.29.29/dns-query
+    - https://9.9.9.9/dns-query
     - https://146.112.41.2/dns-query
     - https://1.0.0.2/dns-query
   direct-nameserver-follow-policy: false
