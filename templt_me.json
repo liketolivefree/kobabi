@@ -7,15 +7,11 @@
   "dns": {
     "servers": [
       {"tag": "local-dns", "type": "local", "detour": "direct"},
-      {"type": "https", "tag": "test-dns", "server": "146.112.41.2"},
       {"tag": "all-dns", "type": "https", "server": "8.8.8.8"}
     ],
     "rules": [
       {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
-      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
-      {"domain_suffix": ".ir", "server": "all-dns"},
-      {"rule_set": "xal", "server": "all-dns"},
-      {"rule_set": "oki", "server": "all-dns"}
+      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"}
     ],
     "final": "all-dns",
     "strategy": "prefer_ipv4"
@@ -42,7 +38,7 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "test-dns",
+    "default_domain_resolver": "all-dns",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
