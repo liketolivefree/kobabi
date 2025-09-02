@@ -4,7 +4,6 @@
   },
   "dns": {
     "servers": [
-      {"type": "https", "tag": "test-dns", "server": "146.112.41.2"},
       {"tag": "all-dns", "type": "https", "server": "8.8.8.8"}
     ],
     "rules": [],
@@ -33,7 +32,7 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "test-dns",
+    "default_domain_resolver": "all-dns",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
