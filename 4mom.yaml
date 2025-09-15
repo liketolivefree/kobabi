@@ -7,7 +7,7 @@ enable-process: true
 find-process-mode: strict
 tcp-concurrent: false
 unified-delay: true
-global-client-fingerprint: random
+global-client-fingerprint: chrome
 keep-alive-interval: 25
 profile:
   store-selected: true
@@ -130,7 +130,7 @@ proxy-providers:
       skip-cert-verify: false
   c:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/aggregator/main/data/clash.yaml
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
@@ -145,7 +145,7 @@ proxy-providers:
       skip-cert-verify: false
   d:
     type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
+    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/vless
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -175,7 +175,7 @@ proxy-providers:
       skip-cert-verify: false
   f:
     type: http
-    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/vless
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
@@ -204,9 +204,8 @@ proxy-groups:
       - q
       - a
       - b
+      - c
       - d
-      - e
-      - f
 rule-providers:
   aff_l:
     type: http
