@@ -7,7 +7,7 @@ enable-process: true
 find-process-mode: strict
 tcp-concurrent: false
 unified-delay: true
-global-client-fingerprint: random
+global-client-fingerprint: chrome
 keep-alive-interval: 25
 profile:
   store-selected: true
@@ -204,9 +204,9 @@ proxy-groups:
     use:
       - q
       - a
+      - b
       - c
       - d
-      - e
 rule-providers:
   aff_me:
     type: http
