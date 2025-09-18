@@ -110,7 +110,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
@@ -124,8 +124,8 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-type: ss|http|trojan
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
@@ -139,14 +139,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-type: ss|http|trojan
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
   d:
     type: http
-    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/vless
+    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -155,13 +155,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
   e:
     type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/vless
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
@@ -170,13 +170,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
   f:
     type: http
-    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/vless
+    url: https://raw.githubusercontent.com/qjlxg/HA/main/link.yaml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
@@ -185,13 +185,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
   g:
     type: http
-    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
+    url: https://raw.githubusercontent.com/qjlxg/aggregator/main/data/clash.yaml
     interval: 3600
     path: ./proxy-providers/g.yaml
     health-check:
@@ -199,14 +199,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess|hysteria2
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-type: ss|http|trojan
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
   h:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/aggregator/main/data/clash.yaml
+    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
     interval: 3600
     path: ./proxy-providers/h.yaml
     health-check:
@@ -214,8 +214,8 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess|hysteria2
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-type: ss|http|trojan|vmess
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
@@ -237,6 +237,7 @@ proxy-groups:
       - b
       - c
       - d
+      - f
 rule-providers:
   aff_me:
     type: http
