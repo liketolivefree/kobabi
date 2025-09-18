@@ -5,7 +5,7 @@
   "dns": {
     "servers": [
       {"tag": "local-dns", "type": "local", "detour": "direct"},
-      {"tag": "all-dns", "type": "https", "server": "146.112.41.2"}
+      {"tag": "all-dns", "type": "https", "server": "8.8.4.4"}
     ],
     "rules": [
       {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"}
