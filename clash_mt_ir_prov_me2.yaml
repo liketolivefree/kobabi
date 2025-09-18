@@ -7,7 +7,7 @@ enable-process: true
 find-process-mode: strict
 tcp-concurrent: false
 unified-delay: true
-global-client-fingerprint: random
+global-client-fingerprint: chrome
 keep-alive-interval: 25
 profile:
   store-selected: true
@@ -39,12 +39,12 @@ dns:
   direct-nameserver:
     - system
   nameserver:
-    - https://119.29.29.29/dns-query
+    - https://8.8.4.4/dns-query
     - https://9.9.9.9/dns-query
     - https://146.112.41.2/dns-query
     - https://1.0.0.2/dns-query
   proxy-server-nameserver:
-    - https://119.29.29.29/dns-query
+    - https://8.8.4.4/dns-query
     - https://9.9.9.9/dns-query
     - https://146.112.41.2/dns-query
     - https://1.0.0.2/dns-query
