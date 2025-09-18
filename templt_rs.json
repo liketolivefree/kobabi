@@ -4,7 +4,7 @@
   },
   "dns": {
     "servers": [
-      {"tag": "all-dns", "type": "https", "server": "146.112.41.2"}
+      {"tag": "all-dns", "type": "https", "server": "8.8.4.4"}
     ],
     "rules": [],
     "final": "all-dns",
