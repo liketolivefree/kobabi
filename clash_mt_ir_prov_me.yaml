@@ -140,7 +140,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|defaultName
     override:
       udp: true
       skip-cert-verify: false
