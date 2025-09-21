@@ -124,8 +124,8 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-type: ss|http|trojan|vmess
+    exclude-filter: IR|CN|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
@@ -139,8 +139,8 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china|defaultName
+    exclude-type: ss|http|trojan|vmess
+    exclude-filter: IR|CN|iran|china
     override:
       udp: true
       skip-cert-verify: false
@@ -154,7 +154,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china
     override:
       udp: true
@@ -169,7 +169,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china
     override:
       udp: true
@@ -184,7 +184,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china
     override:
       udp: true
@@ -199,7 +199,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china
     override:
       udp: true
@@ -235,7 +235,6 @@ proxy-groups:
       - q
       - a
       - b
-      - c
       - d
       - f
 rule-providers:
