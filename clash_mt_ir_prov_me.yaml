@@ -236,7 +236,6 @@ proxy-groups:
       - a
       - b
       - d
-      - f
 rule-providers:
   aff_me:
     type: http
