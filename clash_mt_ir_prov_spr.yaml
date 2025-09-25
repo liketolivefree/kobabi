@@ -54,7 +54,7 @@ dns:
   use-hosts: false
 tun:
   enable: true
-  stack: system
+  stack: mix
   dns-hijack:
     - any:53
   auto-route: true
@@ -109,7 +109,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
@@ -124,7 +124,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
@@ -139,7 +139,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
@@ -154,7 +154,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
@@ -169,13 +169,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
   f:
     type: http
-    url: https://raw.githubusercontent.com/lagzian/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/qjlxg/HA/main/link.yaml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
@@ -184,7 +184,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
@@ -199,13 +199,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
   h:
     type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
     interval: 3600
     path: ./proxy-providers/h.yaml
     health-check:
@@ -214,13 +214,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
   i:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
     interval: 3600
     path: ./proxy-providers/i.yaml
     health-check:
@@ -229,13 +229,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
   j:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
     interval: 3600
     path: ./proxy-providers/j.yaml
     health-check:
@@ -244,13 +244,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
   k:
     type: http
-    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
     interval: 3600
     path: ./proxy-providers/k.yaml
     health-check:
@@ -259,13 +259,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
   l:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
     interval: 3600
     path: ./proxy-providers/l.yaml
     health-check:
@@ -273,14 +273,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-type: ss|http|trojan
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
   m:
     type: http
-    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
+    url: https://raw.githubusercontent.com/10ium/V2RayAggregator/master/Eternity.yml
     interval: 3600
     path: ./proxy-providers/m.yaml
     health-check:
@@ -289,7 +289,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|TR|RU|CN|iran|turkey|russia|china
+    exclude-filter: IR|iran
     override:
       udp: true
       skip-cert-verify: false
