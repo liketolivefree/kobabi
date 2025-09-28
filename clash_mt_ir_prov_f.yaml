@@ -98,6 +98,19 @@ proxy-providers:
     override:
       udp: true
       skip-cert-verify: false
+  q2:
+    type: http
+    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash2.yaml
+    interval: 3600
+    path: ./proxy-providers/q2.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    override:
+      udp: true
+      skip-cert-verify: false
   a:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
@@ -216,12 +229,12 @@ proxy-groups:
     interval: 400
     tolerance: 0
     use:
+      - q2
       - q
       - a
       - b
       - c
-      - d
-      - g
+      - e
 rule-providers:
   aff:
     type: http
