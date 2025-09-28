@@ -223,7 +223,7 @@ proxy-groups:
     proxies:
       - MMOBI
     use:
-      - q
+      - q2
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
