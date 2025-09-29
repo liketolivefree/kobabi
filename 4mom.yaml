@@ -121,7 +121,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china
     override:
       udp: true
@@ -211,7 +211,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
+    exclude-type: ss|http|trojan|vmess|hysteria2
     exclude-filter: IR|CN|iran|china
     override:
       udp: true
@@ -222,7 +222,7 @@ proxy-groups:
     proxies:
       - MMOBI
     use:
-      - q
+      - q2
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
