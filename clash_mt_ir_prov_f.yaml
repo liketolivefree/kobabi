@@ -98,19 +98,6 @@ proxy-providers:
     override:
       udp: true
       skip-cert-verify: false
-  q2:
-    type: http
-    url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash2.yaml
-    interval: 3600
-    path: ./proxy-providers/q2.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    override:
-      udp: true
-      skip-cert-verify: false
   a:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
@@ -141,97 +128,22 @@ proxy-providers:
     override:
       udp: true
       skip-cert-verify: false
-  c:
-    type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
-    interval: 3600
-    path: ./proxy-providers/c.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
-    override:
-      udp: true
-      skip-cert-verify: false
-  d:
-    type: http
-    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
-    interval: 3600
-    path: ./proxy-providers/d.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china
-    override:
-      udp: true
-      skip-cert-verify: false
-  e:
-    type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
-    interval: 3600
-    path: ./proxy-providers/e.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china
-    override:
-      udp: true
-      skip-cert-verify: false
-  f:
-    type: http
-    url: https://raw.githubusercontent.com/qjlxg/aggregator/main/data/clash.yaml
-    interval: 3600
-    path: ./proxy-providers/f.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china
-    override:
-      udp: true
-      skip-cert-verify: false
-  g:
-    type: http
-    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
-    interval: 3600
-    path: ./proxy-providers/g.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan|vmess|hysteria2
-    exclude-filter: IR|CN|iran|china
-    override:
-      udp: true
-      skip-cert-verify: false
 proxy-groups:
   - name: QQOLI
     type: select
     proxies:
       - MMOBI
     use:
-      - q2
+      - q
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 400
     tolerance: 0
     use:
-      - q2
+      - q
+      - a
       - b
-      - g
 rule-providers:
   aff:
     type: http
