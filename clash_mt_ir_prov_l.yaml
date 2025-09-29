@@ -230,11 +230,8 @@ proxy-groups:
     tolerance: 0
     use:
       - q2
-      - q
-      - a
       - b
-      - c
-      - e
+      - g
 rule-providers:
   aff_l:
     type: http
