@@ -142,6 +142,8 @@ proxy-groups:
     interval: 400
     tolerance: 0
     use:
+      - b
+      - a
       - q
 rule-providers:
   aff_me:
