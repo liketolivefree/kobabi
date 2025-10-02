@@ -303,7 +303,7 @@ proxy-groups:
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 400
+    interval: 600
     tolerance: 0
     use:
       - a
