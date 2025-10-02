@@ -141,9 +141,9 @@ proxy-groups:
     interval: 400
     tolerance: 0
     use:
-      - q
-      - a
       - b
+      - a
+      - q
 rule-providers:
   aff:
     type: http
