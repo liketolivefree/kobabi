@@ -59,7 +59,7 @@ tun:
     - any:53
   auto-route: true
   auto-detect-interface: true
-  strict-route: true
+  # strict-route: true
   device: Mihomo
 sniffer:
   enable: true
