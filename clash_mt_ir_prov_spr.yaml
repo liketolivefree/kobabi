@@ -54,7 +54,7 @@ dns:
   use-hosts: false
 tun:
   enable: true
-  stack: mix
+  stack: system
   dns-hijack:
     - any:53
   auto-route: true
