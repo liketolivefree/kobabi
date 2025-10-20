@@ -40,13 +40,13 @@ dns:
     - system
   nameserver:
     - https://8.8.4.4/dns-query
-    - https://9.9.9.10/dns-query
+    - https://9.9.9.9/dns-query
     - https://146.112.41.2/dns-query
-    - https://1.0.0.2/dns-query
+    - https://1.0.0.1/dns-query
   proxy-server-nameserver:
-    - https://8.8.4.4/dns-query
+    - https://8.8.8.8/dns-query
     - https://9.9.9.10/dns-query
-    - https://146.112.41.2/dns-query
+    - https://208.67.220.220/dns-query
     - https://1.0.0.2/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
@@ -59,8 +59,7 @@ tun:
     - any:53
   auto-route: true
   auto-detect-interface: true
-  strict-route: true
-  mtu: 9000
+  # strict-route: true
   device: Mihomo
 sniffer:
   enable: true
@@ -109,7 +108,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
@@ -124,7 +123,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|(iran)|(china)
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
@@ -139,13 +138,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   d:
     type: http
-    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -154,13 +153,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   e:
     type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
@@ -169,13 +168,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   f:
     type: http
-    url: https://raw.githubusercontent.com/qjlxg/aggregator/main/data/clash.yaml
+    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
@@ -184,13 +183,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   g:
     type: http
-    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
+    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
     interval: 3600
     path: ./proxy-providers/g.yaml
     health-check:
@@ -199,13 +198,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   h:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
     interval: 3600
     path: ./proxy-providers/h.yaml
     health-check:
@@ -214,13 +213,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   i:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/i.yaml
     health-check:
@@ -229,13 +228,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   j:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/j.yaml
     health-check:
@@ -244,13 +243,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   k:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
     interval: 3600
     path: ./proxy-providers/k.yaml
     health-check:
@@ -259,13 +258,13 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   l:
     type: http
-    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
     interval: 3600
     path: ./proxy-providers/l.yaml
     health-check:
@@ -274,22 +273,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
-    override:
-      udp: true
-      skip-cert-verify: false
-  m:
-    type: http
-    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
-    interval: 3600
-    path: ./proxy-providers/m.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china
+    exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
@@ -306,6 +290,7 @@ proxy-groups:
     interval: 600
     tolerance: 0
     use:
+      - q
       - a
       - b
       - c
@@ -318,8 +303,6 @@ proxy-groups:
       - j
       - k
       - l
-      - m
-      - q
 rule-providers:
   aff_l:
     type: http
