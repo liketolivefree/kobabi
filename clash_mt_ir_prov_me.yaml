@@ -138,7 +138,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
@@ -153,7 +153,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
