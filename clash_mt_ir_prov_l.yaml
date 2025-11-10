@@ -137,7 +137,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
@@ -152,14 +152,14 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan
+    exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   e:
     type: http
-    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
@@ -186,7 +186,8 @@ proxy-groups:
     tolerance: 0
     use:
       - q
-      - c
+      - b
+      - d
 rule-providers:
   aff_l:
     type: http
