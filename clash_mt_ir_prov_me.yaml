@@ -160,7 +160,7 @@ proxy-providers:
       skip-cert-verify: false
   e:
     type: http
-    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
@@ -187,11 +187,8 @@ proxy-groups:
     tolerance: 0
     use:
       - q
-      - a
       - b
-      - c
       - d
-      - e
 rule-providers:
   aff_me:
     type: http
