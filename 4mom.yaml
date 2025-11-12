@@ -114,7 +114,7 @@ proxy-providers:
       skip-cert-verify: false
   b:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
     interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
@@ -186,6 +186,7 @@ proxy-groups:
     tolerance: 0
     use:
       - q
+      - a
       - b
       - d
 rule-providers:
