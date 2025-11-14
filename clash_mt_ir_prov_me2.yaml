@@ -88,11 +88,11 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 9000
+    interval: 18000
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 1500
+      interval: 15000
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     override:
@@ -108,7 +108,7 @@ proxy-groups:
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 900
+    interval: 12000
     tolerance: 500
     use:
       - q
