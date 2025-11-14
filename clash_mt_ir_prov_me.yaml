@@ -35,7 +35,7 @@ dns:
     - time.*.com
     - ntp.*.com
   default-nameserver:
-    - system
+    - tls://8.8.8.8
   direct-nameserver:
     - system
   nameserver:
