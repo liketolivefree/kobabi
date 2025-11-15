@@ -7,13 +7,18 @@
   "dns": {
     "servers": [
       {"tag": "local-dns", "type": "local", "detour": "direct"},
-      {"tag": "all-dns", "type": "https", "server": "8.8.4.4"}
+      {"tag": "base-dns", "type": "tls", "server": "8.8.4.4", "detour": "direct"},
+      {"tag": "direct-dns", "type": "https", "server": "dns.umbrella.com", "detour": "direct"},
+      {"tag": "remote-dns", "type": "https", "server": "dns.quad9.net"}
     ],
     "rules": [
       {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
-      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"}
+      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
+      {"domain_suffix": ".ir", "server": "direct-dns", "action": "route"},
+      {"rule_set": "xal", "server": "direct-dns", "action": "route"},
+      {"rule_set": "ok", "server": "remote-dns", "action": "route"}
     ],
-    "final": "all-dns",
+    "final": "remote-dns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
@@ -32,13 +37,13 @@
   ],
   "outbounds": [
     {"type": "selector", "tag": "qqoli", "outbounds": ["mmobi", "{all}"], "default": "mmobi"},
-    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "6m0s", "tolerance": 0},
+    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "http://www.gstatic.com/generate_204", "interval": "6m0s", "tolerance": 0},
     {"type": "direct", "tag": "direct"}
   ],
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "all-dns",
+    "default_domain_resolver": "base-dns",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
