@@ -7,16 +7,16 @@
   "dns": {
     "servers": [
       {"tag": "local-dns", "type": "local", "detour": "direct"},
-      {"tag": "base-dns", "type": "tls", "server": "8.8.4.4", "detour": "direct"},
+      {"tag": "base-dns", "type": "tls", "server": "8.8.4.4"},
       {"tag": "direct-dns", "type": "https", "server": "dns.umbrella.com", "domain_resolver": "base-dns", "detour": "direct"},
       {"tag": "remote-dns", "type": "https", "server": "dns.quad9.net", "domain_resolver": "base-dns"}
     ],
     "rules": [
       {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
       {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
-      {"domain_suffix": ".ir", "server": "direct-dns", "action": "route"},
-      {"rule_set": "xal", "server": "direct-dns", "action": "route"},
-      {"rule_set": "ok", "server": "remote-dns", "action": "route"}
+      {"domain_suffix": ".ir", "server": "direct-dns"},
+      {"rule_set": "xal", "server": "direct-dns"},
+      {"rule_set": "ok", "server": "remote-dns"}
     ],
     "final": "remote-dns",
     "strategy": "prefer_ipv4"
