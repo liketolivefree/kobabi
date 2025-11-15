@@ -8,8 +8,8 @@
     "servers": [
       {"tag": "local-dns", "type": "local", "detour": "direct"},
       {"tag": "base-dns", "type": "tls", "server": "8.8.4.4", "detour": "direct"},
-      {"tag": "direct-dns", "type": "https", "server": "dns.umbrella.com", "detour": "direct"},
-      {"tag": "remote-dns", "type": "https", "server": "dns.quad9.net"}
+      {"tag": "direct-dns", "type": "https", "server": "dns.umbrella.com", "domain_resolver": "base-dns", "detour": "direct"},
+      {"tag": "remote-dns", "type": "https", "server": "dns.quad9.net", "domain_resolver": "base-dns"}
     ],
     "rules": [
       {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
@@ -43,7 +43,7 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "base-dns",
+    "default_domain_resolver": "direct-dns",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
