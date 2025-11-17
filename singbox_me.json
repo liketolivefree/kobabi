@@ -7,20 +7,68 @@
   "dns": {
     "servers": [
       {
-        "type": "local",
-        "tag": "local-dns",
-        "detour": "direct"
+        "type": "udp",
+        "tag": "local",
+        "server": "8.8.8.8"
       },
       {
         "type": "https",
-        "tag": "all-dns",
-        "server": "8.8.4.4"
+        "tag": "remote",
+        "detour": "qqoli",
+        "domain_resolver": "hosts",
+        "server": "dns.google"
+      },
+      {
+        "type": "https",
+        "tag": "direct",
+        "domain_resolver": "hosts",
+        "server": "dns.umbrella.com"
+      },
+      {
+        "type": "hosts",
+        "tag": "hosts",
+        "predefined": {
+          "dns.google": [
+            "8.8.8.8",
+            "8.8.4.4",
+            "2001:4860:4860::8888",
+            "2001:4860:4860::8844"
+          ],
+          "cloudflare-dns.com": [
+            "104.16.249.249",
+            "104.16.248.249",
+            "2606:4700::6810:f8f9",
+            "2606:4700::6810:f9f9"
+          ],
+          "dns.quad9.net": [
+            "9.9.9.9",
+            "149.112.112.112",
+            "2620:fe::fe",
+            "2620:fe::9"
+          ],
+          "dns.umbrella.com": [
+            "208.67.220.220",
+            "208.67.222.222",
+            "2620:119:35::35",
+            "2620:119:53::53"
+          ],
+          "dns.sse.cisco.com": [
+            "208.67.220.220",
+            "208.67.222.222",
+            "2620:119:35::35",
+            "2620:119:53::53"
+          ],
+          "localhost": "127.0.0.1",
+          "localhost.localdomain": "127.0.0.1",
+          "local": "127.0.0.1",
+          "broadcasthost": "255.255.255.255"
+        }
       }
     ],
     "rules": [
       {
         "domain_suffix": "raw.githubusercontent.com",
-        "server": "local-dns"
+        "server": "local"
       },
       {
         "domain_suffix": [
@@ -35,10 +83,31 @@
           "miman.io"
         ],
         "action": "reject"
+      },
+      {
+        "ip_accept_any": true,
+        "server": "hosts"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "remote"
+      },
+      {
+        "clash_mode": "Direct",
+        "server": "direct"
+      },
+      {
+        "query_type": [
+          "SVCB",
+          "HTTPS"
+        ],
+        "action": "predefined",
+        "rcode": "NOTIMP"
       }
     ],
-    "final": "all-dns",
-    "strategy": "prefer_ipv4"
+    "final": "remote",
+    "strategy": "prefer_ipv4",
+    "independent_cache": true
   },
   "inbounds": [
     {
@@ -2571,7 +2640,7 @@
     ],
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "all-dns"
+    "default_domain_resolver": "direct"
   },
   "experimental": {
     "cache_file": {
