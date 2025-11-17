@@ -1,32 +1,31 @@
 {
   "log": {
     "level": "info",
-    "output": "box.log",
-    "timestamp": true
+    "output": "box.log"
   },
   "dns": {
     "servers": [
       {
-        "type": "udp",
-        "tag": "local",
+        "type": "tls",
+        "tag": "local_dns",
         "server": "8.8.8.8"
       },
       {
         "type": "https",
-        "tag": "remote",
-        "detour": "qqoli",
-        "domain_resolver": "hosts",
-        "server": "dns.google"
-      },
-      {
-        "type": "https",
-        "tag": "direct",
-        "domain_resolver": "hosts",
+        "tag": "direct_dns",
+        "domain_resolver": "hosts_dns",
         "server": "dns.umbrella.com"
       },
       {
+        "type": "https",
+        "tag": "remote_dns",
+        "detour": "qqoli",
+        "domain_resolver": "hosts_dns",
+        "server": "cloudflare-dns.com"
+      },
+      {
         "type": "hosts",
-        "tag": "hosts",
+        "tag": "hosts_dns",
         "predefined": {
           "dns.google": [
             "8.8.8.8",
@@ -52,13 +51,20 @@
             "2620:119:35::35",
             "2620:119:53::53"
           ],
-          "dns.sse.cisco.com": [
-            "208.67.220.220",
-            "208.67.222.222",
-            "2620:119:35::35",
-            "2620:119:53::53"
+          "raw.githubusercontent.com": [
+            "185.199.108.133",
+            "185.199.109.133",
+            "185.199.110.133",
+            "185.199.111.133",
+            "2606:50c0:8000::154",
+            "2606:50c0:8001::154",
+            "2606:50c0:8002::154",
+            "2606:50c0:8003::154"
           ],
-          "localhost": "127.0.0.1",
+          "localhost": [
+            "127.0.0.1",
+            "::1"
+          ],
           "localhost.localdomain": "127.0.0.1",
           "local": "127.0.0.1",
           "broadcasthost": "255.255.255.255"
@@ -67,8 +73,12 @@
     ],
     "rules": [
       {
-        "domain_suffix": "raw.githubusercontent.com",
-        "server": "local"
+        "query_type": [
+          "SVCB",
+          "HTTPS"
+        ],
+        "action": "predefined",
+        "rcode": "NOTIMP"
       },
       {
         "domain_suffix": [
@@ -85,27 +95,15 @@
         "action": "reject"
       },
       {
+        "domain_suffix": "raw.githubusercontent.com",
+        "server": "hosts_dns"
+      },
+      {
         "ip_accept_any": true,
-        "server": "hosts"
-      },
-      {
-        "clash_mode": "Global",
-        "server": "remote"
-      },
-      {
-        "clash_mode": "Direct",
-        "server": "direct"
-      },
-      {
-        "query_type": [
-          "SVCB",
-          "HTTPS"
-        ],
-        "action": "predefined",
-        "rcode": "NOTIMP"
+        "server": "hosts_dns"
       }
     ],
-    "final": "remote",
+    "final": "remote_dns",
     "strategy": "prefer_ipv4",
     "independent_cache": true
   },
@@ -356,7 +354,7 @@
         "q_846",
         "q_996"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "6m0s"
     },
     {
@@ -2640,7 +2638,7 @@
     ],
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "direct"
+    "default_domain_resolver": "direct_dns"
   },
   "experimental": {
     "cache_file": {
