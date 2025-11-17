@@ -6,14 +6,21 @@
   },
   "dns": {
     "servers": [
-      {"tag": "local-dns", "type": "local", "detour": "direct"},
-      {"tag": "all-dns", "type": "https", "server": "8.8.4.4"}
+      {"server": "8.8.8.8", "type": "udp", "tag": "local"},
+      {"server": "dns.google", "domain_resolver": "hosts", "type": "https", "tag": "remote", "detour": "qqoli"},
+      {"server": "dns.umbrella.com", "domain_resolver": "hosts", "type": "https", "tag": "direct"},
+      {"predefined": {"dns.google": ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"], "cloudflare-dns.com": ["104.16.249.249", "104.16.248.249", "2606:4700::6810:f8f9", "2606:4700::6810:f9f9"], "dns.quad9.net": ["9.9.9.9", "149.112.112.112", "2620:fe::fe", "2620:fe::9"], "dns.umbrella.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"], "dns.sse.cisco.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"], "localhost": "127.0.0.1", "localhost.localdomain": "127.0.0.1", "local": "127.0.0.1", "broadcasthost": "255.255.255.255"}, "type": "hosts", "tag": "hosts"}
     ],
     "rules": [
-      {"domain_suffix": "raw.githubusercontent.com", "server": "local-dns"},
-      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"}
+      {"domain_suffix": "raw.githubusercontent.com", "server": "local"},
+      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
+      {"server": "hosts", "ip_accept_any": true},
+      {"server": "remote", "clash_mode": "Global"},
+      {"server": "direct", "clash_mode": "Direct"},
+      {"action": "predefined", "rcode": "NOTIMP", "query_type": [64, 65]}
     ],
-    "final": "all-dns",
+    "final": "remote",
+    "independent_cache": true,
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
@@ -38,7 +45,7 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "all-dns",
+    "default_domain_resolver": "direct",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
