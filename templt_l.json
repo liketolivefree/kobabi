@@ -11,7 +11,6 @@
     ],
     "rules": [
       {"query_type": ["SVCB", "HTTPS"], "action": "predefined", "rcode": "NOTIMP"},
-      {"domain_suffix": "raw.githubusercontent.com", "server": "hosts_dns"},
       {"ip_accept_any": true, "server": "hosts_dns"}
     ],
     "final": "remote_dns",
