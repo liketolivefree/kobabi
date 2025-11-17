@@ -95,10 +95,6 @@
         "action": "reject"
       },
       {
-        "domain_suffix": "raw.githubusercontent.com",
-        "server": "hosts_dns"
-      },
-      {
         "ip_accept_any": true,
         "server": "hosts_dns"
       }
