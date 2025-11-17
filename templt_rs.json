@@ -4,10 +4,17 @@
   },
   "dns": {
     "servers": [
-      {"tag": "all-dns", "type": "https", "server": "8.8.4.4"}
+      {"tag": "local_dns", "type": "tls", "server": "8.8.8.8"},
+      {"tag": "direct_dns", "type": "https", "server": "dns.umbrella.com", "domain_resolver": "hosts_dns"},
+      {"tag": "remote_dns", "type": "https", "server": "cloudflare-dns.com", "domain_resolver": "hosts_dns", "detour": "qqoli"},
+      {"tag": "hosts_dns", "type": "hosts", "predefined": {"dns.google": ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"], "cloudflare-dns.com": ["104.16.249.249", "104.16.248.249", "2606:4700::6810:f8f9", "2606:4700::6810:f9f9"], "dns.quad9.net": ["9.9.9.9", "149.112.112.112", "2620:fe::fe", "2620:fe::9"], "dns.umbrella.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"], "raw.githubusercontent.com": ["185.199.108.133", "185.199.109.133", "185.199.110.133", "185.199.111.133", "2606:50c0:8000::154", "2606:50c0:8001::154", "2606:50c0:8002::154", "2606:50c0:8003::154"], "localhost": ["127.0.0.1", "::1"], "localhost.localdomain": "127.0.0.1", "local": "127.0.0.1", "broadcasthost": "255.255.255.255"}}      
     ],
-    "rules": [],
-    "final": "all-dns",
+    "rules": [
+      {"query_type": ["SVCB", "HTTPS"], "action": "predefined", "rcode": "NOTIMP"},
+      {"ip_accept_any": true, "server": "hosts_dns"}
+    ],
+    "final": "remote_dns",
+    "independent_cache": true,
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
@@ -26,13 +33,13 @@
   ],
   "outbounds": [
     {"type": "selector", "tag": "qqoli", "outbounds": ["mmobi", "{all}"], "default": "mmobi"},
-    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "6m0s", "tolerance": 0},
+    {"type": "urltest", "tag": "mmobi", "outbounds": ["{all}"], "url": "https://www.gstatic.com/generate_204", "interval": "6m0s"},
     {"type": "direct", "tag": "direct"}
   ],
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "all-dns",
+    "default_domain_resolver": "direct_dns",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
@@ -40,15 +47,11 @@
       {"inbound": "mixed-in", "action": "resolve", "strategy": "prefer_ipv4"},
       {"protocol": "dns","action": "hijack-dns"},
       {"port": 53, "action": "hijack-dns"},
-      {"protocol": "quic", "action": "reject"},
       {"protocol": "stun", "action": "reject"},
       {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24"], "action": "reject"},
-      {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject"},
-      {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject"},
-      {"ip_is_private": true, "outbound": "direct"},
-      {"domain_suffix": ".ir", "outbound": "direct"}
+      {"ip_is_private": true, "outbound": "direct"}
     ],
     "rule_set": []
   },
-  "experimental": {"cache_file": {"enabled": true}} 
+  "experimental": {"cache_file": {"enabled": true}}
 }
