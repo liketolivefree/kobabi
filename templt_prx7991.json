@@ -31,9 +31,7 @@
     "auto_detect_interface": true,
     "default_domain_resolver": "direct_dns",
     "rules": [
-      {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
-      {"inbound": "tun-in", "action": "resolve", "strategy": "prefer_ipv4"},
       {"inbound": "mixed-in", "action": "resolve", "strategy": "prefer_ipv4"},
       {"protocol": "dns","action": "hijack-dns"},
       {"port": 53, "action": "hijack-dns"},
