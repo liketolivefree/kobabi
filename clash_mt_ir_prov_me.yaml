@@ -104,7 +104,7 @@ proxy-providers:
       skip-cert-verify: false
   a:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
@@ -119,7 +119,7 @@ proxy-providers:
       skip-cert-verify: false
   b:
     type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
     interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
@@ -134,7 +134,7 @@ proxy-providers:
       skip-cert-verify: false
   c:
     type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
@@ -149,24 +149,9 @@ proxy-providers:
       skip-cert-verify: false
   d:
     type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
-    interval: 3600
-    path: ./proxy-providers/d.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: false
-  e:
-    type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
-    path: ./proxy-providers/e.yaml
+    path: ./proxy-providers/d.yaml
     health-check:
       enable: true
       interval: 900
@@ -195,7 +180,6 @@ proxy-groups:
       - b
       - c
       - d
-      - e
 rule-providers:
   aff_me:
     type: http
