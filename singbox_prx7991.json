@@ -5,9 +5,8 @@
   "dns": {
     "servers": [
       {
-        "type": "udp",
-        "tag": "local_dns",
-        "server": "8.8.8.8"
+        "type": "local",
+        "tag": "local_dns"
       },
       {
         "type": "https",
