@@ -72,14 +72,6 @@
     ],
     "rules": [
       {
-        "query_type": [
-          "SVCB",
-          "HTTPS"
-        ],
-        "action": "predefined",
-        "rcode": "NOTIMP"
-      },
-      {
         "ip_accept_any": true,
         "server": "hosts_dns"
       }
