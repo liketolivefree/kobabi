@@ -5,8 +5,9 @@
   "dns": {
     "servers": [
       {
-        "type": "local",
-        "tag": "local_dns"
+        "type": "tls",
+        "tag": "local_dns",
+        "server": "8.8.8.8"
       },
       {
         "type": "https",
