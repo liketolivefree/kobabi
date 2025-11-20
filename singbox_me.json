@@ -73,12 +73,8 @@
     ],
     "rules": [
       {
-        "query_type": [
-          "SVCB",
-          "HTTPS"
-        ],
-        "action": "predefined",
-        "rcode": "NOTIMP"
+        "domain_suffix": "raw.githubusercontent.com",
+        "server": "local_dns"
       },
       {
         "domain_suffix": [
