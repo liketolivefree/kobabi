@@ -56,7 +56,6 @@ dns:
   prefer-h3: false
   respect-rules: false
   use-hosts: false
-  use-system-hosts: true
 tun:
   enable: true
   stack: system
