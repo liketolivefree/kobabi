@@ -36,18 +36,22 @@ dns:
     - ntp.*.com
   default-nameserver:
     - system
+    - 8.8.8.8
+    - tls://8.8.8.8
   direct-nameserver:
     - system
+    - https://evn01.dnscry.pt/dns-query
+    - https://recursive1.dci.ir/dns-query
+    - https://free.shecan.ir/dns-query
   nameserver:
-    - https://8.8.4.4/dns-query
-    - https://9.9.9.9/dns-query
-    - https://146.112.41.2/dns-query
-    - https://1.0.0.1/dns-query
+    - https://dns.quad9.net/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.opendns.com/dns-query
+    - https://dns.google/dns-query
   proxy-server-nameserver:
-    - https://8.8.8.8/dns-query
-    - https://9.9.9.10/dns-query
-    - https://208.67.220.220/dns-query
-    - https://1.0.0.2/dns-query
+    - https://dns.umbrella.com/dns-query
+    - https://dns.google/dns-query
+    - https://sof01.dnscry.pt/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
