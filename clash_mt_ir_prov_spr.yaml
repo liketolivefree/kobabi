@@ -36,18 +36,22 @@ dns:
     - ntp.*.com
   default-nameserver:
     - system
+    - 8.8.8.8
+    - tls://8.8.8.8
   direct-nameserver:
     - system
+    - https://evn01.dnscry.pt/dns-query
+    - https://recursive1.dci.ir/dns-query
+    - https://free.shecan.ir/dns-query
   nameserver:
-    - https://8.8.4.4/dns-query
-    - https://9.9.9.9/dns-query
-    - https://146.112.41.2/dns-query
-    - https://1.0.0.1/dns-query
+    - https://dns.quad9.net/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.opendns.com/dns-query
+    - https://dns.google/dns-query
   proxy-server-nameserver:
-    - https://8.8.8.8/dns-query
-    - https://9.9.9.10/dns-query
-    - https://208.67.220.220/dns-query
-    - https://1.0.0.2/dns-query
+    - https://dns.umbrella.com/dns-query
+    - https://dns.google/dns-query
+    - https://sof01.dnscry.pt/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
@@ -159,7 +163,7 @@ proxy-providers:
       skip-cert-verify: false
   e:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/e.yaml
     health-check:
@@ -174,7 +178,7 @@ proxy-providers:
       skip-cert-verify: false
   f:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
@@ -182,91 +186,16 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
+    exclude-type: ss|http|trojan
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
       skip-cert-verify: false
   g:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
-    interval: 3600
-    path: ./proxy-providers/g.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: false
-  h:
-    type: http
-    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
-    interval: 3600
-    path: ./proxy-providers/h.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: false
-  i:
-    type: http
-    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
-    interval: 3600
-    path: ./proxy-providers/i.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: false
-  j:
-    type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
-    interval: 3600
-    path: ./proxy-providers/j.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: false
-  k:
-    type: http
-    url: https://raw.githubusercontent.com/moneyfly1/highnodes/main/data/clash.yaml
-    interval: 3600
-    path: ./proxy-providers/k.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: false
-  l:
-    type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
     interval: 3600
-    path: ./proxy-providers/l.yaml
+    path: ./proxy-providers/g.yaml
     health-check:
       enable: true
       interval: 900
@@ -298,11 +227,6 @@ proxy-groups:
       - e
       - f
       - g
-      - h
-      - i
-      - j
-      - k
-      - l
 rule-providers:
   aff_l:
     type: http
