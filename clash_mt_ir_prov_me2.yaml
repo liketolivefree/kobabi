@@ -41,7 +41,7 @@ dns:
   direct-nameserver:
     - system
     - https://evn01.dnscry.pt/dns-query
-    - https://recursive1.dci.ir/dns-query
+    - https://dns.google/dns-query
     - https://free.shecan.ir/dns-query
   nameserver:
     - https://dns.quad9.net/dns-query
@@ -49,6 +49,7 @@ dns:
     - https://dns.opendns.com/dns-query
     - https://dns.google/dns-query
   proxy-server-nameserver:
+    - system
     - https://dns.umbrella.com/dns-query
     - https://dns.google/dns-query
     - https://sof01.dnscry.pt/dns-query
