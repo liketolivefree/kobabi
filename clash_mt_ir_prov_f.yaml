@@ -37,7 +37,7 @@ dns:
   default-nameserver:
     - system
     - 8.8.8.8
-    - tls://8.8.8.8
+    - 208.67.220.220
   direct-nameserver:
     - system
     - https://evn01.dnscry.pt/dns-query
