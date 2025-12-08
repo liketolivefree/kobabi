@@ -176,10 +176,6 @@ proxy-groups:
     tolerance: 0
     use:
       - q
-      - a
-      - b
-      - c
-      - d
 rule-providers:
   aff:
     type: http
