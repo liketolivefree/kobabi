@@ -7,7 +7,7 @@ enable-process: true
 find-process-mode: strict
 tcp-concurrent: false
 unified-delay: true
-global-client-fingerprint: chrome
+global-client-fingerprint: random
 keep-alive-interval: 25
 profile:
   store-selected: true
@@ -35,28 +35,20 @@ dns:
     - time.*.com
     - ntp.*.com
   default-nameserver:
-    - system
     - 8.8.8.8
-    - 208.67.220.220
-  direct-nameserver:
     - system
-    - https://evn01.dnscry.pt/dns-query
-    - https://dns.google/dns-query
-    - https://free.shecan.ir/dns-query
-  nameserver:
-    - https://dns.quad9.net/dns-query
+  direct-nameserver:
     - https://cloudflare-dns.com/dns-query
-    - https://dns.opendns.com/dns-query
-    - https://dns.google/dns-query
+    - https://evn01.dnscry.pt/dns-query
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
     - system
-    - https://dns.umbrella.com/dns-query
-    - https://dns.google/dns-query
-    - https://sof01.dnscry.pt/dns-query
+    - https://evn01.dnscry.pt/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
-  use-hosts: false
+  use-hosts: true
 tun:
   enable: true
   stack: system
