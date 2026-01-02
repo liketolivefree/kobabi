@@ -38,11 +38,13 @@ dns:
     - 8.8.8.8
     - system
   direct-nameserver:
-    - system
+    - https://cloudflare-dns.com/dns-query
+    - https://evn01.dnscry.pt/dns-query
   nameserver:
     - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
     - system
+    - https://evn01.dnscry.pt/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
