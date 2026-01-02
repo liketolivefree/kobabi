@@ -1,23 +1,29 @@
-external-controller: ""
-ipv6: false
-mode: rule
 mixed-port: 7890
 socks-port: 7891
 port: 7892
 allow-lan: false
+mode: rule
+ipv6: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+external-controller: ""
 unified-delay: true
 tcp-concurrent: false
 log-level: info
 find-process-mode: strict
 bind-address: "*"
-lan-allowed-ips:
-  - 0.0.0.0/0
-  - ::/0
-lan-disallowed-ips: []
-authentication: []
 skip-auth-prefixes:
   - 127.0.0.1/32
   - ::1/128
+geo-auto-update: false
+geo-update-interval: 90
+geodata-mode: false
+geox-url:
+  geoip: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
+  geosite: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
+  mmdb: https://github.com/Chocolate4u/Iran-clash-rules/releases/latest/download/geoip.metadb
+  asn: https://github.com/Chocolate4U/Iran-v2ray-rules/raw/geolite2/GeoLite2-ASN.mmdb
 tun:
   enable: true
   device: Mihomo
@@ -32,6 +38,9 @@ tun:
   strict-route: true
 dns:
   enable: true
+  listen: :53
+  direct-nameserver-follow-policy: false
+  prefer-h3: false
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -56,8 +65,7 @@ dns:
   use-system-hosts: true
   respect-rules: false
   default-nameserver:
-    - 8.8.8.8
-    - system
+    - https://8.8.8.8/dns-query
   nameserver:
     - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
@@ -65,20 +73,12 @@ dns:
     - https://evn01.dnscry.pt/dns-query
   direct-nameserver:
     - https://cloudflare-dns.com/dns-query
-  fallback: []
   fallback-filter:
     geoip: false
     geoip-code: IR
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
-    domain:
-      - +.google.com
-      - +.facebook.com
-      - +.youtube.com
-  listen: :53
-  direct-nameserver-follow-policy: false
-  prefer-h3: false
 sniffer:
   enable: true
   parse-pure-ip: true
@@ -98,36 +98,10 @@ sniffer:
       ports:
         - 443
         - 8443
-  skip-domain:
-    - +.push.apple.com
-  skip-dst-address:
-    - 91.105.192.0/23
-    - 91.108.4.0/22
-    - 91.108.8.0/21
-    - 91.108.16.0/21
-    - 91.108.56.0/22
-    - 95.161.64.0/20
-    - 149.154.160.0/20
-    - 185.76.151.0/24
-    - 2001:67c:4e8::/48
-    - 2001:b28:f23c::/47
-    - 2001:b28:f23f::/48
-    - 2a0a:f280:203::/48
   sniffing:
     - tls
     - http
     - quic
-profile:
-  store-selected: true
-  store-fake-ip: true
-geo-auto-update: false
-geo-update-interval: 90
-geodata-mode: false
-geox-url:
-  geoip: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geoip.dat
-  geosite: https://github.com/Chocolate4u/Iran-v2ray-rules/releases/latest/download/geosite.dat
-  mmdb: https://github.com/Chocolate4u/Iran-clash-rules/releases/latest/download/geoip.metadb
-  asn: https://github.com/Chocolate4U/Iran-v2ray-rules/raw/geolite2/GeoLite2-ASN.mmdb
 proxy-providers:
   q:
     type: http
