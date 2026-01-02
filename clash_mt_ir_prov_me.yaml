@@ -7,7 +7,7 @@ enable-process: true
 find-process-mode: strict
 tcp-concurrent: false
 unified-delay: true
-global-client-fingerprint: chrome
+global-client-fingerprint: random
 keep-alive-interval: 25
 profile:
   store-selected: true
