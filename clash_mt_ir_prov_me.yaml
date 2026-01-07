@@ -12,7 +12,6 @@ unified-delay: true
 tcp-concurrent: false
 log-level: info
 find-process-mode: strict
-bind-address: "*"
 skip-auth-prefixes:
   - 127.0.0.1/32
   - ::1/128
@@ -33,7 +32,6 @@ tun:
   auto-detect-interface: true
   dns-hijack:
     - any:53
-  route-exclude-address: []
   mtu: 1500
   strict-route: true
 dns:
@@ -65,14 +63,21 @@ dns:
   use-system-hosts: true
   respect-rules: false
   default-nameserver:
+    - system
     - https://8.8.8.8/dns-query
   nameserver:
+    - https://dns.quad9.net/dns-query
     - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
   proxy-server-nameserver:
     - system
+    - https://dns.umbrella.com/dns-query
+    - https://dns.google/dns-query
     - https://evn01.dnscry.pt/dns-query
   direct-nameserver:
-    - https://cloudflare-dns.com/dns-query
+    - system
+    - https://dns.google/dns-query
+    - https://free.shecan.ir/dns-query
   fallback-filter:
     geoip: false
     geoip-code: IR
