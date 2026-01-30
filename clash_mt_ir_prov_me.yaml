@@ -65,15 +65,16 @@ dns:
   default-nameserver:
     - system
     - https://8.8.8.8/dns-query
+    - 8.8.8.8
   nameserver:
     - https://dns.quad9.net/dns-query
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
   proxy-server-nameserver:
     - system
-    - https://dns.umbrella.com/dns-query
-    - https://dns.google/dns-query
-    - https://evn01.dnscry.pt/dns-query
+    - https://208.67.220.220/dns-query
+    - https://8.8.8.8/dns-query
+    - 8.8.8.8
   direct-nameserver:
     - system
     - https://dns.google/dns-query
