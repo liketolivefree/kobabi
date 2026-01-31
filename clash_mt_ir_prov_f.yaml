@@ -37,6 +37,7 @@ dns:
   default-nameserver:
     - system
     - https://8.8.8.8/dns-query
+    - 8.8.8.8
   direct-nameserver:
     - system
     - https://dns.google/dns-query
@@ -47,9 +48,9 @@ dns:
     - https://dns.google/dns-query
   proxy-server-nameserver:
     - system
-    - https://dns.umbrella.com/dns-query
-    - https://dns.google/dns-query
-    - https://evn01.dnscry.pt/dns-query
+    - https://208.67.220.220/dns-query
+    - https://8.8.8.8/dns-query
+    - 8.8.8.8
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
@@ -98,7 +99,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
   a:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
@@ -113,7 +114,7 @@ proxy-providers:
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
   b:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
@@ -128,7 +129,7 @@ proxy-providers:
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
   c:
     type: http
     url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
@@ -143,7 +144,7 @@ proxy-providers:
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
   d:
     type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
@@ -158,7 +159,7 @@ proxy-providers:
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
 proxy-groups:
   - name: QQOLI
     type: select
