@@ -121,7 +121,7 @@ proxy-providers:
       timeout: 5000
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
   a:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
@@ -136,7 +136,7 @@ proxy-providers:
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
   b:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
@@ -151,7 +151,7 @@ proxy-providers:
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
   c:
     type: http
     url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
@@ -166,7 +166,7 @@ proxy-providers:
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
   d:
     type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
@@ -181,7 +181,7 @@ proxy-providers:
     exclude-filter: IR|CN|iran|china|(iran)|(china)
     override:
       udp: true
-      skip-cert-verify: false
+      skip-cert-verify: true
 proxy-groups:
   - name: QQOLI
     type: select
