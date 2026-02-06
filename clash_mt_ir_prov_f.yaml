@@ -221,6 +221,8 @@ rule-providers:
     interval: 86400
 rules:
   - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
+  - IP-CIDR,2001:4188:2:600:10:10:34:34/127,REJECT,no-resolve
+  - IP-CIDR,2001:4188:2:600:10:10:34:36/128,REJECT,no-resolve
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,localdomain,DIRECT
@@ -316,7 +318,7 @@ hosts:
   "cdns02.comcast.net": ["75.75.76.76", "2001:558:feed::2"]
   "rec1pubns1.ultradns.net": ["64.6.64.6", "2620:74:1b::1:1"]
   "rec1pubns2.ultradns.net": ["64.6.65.6", "2620:74:1c::2:2"]
-  "dns.yandex.net": ["77.88.8.8", "77.88.8.1", "2a02:6b8::feed:0ff", "2a02:6b8:0:1::feed:0ff"]
+  "dns.yandex.net": ["77.88.8.8", "77.88.8.1", "2a02:6b8::feed:ff", "2a02:6b8:0:1::feed:ff"]
   "dot.pub": ["1.12.12.12", "120.53.53.53"]
   "doh.pub": ["1.12.12.12", "120.53.53.53"]
   "recursive1.dci.ir": "217.218.127.127"
