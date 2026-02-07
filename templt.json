@@ -38,7 +38,7 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "local_dns",
+    "default_domain_resolver": "remote_dns",
     "rules": [
       {"inbound": "tun-in", "action": "sniff", "timeout": "500ms"},
       {"inbound": "mixed-in", "action": "sniff", "timeout": "500ms"},
@@ -48,7 +48,7 @@
       {"port": 53, "action": "hijack-dns"},
       {"protocol": "quic", "action": "reject"},
       {"protocol": "stun", "action": "reject"},
-      {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24", "2001:4188:2:600:10:10:34:34/127", "2001:4188:2:600:10:10:34:36/128"], "action": "reject"},
+      {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24", "2001:4188:2:600:10:10:34:0/112"], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "tcp"}, {"port": 853}], "action": "reject"},
       {"type": "logical", "mode": "and", "rules": [{"network": "udp"}, {"port": 443}], "action": "reject"},
       {"rule_set": "aff", "action": "reject"},
