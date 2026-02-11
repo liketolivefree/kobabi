@@ -43,13 +43,13 @@ dns:
     - https://free.shecan.ir/dns-query
   nameserver:
     - https://dns.quad9.net/dns-query
-    - https://cloudflare-dns.com/dns-query
+    - https://security.cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
   proxy-server-nameserver:
     - system
     - https://dns.umbrella.com/dns-query
     - https://dns.google/dns-query
-    - https://evn01.dnscry.pt/dns-query
+    - https://ist01.dnscry.pt/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
@@ -97,9 +97,6 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    override:
-      udp: true
-      skip-cert-verify: true
   a:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
@@ -112,9 +109,6 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: true
   b:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
@@ -127,9 +121,6 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: true
   c:
     type: http
     url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
@@ -142,9 +133,6 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: true
   d:
     type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
@@ -157,9 +145,6 @@ proxy-providers:
       timeout: 5000
     exclude-type: ss|http|trojan|vmess
     exclude-filter: IR|CN|iran|china|(iran)|(china)
-    override:
-      udp: true
-      skip-cert-verify: true
 proxy-groups:
   - name: QQOLI
     type: select
@@ -257,6 +242,7 @@ hosts:
   "time.apple.com": ["17.253.2.37", "17.253.2.35", "17.253.20.45", "2620:149:a10:4000::31", "2620:149:a33:3000::21", "2620:149:a33:4000::31"]
   "pool.ntp.org": ["173.249.203.227", "212.227.240.160", "138.89.14.60", "72.30.35.89"]
   "asia.pool.ntp.org": ["142.93.213.206", "103.186.118.218", "103.105.56.11", "103.186.118.215"]
+  "0.pool.ntp.org": ["172.233.157.223", "38.134.40.65", "96.126.122.39", "198.137.202.32"]
   "2.pool.ntp.org": ["104.207.148.118", "23.186.168.129", "208.113.130.146", "104.167.215.195", "2603:c020:0:8369::bad:beef", "2602:81c:1000:2::199", "2605:4840:3:fb19::1", "2604:a880:1:20::3b:1001"]
   "2.centos.pool.ntp.org": ["172.234.37.140", "172.104.28.175", "96.19.94.82", "23.94.221.138", "2a0a:79c0:e09::123", "2602:f9f3:1:2f:123:123:123:123", "2600:3c03::f03c:94ff:fe59:d3de", "2a01:7e03::f03c:94ff:fe24:44c4"]
   "2.android.pool.ntp.org": ["139.177.202.26", "50.117.3.95", "23.186.168.125", "172.233.177.198", "2603:c020:0:8369:fec0:b7f:603:2601", "2001:559:2be:3::1001", "2001:470:1f1e:b2::123", "2a05:dfc1:3c16:13a9::123"]
@@ -300,6 +286,22 @@ hosts:
   "fra01.dnscry.pt": ["45.82.120.61", "2a0e:6a80:3:669::"]
   "sof01.dnscry.pt": ["79.124.7.43", "2a01:8740:1:863::3b8c"]
   "muc01.dnscry.pt": ["194.39.205.10", "2a0c:8fc0:1749:66:18::16"]
+  "ist01.dnscry.pt": ["188.132.192.168", "2a12:e342:300::daca:63ea"]
+  "cph01.dnscry.pt": ["192.121.119.19", "2001:67c:bec:b:43a:1aff:feb1:eb5d"]
+  "sto01.dnscry.pt": ["195.72.60.66", "2a07:e043:1:5d::1"]
+  "nue01.dnscry.pt": ["202.61.236.67", "2a03:4000:5c:51:24b9:51ff:fe80:f3a7"]
+  "ams01.dnscry.pt": ["198.140.141.46", "2a03:94e3:222b::1032"]
+  "naw01.dnscry.pt": ["45.95.38.29", "2a00:7c83:0:12:14d0:f5b6:4ec:a"]
+  "vie01.dnscry.pt": ["83.138.55.186", "2a0d:f302:110:6517::1"]
+  "ams02.dnscry.pt": ["45.86.162.110", "2a07:efc0:1001:a5ce::b4b4"]
+  "par01.dnscry.pt": ["89.117.2.17", "2402:d0c0:22:6cd0:4:4:4:5b81"]
+  "fra02.dnscry.pt": ["45.147.51.123", "2a07:d884:100::344"]
+  "dus01.dnscry.pt": ["5.175.180.171", "2a0f:6284:4300:101::12a5"]
+  "bts01.dnscry.pt": ["95.131.202.105", "2a05:5502::5906:97f8:2d0e:1"]
+  "lon01.dnscry.pt": ["45.67.84.132", "2401:8360:a2:4::a"]
+  "vno01.dnscry.pt": ["162.254.86.13", "2a13:9401:0:1::3d58:1"]
+  "dub01.dnscry.pt": ["194.26.213.15", "2a09:cd46:f:429e::5"]
+  "cvt01.dnscry.pt": ["45.155.37.165", "2a0d:d8c0:0:f043::6927"]
   "de-dus.doh.sb": ["62.133.35.15", "2a09:0:8::15"]
   "de-fra.doh.sb": ["147.78.178.170", "147.78.178.171", "147.78.178.172", "147.78.178.173", "147.78.178.174", "2a09:0:1:a::a"]
   "ru-mow.doh.sb": ["23.105.231.66", "2a05:93c2:1001:101a:f816:3eff:fe81:8ef4"]
@@ -333,3 +335,4 @@ hosts:
   "dns.pishgaman.net": "5.202.100.100"
   "dns.farakaft.ir": "5.144.135.9"
   "dns.electrotm.org": "78.157.42.100"
+  
