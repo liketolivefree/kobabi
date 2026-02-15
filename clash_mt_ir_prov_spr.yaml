@@ -147,7 +147,7 @@ proxy-providers:
       skip-cert-verify: true
   d:
     type: http
-    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -177,7 +177,7 @@ proxy-providers:
       skip-cert-verify: true
   f:
     type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
     interval: 3600
     path: ./proxy-providers/f.yaml
     health-check:
