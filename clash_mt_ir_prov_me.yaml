@@ -49,7 +49,7 @@ dns:
     - system
     - https://dns.umbrella.com/dns-query
     - https://dns.google/dns-query
-    - https://ist01.dnscry.pt/dns-query
+    - https://cph01.dnscry.pt/dns-query
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
