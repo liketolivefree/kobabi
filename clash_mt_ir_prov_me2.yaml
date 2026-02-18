@@ -164,7 +164,7 @@ rule-providers:
 rules:
   - IP-CIDR,224.0.0.0/3,REJECT,no-resolve
   - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
-  - IP-CIDR,2001:4188:2:600:10:10:34:0/112,REJECT,no-resolve  
+  - IP-CIDR,2001:4188:2:600:10:10:34:0/112,REJECT,no-resolve
   - IP-CIDR,52.250.41.2/32,REJECT,no-resolve
   - IP-CIDR,87.107.132.83/32,REJECT,no-resolve
   - IP-CIDR,93.115.151.123/32,REJECT,no-resolve
