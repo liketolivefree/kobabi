@@ -99,7 +99,7 @@ proxy-providers:
       timeout: 5000
   a:
     type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
     interval: 3600
     path: ./proxy-providers/a.yaml
     health-check:
@@ -107,11 +107,10 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
+    exclude-type: ss|http|trojan
   b:
     type: http
-    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
     interval: 3600
     path: ./proxy-providers/b.yaml
     health-check:
@@ -119,11 +118,10 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
+    exclude-type: ss|http|trojan
   c:
     type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/c.yaml
     health-check:
@@ -131,11 +129,10 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
+    exclude-type: ss|http|trojan
   d:
     type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
     interval: 3600
     path: ./proxy-providers/d.yaml
     health-check:
@@ -143,8 +140,7 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    exclude-type: ss|http|trojan|vmess
-    exclude-filter: IR|CN|iran|china|(iran)|(china)
+    exclude-type: ss|http|trojan
 proxy-groups:
   - name: QQOLI
     type: select
@@ -159,6 +155,8 @@ proxy-groups:
     tolerance: 0
     use:
       - q
+      - a
+      - b
       - c
       - d
 rule-providers:
@@ -214,7 +212,7 @@ rule-providers:
 rules:
   - IP-CIDR,224.0.0.0/3,REJECT,no-resolve
   - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
-  - IP-CIDR,2001:4188:2:600:10:10:34:0/112,REJECT,no-resolve  
+  - IP-CIDR,2001:4188:2:600:10:10:34:0/112,REJECT,no-resolve
   - IP-CIDR,52.250.41.2/32,REJECT,no-resolve
   - IP-CIDR,87.107.132.83/32,REJECT,no-resolve
   - IP-CIDR,93.115.151.123/32,REJECT,no-resolve
