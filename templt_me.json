@@ -15,7 +15,7 @@
       {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"ip_accept_any": true, "server": "hosts_dns"}
     ],
-    "final": "local_dns",
+    "final": "remote_dns",
     "independent_cache": true
   },
   "inbounds": [
@@ -42,7 +42,7 @@
     "auto_detect_interface": true,
     "default_domain_resolver": "local_dns",
     "rules": [
-      {"domain": ["time.nist.gov", "time.android.com", "time.windows.com", "time.apple.com", "pool.ntp.org", "0.pool.ntp.org", "asia.pool.ntp.org", "2.pool.ntp.org", "2.centos.pool.ntp.org", "2.android.pool.ntp.org", "raw.githubusercontent.com", "dns.google", "cloudflare-dns.com", "1dot1dot1dot1.cloudflare-dns.com", "one.one.one.one", "security.cloudflare-dns.com", "family.cloudflare-dns.com", "engage.cloudflareclient.com", "dns.quad9.net", "dns9.quad9.net", "dns10.quad9.net", "dns11.quad9.net", "dns12.quad9.net", "dns.adguard-dns.com", "unfiltered.adguard-dns.com", "family.adguard-dns.com", "dns.opendns.com", "dns.umbrella.com", "dns.sse.cisco.com", "doh.opendns.com", "doh.sse.cisco.com", "doh.familyshield.opendns.com", "doh.sandbox.opendns.com", "doh.umbrella.com", "familyshield.opendns.com", "familyshield.sse.cisco.com", "sandbox.opendns.com", "sandbox.sse.cisco.com", "dns.mullvad.net", "adblock.dns.mullvad.net", "base.dns.mullvad.net", "doh.cleanbrowsing.org", "security-filter-dns.cleanbrowsing.org", "security-filter-dns2.cleanbrowsing.org", "doh.applied-privacy.net", "dot1.applied-privacy.net", "evn01.dnscry.pt", "fra01.dnscry.pt", "sof01.dnscry.pt", "muc01.dnscry.pt", "ist01.dnscry.pt", "cph01.dnscry.pt", "sto01.dnscry.pt", "nue01.dnscry.pt", "ams01.dnscry.pt", "naw01.dnscry.pt", "vie01.dnscry.pt", "ams02.dnscry.pt", "par01.dnscry.pt", "fra02.dnscry.pt", "dus01.dnscry.pt", "bts01.dnscry.pt", "lon01.dnscry.pt", "vno01.dnscry.pt", "dub01.dnscry.pt", "cvt01.dnscry.pt", "de-dus.doh.sb", "de-fra.doh.sb", "ru-mow.doh.sb", "de-ber.doh.sb", "doh.dns.sb", "doh.sb", "dns.sb", "dot.sb", "dns.alidns.com", "public1.114dns.com", "public2.114dns.com", "anti-malware-1.114dns.com", "anti-malware-2.114dns.com", "pdns.dnspod.cn", "cdns01.comcast.net", "cdns02.comcast.net", "rec1pubns1.ultradns.net", "rec1pubns2.ultradns.net", "recursive1.dci.ir", "recursive2.dci.ir", "free.shecan.ir", "dns.shecan.ir", "pro.shecan.ir", "th1.dnsfinder.ir", "dns.kcolspacrm.ir", "dns-cache1.rasana.net", "dns-cache2.rasana.net", "dns.pishgaman.net", "dns.farakaft.ir", "dns.electrotm.org", "dns.yandex.net", "dot.pub", "doh.pub"], "action": "resolve"},
+      {"domain": ["pool.ntp.org", "0.pool.ntp.org", "asia.pool.ntp.org", "2.pool.ntp.org", "2.centos.pool.ntp.org", "2.android.pool.ntp.org", "raw.githubusercontent.com", "dns.google", "cloudflare-dns.com", "1dot1dot1dot1.cloudflare-dns.com", "one.one.one.one", "security.cloudflare-dns.com", "family.cloudflare-dns.com"], "action": "resolve"},
       {"inbound": "tun-in", "action": "sniff"},
       {"inbound": "mixed-in", "action": "sniff"},
       {"inbound": "tun-in", "action": "resolve"},
