@@ -141,6 +141,72 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+  e:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
+    interval: 3600
+    path: ./proxy-providers/e.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+  f:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    interval: 3600
+    path: ./proxy-providers/f.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+  g:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    interval: 3600
+    path: ./proxy-providers/g.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+  h:
+    type: http
+    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
+    interval: 3600
+    path: ./proxy-providers/h.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+  j:
+    type: http
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    interval: 3600
+    path: ./proxy-providers/j.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
+  k:
+    type: http
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml
+    interval: 3600
+    path: ./proxy-providers/k.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
   m:
     type: http
     url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
@@ -171,6 +237,12 @@ proxy-groups:
       - b
       - c
       - d
+      - e
+      - f
+      - g
+      - h
+      - j
+      - k
 rule-providers:
   aff_me:
     type: http
