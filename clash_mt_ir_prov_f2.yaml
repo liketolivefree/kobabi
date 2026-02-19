@@ -35,10 +35,8 @@ dns:
     - time.*.com
     - ntp.*.com
   default-nameserver:
-    - system
     - https://8.8.8.8/dns-query
   direct-nameserver:
-    - system
     - https://dns.google/dns-query
     - https://free.shecan.ir/dns-query
   nameserver:
@@ -46,7 +44,6 @@ dns:
     - https://security.cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
   proxy-server-nameserver:
-    - system
     - https://dns.umbrella.com/dns-query
     - https://dns.google/dns-query
     - https://cph01.dnscry.pt/dns-query
