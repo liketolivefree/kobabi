@@ -97,9 +97,6 @@ proxy-providers:
       interval: 900
       url: https://www.gstatic.com/generate_204
       timeout: 5000
-    override:
-      udp: true
-      skip-cert-verify: true
   a:
     type: http
     url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
