@@ -188,17 +188,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
-  i:
-    type: http
-    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
-    interval: 3600
-    path: ./proxy-providers/i.yaml
-    health-check:
-      enable: true
-      interval: 900
-      url: https://www.gstatic.com/generate_204
-      timeout: 5000
-    exclude-type: ss|http|trojan
   j:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
@@ -255,7 +244,6 @@ proxy-groups:
       - f
       - g
       - h
-      - i
       - j
       - k
 rule-providers:
