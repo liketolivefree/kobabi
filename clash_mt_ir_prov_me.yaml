@@ -141,6 +141,17 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 5000
     exclude-type: ss|http|trojan
+  m:
+    type: http
+    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+    interval: 3600
+    path: ./proxy-providers/m.yaml
+    health-check:
+      enable: true
+      interval: 900
+      url: https://www.gstatic.com/generate_204
+      timeout: 5000
+    exclude-type: ss|http|trojan
 proxy-groups:
   - name: QQOLI
     type: select
@@ -155,6 +166,7 @@ proxy-groups:
     tolerance: 0
     use:
       - q
+      - m
       - a
       - b
       - c
