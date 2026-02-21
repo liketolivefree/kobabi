@@ -40,7 +40,7 @@
   "route": {
     "final": "qqoli",
     "auto_detect_interface": true,
-    "default_domain_resolver": "local_dns",
+    "default_domain_resolver": "resolver_dns",
     "rules": [
       {"domain": ["pool.ntp.org", "0.pool.ntp.org", "asia.pool.ntp.org", "2.pool.ntp.org", "2.centos.pool.ntp.org", "2.android.pool.ntp.org", "raw.githubusercontent.com", "dns.google", "cloudflare-dns.com", "1dot1dot1dot1.cloudflare-dns.com", "one.one.one.one", "security.cloudflare-dns.com", "family.cloudflare-dns.com"], "action": "resolve"},
       {"inbound": "tun-in", "action": "sniff"},
