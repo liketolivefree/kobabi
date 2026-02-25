@@ -48,6 +48,7 @@ dns:
     - https://dns.umbrella.com/dns-query
     - https://dns.google/dns-query
     - https://dns.adguard-dns.com/dns-query
+    - tls://dns11.quad9.net
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
