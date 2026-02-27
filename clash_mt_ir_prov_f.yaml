@@ -223,7 +223,6 @@ rule-providers:
     interval: 86400
 rules:
   - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
-  - IP-CIDR,2001:4188:2:600:10:10:34:0/112,REJECT,no-resolve
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,localdomain,DIRECT
