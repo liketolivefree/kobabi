@@ -68,19 +68,23 @@ sniffer:
   parse-pure-ip: true
   override-destination: false
   sniff:
-    TLS:
-      ports:
-        - 443
-        - 8443
-    QUIC:
-      ports:
-        - 443
-        - 8443
     HTTP:
       ports:
-        - 80
-        - 8080-8880
+        - 1-442
+        - 444-8442
+        - 8444-65535
       override-destination: true
+    TLS:
+      ports:
+        - 1-79
+        - 81-8079
+        - 8881-65535
+    QUIC:
+      ports:
+        - "443"
+        - "8443"
+  force-domain:
+    - www.gstatic.com
 proxy-providers:
   q:
     type: http
@@ -1482,12 +1486,18 @@ hosts:
   dns.shecan.ir:
     - 178.22.122.100
     - 178.22.122.101
+    - 185.51.200.1
+    - 185.51.200.2    
   free.shecan.ir:
     - 178.22.122.100
     - 178.22.122.101
+    - 185.51.200.1
+    - 185.51.200.2
   pro.shecan.ir:
     - 178.22.122.100
     - 178.22.122.101
+    - 185.51.200.1
+    - 185.51.200.2    
   th1.dnsfinder.ir:
     - 193.151.154.125
     - 2a05:1a30:1:2::58e
@@ -1505,7 +1515,6 @@ hosts:
     - 5.144.135.9
   dns.kcolspacrm.ir:
     - 185.143.233.121
-    - 185.143.233.235
     - 185.143.234.121
     - 185.143.234.235
   dns.pishgaman.net:
