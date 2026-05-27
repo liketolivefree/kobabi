@@ -48,7 +48,7 @@ dns:
     - https://dns.umbrella.com/dns-query
     - https://dns.google/dns-query
     - https://dns.adguard-dns.com/dns-query
-    - system
+    - tls://dns11.quad9.net
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
@@ -61,102 +61,205 @@ tun:
     - any:53
   auto-route: true
   auto-detect-interface: true
-  # strict-route: true
+  strict-route: true
   device: Mihomo
 sniffer:
   enable: true
   parse-pure-ip: true
   override-destination: false
   sniff:
-    TLS:
-      ports:
-        - 443
-        - 8443
-    QUIC:
-      ports:
-        - 443
-        - 8443
     HTTP:
       ports:
-        - 80
-        - 8080-8880
+        - 1-442
+        - 444-8442
+        - 8444-65535
       override-destination: true
+    TLS:
+      ports:
+        - 1-79
+        - 81-8079
+        - 8881-65535
+    QUIC:
+      ports:
+        - "443"
+        - "8443"
+  force-domain:
+    - www.gstatic.com
 proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 3600
+    interval: 14400
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 900
+      interval: 1800
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
   a:
     type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
-    interval: 3600
+    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
+    interval: 14400
     path: ./proxy-providers/a.yaml
     health-check:
       enable: true
-      interval: 900
+      interval: 1800
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
     exclude-type: ss|http|trojan
   b:
     type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
-    interval: 3600
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
+    interval: 14400
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 900
+      interval: 1800
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
     exclude-type: ss|http|trojan
   c:
     type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
-    interval: 3600
+    url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
+    interval: 14400
     path: ./proxy-providers/c.yaml
     health-check:
       enable: true
-      interval: 900
+      interval: 1800
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
     exclude-type: ss|http|trojan
   d:
     type: http
-    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
-    interval: 3600
+    url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
+    interval: 14400
     path: ./proxy-providers/d.yaml
     health-check:
       enable: true
-      interval: 900
+      interval: 1800
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  e:
+    type: http
+    url: https://raw.githubusercontent.com/hamedp-71/Vless-Trojan_clash/main/hp.yaml
+    interval: 14400
+    path: ./proxy-providers/e.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  f:
+    type: http
+    url: https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml
+    interval: 14400
+    path: ./proxy-providers/f.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  g:
+    type: http
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    interval: 14400
+    path: ./proxy-providers/g.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  h:
+    type: http
+    url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
+    interval: 14400
+    path: ./proxy-providers/h.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  i:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    interval: 14400
+    path: ./proxy-providers/i.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
     exclude-type: ss|http|trojan
   j:
     type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
-    interval: 3600
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
+    interval: 14400
     path: ./proxy-providers/j.yaml
     health-check:
       enable: true
-      interval: 900
+      interval: 1800
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  k:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
+    interval: 14400
+    path: ./proxy-providers/k.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  l:
+    type: http
+    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
+    interval: 14400
+    path: ./proxy-providers/l.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
     exclude-type: ss|http|trojan
   m:
     type: http
-    url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-    interval: 3600
+    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
+    interval: 14400
     path: ./proxy-providers/m.yaml
     health-check:
       enable: true
-      interval: 900
+      interval: 1800
       url: https://www.gstatic.com/generate_204
-      timeout: 5000
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  n:
+    type: http
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
+    interval: 14400
+    path: ./proxy-providers/n.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  o:
+    type: http
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
+    interval: 14400
+    path: ./proxy-providers/o.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
     exclude-type: ss|http|trojan
 proxy-groups:
   - name: QQOLI
@@ -168,16 +271,25 @@ proxy-groups:
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 400
+    interval: 300
     tolerance: 0
     use:
       - q
-      - m
-      - j
       - a
       - b
       - c
       - d
+      - e
+      - f
+      - g
+      - h
+      - i
+      - j
+      - k
+      - l
+      - m
+      - n
+      - o
 rule-providers:
   aff_l:
     type: http
@@ -1554,12 +1666,18 @@ hosts:
   dns.shecan.ir:
     - 178.22.122.100
     - 178.22.122.101
+    - 185.51.200.1
+    - 185.51.200.2
   free.shecan.ir:
     - 178.22.122.100
     - 178.22.122.101
+    - 185.51.200.1
+    - 185.51.200.2
   pro.shecan.ir:
     - 178.22.122.100
     - 178.22.122.101
+    - 185.51.200.1
+    - 185.51.200.2
   th1.dnsfinder.ir:
     - 193.151.154.125
     - 2a05:1a30:1:2::58e
@@ -1577,7 +1695,6 @@ hosts:
     - 5.144.135.9
   dns.kcolspacrm.ir:
     - 185.143.233.121
-    - 185.143.233.235
     - 185.143.234.121
     - 185.143.234.235
   dns.pishgaman.net:
