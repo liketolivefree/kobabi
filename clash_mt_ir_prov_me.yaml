@@ -84,7 +84,7 @@ sniffer:
         - "443"
         - "8443"
   force-domain:
-    - connectivity.cloudflareclient.com
+    - www.gstatic.com
 proxy-providers:
   q:
     type: http
@@ -94,7 +94,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
   a:
     type: http
@@ -104,7 +104,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   b:
@@ -115,7 +115,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   c:
@@ -126,7 +126,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   d:
@@ -137,7 +137,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   e:
@@ -148,7 +148,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   f:
@@ -159,7 +159,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   g:
@@ -170,7 +170,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   h:
@@ -181,7 +181,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   i:
@@ -192,7 +192,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   j:
@@ -203,7 +203,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   k:
@@ -214,7 +214,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   l:
@@ -225,7 +225,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   m:
@@ -236,7 +236,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   n:
@@ -247,7 +247,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
   o:
@@ -258,7 +258,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 1800
-      url: https://connectivity.cloudflareclient.com/generate_204
+      url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan
 proxy-groups:
@@ -270,7 +270,7 @@ proxy-groups:
       - q
   - name: MMOBI
     type: url-test
-    url: https://connectivity.cloudflareclient.com/generate_204
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 0
     use:
