@@ -106,7 +106,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   b:
     type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
@@ -117,7 +117,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   c:
     type: http
     url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
@@ -128,7 +128,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   d:
     type: http
     url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
@@ -139,7 +139,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   e:
     type: http
     url: https://raw.githubusercontent.com/hamedp-71/Vless-Trojan_clash/main/hp.yaml
@@ -150,7 +150,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   f:
     type: http
     url: https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml
@@ -161,7 +161,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   g:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
@@ -172,7 +172,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   h:
     type: http
     url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
@@ -183,7 +183,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   i:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -194,7 +194,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   j:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-HiN-VPN.txt
@@ -205,7 +205,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   k:
     type: http
     url: https://raw.githubusercontent.com/10ium/ClashFactory/main/providers/10ium-config-fetcher.txt
@@ -216,10 +216,10 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   l:
     type: http
-    url: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
     interval: 14400
     path: ./proxy-providers/l.yaml
     health-check:
@@ -227,10 +227,10 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
   m:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
     interval: 14400
     path: ./proxy-providers/m.yaml
     health-check:
@@ -238,29 +238,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: http
-  n:
-    type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
-    interval: 14400
-    path: ./proxy-providers/n.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: http
-  o:
-    type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
-    interval: 14400
-    path: ./proxy-providers/o.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: http
+    exclude-type: ss|http|trojan
 proxy-groups:
   - name: QQOLI
     type: select
@@ -288,8 +266,6 @@ proxy-groups:
       - k
       - l
       - m
-      - n
-      - o
 rule-providers:
   aff_l:
     type: http
