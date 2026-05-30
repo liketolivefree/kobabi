@@ -12,7 +12,7 @@
     ],
     "rules": [
       {"domain_suffix": "raw.githubusercontent.com", "server": "local_dns"},
-      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
+      {"domain_suffix": ["samsungdm.com", "samsung.com", "samsungapps.com", "samsungcloudplatform.com", "samsungcloud.com", "msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"ip_accept_any": true, "server": "hosts_dns"}
     ],
     "final": "remote_dns",
@@ -42,7 +42,7 @@
     "auto_detect_interface": true,
     "default_domain_resolver": "resolver_dns",
     "rules": [
-      {"domain": ["pool.ntp.org", "0.pool.ntp.org", "asia.pool.ntp.org", "2.pool.ntp.org", "2.centos.pool.ntp.org", "2.android.pool.ntp.org", "raw.githubusercontent.com", "dns.google", "cloudflare-dns.com", "1dot1dot1dot1.cloudflare-dns.com", "one.one.one.one", "security.cloudflare-dns.com", "family.cloudflare-dns.com"], "action": "resolve"},
+      {"domain": ["raw.githubusercontent.com", "security.cloudflare-dns.com", "www.gstatic.com"], "action": "resolve"},
       {"inbound": "tun-in", "action": "sniff"},
       {"inbound": "mixed-in", "action": "sniff"},
       {"inbound": "tun-in", "action": "resolve"},
@@ -50,7 +50,7 @@
       {"protocol": "dns","action": "hijack-dns"},
       {"port": 53, "action": "hijack-dns"},
       {"ip_cidr": ["224.0.0.0/3", "10.10.34.0/24", "52.250.41.2/32", "87.107.132.83/32","93.115.151.123/32", "162.62.115.144/32", "162.62.116.251/32", "185.130.45.94/32", "204.79.197.220/32", "213.180.193.56/32", "216.239.38.119/32", "216.239.38.120/32", "2001:4188:2:600:10:10:34:0/112", "2001:4860:4802:32::77/128", "2001:4860:4802:32::78/128"], "action": "reject"},
-      {"domain_suffix": ["msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
+      {"domain_suffix": ["samsungdm.com", "samsung.com", "samsungapps.com", "samsungcloudplatform.com", "samsungcloud.com", "msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"rule_set": "wht", "outbound": "qqoli"},
       {"rule_set": "aff_me", "action": "reject"},
       {"rule_set": "yun_me", "action": "reject"},
