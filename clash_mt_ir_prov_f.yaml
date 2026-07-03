@@ -191,7 +191,6 @@ proxy-groups:
       - MMOBI
     use:
       - q
-      - c
       - f
   - name: MMOBI
     type: url-test
