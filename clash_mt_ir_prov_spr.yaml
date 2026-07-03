@@ -120,7 +120,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   c:
     type: http
-    url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
+    url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
     interval: 14400
     path: ./proxy-providers/c.yaml
     health-check:
@@ -131,7 +131,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   d:
     type: http
-    url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
+    url: https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml
     interval: 14400
     path: ./proxy-providers/d.yaml
     health-check:
@@ -142,7 +142,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   e:
     type: http
-    url: https://raw.githubusercontent.com/hamedp-71/Vless-Trojan_clash/main/hp.yaml
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
     interval: 14400
     path: ./proxy-providers/e.yaml
     health-check:
@@ -153,7 +153,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   f:
     type: http
-    url: https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml
+    url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
     interval: 14400
     path: ./proxy-providers/f.yaml
     health-check:
@@ -164,7 +164,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   g:
     type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
     interval: 14400
     path: ./proxy-providers/g.yaml
     health-check:
@@ -175,7 +175,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   h:
     type: http
-    url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
+    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
     interval: 14400
     path: ./proxy-providers/h.yaml
     health-check:
@@ -219,7 +219,7 @@ proxy-providers:
     exclude-type: ss|http|trojan
   l:
     type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
+    url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
     interval: 14400
     path: ./proxy-providers/l.yaml
     health-check:
@@ -230,9 +230,20 @@ proxy-providers:
     exclude-type: ss|http|trojan
   m:
     type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
+    url: https://raw.githubusercontent.com/hamedp-71/Vless-Trojan_clash/main/hp.yaml
     interval: 14400
     path: ./proxy-providers/m.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan
+  n:
+    type: http
+    url: https://raw.githubusercontent.com/iampedii/whitedns-sub/main/mihomo.yaml
+    interval: 14400
+    path: ./proxy-providers/n.yaml
     health-check:
       enable: true
       interval: 1800
@@ -246,6 +257,7 @@ proxy-groups:
       - MMOBI
     use:
       - q
+      - f
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -266,6 +278,7 @@ proxy-groups:
       - k
       - l
       - m
+      - n
 rule-providers:
   aff_l:
     type: http
