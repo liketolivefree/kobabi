@@ -20,7 +20,7 @@
         "tag": "remote_dns",
         "detour": "qqoli",
         "domain_resolver": "hosts_dns",
-        "server": "security.cloudflare-dns.com"
+        "server": "8.8.4.4"
       },
       {
         "type": "hosts",
