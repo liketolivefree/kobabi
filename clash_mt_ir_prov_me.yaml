@@ -191,7 +191,6 @@ proxy-groups:
       - MMOBI
     use:
       - q
-      - c
       - f
   - name: MMOBI
     type: url-test
@@ -277,7 +276,6 @@ rules:
   - DOMAIN-SUFFIX,localdomain,DIRECT
   - DOMAIN-SUFFIX,localhost,DIRECT
   - RULE-SET,wht,QQOLI
-  - DOMAIN-SUFFIX,down.clashparty.org,REJECT
   - RULE-SET,aff_me,REJECT
   - RULE-SET,yun_me,REJECT,no-resolve
   - DOMAIN-SUFFIX,ir,DIRECT
