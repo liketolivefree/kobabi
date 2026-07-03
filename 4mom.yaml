@@ -203,7 +203,6 @@ proxy-groups:
       - c
       - d
       - e
-      - f
 rule-providers:
   aff_l:
     type: http
