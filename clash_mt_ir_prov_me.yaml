@@ -291,8 +291,8 @@ proxy-groups:
     use:
       - q
       - e
-      - f
       - g
+      - h
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
