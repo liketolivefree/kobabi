@@ -98,7 +98,7 @@ proxy-providers:
       timeout: 10000
   a:
     type: http
-    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
     interval: 14400
     path: ./proxy-providers/a.yaml
     health-check:
@@ -184,6 +184,61 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
+  i:
+    type: http
+    url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
+    interval: 14400
+    path: ./proxy-providers/i.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess
+  j:
+    type: http
+    url: https://raw.githubusercontent.com/iampedii/whitedns-sub/main/mihomo.yaml
+    interval: 14400
+    path: ./proxy-providers/j.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess
+  k:
+    type: http
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    interval: 14400
+    path: ./proxy-providers/k.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess
+  l:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    interval: 14400
+    path: ./proxy-providers/l.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess
+  m:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_telegram_configs_collector_Reality.yaml
+    interval: 14400
+    path: ./proxy-providers/m.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess
 proxy-groups:
   - name: QQOLI
     type: select
@@ -191,6 +246,9 @@ proxy-groups:
       - MMOBI
     use:
       - q
+      - a
+      - c
+      - d
       - e
       - g
       - h
@@ -203,10 +261,16 @@ proxy-groups:
       - q
       - a
       - b
+      - c
+      - d
       - e
       - f
       - g
       - h
+      - i
+      - j
+      - k
+      - l
 rule-providers:
   aff:
     type: http
