@@ -263,7 +263,7 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess
   p:
     type: http
-    url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
     interval: 14400
     path: ./proxy-providers/p.yaml
     health-check:
@@ -274,9 +274,42 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess
   r:
     type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
     interval: 14400
     path: ./proxy-providers/r.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess
+  s:
+    type: http
+    url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
+    interval: 14400
+    path: ./proxy-providers/s.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess
+  t:
+    type: http
+    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+    interval: 14400
+    path: ./proxy-providers/t.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess
+  u:
+    type: http
+    url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
+    interval: 14400
+    path: ./proxy-providers/u.yaml
     health-check:
       enable: true
       interval: 1800
@@ -317,6 +350,9 @@ proxy-groups:
       - o
       - p
       - r
+      - s
+      - t
+      - u
 rule-providers:
   aff_l:
     type: http
