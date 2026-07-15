@@ -180,8 +180,12 @@ rules:
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,localdomain,DIRECT
   - DOMAIN-SUFFIX,localhost,DIRECT
+  - DOMAIN-SUFFIX,clashparty.org,REJECT
+  - DOMAIN-SUFFIX,mihomo.party,REJECT
+  - DOMAIN-SUFFIX,ghfast.top,REJECT
+  - DOMAIN-SUFFIX,gh-proxy.org,REJECT
+  - DOMAIN-SUFFIX,gh-proxy.com,REJECT
   - RULE-SET,wht,QQOLI
-  - DOMAIN-SUFFIX,down.clashparty.org,REJECT
   - RULE-SET,aff_me,REJECT
   - RULE-SET,yun_me,REJECT,no-resolve
   - DOMAIN-SUFFIX,ir,DIRECT
