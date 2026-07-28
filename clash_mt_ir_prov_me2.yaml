@@ -47,10 +47,10 @@ dns:
   proxy-server-nameserver:
     - https://dns.umbrella.com/dns-query
     - https://dns.google/dns-query
-    - https://dns.adguard-dns.com/dns-query
-    - system
+    - quic://dns.adguard-dns.com
+    - https://dns11.quad9.net/dns-query
   direct-nameserver-follow-policy: false
-  prefer-h3: false
+  prefer-h3: true
   respect-rules: false
   use-hosts: true
   use-system-hosts: true
@@ -96,55 +96,11 @@ proxy-providers:
       interval: 18000
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-  a:
-    type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
-    interval: 24400
-    path: ./proxy-providers/a.yaml
-    health-check:
-      enable: true
-      interval: 18000
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
   b:
     type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
     interval: 24400
     path: ./proxy-providers/b.yaml
-    health-check:
-      enable: true
-      interval: 18000
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
-  c:
-    type: http
-    url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
-    interval: 24400
-    path: ./proxy-providers/c.yaml
-    health-check:
-      enable: true
-      interval: 18000
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
-  d:
-    type: http
-    url: https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml
-    interval: 24400
-    path: ./proxy-providers/d.yaml
-    health-check:
-      enable: true
-      interval: 18000
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
-  e:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/hamedp_71_N_sub_cheker_final.yaml
-    interval: 24400
-    path: ./proxy-providers/e.yaml
     health-check:
       enable: true
       interval: 18000
@@ -167,17 +123,6 @@ proxy-providers:
     url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
     interval: 24400
     path: ./proxy-providers/g.yaml
-    health-check:
-      enable: true
-      interval: 18000
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
-  h:
-    type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
-    interval: 24400
-    path: ./proxy-providers/h.yaml
     health-check:
       enable: true
       interval: 18000
@@ -235,12 +180,9 @@ proxy-groups:
       - MMOBI
     use:
       - q
-      - a
       - b
-      - c
-      - d
-      - e
       - f
+      - g
       - i
       - j
       - k
@@ -252,12 +194,9 @@ proxy-groups:
     tolerance: 500
     use:
       - q
-      - a
       - b
-      - c
-      - d
-      - e
       - f
+      - g
       - i
       - j
       - k
