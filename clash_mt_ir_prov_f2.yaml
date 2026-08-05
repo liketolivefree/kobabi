@@ -118,17 +118,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
-  g:
-    type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
-    interval: 24400
-    path: ./proxy-providers/g.yaml
-    health-check:
-      enable: true
-      interval: 18000
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
   i:
     type: http
     url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
@@ -182,7 +171,6 @@ proxy-groups:
       - q
       - b
       - f
-      - g
       - i
       - j
       - k
@@ -196,7 +184,6 @@ proxy-groups:
       - q
       - b
       - f
-      - g
       - i
       - j
       - k
