@@ -45,10 +45,10 @@ dns:
     - https://security.cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
   proxy-server-nameserver:
-    - https://dns.umbrella.com/dns-query
     - https://dns.google/dns-query
     - quic://dns.adguard-dns.com
-    - https://dns11.quad9.net/dns-query
+    - 9.9.9.9
+    - system
   direct-nameserver-follow-policy: false
   prefer-h3: true
   respect-rules: false
