@@ -36,7 +36,7 @@ dns:
     - time.*.com
     - ntp.*.com
   default-nameserver:
-    - https://8.8.8.8/dns-query
+    - 1.1.1.1
   direct-nameserver:
     - https://dns.google/dns-query
     - https://free.shecan.ir/dns-query
@@ -47,13 +47,13 @@ dns:
   proxy-server-nameserver:
     - https://dns.google/dns-query
     - quic://dns.adguard-dns.com
-    - 9.9.9.9
+    - https://1.1.1.1/dns-query
     - system
   direct-nameserver-follow-policy: false
   prefer-h3: true
   respect-rules: false
   use-hosts: true
-  use-system-hosts: true
+  use-system-hosts: false
 tun:
   enable: true
   stack: system
