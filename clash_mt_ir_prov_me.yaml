@@ -55,7 +55,7 @@ dns:
   use-hosts: true
   use-system-hosts: false
 tun:
-  enable: true
+  enable: false
   stack: system
   dns-hijack:
     - any:53
