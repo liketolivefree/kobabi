@@ -1,4 +1,7 @@
 mixed-port: 7890
+socks-port: 7891
+port: 7892
+external-controller: ""
 allow-lan: false
 mode: rule
 log-level: info
@@ -14,7 +17,7 @@ profile:
   store-fake-ip: true
 dns:
   enable: true
-  ipv6: true
+  ipv6: false
   listen: :53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -36,18 +39,25 @@ dns:
     - time.*.com
     - ntp.*.com
   default-nameserver:
-    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
   direct-nameserver:
     - system
-  nameserver:
-    - https://dns.quad9.net/dns-query
-    - https://security.cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
   proxy-server-nameserver:
     - https://dns.google/dns-query
     - quic://dns.adguard-dns.com
     - https://1.1.1.1/dns-query
     - system
+  nameserver:
+    - https://dns.quad9.net/dns-query
+    - https://security.cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+  fallback: []
+  fallback-filter:
+    geoip: false
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+      - 10.10.34.0/24
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
@@ -55,7 +65,7 @@ dns:
   use-system-hosts: true
 tun:
   enable: true
-  stack: system
+  stack: mixed
   dns-hijack:
     - any:53
   auto-route: true
@@ -72,7 +82,6 @@ sniffer:
         - 1-442
         - 444-8442
         - 8444-65535
-      override-destination: true
     TLS:
       ports:
         - 1-79
@@ -84,6 +93,15 @@ sniffer:
         - "8443"
   force-domain:
     - www.gstatic.com
+  skip-dst-address:
+    - 91.105.192.0/23
+    - 91.108.4.0/22
+    - 91.108.8.0/21
+    - 91.108.16.0/21
+    - 91.108.56.0/22
+    - 95.161.64.0/20
+    - 149.154.160.0/20
+    - 185.76.151.0/24
 proxy-providers:
   q:
     type: http
@@ -92,7 +110,7 @@ proxy-providers:
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 18000
+      interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
   b:
@@ -102,7 +120,7 @@ proxy-providers:
     path: ./proxy-providers/b.yaml
     health-check:
       enable: true
-      interval: 18000
+      interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
@@ -113,7 +131,7 @@ proxy-providers:
     path: ./proxy-providers/f.yaml
     health-check:
       enable: true
-      interval: 18000
+      interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
@@ -124,7 +142,7 @@ proxy-providers:
     path: ./proxy-providers/i.yaml
     health-check:
       enable: true
-      interval: 18000
+      interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
@@ -135,7 +153,7 @@ proxy-providers:
     path: ./proxy-providers/j.yaml
     health-check:
       enable: true
-      interval: 18000
+      interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
@@ -146,7 +164,7 @@ proxy-providers:
     path: ./proxy-providers/k.yaml
     health-check:
       enable: true
-      interval: 18000
+      interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
@@ -157,7 +175,7 @@ proxy-providers:
     path: ./proxy-providers/l.yaml
     health-check:
       enable: true
-      interval: 18000
+      interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
@@ -169,7 +187,6 @@ proxy-groups:
     use:
       - q
       - b
-      - f
       - i
       - j
       - k
@@ -177,12 +194,11 @@ proxy-groups:
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
-    interval: 12000
+    interval: 1200
     tolerance: 500
     use:
       - q
       - b
-      - f
       - i
       - j
       - k
@@ -271,9 +287,6 @@ rules:
   - RULE-SET,loo,DIRECT,no-resolve
   - RULE-SET,doki,QQOLI,no-resolve
   - MATCH,QQOLI
-external-controller: ""
-socks-port: 7891
-port: 7892
 geo-auto-update: false
 geo-update-interval: 90
 geodata-mode: false
