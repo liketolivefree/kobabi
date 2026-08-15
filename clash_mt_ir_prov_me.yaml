@@ -51,13 +51,6 @@ dns:
     - https://dns.quad9.net/dns-query
     - https://security.cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
-  fallback: []
-  fallback-filter:
-    geoip: false
-    ipcidr:
-      - 240.0.0.0/4
-      - 0.0.0.0/32
-      - 10.10.34.0/24
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
@@ -291,19 +284,30 @@ rule-providers:
     path: ./rule-providers/wht.mrs
     interval: 86400
 rules:
-  - IP-CIDR,224.0.0.0/3,REJECT,no-resolve
   - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
-  - IP-CIDR6,2001:4188:2:600:10:10:34:0/112,REJECT,no-resolve
+  - IP-CIDR,2.26.82.237/32,REJECT,no-resolve
+  - IP-CIDR,5.181.21.234/32,REJECT,no-resolve
+  - IP-CIDR,51.158.206.0/24,REJECT,no-resolve  
   - IP-CIDR,52.250.41.2/32,REJECT,no-resolve
+  - IP-CIDR,72.5.43.45/32,REJECT,no-resolve
+  - IP-CIDR,72.56.36.96/32,REJECT,no-resolve
   - IP-CIDR,87.107.132.83/32,REJECT,no-resolve
   - IP-CIDR,93.115.151.123/32,REJECT,no-resolve
+  - IP-CIDR,94.183.254.26/32,REJECT,no-resolve
   - IP-CIDR,162.62.115.144/32,REJECT,no-resolve
   - IP-CIDR,162.62.116.251/32,REJECT,no-resolve
+  - IP-CIDR,172.237.146.46/32,REJECT,no-resolve
+  - IP-CIDR,185.16.36.200/32,REJECT,no-resolve
+  - IP-CIDR,185.99.133.112/32,REJECT,no-resolve
   - IP-CIDR,185.130.45.94/32,REJECT,no-resolve
+  - IP-CIDR,185.195.236.16/32,REJECT,no-resolve
+  - IP-CIDR,185.226.92.175/32,REJECT,no-resolve
+  - IP-CIDR,193.233.255.24/32,REJECT,no-resolve
   - IP-CIDR,204.79.197.220/32,REJECT,no-resolve
   - IP-CIDR,213.180.193.56/32,REJECT,no-resolve
   - IP-CIDR,216.239.38.119/32,REJECT,no-resolve
   - IP-CIDR,216.239.38.120/32,REJECT,no-resolve
+  - IP-CIDR6,2001:4188:2:600:10:10:34:0/112,REJECT,no-resolve
   - IP-CIDR6,2001:4860:4802:32::77/128,REJECT,no-resolve
   - IP-CIDR6,2001:4860:4802:32::78/128,REJECT,no-resolve
   - DOMAIN-SUFFIX,lan,DIRECT
