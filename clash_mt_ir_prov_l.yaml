@@ -1,7 +1,6 @@
 mixed-port: 7890
 socks-port: 7891
 port: 7892
-external-controller: ""
 allow-lan: false
 mode: rule
 log-level: error
@@ -43,21 +42,12 @@ dns:
   direct-nameserver:
     - system
   proxy-server-nameserver:
-    - https://dns.google/dns-query
-    - quic://dns.adguard-dns.com
     - https://1.1.1.1/dns-query
     - system
   nameserver:
     - https://dns.quad9.net/dns-query
     - https://security.cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
-  fallback: []
-  fallback-filter:
-    geoip: false
-    ipcidr:
-      - 240.0.0.0/4
-      - 0.0.0.0/32
-      - 10.10.34.0/24
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
@@ -124,28 +114,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
-  c:
-    type: http
-    url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
-    interval: 14400
-    path: ./proxy-providers/c.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
-  f:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_HiN-VPN.yaml
-    interval: 14400
-    path: ./proxy-providers/f.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
   i:
     type: http
     url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
@@ -167,7 +135,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess    
+    exclude-type: ss|http|trojan|vmess
   k:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
@@ -184,17 +152,6 @@ proxy-providers:
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
     interval: 14400
     path: ./proxy-providers/l.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
-  t:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_multi_proxy_config_fetcher.yaml
-    interval: 14400
-    path: ./proxy-providers/t.yaml
     health-check:
       enable: true
       interval: 1800
