@@ -42,8 +42,6 @@ dns:
   direct-nameserver:
     - system
   proxy-server-nameserver:
-    - https://dns.google/dns-query
-    - quic://dns.adguard-dns.com
     - https://1.1.1.1/dns-query
     - system
   nameserver:
@@ -127,17 +125,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
-  f:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_HiN-VPN.yaml
-    interval: 14400
-    path: ./proxy-providers/f.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
   i:
     type: http
     url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
@@ -182,28 +169,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess
-  t:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_multi_proxy_config_fetcher.yaml
-    interval: 14400
-    path: ./proxy-providers/t.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
-  o:
-    type: http
-    url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
-    interval: 14400
-    path: ./proxy-providers/o.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess
 proxy-groups:
   - name: QQOLI
     type: select
@@ -217,7 +182,6 @@ proxy-groups:
       - j
       - k
       - l
-      - t
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -231,7 +195,6 @@ proxy-groups:
       - j
       - k
       - l
-      - t
 rule-providers:
   aff_me:
     type: http
