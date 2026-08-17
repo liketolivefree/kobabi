@@ -1,7 +1,6 @@
 mixed-port: 7890
 socks-port: 7891
 port: 7892
-external-controller: ""
 allow-lan: false
 mode: rule
 log-level: error
@@ -43,21 +42,12 @@ dns:
   direct-nameserver:
     - system
   proxy-server-nameserver:
-    - https://dns.google/dns-query
-    - quic://dns.adguard-dns.com
     - https://1.1.1.1/dns-query
     - system
   nameserver:
     - https://dns.quad9.net/dns-query
     - https://security.cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
-  fallback: []
-  fallback-filter:
-    geoip: false
-    ipcidr:
-      - 240.0.0.0/4
-      - 0.0.0.0/32
-      - 10.10.34.0/24
   direct-nameserver-follow-policy: false
   prefer-h3: false
   respect-rules: false
