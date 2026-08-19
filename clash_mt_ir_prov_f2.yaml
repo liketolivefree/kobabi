@@ -9,8 +9,6 @@ enable-process: true
 find-process-mode: strict
 tcp-concurrent: false
 unified-delay: true
-global-client-fingerprint: chrome
-keep-alive-interval: 25
 profile:
   store-selected: true
   store-fake-ip: true
