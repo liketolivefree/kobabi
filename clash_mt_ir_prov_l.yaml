@@ -8,6 +8,7 @@ ipv6: false
 enable-process: true
 find-process-mode: strict
 tcp-concurrent: false
+disable-keep-alive: true
 unified-delay: true
 profile:
   store-selected: true
