@@ -85,7 +85,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
   c:
     type: http
     url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
@@ -96,7 +96,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
   i:
     type: http
     url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
@@ -107,7 +107,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
   j:
     type: http
     url: https://raw.githubusercontent.com/iampedii/whitedns-sub/main/mihomo.yaml
@@ -118,7 +118,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
   k:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
@@ -129,7 +129,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
   l:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -140,7 +140,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
 proxy-groups:
   - name: QQOLI
     type: select
