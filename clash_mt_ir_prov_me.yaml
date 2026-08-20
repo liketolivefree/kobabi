@@ -141,6 +141,17 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+  v:
+    type: http
+    url: https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/clash.yaml
+    interval: 14400
+    path: ./proxy-providers/v.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
 proxy-groups:
   - name: QQOLI
     type: select
@@ -154,6 +165,7 @@ proxy-groups:
       - j
       - k
       - l
+      - v
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -167,6 +179,7 @@ proxy-groups:
       - j
       - k
       - l
+      - v
 rule-providers:
   aff_me:
     type: http
