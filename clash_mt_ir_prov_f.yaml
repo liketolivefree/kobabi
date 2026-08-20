@@ -212,10 +212,15 @@ rule-providers:
     interval: 86400
 rules:
   - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
+  - IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
+  - IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
   - DOMAIN-SUFFIX,lan,DIRECT
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,localdomain,DIRECT
   - DOMAIN-SUFFIX,localhost,DIRECT
+  - DOMAIN-SUFFIX,ip6-localhost,DIRECT
+  - DOMAIN-SUFFIX,ip6-loopback,DIRECT
   - RULE-SET,aff,REJECT
   - RULE-SET,yun,REJECT,no-resolve
   - DOMAIN-SUFFIX,ir,DIRECT
