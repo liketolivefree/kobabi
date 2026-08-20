@@ -16,7 +16,7 @@ profile:
 dns:
   enable: true
   ipv6: true
-  listen: :53
+  listen: :1053
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -62,35 +62,7 @@ tun:
   strict-route: true
   device: Mihomo
 sniffer:
-  enable: true
-  parse-pure-ip: true
-  override-destination: false
-  sniff:
-    HTTP:
-      ports:
-        - 1-442
-        - 444-8442
-        - 8444-65535
-    TLS:
-      ports:
-        - 1-79
-        - 81-8079
-        - 8881-65535
-    QUIC:
-      ports:
-        - "443"
-        - "8443"
-  force-domain:
-    - www.gstatic.com
-  skip-dst-address:
-    - 91.105.192.0/23
-    - 91.108.4.0/22
-    - 91.108.8.0/21
-    - 91.108.16.0/21
-    - 91.108.56.0/22
-    - 95.161.64.0/20
-    - 149.154.160.0/20
-    - 185.76.151.0/24
+  enable: false
 proxy-providers:
   q:
     type: http
