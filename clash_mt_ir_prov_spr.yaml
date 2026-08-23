@@ -75,6 +75,8 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
+    override:
+      udp: true
   a:
     type: http
     url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
@@ -86,6 +88,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   b:
     type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
@@ -97,6 +101,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   c:
     type: http
     url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
@@ -108,6 +114,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   d:
     type: http
     url: https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml
@@ -119,6 +127,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   e:
     type: http
     url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/hamedp_71_N_sub_cheker_final.yaml
@@ -130,6 +140,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   f:
     type: http
     url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_HiN-VPN.yaml
@@ -141,6 +153,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   g:
     type: http
     url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
@@ -152,6 +166,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   h:
     type: http
     url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Reality
@@ -163,6 +179,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   i:
     type: http
     url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
@@ -174,6 +192,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   j:
     type: http
     url: https://raw.githubusercontent.com/iampedii/whitedns-sub/main/mihomo.yaml
@@ -185,6 +205,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   k:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
@@ -196,6 +218,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   l:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -207,6 +231,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   m:
     type: http
     url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_telegram_configs_collector_Reality.yaml
@@ -218,6 +244,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   n:
     type: http
     url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
@@ -229,6 +257,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   o:
     type: http
     url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
@@ -240,6 +270,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   p:
     type: http
     url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
@@ -251,6 +283,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   r:
     type: http
     url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/gheychiamoozesh_list_mix_count_500_shuffle_false_unique_false.yaml
@@ -262,6 +296,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   s:
     type: http
     url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_telegram_configs_collector_TCP.yaml
@@ -273,6 +309,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   t:
     type: http
     url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_multi_proxy_config_fetcher.yaml
@@ -284,6 +322,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   u:
     type: http
     url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_V2Hub3_reality.yaml
@@ -295,6 +335,8 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   v:
     type: http
     url: https://github.com/Au1rxx/free-vpn-subscriptions/raw/main/output/clash.yaml
@@ -305,7 +347,9 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
