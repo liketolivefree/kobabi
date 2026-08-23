@@ -75,6 +75,8 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
+    override:
+      udp: true
   b:
     type: http
     url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
@@ -85,7 +87,9 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   i:
     type: http
     url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
@@ -96,7 +100,9 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   j:
     type: http
     url: https://raw.githubusercontent.com/iampedii/whitedns-sub/main/mihomo.yaml
@@ -107,7 +113,9 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   k:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
@@ -118,7 +126,9 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
   l:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -129,7 +139,9 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
