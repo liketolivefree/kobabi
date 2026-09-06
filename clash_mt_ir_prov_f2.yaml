@@ -52,6 +52,13 @@ dns:
   respect-rules: false
   use-hosts: true
   use-system-hosts: true
+  fallback: []
+  fallback-filter:
+    geoip: false
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+      - 10.10.34.0/24
 tun:
   enable: true
   stack: mixed
@@ -62,8 +69,6 @@ tun:
   auto-detect-interface: true
   strict-route: true
   device: Mihomo
-sniffer:
-  enable: false
 proxy-providers:
   q:
     type: http
@@ -79,7 +84,7 @@ proxy-providers:
       udp: true
   b:
     type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/mix
+    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/vless
     interval: 24400
     path: ./proxy-providers/b.yaml
     health-check:
@@ -142,6 +147,19 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
     override:
       udp: true
+  v:
+    type: http
+    url: https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml
+    interval: 24400
+    path: ./proxy-providers/v.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
+    override:
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
@@ -154,6 +172,7 @@ proxy-groups:
       - j
       - k
       - l
+      - v
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -166,6 +185,7 @@ proxy-groups:
       - j
       - k
       - l
+      - v
 rule-providers:
   aff:
     type: http
@@ -210,7 +230,6 @@ rule-providers:
     path: ./rule-providers/loo.mrs
     interval: 86400
 rules:
-  - IP-CIDR,10.10.34.0/24,REJECT,no-resolve
   - IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
   - IP-CIDR,198.18.0.1/16,DIRECT,no-resolve
   - IP-CIDR6,::1/128,DIRECT,no-resolve
