@@ -59,7 +59,6 @@ dns:
       - 240.0.0.0/4
       - 0.0.0.0/32
       - 10.10.34.0/24
-    domain: []
 tun:
   enable: true
   stack: mixed
@@ -93,38 +92,12 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
-  i:
-    type: http
-    url: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
-    interval: 14400
-    path: ./proxy-providers/i.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
-  j:
-    type: http
-    url: https://raw.githubusercontent.com/iampedii/whitedns-sub/main/mihomo.yaml
-    interval: 14400
-    path: ./proxy-providers/j.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
   k:
     type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
     interval: 14400
     path: ./proxy-providers/k.yaml
     health-check:
@@ -132,7 +105,7 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
   l:
@@ -145,7 +118,20 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
+    override:
+      udp: true
+  w:
+    type: http
+    url: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/secure/clash.yaml
+    interval: 14400
+    path: ./proxy-providers/w.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
 proxy-groups:
@@ -156,10 +142,9 @@ proxy-groups:
     use:
       - q
       - b
-      - i
-      - j
       - k
       - l
+      - w
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -168,10 +153,9 @@ proxy-groups:
     use:
       - q
       - b
-      - i
-      - j
       - k
       - l
+      - w
 rule-providers:
   aff_l:
     type: http
