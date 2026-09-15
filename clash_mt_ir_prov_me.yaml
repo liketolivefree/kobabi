@@ -134,7 +134,7 @@ proxy-providers:
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
-      udp: true      
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
