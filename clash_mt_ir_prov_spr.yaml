@@ -59,7 +59,6 @@ dns:
       - 240.0.0.0/4
       - 0.0.0.0/32
       - 10.10.34.0/24
-    domain: []
 tun:
   enable: true
   stack: mixed
@@ -81,19 +80,6 @@ proxy-providers:
       interval: 1800
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    override:
-      udp: true
-  a:
-    type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml
-    interval: 14400
-    path: ./proxy-providers/a.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
     override:
       udp: true
   b:
@@ -215,7 +201,7 @@ proxy-providers:
       udp: true
   k:
     type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/snippets/nodes.meta.yml
+    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
     interval: 14400
     path: ./proxy-providers/k.yaml
     health-check:
@@ -241,7 +227,7 @@ proxy-providers:
       udp: true
   m:
     type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_telegram_configs_collector_Reality.yaml
+    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/igareck_russia_BLACK_mix.yaml
     interval: 14400
     path: ./proxy-providers/m.yaml
     health-check:
@@ -265,35 +251,9 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
     override:
       udp: true
-  o:
-    type: http
-    url: https://raw.githubusercontent.com/sakha1370/OpenRay/main/output/converted/all_valid_proxies_clash_config.yaml
-    interval: 14400
-    path: ./proxy-providers/o.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
-  p:
-    type: http
-    url: https://raw.githubusercontent.com/itsyebekhe/PSG/main/subscriptions/meta/mix
-    interval: 14400
-    path: ./proxy-providers/p.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
   r:
     type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/gheychiamoozesh_list_mix_count_500_shuffle_false_unique_false.yaml
+    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_V2rayCollectorLite_mixed.yaml
     interval: 14400
     path: ./proxy-providers/r.yaml
     health-check:
@@ -306,7 +266,7 @@ proxy-providers:
       udp: true
   s:
     type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_telegram_configs_collector_TCP.yaml
+    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/igareck_russia_WHITE_mix.yaml
     interval: 14400
     path: ./proxy-providers/s.yaml
     health-check:
@@ -356,6 +316,32 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
     override:
       udp: true
+  w:
+    type: http
+    url: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/secure/clash.yaml
+    interval: 14400
+    path: ./proxy-providers/w.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
+  z:
+    type: http
+    url: https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/reality/reality.yaml
+    interval: 14400
+    path: ./proxy-providers/z.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
@@ -363,7 +349,6 @@ proxy-groups:
       - MMOBI
     use:
       - q
-      - a
       - b
       - c
       - d
@@ -377,13 +362,13 @@ proxy-groups:
       - l
       - m
       - n
-      - o
-      - p
       - r
       - s
       - t
       - u
       - v
+      - w
+      - z
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -391,7 +376,6 @@ proxy-groups:
     tolerance: 0
     use:
       - q
-      - a
       - b
       - c
       - d
@@ -405,13 +389,13 @@ proxy-groups:
       - l
       - m
       - n
-      - o
-      - p
       - r
       - s
       - t
       - u
       - v
+      - w
+      - z
 rule-providers:
   aff_l:
     type: http
