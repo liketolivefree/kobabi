@@ -41,7 +41,7 @@ dns:
   direct-nameserver:
     - system
   proxy-server-nameserver:
-    - quic://dns.adguard-dns.com
+    - 149.112.112.112
     - system
   nameserver:
     - https://dns.quad9.net/dns-query
