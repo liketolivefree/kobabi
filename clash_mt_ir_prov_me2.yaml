@@ -83,19 +83,6 @@ proxy-providers:
       timeout: 10000
     override:
       udp: true
-  b:
-    type: http
-    url: https://raw.githubusercontent.com/xtoolkit/TVC/main/subscriptions/meta/vless
-    interval: 24400
-    path: ./proxy-providers/b.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
-    override:
-      udp: true
   k:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
@@ -135,6 +122,18 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
+  z:
+    type: http
+    url: https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/reality/reality.yaml
+    interval: 24400
+    path: ./proxy-providers/z.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    override:
+      udp: true
 proxy-groups:
   - name: QQOLI
     type: select
@@ -142,10 +141,10 @@ proxy-groups:
       - MMOBI
     use:
       - q
-      - b
       - k
       - l
       - w
+      - z
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -153,10 +152,10 @@ proxy-groups:
     tolerance: 500
     use:
       - q
-      - b
       - k
       - l
       - w
+      - z
 rule-providers:
   aff_me:
     type: http
