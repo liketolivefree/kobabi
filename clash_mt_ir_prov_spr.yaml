@@ -94,11 +94,11 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
     override:
       udp: true
-  e:
+  c:
     type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/hamedp_71_N_sub_cheker_final.yaml
+    url: https://raw.githubusercontent.com/free18/v2ray/main/c.yaml
     interval: 14400
-    path: ./proxy-providers/e.yaml
+    path: ./proxy-providers/c.yaml
     health-check:
       enable: true
       interval: 1800
@@ -107,24 +107,11 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
     override:
       udp: true
-  f:
+  d:
     type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_HiN-VPN.yaml
+    url: https://raw.githubusercontent.com/justVisiting992/xray-Config-Collector/main/clash.yaml
     interval: 14400
-    path: ./proxy-providers/f.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
-  g:
-    type: http
-    url: https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/main/Clash_Movaghat
-    interval: 14400
-    path: ./proxy-providers/g.yaml
+    path: ./proxy-providers/d.yaml
     health-check:
       enable: true
       interval: 1800
@@ -211,71 +198,6 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
     override:
       udp: true
-  n:
-    type: http
-    url: https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
-    interval: 14400
-    path: ./proxy-providers/n.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
-  r:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_V2rayCollectorLite_mixed.yaml
-    interval: 14400
-    path: ./proxy-providers/r.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
-  s:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/igareck_russia_WHITE_mix.yaml
-    interval: 14400
-    path: ./proxy-providers/s.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
-  t:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_multi_proxy_config_fetcher.yaml
-    interval: 14400
-    path: ./proxy-providers/t.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
-  u:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/10ium_V2Hub3_reality.yaml
-    interval: 14400
-    path: ./proxy-providers/u.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
-    override:
-      udp: true
   v:
     type: http
     url: https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml
@@ -294,6 +216,19 @@ proxy-providers:
     url: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/secure/clash.yaml
     interval: 14400
     path: ./proxy-providers/w.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5
+    override:
+      udp: true
+  y:
+    type: http
+    url: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/fast/clash.yaml
+    interval: 14400
+    path: ./proxy-providers/y.yaml
     health-check:
       enable: true
       interval: 1800
@@ -323,22 +258,17 @@ proxy-groups:
     use:
       - q
       - b
-      - e
-      - f
-      - g
+      - c
+      - d
       - h
       - i
       - j
       - k
       - l
       - m
-      - n
-      - r
-      - s
-      - t
-      - u
       - v
       - w
+      - y
       - z
   - name: MMOBI
     type: url-test
@@ -348,22 +278,17 @@ proxy-groups:
     use:
       - q
       - b
-      - e
-      - f
-      - g
+      - c
+      - d
       - h
       - i
       - j
       - k
       - l
       - m
-      - n
-      - r
-      - s
-      - t
-      - u
       - v
       - w
+      - y
       - z
 rule-providers:
   aff_l:
