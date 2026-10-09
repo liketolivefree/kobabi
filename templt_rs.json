@@ -12,9 +12,7 @@
     "rules": [
       {"ip_accept_any": true, "server": "hosts_dns"}
     ],
-    "final": "remote_dns",
-    "independent_cache": true,
-    "strategy": "prefer_ipv4"
+    "final": "remote_dns"
   },
   "inbounds": [
     {
