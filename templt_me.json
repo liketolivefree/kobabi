@@ -15,8 +15,7 @@
       {"domain_suffix": ["samsungdm.com", "samsung.com", "samsungapps.com", "samsungcloudplatform.com", "samsungcloud.com", "samsclub.com", "msftncsi.com", "windowsupdate.com", "mi.com", "miui.com", "miui.net", "xiaomi.com", "xiaomi.net", "mi-img.com", "miman.io"], "action": "reject"},
       {"ip_accept_any": true, "server": "hosts_dns"}
     ],
-    "final": "remote_dns",
-    "independent_cache": true
+    "final": "remote_dns"
   },
   "inbounds": [
     {
