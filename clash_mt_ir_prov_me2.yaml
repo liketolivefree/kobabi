@@ -109,6 +109,19 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
+  m:
+    type: http
+    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/igareck_russia_BLACK_mix.yaml
+    interval: 24400
+    path: ./proxy-providers/m.yaml
+    health-check:
+      enable: true
+      interval: 1800
+      url: https://www.gstatic.com/generate_204
+      timeout: 10000
+    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
+    override:
+      udp: true
   w:
     type: http
     url: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/secure/clash.yaml
@@ -143,6 +156,7 @@ proxy-groups:
       - q
       - k
       - l
+      - m
       - w
       - z
   - name: MMOBI
@@ -154,6 +168,7 @@ proxy-groups:
       - q
       - k
       - l
+      - m
       - w
       - z
 rule-providers:
