@@ -50,7 +50,7 @@ dns:
   prefer-h3: false
   respect-rules: false
   use-hosts: true
-  use-system-hosts: true
+  use-system-hosts: false
   fallback: []
   fallback-filter:
     geoip: false
