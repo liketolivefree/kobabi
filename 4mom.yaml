@@ -139,19 +139,6 @@ proxy-providers:
     override:
       udp: true
       skip-cert-verify: false
-  z:
-    type: http
-    url: https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/reality/reality.yaml
-    interval: 14400
-    path: ./proxy-providers/z.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    override:
-      udp: true
-      skip-cert-verify: false
 proxy-groups:
   - name: QQOLI
     type: select
@@ -163,7 +150,6 @@ proxy-groups:
       - l
       - m
       - w
-      - z
   - name: MMOBI
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -175,7 +161,6 @@ proxy-groups:
       - l
       - m
       - w
-      - z
 rule-providers:
   aff_l:
     type: http
