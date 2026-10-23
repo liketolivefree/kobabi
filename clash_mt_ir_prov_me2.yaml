@@ -51,7 +51,7 @@ dns:
   prefer-h3: false
   respect-rules: false
   use-hosts: true
-  use-system-hosts: true
+  use-system-hosts: false
   fallback: []
   fallback-filter:
     geoip: false
@@ -61,8 +61,8 @@ dns:
       - 10.10.34.0/24
     domain: []
 tun:
-  enable: true
-  stack: system
+  enable: false
+  stack: mixed
   dns-hijack:
     - any:53
     - tcp://any:53
@@ -83,6 +83,7 @@ proxy-providers:
       timeout: 10000
     override:
       udp: true
+      skip-cert-verify: false
   k:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
@@ -96,6 +97,7 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
+      skip-cert-verify: false
   l:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
@@ -109,6 +111,7 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
+      skip-cert-verify: false
   m:
     type: http
     url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/igareck_russia_BLACK_mix.yaml
@@ -122,6 +125,7 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
+      skip-cert-verify: false
   w:
     type: http
     url: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/secure/clash.yaml
@@ -135,6 +139,7 @@ proxy-providers:
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
+      skip-cert-verify: false
   z:
     type: http
     url: https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/reality/reality.yaml
@@ -147,6 +152,7 @@ proxy-providers:
       timeout: 10000
     override:
       udp: true
+      skip-cert-verify: false
 proxy-groups:
   - name: QQOLI
     type: select
