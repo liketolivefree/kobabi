@@ -95,7 +95,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
-    exclude-filter:: "*TUR*"
     override:
       udp: true
       skip-cert-verify: false
@@ -110,7 +109,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
-    exclude-filter: "TR*"
     override:
       udp: true
       skip-cert-verify: false
