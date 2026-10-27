@@ -59,7 +59,7 @@ dns:
       - 0.0.0.0/32
       - 10.10.34.0/24
 tun:
-  enable: true
+  enable: false
   stack: mixed
   dns-hijack:
     - any:53
