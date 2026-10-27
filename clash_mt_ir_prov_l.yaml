@@ -60,7 +60,7 @@ dns:
       - 0.0.0.0/32
       - 10.10.34.0/24
 tun:
-  enable: true
+  enable: false
   stack: mixed
   dns-hijack:
     - any:53
@@ -73,52 +73,24 @@ proxy-providers:
   q:
     type: http
     url: https://raw.githubusercontent.com/liketolivefree/kobabi/main/prov_clash.yaml
-    interval: 14400
+    interval: 3600
     path: ./proxy-providers/q.yaml
     health-check:
       enable: true
-      interval: 1800
+      interval: 600
       url: https://www.gstatic.com/generate_204
       timeout: 10000
-    override:
-      udp: true
-      skip-cert-verify: false
-  k:
-    type: http
-    url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-    interval: 14400
-    path: ./proxy-providers/k.yaml
-    health-check:
-      enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     override:
       udp: true
       skip-cert-verify: false
   l:
     type: http
     url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta-2.yaml
-    interval: 14400
+    interval: 3600
     path: ./proxy-providers/l.yaml
     health-check:
       enable: true
-      interval: 1800
-      url: https://www.gstatic.com/generate_204
-      timeout: 10000
-    exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
-    override:
-      udp: true
-      skip-cert-verify: false
-  m:
-    type: http
-    url: https://raw.githubusercontent.com/10ium/subconverter/main/output_configs/clash/igareck_russia_BLACK_mix.yaml
-    interval: 14400
-    path: ./proxy-providers/m.yaml
-    health-check:
-      enable: true
-      interval: 1800
+      interval: 600
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
@@ -128,11 +100,11 @@ proxy-providers:
   w:
     type: http
     url: https://raw.githubusercontent.com/0xRadikal/Free-v2ray-Configs/main/secure/clash.yaml
-    interval: 14400
+    interval: 3600
     path: ./proxy-providers/w.yaml
     health-check:
       enable: true
-      interval: 1800
+      interval: 600
       url: https://www.gstatic.com/generate_204
       timeout: 10000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
@@ -146,9 +118,7 @@ proxy-groups:
       - MMOBI
     use:
       - q
-      - k
       - l
-      - m
       - w
   - name: MMOBI
     type: url-test
@@ -157,9 +127,7 @@ proxy-groups:
     tolerance: 0
     use:
       - q
-      - k
       - l
-      - m
       - w
 rule-providers:
   aff_l:
