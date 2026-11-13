@@ -80,7 +80,7 @@ proxy-providers:
       enable: true
       interval: 600
       url: https://www.gstatic.com/generate_204
-      timeout: 500
+      timeout: 5000
     override:
       udp: true
       skip-cert-verify: false
@@ -93,7 +93,7 @@ proxy-providers:
       enable: true
       interval: 600
       url: https://www.gstatic.com/generate_204
-      timeout: 500
+      timeout: 5000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     exclude-filter: TUR|FRA|GBR|JPN|KOR|SGP|TWN
     override:
@@ -108,7 +108,7 @@ proxy-providers:
       enable: true
       interval: 600
       url: https://www.gstatic.com/generate_204
-      timeout: 500
+      timeout: 5000
     exclude-type: ss|http|trojan|vmess|https|anytls|tuic|socks4|socks5|hysteria2
     exclude-filter: TR|IR|CN|CA|FR|GB|HK|JP|KR|SG
     override:
@@ -123,7 +123,7 @@ proxy-providers:
       enable: true
       interval: 600
       url: https://www.gstatic.com/generate_204
-      timeout: 500
+      timeout: 5000
     override:
       udp: true
       skip-cert-verify: false
